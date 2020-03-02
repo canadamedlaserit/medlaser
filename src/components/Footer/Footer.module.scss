@@ -1,0 +1,12 @@
+@import "../../styles/colours.scss";
+
+.Footer {
+    background-color: $darkblue;
+
+    &_container {
+        color: #ffffff;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+}

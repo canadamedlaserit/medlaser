@@ -1,0 +1,28 @@
+.MainHero {
+  height: 100vh;
+  .container {
+    height: 100%;
+    .row {
+      height: 100%;
+      align-items: center;
+      .imgSide {
+          height: 100%;
+      }
+      .rightSideWrapper {
+        max-width: 653px;
+        margin-right: auto;
+        margin-left: 45px;
+
+        h3 {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        .buttonsWrapper {
+            a {
+                margin-bottom: 20px;
+            }
+        }
+      }
+    }
+  }
+}
