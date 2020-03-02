@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  font-family: "Playfair Display", sans-serif!important;
+  font-family: "Playfair Display", sans-serif;
   font-weight: 700;
   font-size: 46px;
   line-height: 65px;
@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Playfair Display", sans-serif!important;
+  font-family: "Playfair Display", sans-serif;
   font-size: 36px;
   line-height: 48px;
   text-transform: uppercase;
@@ -40,7 +40,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Playfair Display", sans-serif!important;
+  font-family: "Playfair Display", sans-serif;
   font-size: 36px;
   line-height: 48px;
   text-transform: uppercase;
@@ -52,6 +52,14 @@ h3 {
     line-height: 48px;
   }
 }
+main {
+  padding-top: $menuPadding;
+}
+.nav-link {
+  color: $white;
+  font-family: "Playfair Display", sans-serif;
+  text-transform: capitalize;
+}
 
 .btn {
   border-radius: 0;
@@ -59,7 +67,7 @@ h3 {
   align-items: center;
   justify-content: center;
   max-width: 296px;
-  height: 70px;
+  height: 66px;
   text-align: center;
   margin: auto;
   width: 100%;
@@ -68,6 +76,7 @@ h3 {
   letter-spacing: 0.96px;
   font-weight: 600;
 }
+
 .btn-red {
   background-color: $red;
   color: $white;
@@ -80,6 +89,7 @@ h3 {
     color: $red;
   }
 }
+
 .btn-black-transparent {
   background-color: transparent;
   color: $black;
@@ -87,6 +97,7 @@ h3 {
   opacity: 1;
   border: solid 2px $black;
 }
+
 .btn-white-transparent {
 
 }

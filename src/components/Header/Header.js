@@ -62,7 +62,7 @@ class Header extends React.Component {
                     const submenu = node.childItems.edges
                     return (
                       <li key={node.id} className="nav-item dropdown">
-                        <NavDropdown title={node.label} id="basic-nav-dropdown">
+                        <NavDropdown title={node.label} >
                           {submenu.map(({ node }) => (
                             <Link
                               key={node.id}
@@ -107,7 +107,7 @@ class Header extends React.Component {
                     const submenu = node.childItems.edges
                     return (
                       <li key={node.id} className="nav-item dropdown">
-                        <NavDropdown title={node.label} id="basic-nav-dropdown">
+                        <NavDropdown title={node.label} >
                           {submenu.map(({ node }) => (
                             <Link
                               key={node.id}

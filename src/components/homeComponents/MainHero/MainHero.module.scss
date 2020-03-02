@@ -1,12 +1,25 @@
+@import "../../../styles/colours";
+
 .MainHero {
-  height: 100vh;
+  height:  calc(100vh - 67px);
+
   .container {
     height: 100%;
+
     .row {
       height: 100%;
       align-items: center;
+
       .imgSide {
-          height: 100%;
+        height: 100%;
+        @media screen and (min-width: 768px) {
+          max-width: 56.65%;
+        }
+      }
+      .rightSide {
+        @media screen and (min-width: 768px) {
+          max-width: 43.35%;
+        }
       }
       .rightSideWrapper {
         max-width: 653px;
@@ -14,13 +27,14 @@
         margin-left: 45px;
 
         h3 {
-            padding-top: 60px;
-            padding-bottom: 60px;
+          padding-top: 60px;
+          padding-bottom: 60px;
         }
+
         .buttonsWrapper {
-            a {
-                margin-bottom: 20px;
-            }
+          a {
+            margin-bottom: 20px;
+          }
         }
       }
     }

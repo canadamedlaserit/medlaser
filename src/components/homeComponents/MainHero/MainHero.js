@@ -35,7 +35,7 @@ const MainHero = ({ title, subtitle, btntext1, btntext2, backgroundimage }) => {
             fluid={fluidImage}
           ></BackgroundImage>
 
-          <div className="col-md-5">
+          <div className={`col-md-5 ${styles.rightSide}`}>
             <div className={styles.rightSideWrapper}>
               <h1>{title}</h1>
               <h3>{subtitle}</h3>

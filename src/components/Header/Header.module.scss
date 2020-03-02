@@ -1,11 +1,7 @@
 @import "../../styles/colours.scss";
 
-.NavCollapse {
-  justify-content: flex-end;
-}
-
 .Navbar {
-    padding: 0;
+  padding: 0;
   background: rgba(0, 0, 0, 0.5) 0% 0% no-repeat padding-box;
   transition: $globalTransition;
   flex-direction: column;
@@ -22,15 +18,38 @@
     }
   }
 
-}
+  .NavCollapse {
+    justify-content: flex-end;
 
+    a {
+      font-size: 24px;
+      line-height: 32px;
+      color: $white !important;
+      padding-left: 23px !important;
+      padding-right: 23px !important;
+    }
+  }
+}
 
 .container {
-    max-width: 1700px;
+  max-width: 1700px;
 }
 
-
 .headerTopLine {
-    // display: flex;
-    background-color: #000000;
+  width: 100%;
+  background-color: #000000;
+  padding: 18px;
+
+  a {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px!important;
+    line-height: 22px!important;
+    color: $white !important;
+    padding-left: 23px !important;
+    padding-right: 23px !important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    border-right: solid 1px $white;
+  }
 }
