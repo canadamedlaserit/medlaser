@@ -6,35 +6,6 @@ import Img from "gatsby-image"
 import styles from "./Header.module.scss"
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { scrolledTop: true }
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-  }
-
-  handleScroll = _ => {
-    // this.setState({
-    //   x: window.scrollX,
-    //   y: window.scrollY
-    // });
-    if (window.scrollY > 100) {
-      console.log("asdsa" + this.props.location.pathname)
-      this.setState({
-        scrolledTop: false,
-      })
-    } else {
-      this.setState({
-        scrolledTop: true,
-      })
-    }
-  }
 
   render() {
     const { data } = this.props
@@ -45,15 +16,7 @@ class Header extends React.Component {
       data.wpgraphql.pageBy.headerInfo.logo.imageFile.childImageSharp.fluid
     return (
       <header>
-        <Navbar
-          fixed="top"
-          expand="lg"
-          className={`${styles.Navbar} ${
-            this.state.scrolledTop && this.props.location.pathname === "/"
-              ? "transparent"
-              : "normal"
-          }`}
-        >
+        <Navbar fixed="top" expand="lg" className={`${styles.Navbar}`}>
           <div className={styles.headerTopLine}>
             <div className={`container ${styles.container}`}>
               <Nav>
@@ -61,19 +24,21 @@ class Header extends React.Component {
                   if (node.childItems.edges.length !== 0) {
                     const submenu = node.childItems.edges
                     return (
-                      <li key={node.id} className="nav-item dropdown">
-                        <NavDropdown title={node.label} >
-                          {submenu.map(({ node }) => (
-                            <Link
-                              key={node.id}
-                              className="nav-link"
-                              to={node.url}
-                            >
-                              {node.label}
-                            </Link>
-                          ))}
-                        </NavDropdown>
-                      </li>
+                      <NavDropdown
+                        key={node.id}
+                        className="nav-item dropdown"
+                        title={node.label}
+                      >
+                        {submenu.map(({ node }) => (
+                          <Link
+                            key={node.id}
+                            className="nav-link"
+                            to={node.url}
+                          >
+                            {node.label}
+                          </Link>
+                        ))}
+                      </NavDropdown>
                     )
                   } else {
                     return (
@@ -107,7 +72,7 @@ class Header extends React.Component {
                     const submenu = node.childItems.edges
                     return (
                       <li key={node.id} className="nav-item dropdown">
-                        <NavDropdown title={node.label} >
+                        <NavDropdown open={true} title={node.label}>
                           {submenu.map(({ node }) => (
                             <Link
                               key={node.id}

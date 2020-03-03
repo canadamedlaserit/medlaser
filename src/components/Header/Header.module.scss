@@ -1,10 +1,14 @@
-@import "../../styles/colours.scss";
+@import "../../styles/_variables.scss";
+.container {
+  max-width: 1700px;
+}
 
 .Navbar {
   padding: 0;
   background: rgba(0, 0, 0, 0.5) 0% 0% no-repeat padding-box;
   transition: $globalTransition;
   flex-direction: column;
+
 
   .NavbarBrand {
     width: 100%;
@@ -27,14 +31,17 @@
       color: $white !important;
       padding-left: 23px !important;
       padding-right: 23px !important;
+
+      &:hover {
+        .dropdown-menu {
+          display: block !important;
+        }
+      }
     }
   }
 }
 
-.container {
-  max-width: 1700px;
-}
-
+// header top line differences
 .headerTopLine {
   width: 100%;
   background-color: #000000;
@@ -43,13 +50,13 @@
   a {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
-    font-size: 16px!important;
-    line-height: 22px!important;
+    font-size: 16px !important;
+    line-height: 22px !important;
     color: $white !important;
     padding-left: 23px !important;
     padding-right: 23px !important;
-    padding-top: 5px!important;
-    padding-bottom: 5px!important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
     border-right: solid 1px $white;
   }
 }

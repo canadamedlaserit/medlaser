@@ -1,4 +1,4 @@
-@import "_colours.scss";
+@import "_variables.scss";
 
 html,
 body {
@@ -18,7 +18,7 @@ h1 {
   text-transform: capitalize;
   text-align: center;
   letter-spacing: 0;
-  
+
   @media screen and (min-width: 768px) {
     font-size: 46px;
     line-height: 65px;
@@ -29,10 +29,10 @@ h2 {
   font-family: "Playfair Display", sans-serif;
   font-size: 36px;
   line-height: 48px;
-  text-transform: uppercase;
   text-align: center;
   letter-spacing: 0;
-  
+  font-weight: 700;
+
   @media screen and (min-width: 768px) {
     font-size: 46px;
     line-height: 65px;
@@ -46,7 +46,7 @@ h3 {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 0;
-  
+
   @media screen and (min-width: 768px) {
     font-size: 36px;
     line-height: 48px;
@@ -71,7 +71,7 @@ main {
   text-align: center;
   margin: auto;
   width: 100%;
-  font-size: 16px!important;
+  font-size: 16px !important;
   line-height: 22px;
   letter-spacing: 0.96px;
   font-weight: 600;
@@ -94,71 +94,81 @@ main {
   background-color: transparent;
   color: $black;
   text-transform: uppercase;
-  opacity: 1;
   border: solid 2px $black;
 }
 
 .btn-white-transparent {
+  background-color: transparent;
+  color: $white;
+  text-transform: uppercase;
+  border: solid 2px $white;
 
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
 }
-// h1 {
-//   color: $white;
-//   font-size: 35px;
-//   font-weight: 700;
 
-//   @media screen and (min-width: 768px) {
-//     font-size: 70px;
-//   }
-// }
+.btn-small {
+  text-align: left;
+  font-size: 16px!important;
+  line-height: 22px!important;
+  letter-spacing: 0.96px;
+  max-width: 207px;
+  height: 56px;
+}
 
-// h2 {
-//   color: $black;
-//   font-size: 25px;
-//   font-weight: 700;
+// dropdown menu adjustment
+.dropdown-menu {
+  margin-top: -1px;
+  border-radius: 0px;
+}
+.nav-item:hover .dropdown-menu {
+  display: block !important;
+}
+.dropdown-toggle:after {
+  display: none!important;
+}
+// 
 
-//   @media screen and (min-width: 768px) {
-//     font-size: 55px;
-//   }
-// }
-// .transparent {
-//   background-color: transparent !important;
-// }
-// section {
-//   padding-top: 80px;
-//   padding-bottom: 80px;
-// }
-// .btn {
-//   color: $white;
-//   text-decoration: none;
-//   background-color: $orange;
-//   border: solid 1px $orange;
-//   padding: 15px 30px;
-//   border-radius: 4px;
-//   transition: 0.4s;
+// swiper buttons
+.swiper-button-prev,
+.swiper-button-next {
+  width: 43px;
+  height: 61px;
+  background: rgba(255, 255, 255, 0.21) 0% 0% no-repeat padding-box;
+}
 
-//   &:hover {
-//     box-shadow: 0px 23px 49px 0px rgba(61, 82, 96, 0.15);
-//   }
-// }
+.swiper-button-prev:after {
+  content: "";
+  background-image: url(../images/left.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 16px;
+  height: 35px;
+}
 
-// img {
-//   max-width: 100%;
-//   height: auto;
-// }
-// a {
-//   color: $orange;
+.swiper-button-next:after {
+  content: "";
+  background-image: url(../images/right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  width: 16px;
+  height: 35px;
+}
 
-//   &:hover {
-//     color: $greyish;
-//     text-decoration: none !important;
-//   }
-// }
-// a.nav-link {
-//   color: $white !important;
-// }
-// .dropdown-menu {
-//   background-color: rgba(0, 0, 0, 0.4);
-// }
-// .firstSection {
-//   padding-top: calc(#{$topSectionPadding} + #{$headerPagging});
-// }
+.swiper-button-disabled {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+// 

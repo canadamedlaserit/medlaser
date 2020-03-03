@@ -34,27 +34,6 @@ const Layout = ({ children, location }) => {
             }
           }
         }
-        menu(id: "TWVudToy") {
-          id
-          menuItems {
-            edges {
-              node {
-                id
-                label
-                url
-                childItems {
-                  edges {
-                    node {
-                      id
-                      label
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
         pageBy(uri: "headerinfo") {
           headerInfo {
             phone

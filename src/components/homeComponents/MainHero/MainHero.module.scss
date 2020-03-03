@@ -1,4 +1,4 @@
-@import "../../../styles/colours";
+@import "../../../styles/_variables";
 
 .MainHero {
   height:  calc(100vh - 67px);
@@ -16,11 +16,13 @@
           max-width: 56.65%;
         }
       }
+
       .rightSide {
         @media screen and (min-width: 768px) {
           max-width: 43.35%;
         }
       }
+      
       .rightSideWrapper {
         max-width: 653px;
         margin-right: auto;
