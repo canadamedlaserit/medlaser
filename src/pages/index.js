@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import MainHero from "../components/homeComponents/MainHero/MainHero"
 import Specials from "../components/homeComponents/Specials/Specials"
+import OurServices from "../components/homeComponents/OurServices/OurServices"
+
 
 export const query = graphql`
   {
@@ -19,6 +21,7 @@ export const query = graphql`
             __typename
             ...MainHeroSection
             ...SpecialsSection
+            ...ServicesSection
           }
         }
       }
@@ -37,12 +40,15 @@ const Home = ({ data, location }) => {
         switch (typeName) {
           case "WPGraphQL_Page_Sectionfields_Sections_Mainhero":
             return <MainHero key={index} {...section} />
-            
+
           case "WPGraphQL_Page_Sectionfields_Sections_Homeourspecials":
             return <Specials key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_Ourservices":
+            return <OurServices key={index} {...section} />
+
           default:
-            return <p key={index} >You done busted it.</p>
+            return <p key={index}>You done busted it.</p>
         }
       })}
     </Layout>

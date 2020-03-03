@@ -63,7 +63,7 @@ const Specials = ({ title, text, btntext, slides, altText }) => {
                 <div className={styles.SwiperSlide} key={index}>
                   <Img
                     className={styles.Gimg}
-                    alt={altText}
+                    alt={slide.altText}
                     fluid={slide.image.imageFile.childImageSharp.fluid}
                   />
                   <div className={styles.ContentWrapper}>

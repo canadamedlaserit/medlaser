@@ -1,3 +1,118 @@
 @import "../../../styles/_variables";
 
+// mobile - mostly, getting used to it
+.Section {
+  padding-top: 70px;
+  padding-bottom: 0;
 
+  .Container {
+    max-width: 1712px;
+
+    .Row {
+      h2 {
+        font-size: 35px;
+        margin-bottom: 80px;
+      }
+
+      .ServicesWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        padding-right: 0;
+
+        .SingleService {
+          position: relative;
+          width: 50%;
+        }
+
+        .Btn {
+          width: 50%;
+          text-align: center;
+          font-size: 12px !important;
+          max-width: 155px;
+          height: 50px;
+          padding: 10px;
+        }
+
+        h4 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 20px;
+          margin: auto;
+          color: $white;
+          text-transform: capitalize;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+// desktop
+@media screen and (min-width: 768px) {
+  .Section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    .Container {
+      .Row {
+        h2 {
+          font-size: 48px;
+          margin-bottom: 80px;
+        }
+
+        .ServicesWrapper {
+          padding-top: 55px;
+          padding-left: 15px;
+          padding-right: 15px;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: auto auto;
+          column-gap: 34px;
+
+          .SingleService {
+            text-align: center;
+            width: 100%;
+          }
+
+          .Btn {
+            margin-top: 80px;
+            grid-column: 1/6;
+            grid-row: 2;
+
+            max-width: 296px;
+            height: 66px;
+            text-align: center;
+            width: 100%;
+            font-size: 16px !important;
+          }
+
+          h4 {
+            position: relative;
+            font-size: 24px;
+            text-align: center;
+            text-transform: capitalize;
+            color: $black;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .Section h4 {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .Section h4 {
+    font-size: 24px;
+  }
+}

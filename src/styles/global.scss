@@ -9,6 +9,15 @@ body {
   color: $black;
   line-height: 24px;
 }
+::-webkit-scrollbar {
+  width: .46875rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cacaca;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 
 h1 {
   font-family: "Playfair Display", sans-serif;
@@ -52,6 +61,22 @@ h3 {
     line-height: 48px;
   }
 }
+
+h4 {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 18px;
+  // line-height: 48px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0;
+  font-weight: 700;
+
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 main {
   padding-top: $menuPadding;
 }
@@ -95,6 +120,11 @@ main {
   color: $black;
   text-transform: uppercase;
   border: solid 2px $black;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
 }
 
 .btn-white-transparent {
