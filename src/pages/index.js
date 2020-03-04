@@ -4,6 +4,8 @@ import Layout from "../components/Layout"
 import MainHero from "../components/homeComponents/MainHero/MainHero"
 import Specials from "../components/homeComponents/Specials/Specials"
 import OurServices from "../components/homeComponents/OurServices/OurServices"
+import LaserClinics from "../components/homeComponents/LaserClinics/LaserClinics"
+import VideoSection from "../components/homeComponents/VideoSection/VideoSection"
 
 
 export const query = graphql`
@@ -22,6 +24,8 @@ export const query = graphql`
             ...MainHeroSection
             ...SpecialsSection
             ...ServicesSection
+            ...LaserClinicsSection
+            ...VideoSection
           }
         }
       }
@@ -46,6 +50,12 @@ const Home = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Ourservices":
             return <OurServices key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Laserclinics":
+            return <LaserClinics key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo":
+            return <VideoSection key={index} {...section} />
 
           default:
             return <p key={index}>You done busted it.</p>

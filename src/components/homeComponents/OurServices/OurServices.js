@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Swiper from "react-id-swiper"
 import Img from "gatsby-image"
 
 import styles from "./OurServices.module.scss"

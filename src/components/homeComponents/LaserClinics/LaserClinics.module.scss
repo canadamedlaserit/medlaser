@@ -1,0 +1,60 @@
+@import "../../../styles/_variables";
+
+// mobile - mostly, getting used to it
+.Section {
+  background-color: $black;
+  color: $white;
+
+  .Container {
+    .Row {
+      .TextSide {
+        padding-top: 120px;
+        padding-bottom: 120px;
+        @media screen and (min-width: 768px) {
+          max-width: 56.65%;
+        }
+
+        .TextSideWrapper {
+          max-width: 953px;
+          padding-right: 14%;
+          margin-left: auto;
+
+          h2 {
+            font-size: 70px;
+            margin-bottom: 40px;
+            text-align: left;
+            text-transform: capitalize;
+          }
+
+          ul {
+            padding-left: 20px;
+            margin-top: 75px;
+            margin-bottom: 50px;
+            padding-right: 14%;
+
+            li {
+              padding-bottom: 30px;
+              line-height: 24px;
+            }
+          }
+
+          .ButtonsWrpper {
+            display: flex;
+            justify-content: flex-start;
+
+            a {
+              margin-right: 40px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      .ImageSide {
+        @media screen and (min-width: 768px) {
+          max-width: 43.35%;
+        }
+      }
+    }
+  }
+}
