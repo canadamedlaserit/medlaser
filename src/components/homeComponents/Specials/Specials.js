@@ -32,7 +32,7 @@ export const fragment = graphql`
   }
 `
 
-const Specials = ({ title, text, btntext, slides, altText }) => {
+const Specials = ({ title, text, btntext, slides }) => {
   const params = {
     slidesPerView: "auto",
     pagination: {
@@ -80,6 +80,9 @@ const Specials = ({ title, text, btntext, slides, altText }) => {
                 </div>
               ))}
             </Swiper>
+            <Link className={`btn btn-small btn-white-transparent ${styles.Btn_bottom}`} to="/">
+              {btntext}
+            </Link>
           </div>
         </div>
       </div>

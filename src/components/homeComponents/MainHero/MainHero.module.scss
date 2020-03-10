@@ -1,7 +1,7 @@
 @import "../../../styles/_variables";
 
 .MainHero {
-  height:  calc(100vh - 67px);
+  height: calc(100vh - 67px);
 
   .container {
     height: 100%;
@@ -13,16 +13,16 @@
       .imgSide {
         height: 100%;
         @media screen and (min-width: 768px) {
-          max-width: 56.65%;
+          max-width: 54.65%;
         }
       }
 
       .rightSide {
         @media screen and (min-width: 768px) {
-          max-width: 43.35%;
+          max-width: 45.35%;
         }
       }
-      
+
       .rightSideWrapper {
         max-width: 653px;
         margin-right: auto;
@@ -39,6 +39,20 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .rightSide {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: $white;
+
+    .rightSideWrapper {
+      margin-left: 0px !important;
     }
   }
 }

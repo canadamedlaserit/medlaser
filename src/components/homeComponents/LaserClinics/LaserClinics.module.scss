@@ -10,13 +10,11 @@
       .TextSide {
         padding-top: 120px;
         padding-bottom: 120px;
-        @media screen and (min-width: 768px) {
-          max-width: 56.65%;
-        }
 
         .TextSideWrapper {
           max-width: 953px;
-          padding-right: 14%;
+          padding-right: 12%;
+          padding-left: 35px;
           margin-left: auto;
 
           h2 {
@@ -24,18 +22,6 @@
             margin-bottom: 40px;
             text-align: left;
             text-transform: capitalize;
-          }
-
-          ul {
-            padding-left: 20px;
-            margin-top: 75px;
-            margin-bottom: 50px;
-            padding-right: 14%;
-
-            li {
-              padding-bottom: 30px;
-              line-height: 24px;
-            }
           }
 
           .ButtonsWrpper {
@@ -49,11 +35,58 @@
           }
         }
       }
+    }
+  }
+}
 
-      .ImageSide {
-        @media screen and (min-width: 768px) {
-          max-width: 43.35%;
-        }
+@media (max-width: 1440px) {
+  .TextSide {
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+
+    .TextSideWrapper {
+      padding-right: 5% !important;
+    }
+
+    h2 {
+      font-size: 60px !important;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Row {
+    flex-direction: column-reverse;
+  }
+  .TextSide {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+
+    .TextSideWrapper {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    h2 {
+      font-size: 35px !important;
+    }
+  }
+
+  .ImageSide {
+    min-height: 260px;
+  }
+
+  .ButtonsWrpper {
+    justify-content: center!important;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      max-width: 296px;
+      margin: auto!important;
+
+      &:first-child {
+        margin-bottom: 30px!important;
       }
     }
   }

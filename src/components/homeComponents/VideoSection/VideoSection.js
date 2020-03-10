@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import ReactPlayer from "react-player"
+import Img from "gatsby-image"
 
 import styles from "./VideoSection.module.scss"
 
@@ -8,32 +9,50 @@ export const fragment = graphql`
   fragment VideoSection on WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo {
     title
     videolink
+    imagelink
+    playicon {
+      sourceUrl
+      imageFile {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 65) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `
 
 class VideoSection extends React.Component {
   handlePlay(event) {
     // event.target.pauseVideo()
-    console.log(event);
+    console.log('clicked')
   }
 
   render() {
-    const { title, videolink } = this.props
+    const { title, videolink, imagelink, playicon } = this.props
+    const fluidImage = playicon.imageFile.childImageSharp.fluid
 
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
-            <div className={`col-md-12 ${styles.TextSide}`}>
+            <div className={`col-md-12 ${styles.Col}`}>
               <h2>{title}</h2>
-              {videolink}
 
-              <ReactPlayer
-                playing
-                url={videolink}
-                light="http://placekitten.com/200/300"
-                onReady={this.handlePlay()}
-              />
+              <div className={styles.fic}></div>
+              <div className={styles.PlayerWrapper}>
+                <ReactPlayer
+                  className={styles.ReactPlayer}
+                  playing
+                  playIcon={<Img className={styles.Icon} fluid={fluidImage}/>}
+                  url={videolink}
+                  light={imagelink}
+                  onPlay={this.handlePlay()}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -42,28 +61,3 @@ class VideoSection extends React.Component {
   }
 }
 export default VideoSection
-
-// const VideoSection = ({ title, videolink }) => {
-//     _onReady(event) {
-//         event.target.pauseVideo();
-//       }
-
-//   return (
-// <section className={styles.Section}>
-//   <div className={`container-fluid ${styles.Container}`}>
-//     <div className={`row ${styles.Row}`}>
-//       <div className={`col-md-12 ${styles.TextSide}`}>
-//         <h2>{title}</h2>
-//         {videolink}
-
-//         <ReactPlayer
-//           url={videolink}
-//           light="true"
-//           onReady={this.handlePlay()}
-//         />
-//       </div>
-//     </div>
-//   </div>
-// </section>
-//   )
-// }

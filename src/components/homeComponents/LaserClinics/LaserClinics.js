@@ -30,27 +30,39 @@ export const fragment = graphql`
   }
 `
 
-const LaserClinics = ({ title, text, image, list, btntext1, btntext2, btnlink1, btnlink2 }) => {
+const LaserClinics = ({
+  title,
+  text,
+  image,
+  list,
+  btntext1,
+  btntext2,
+  btnlink1,
+  btnlink2,
+}) => {
   const fluidImage = image.imageFile.childImageSharp.fluid
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <div className={`col-md-7 ${styles.TextSide}`}>
+          <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
             <div className={styles.TextSideWrapper}>
               <h2>{title}</h2>
               <p>{text}</p>
-              <ul>
+              <ul className="listType-normal">
                 {list.map((single, index) => (
                   <li key={index}>{single.listitem}</li>
                 ))}
               </ul>
 
               <div className={styles.ButtonsWrpper}>
-                <Link to={btnlink1} className="btn btn-small btn-red">
+                <Link
+                  to={btnlink1}
+                  className="btn btn-small btn-white-transparent"
+                >
                   {btntext1}
                 </Link>
-                <Link to={btnlink2}  className="btn btn-small btn-white-transparent">
+                <Link to={btnlink2} className="btn btn-small btn-red">
                   {btntext2}
                 </Link>
               </div>
@@ -58,7 +70,7 @@ const LaserClinics = ({ title, text, image, list, btntext1, btntext2, btnlink1, 
           </div>
 
           <BackgroundImage
-            className={`col-md-5 ${styles.ImageSide}`}
+            className={`col-md-5 smallerSide ${styles.ImageSide}`}
             fluid={fluidImage}
           ></BackgroundImage>
         </div>

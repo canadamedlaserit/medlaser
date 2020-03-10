@@ -14,6 +14,7 @@ class Header extends React.Component {
 
     const logo =
       data.wpgraphql.pageBy.headerInfo.logo.imageFile.childImageSharp.fluid
+
     return (
       <header>
         <Navbar fixed="top" expand="lg" className={`${styles.Navbar}`}>
@@ -66,7 +67,7 @@ class Header extends React.Component {
               id="basic-navbar-nav"
               className={styles.NavCollapse}
             >
-              <Nav>
+            <Nav>
                 {mainMenu.map(({ node }) => {
                   if (node.childItems.edges.length !== 0) {
                     const submenu = node.childItems.edges
