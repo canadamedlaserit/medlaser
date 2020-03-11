@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import { Accordion, Card } from "react-bootstrap"
 
@@ -14,7 +14,7 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 454) {
+          fluid(quality: 100, maxWidth: 654) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -35,9 +35,10 @@ class Faqs extends React.Component {
     activeAccordion: 0,
   }
 
-  handleAccordion(index) {
-      
-    console.log("event key" + index)
+  handleAccordion = index => {
+    this.setState({
+      activeAccordion: index,
+    })
   }
 
   render() {
@@ -45,7 +46,7 @@ class Faqs extends React.Component {
     const fluidImage = image.imageFile.childImageSharp.fluid
 
     return (
-      <section className={styles.Section}>
+      <section className={`${styles.Section}`}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
@@ -64,14 +65,34 @@ class Faqs extends React.Component {
                           onClick={e => {
                             this.handleAccordion(index)
                           }}
-                          className={styles.Header}
+                          className={`${
+                            this.state.activeAccordion === index
+                              ? `${styles.Active}`
+                              : ""
+                          } ${styles.Header}`}
                           as={Card.Header}
                           eventKey={index}
                         >
+                          <div className={styles.Arrow}>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="8"
+                              height="18"
+                              viewBox="0 0 8 18"
+                            >
+                              <defs></defs>
+                              <path
+                                d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
+                                transform="translate(-128.003)"
+                              />
+                            </svg>
+                          </div>
                           {single.title}
                         </Accordion.Toggle>
+
                         <Accordion.Collapse eventKey={index}>
                           <Card.Body
+                            className={styles.Body}
                             dangerouslySetInnerHTML={{ __html: single.text }}
                           ></Card.Body>
                         </Accordion.Collapse>

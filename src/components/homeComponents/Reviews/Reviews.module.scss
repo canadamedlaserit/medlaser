@@ -1,0 +1,51 @@
+@import "../../../styles/_variables";
+
+.Section {
+  background: linear-gradient(90deg, $white 50%, $black 50%);
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  .Container {
+    max-width: 1712px;
+  }
+
+  .InsideWrapper {
+    max-width: 556px;
+    margin: 0 auto;
+  }
+
+  .RightSide {
+    color: $white;
+    text-align: center;
+
+    h2 {
+      font-size: 52px;
+      line-height: 1.4;
+      margin-bottom: 50px;
+    }
+
+    p {
+      margin-bottom: 50px;
+    }
+  }
+
+}
+
+@media (max-width: 1599px) {
+  .Container {
+    max-width: 1340px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    background: none;
+    padding-bottom: 0px;
+
+    .RightSide {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      background-color: $black;
+    }
+  }
+}

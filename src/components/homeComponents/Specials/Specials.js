@@ -57,7 +57,7 @@ const Specials = ({ title, text, btntext, slides }) => {
               {btntext}
             </Link>
           </div>
-          <div className={`col-md-8 ${styles.SwiperSide}`}>
+          <div className={`col-md-8 special-swiper ${styles.SwiperSide}`}>
             <Swiper {...params}>
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>

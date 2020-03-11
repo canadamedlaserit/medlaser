@@ -8,7 +8,9 @@ import LaserClinics from "../components/homeComponents/LaserClinics/LaserClinics
 import VideoSection from "../components/homeComponents/VideoSection/VideoSection"
 import LookYounger from "../components/homeComponents/LookYounger/LookYounger"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
-
+import FullWidthImage from "../components/homeComponents/FullWidthImage/FullWidthImage"
+import Reviews from "../components/homeComponents/Reviews/Reviews"
+import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 
 export const query = graphql`
   {
@@ -30,6 +32,9 @@ export const query = graphql`
             ...VideoSection
             ...LookYoungerSection
             ...FaqsSection
+            ...FullWidthImageSection
+            ...ReviewsSection
+            ...BeforeAfterSection
           }
         }
       }
@@ -67,11 +72,19 @@ const Home = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_Fullwidthimage":
+            return <FullWidthImage key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Googlereviews":
+            return <Reviews key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
+            return <BeforeAfter key={index} {...section} />
+
           default:
             return <p key={index}>You done busted it.</p>
         }
       })}
-      asdasdada adad
     </Layout>
   )
 }

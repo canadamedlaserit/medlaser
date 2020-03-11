@@ -1,0 +1,101 @@
+.Section {
+  padding-top: 120px;
+  padding-bottom: 80px;
+
+  .Container {
+    max-width: 1712px;
+  }
+
+  .Btn {
+    margin-bottom: 100px;
+  }
+
+  h2 {
+    font-size: 53px;
+    margin-bottom: 35px;
+  }
+  .Subtitle {
+    font-size: 28px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .SwiperSlide {
+    display: flex;
+    align-items: center;
+
+    .ImageWrapper {
+      width: 50%;
+      height: 100%;
+      padding-right: 12px;
+      padding-left: 12px;
+      position: relative;
+
+      .Overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        backdrop-filter: blur(14px);
+        z-index: 2;
+      }
+
+      .Divider {
+        position: absolute;
+        z-index: 2222222;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        bottom: 0;
+        justify-content: center;
+      }
+      svg {
+        width: 99px;
+        height: 100%;
+        z-index: 2222;
+      }
+    }
+
+    .ContentWrapper {
+      width: 50%;
+      min-height: 100%;
+      padding-right: 12px;
+      padding-left: 50px;
+
+      h4 {
+        text-align: left;
+        text-transform: capitalize;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 33px;
+      }
+    }
+  }
+
+  .SwiperWrapper {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+.a {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+.b {
+  fill: #fff;
+}
+.c {
+  fill: #c6c6c6;
+}
