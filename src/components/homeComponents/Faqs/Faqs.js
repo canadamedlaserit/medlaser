@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import { Accordion, Card } from "react-bootstrap"
@@ -30,7 +30,7 @@ export const fragment = graphql`
   }
 `
 
-class Faqs extends React.Component {
+class Faqs extends Component {
   state = {
     activeAccordion: 0,
   }

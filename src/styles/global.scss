@@ -139,10 +139,12 @@ main {
   opacity: 1;
   border: solid 2px $red;
 
-  &:hover {
-    background-color: $red-dark;
-    border-color: $red-dark;
-    color: $white;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $red-dark !important;
+    border-color: $red-dark !important;
+    color: $white !important;
   }
 }
 
@@ -181,13 +183,13 @@ main {
 }
 
 // dropdown menu adjustment
-.dropdown-menu {
-  margin-top: -1px;
-  border-radius: 0px;
-}
-.nav-item:hover .dropdown-menu {
-  display: block !important;
-}
+// .dropdown-menu {
+//   margin-top: -1px;
+//   border-radius: 0px;
+// }
+// .nav-item:hover .dropdown-menu {
+//   display: block !important;
+// }
 .dropdown-toggle:after {
   display: none !important;
 }
@@ -250,11 +252,11 @@ main {
     bottom: 0 !important;
   }
   .swiper-pagination-bullet-active {
-    background: #E8E8E8 0% 0% no-repeat padding-box;
+    background: #e8e8e8 0% 0% no-repeat padding-box;
   }
 
   .swiper-pagination-bullet {
-    background: #E8E8E8 0% 0% no-repeat padding-box;
+    background: #e8e8e8 0% 0% no-repeat padding-box;
     min-width: 8px;
     min-height: 8px;
     outline: none;
@@ -262,7 +264,7 @@ main {
 
   .swiper-container {
     position: initial;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
   }
 
   .swiper-button-prev {
@@ -301,6 +303,17 @@ main {
   .swiper-button-prev,
   .swiper-button-next {
     display: none !important;
+  }
+  .before-after-swiper {
+    .swiper-pagination-bullet {
+      background: $grey-light;
+      min-width: 6px;
+      min-height: 6px;
+      outline: none;
+    }
+    .swiper-container {
+      padding-bottom: 30px;
+    }
   }
 }
 // swiper END

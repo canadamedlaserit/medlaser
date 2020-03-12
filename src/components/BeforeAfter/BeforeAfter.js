@@ -153,6 +153,12 @@ const BeforeAfter = ({ title, subtitle, btntext, slides }) => {
               ))}
             </Swiper>
           </div>
+          <Link
+            className={`btn btn-small btn-black-transparent ${styles.Btn2}`}
+            to="/"
+          >
+            {btntext}
+          </Link>
         </div>
       </div>
     </section>
