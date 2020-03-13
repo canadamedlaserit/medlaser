@@ -19,6 +19,7 @@
 
       .rightSide {
         @media screen and (min-width: 768px) {
+          margin-top: 99px;
           max-width: 45.35%;
         }
       }
@@ -43,6 +44,27 @@
   }
 }
 
+@media (max-width: 1599px) {
+  .MainHero {
+    height: calc(100vh - 60px);
+  }
+  .rightSideWrapper {
+    margin-left: 0px !important;
+
+    h3 {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+  }
+
+  .buttonsWrapper {
+    a {
+      max-width: 260px;
+      height: 60px;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .rightSide {
     position: absolute;
@@ -50,9 +72,5 @@
     right: 0;
     text-align: center;
     color: $white;
-
-    .rightSideWrapper {
-      margin-left: 0px !important;
-    }
   }
 }

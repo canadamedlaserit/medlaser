@@ -26,7 +26,7 @@ export const fragment = graphql`
 class VideoSection extends React.Component {
   handlePlay(event) {
     // event.target.pauseVideo()
-    console.log('clicked')
+    // console.log('clicked')
   }
 
   render() {

@@ -31,11 +31,11 @@ const MainHero = ({ title, subtitle, btntext1, btntext2, backgroundimage }) => {
       <div className={`container-fluid ${styles.container}`}>
         <div className={`row ${styles.row}`}>
           <BackgroundImage
-            className={`col-md-7 ${styles.imgSide}`}
+            className={`col-md-7 biggerSide ${styles.imgSide}`}
             fluid={fluidImage}
           ></BackgroundImage>
 
-          <div className={`col-md-5 ${styles.rightSide}`}>
+          <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
             <div className={styles.rightSideWrapper}>
               <h1>{title}</h1>
               <h3>{subtitle}</h3>

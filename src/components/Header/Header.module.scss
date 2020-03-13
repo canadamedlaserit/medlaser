@@ -9,7 +9,6 @@
   transition: $globalTransition;
   flex-direction: column;
 
-
   .NavbarBrand {
     width: 100%;
     height: auto;
@@ -44,8 +43,7 @@
 // header top line differences
 .headerTopLine {
   width: 100%;
-  background-color: #000000;
-  padding: 18px;
+  background-color: $black;
 
   a {
     font-family: "Open Sans", sans-serif;
@@ -55,12 +53,203 @@
     color: $white !important;
     padding-left: 23px !important;
     padding-right: 23px !important;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-    border-right: solid 1px $white;
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
   }
 
-  @media screen and (max-width: 767px) {
+  .MainLink {
+    position: relative;
+  }
+
+  .LinkWrapper {
+    position: absolute;
+    display: block;
+    border-right: solid 1px $white;
+    top: 20%;
+    right: 0;
+    bottom: 20%;
+    padding: 1px;
+  }
+
+  @media screen and (max-width: 991px) {
     display: none;
+  }
+}
+
+// dropdown
+.Dropdown {
+  margin-top: 0 !important;
+
+  .InnerLink {
+    color: $black !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+}
+
+// cart styles
+.Cart {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+// right side styles
+.RightSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .PhoneWrapper {
+    a {
+      padding-right: 70px !important;
+    }
+    svg {
+      width: 23px;
+      height: 23px;
+      margin-right: 14px;
+    }
+    .PhoneSvg {
+      fill: none;
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2px;
+    }
+  }
+  .ButtonWrapper {
+    .Btn {
+      min-width: 174px;
+    }
+  }
+  .CartWrapper {
+    a {
+      padding-left: 40px !important;
+    }
+  }
+}
+
+@media (max-width: 1599px) {
+  .headerTopLine {
+    a {
+      font-size: 15px !important;
+      line-height: 20px !important;
+      padding: 20px !important;
+    }
+  }
+  .RightSide {
+    .PhoneWrapper {
+      a {
+        padding-right: 30px !important;
+      }
+    }
+  }
+
+  .Navbar {
+    background: #000000b5 0% 0% no-repeat padding-box;
+  }
+
+  .NavbarBrand {
+    max-width: 97px !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+  }
+
+  .NavCollapse a {
+    font-size: 20px !important;
+    line-height: 27px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .headerTopLine {
+    a {
+      font-size: 12px !important;
+      line-height: 20px !important;
+      padding: 20px 15px !important;
+    }
+  }
+
+  .ButtonWrapper {
+    .Btn {
+      min-width: 134px !important;
+    }
+  }
+
+  .NavCollapse a {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .NavbarBrand {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    max-width: 64px !important;
+    margin-left: 10px !important;
+  }
+
+  .Navbar {
+    background: #000000;
+  }
+
+  .NavCollapse {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    background: $black;
+    height: 100vh !important;
+    width: 100%;
+    text-align: left;
+    transform: translateX(-100%) !important;
+    padding: 2rem;
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    transition: transform 0.3s ease-in-out !important;
+  }
+}
+
+// toggler styles
+.NavbarToggler {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 2px;
+    background: #EFFFFA;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity:  0;
+      transform: translateX(20px);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
   }
 }

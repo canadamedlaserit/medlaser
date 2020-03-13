@@ -193,6 +193,10 @@ main {
 .dropdown-toggle:after {
   display: none !important;
 }
+.dropdown-menu {
+  border-radius: 0 !important;
+  border: none;
+}
 //
 
 // swiper start
@@ -270,12 +274,12 @@ main {
   .swiper-button-prev {
     background: transparent !important;
     outline: none;
-    left: -5px;
+    left: 0;
   }
   .swiper-button-next {
     background: transparent !important;
     outline: none;
-    right: -5px;
+    right: 0;
   }
 
   .swiper-button-prev:after,
@@ -286,6 +290,29 @@ main {
     width: 17px;
     height: 35px;
   }
+}
+
+
+.collapse.show {
+  transform:  translateX(0) !important;
+}
+
+.navbar-toggler.collapsed {
+  div {
+    &:first-child {
+      transform: rotate(0);
+    }
+
+    &:nth-child(2) {
+      opacity:  1;
+      transform: translateX(0);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(0);
+    }
+  }
+  
 }
 
 @media (min-width: 768px) {
@@ -326,11 +353,22 @@ main {
   body {
     font-size: 16px;
   }
-
+  h1 {
+    font-size: 38px;
+    line-height: 60px;
+  }
+  h3 {
+    font-size: 30px;
+    line-height: 40px;
+  }
   .listType-normal {
     margin-top: 45px;
     margin-bottom: 30px;
     padding-right: 15px;
+  }
+
+  main {
+    padding-top: 60px;
   }
 }
 
@@ -352,4 +390,5 @@ main {
   .listType-normal {
     padding-right: 0px;
   }
+
 }

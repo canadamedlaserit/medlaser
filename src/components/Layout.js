@@ -13,6 +13,7 @@ const Layout = ({ children, location }) => {
           edges {
             node {
               id
+              name
               menuItems {
                 edges {
                   node {
@@ -38,6 +39,9 @@ const Layout = ({ children, location }) => {
           headerInfo {
             phone
             phoneurl
+            btntext
+            btnlink
+            cartlink
             logo {
               sourceUrl
               altText
