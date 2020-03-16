@@ -130,6 +130,59 @@
   }
 }
 
+// toggler styles
+.NavbarToggler {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 2px;
+    background: #effffa;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// lil-dropdown flag
+.lil {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px !important;
+  height: 42px !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 @media (max-width: 1599px) {
   .headerTopLine {
     a {
@@ -182,12 +235,12 @@
   }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .NavbarBrand {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
     max-width: 64px !important;
-    margin-left: 10px !important;
+    margin-left: 16px !important;
   }
 
   .Navbar {
@@ -197,7 +250,7 @@
   .NavCollapse {
     display: flex !important;
     flex-direction: column;
-    justify-content: center !important;
+    justify-content: start !important;
     background: $black;
     height: 100vh !important;
     width: 100%;
@@ -209,47 +262,21 @@
     left: 0 !important;
     bottom: 0 !important;
     transition: transform 0.3s ease-in-out !important;
-  }
-}
+    padding: 70px 18px 30px 16px;
 
-// toggler styles
-.NavbarToggler {
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
+    > div {
+      overflow: auto;
+      width: 100%;
+      padding-top: 30px;
+    }
 
-  &:focus {
-    outline: none;
+    .Dropdown {
+      background-color: $black;
+      padding-left: 20px;
+    }
   }
 
-  div {
-    width: 2rem;
-    height: 2px;
-    background: #EFFFFA;
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-
-    &:first-child {
-      transform: rotate(45deg);
-    }
-
-    &:nth-child(2) {
-      opacity:  0;
-      transform: translateX(20px);
-    }
-
-    &:nth-child(3) {
-      transform: rotate(-45deg);
-    }
+  .NavbarToggler {
+    margin-right: 15px !important;
   }
 }

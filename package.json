@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "body-scroll-lock": "^2.6.4",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.18.12",
     "gatsby-background-image": "^0.10.2",

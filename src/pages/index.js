@@ -88,9 +88,9 @@ const Home = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
             return <Contact key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
-              return <LocationMap key={index} {...section} />
-            
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
+            return <LocationMap key={index} {...section} />
+
           default:
             return <p key={index}>You done busted it.</p>
         }

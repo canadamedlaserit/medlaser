@@ -7,7 +7,9 @@ import styles from "./Header.module.scss"
 export class CustomNav extends Component {
   constructor(props) {
     super(props)
-    this.state = { isOpen: false, activeDropdown: 0 }
+    console.log(this.props)
+
+    this.state = { isOpen: false, activeDropdown: 0}
   }
 
   handleOpen = id => {
@@ -21,9 +23,9 @@ export class CustomNav extends Component {
   }
 
   render() {
-    const { data } = this.props
+    const { data, isMobile } = this.props
     return (
-      <div>
+      <>
         <Nav>
           {data.map(({ node }) => {
             if (node.childItems.edges.length !== 0) {
@@ -45,11 +47,33 @@ export class CustomNav extends Component {
                     {node.label}
                   </Dropdown.Toggle>
 
+                  {this.props.isMobile === true ? (
+                    <Dropdown.Toggle className={styles.lil}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="8"
+                        height="18"
+                        viewBox="0 0 8 18"
+                      >
+                        <defs></defs>
+                        <path
+                          d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
+                          transform="translate(-128.003)"
+                        />
+                      </svg>
+                    </Dropdown.Toggle>
+                  ) : (
+                    ""
+                  )}
+                  {console.log("mob" + this.props.isMobile)}
+
+
                   <Dropdown.Menu
                     className={`nav-item dropdown ${styles.Dropdown}`}
-                    key="0"
                     show={
-                      this.state.isOpen && this.state.activeDropdown === node.id
+                      this.state.isOpen &&
+                      this.state.activeDropdown === node.id &&
+                      this.props.isMobile !== true
                     }
                   >
                     {submenu.map(({ node }) => (
@@ -78,7 +102,7 @@ export class CustomNav extends Component {
             }
           })}
         </Nav>
-      </div>
+      </>
     )
   }
 }

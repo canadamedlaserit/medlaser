@@ -2,25 +2,75 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import { Navbar } from "react-bootstrap"
 import Img from "gatsby-image"
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock"
 
 import CustomNav from "./CustomNav"
-
 import styles from "./Header.module.scss"
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: false,
+      windowWidth: window.innerWidth,
+      isMobile: window.innerWidth > 991 ? false : true,
+    }
+  }
+
+  targetElement = null
+
+  componentDidMount() {
+    this.targetElement = document.querySelector("#mainNav")
+    window.addEventListener("resize", this.updateWindowDimensions)
+  }
+
+  handleToggleMenu = () => {
+    this.setState({ isOpen: !this.state.isOpen }, () => {
+      this.state.isOpen
+        ? disableBodyScroll(this.targetElement)
+        : enableBodyScroll(this.targetElement)
+    })
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({
+      windowWidth: window.innerWidth,
+      isMobile: window.innerWidth > 991 ? false : true,
+    })
+  }
+
+  componentWillUnmount() {
+    clearAllBodyScrollLocks()
+    window.removeEventListener("resize", this.updateWindowDimensions)
+  }
+
   render() {
     const { data } = this.props
 
     const menus = data.wpgraphql.menus.edges
-    var mainMenu, topMenu
+    var mainMenu, topMenu, mainMenuMobile
+
+    console.log(menus)
 
     for (const menu in menus) {
-      switch (menus[menu].node.name) {
-        case "main-menu":
-          mainMenu = menus[menu].node.menuItems.edges
-        case "top-menu":
-          topMenu = menus[menu].node.menuItems.edges
+
+      if(menus[menu].node.name === 'main-menu') {
+        mainMenu = menus[menu].node.menuItems.edges
       }
+
+      if(menus[menu].node.name === 'top-menu') {
+        topMenu = menus[menu].node.menuItems.edges
+      }
+
+      if(menus[menu].node.name === 'main-menu-mobile') {
+        mainMenuMobile = menus[menu].node.menuItems.edges
+      }
+
     }
 
     const logo =
@@ -29,7 +79,12 @@ class Header extends Component {
 
     return (
       <header>
-        <Navbar fixed="top" expand="lg" className={`${styles.Navbar}`}>
+        <Navbar
+          id="mainNav"
+          fixed="top"
+          expand="lg"
+          className={`${styles.Navbar}`}
+        >
           <div className={styles.headerTopLine}>
             <div className={`container ${styles.container}`}>
               <CustomNav data={topMenu} />
@@ -105,6 +160,7 @@ class Header extends Component {
             <Navbar.Toggle
               className={styles.NavbarToggler}
               aria-controls="basic-navbar-nav"
+              onClick={this.handleToggleMenu}
             >
               <div />
               <div />
@@ -113,9 +169,17 @@ class Header extends Component {
 
             <Navbar.Collapse
               id="basic-navbar-nav"
-              className={styles.NavCollapse}
+              className={`${this.state.isOpen ? "isOpen" : "closed"}   ${
+                styles.NavCollapse
+              }`}
             >
-              <CustomNav data={mainMenu} />
+              {console.log(this.state.isMobile)}
+              {console.log(this.state.windowWidth)}
+
+              <CustomNav
+                isMobile={this.state.windowWidth > 991 ? true : false}
+                data={this.state.windowWidth > 991 ? mainMenuMobile : mainMenu}
+              />
             </Navbar.Collapse>
           </div>
         </Navbar>

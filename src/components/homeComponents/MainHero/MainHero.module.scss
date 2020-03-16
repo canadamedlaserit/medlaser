@@ -70,7 +70,40 @@
     position: absolute;
     left: 0;
     right: 0;
+    bottom: 4%;
     text-align: center;
     color: $white;
+  }
+
+  .buttonsWrapper {
+    a:nth-child(2) {
+      background-color: $white;
+      border-color: $white;
+    }
+  }
+
+  .MainHero {
+    h1 {
+      font-size: 35px;
+      line-height: 49px;
+      margin-bottom: 12%;
+    }
+
+    h3 {
+      font-size: 27px;
+      line-height: 36px;
+      color: $black;
+      background-color: $white;
+      padding: 13px 0 !important;
+      margin-bottom: 18%;
+    }
+
+    .buttonsWrapper {
+      a {
+        max-width: 296px !important;
+        height: 50px !important;
+        font-size: 14px !important;
+      }
+    }
   }
 }
