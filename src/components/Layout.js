@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./Header/Header"
-// import Footer from "./Footer/Footer"
+import Footer from "./Footer/Footer"
 
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -53,18 +53,24 @@ const Layout = ({ children, location }) => {
                 }
               }
             }
+            floatingmenu {
+              ... on WPGraphQL_Page_Headerinfo_floatingmenu {
+                btntext
+                btnlink
+              }
+            }
           }
         }
       }
     }
   `)
 
+
   return (
     <>
       <Header location={location} data={data} />
       <main>{children}</main>
-
-      {/* <Footer /> */}
+      <Footer data={data} />
     </>
   )
 }

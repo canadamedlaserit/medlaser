@@ -17,14 +17,14 @@ class Header extends Component {
 
     this.state = {
       isOpen: false,
-      windowWidth: window.innerWidth,
-      isMobile: window.innerWidth > 991 ? false : true,
+      windowWidth: 0,
     }
   }
 
   targetElement = null
 
   componentDidMount() {
+    this.updateWindowDimensions()
     this.targetElement = document.querySelector("#mainNav")
     window.addEventListener("resize", this.updateWindowDimensions)
   }
@@ -40,7 +40,6 @@ class Header extends Component {
   updateWindowDimensions = () => {
     this.setState({
       windowWidth: window.innerWidth,
-      isMobile: window.innerWidth > 991 ? false : true,
     })
   }
 
@@ -55,22 +54,14 @@ class Header extends Component {
     const menus = data.wpgraphql.menus.edges
     var mainMenu, topMenu, mainMenuMobile
 
-    console.log(menus)
-
     for (const menu in menus) {
-
-      if(menus[menu].node.name === 'main-menu') {
+      if (menus[menu].node.name === "main-menu") {
         mainMenu = menus[menu].node.menuItems.edges
-      }
-
-      if(menus[menu].node.name === 'top-menu') {
+      } else if (menus[menu].node.name === "top-menu") {
         topMenu = menus[menu].node.menuItems.edges
-      }
-
-      if(menus[menu].node.name === 'main-menu-mobile') {
+      } else if (menus[menu].node.name === "main-menu-mobile") {
         mainMenuMobile = menus[menu].node.menuItems.edges
       }
-
     }
 
     const logo =
@@ -173,16 +164,24 @@ class Header extends Component {
                 styles.NavCollapse
               }`}
             >
-              {console.log(this.state.isMobile)}
               {console.log(this.state.windowWidth)}
 
               <CustomNav
-                isMobile={this.state.windowWidth > 991 ? true : false}
-                data={this.state.windowWidth > 991 ? mainMenuMobile : mainMenu}
+                isMobile={this.state.windowWidth > 991 ? false : true}
+                data={this.state.windowWidth > 991 ? mainMenu : mainMenuMobile}
               />
             </Navbar.Collapse>
           </div>
         </Navbar>
+
+        <div className={styles.FloatingMenu}>
+          {headerInfo.floatingmenu.map((item, index) => (
+            <div key={index}>
+              <Link to={item.btnlink}>{item.btntext}</Link>
+
+            </div>
+          ))}
+        </div>
       </header>
     )
   }

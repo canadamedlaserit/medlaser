@@ -1,12 +1,60 @@
 @import "../../styles/_variables.scss";
 
 .Footer {
-    background-color: $darkblue;
+  background-color: $black;
+  color: $white;
 
-    &_container {
-        color: #ffffff;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        text-align: center;
+  .Container {
+    max-width: 1712px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+  }
+
+  .NavWrapper {
+    width: 100%;
+    display: block;
+  }
+
+  h3 {
+    font-size: 24px;
+    text-transform: initial;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      padding-bottom: 15px;
+
+      a {
+        font-size: 14px;
+        letter-spacing: 0;
+        color: $white;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .NavWrapper {
+    display: none !important;
+  }
+}
+
+@media(max-width: 1599px) {
+    .Container {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+@media(max-width: 767px) {
+    .Container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }

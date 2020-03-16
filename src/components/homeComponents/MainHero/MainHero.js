@@ -58,7 +58,7 @@
 
 // export default MainHero
 
-import React, { useEffect } from "react"
+import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
@@ -92,57 +92,127 @@ export const fragment = graphql`
     }
   }
 `
-function MainHero(props) {
-  const [width, setWidth] = React.useState(window.innerWidth)
-  const {
-    title,
-    subtitle,
-    btntext1,
-    btntext2,
-    backgroundimage,
-    backgroundimagemobile,
-  } = props
-  const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
-  const fluidImageMobile = backgroundimagemobile.imageFile.childImageSharp.fluid
 
-  const updateWidth = () => {
-    setWidth(window.innerWidth)
+class MainHero extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      windowWidth: 0,
+    }
   }
 
-  useEffect(() => {
-    window.addEventListener("resize", updateWidth)
-    return () => window.removeEventListener("resize", updateWidth)
-  })
+  componentDidMount() {
+    this.updateWindowDimensions()
+    window.addEventListener("resize", this.updateWindowDimensions)
+  }
 
-  return (
-    <section className={styles.MainHero}>
-      <div className={`container-fluid ${styles.container}`}>
-        <div className={`row ${styles.row}`}>
-          <BackgroundImage
-            className={`col-md-7 biggerSide ${styles.imgSide}`}
-            fluid={width > 767 ? fluidImage : fluidImageMobile}
-          ></BackgroundImage>
+  updateWindowDimensions = () => {
+    this.setState({
+      windowWidth: window.innerWidth,
+    })
+  }
 
-          <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
-            <div className={styles.rightSideWrapper}>
-              <h1>{title}</h1>
-              <h3>{subtitle}</h3>
-            
-              <div className={styles.buttonsWrapper}>
-                <Link to="/" className="btn btn-red">
-                  {btntext1}
-                </Link>
-                <Link to="/" className="btn btn-black-transparent">
-                  {btntext2}
-                </Link>
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
+  }
+
+  render() {
+    const {
+      title,
+      subtitle,
+      btntext1,
+      btntext2,
+      backgroundimage,
+      backgroundimagemobile,
+    } = this.props
+
+    const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
+    const fluidImageMobile =
+      backgroundimagemobile.imageFile.childImageSharp.fluid
+
+    return (
+      <section className={styles.MainHero}>
+        <div className={`container-fluid ${styles.container}`}>
+          <div className={`row ${styles.row}`}>
+            <BackgroundImage
+              className={`col-md-7 biggerSide ${styles.imgSide}`}
+              fluid={this.state.windowWidth > 767 ? fluidImage : fluidImageMobile}
+            ></BackgroundImage>
+
+            <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
+              <div className={styles.rightSideWrapper}>
+                <h1>{title}</h1>
+                <h3>{subtitle}</h3>
+
+                <div className={styles.buttonsWrapper}>
+                  <Link to="/" className="btn btn-red">
+                    {btntext1}
+                  </Link>
+                  <Link to="/" className="btn btn-black-transparent">
+                    {btntext2}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-  )
+      </section>
+    )
+  }
 }
-
 export default MainHero
+
+// function MainHero(props) {
+//   const [width, setWidth] = React.useState(window.innerWidth)
+//   const {
+//     title,
+//     subtitle,
+//     btntext1,
+//     btntext2,
+//     backgroundimage,
+//     backgroundimagemobile,
+//   } = props
+//   const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
+//   const fluidImageMobile = backgroundimagemobile.imageFile.childImageSharp.fluid
+
+//   const updateWidth = () => {
+//     setWidth(window.innerWidth)
+//   }
+
+//   useEffect(() => {
+//     window.addEventListener("resize", updateWidth)
+//     return () => window.removeEventListener("resize", updateWidth)
+//   })
+
+//   return (
+//     <section className={styles.MainHero}>
+//       <div className={`container-fluid ${styles.container}`}>
+//         <div className={`row ${styles.row}`}>
+//           <BackgroundImage
+//             className={`col-md-7 biggerSide ${styles.imgSide}`}
+//             fluid={width > 767 ? fluidImage : fluidImageMobile}
+//           ></BackgroundImage>
+
+//           <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
+//             <div className={styles.rightSideWrapper}>
+//               <h1>{title}</h1>
+//               <h3>{subtitle}</h3>
+
+//               <div className={styles.buttonsWrapper}>
+//                 <Link to="/" className="btn btn-red">
+//                   {btntext1}
+//                 </Link>
+//                 <Link to="/" className="btn btn-black-transparent">
+//                   {btntext2}
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
+
+// export default MainHero

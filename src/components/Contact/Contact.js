@@ -13,7 +13,7 @@ export const fragment = graphql`
 
 const Contact = ({ title, btntext }) => {
   return (
-    <section className={styles.Section}>
+    <section id="book" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>

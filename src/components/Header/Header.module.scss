@@ -177,10 +177,70 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 40px !important;
+  width: 50px !important;
   height: 42px !important;
   box-shadow: none !important;
   border: none !important;
+  background: transparent !important;
+  padding-right: 0px !important;
+  transition: transform 0.3s;
+
+  svg {
+    height: 17px;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+
+    path {
+      fill: $white;
+    }
+  }
+}
+
+// floating menu start
+.FloatingMenu {
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  right: 0;
+  left: 0;
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  > div {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    border-right: solid 1px $white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  a {
+    font-size: 12px;
+    line-height: 17px;
+    color: $white;
+    letter-spacing: 0.72px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .OverflowFix {
+    display: flex;
+    flex-direction: row !important;
+  }
 }
 
 @media (max-width: 1599px) {
@@ -191,6 +251,7 @@
       padding: 20px !important;
     }
   }
+
   .RightSide {
     .PhoneWrapper {
       a {
@@ -262,21 +323,50 @@
     left: 0 !important;
     bottom: 0 !important;
     transition: transform 0.3s ease-in-out !important;
-    padding: 70px 18px 30px 16px;
+    padding: 70px 18px 60px 16px;
+  }
 
-    > div {
-      overflow: auto;
-      width: 100%;
-      padding-top: 30px;
-    }
+  .Navbar .NavCollapse a {
+    font-size: 24px !important;
+    line-height: 32px !important;
+    padding-left: 0 !important;
+    width: fit-content;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
 
-    .Dropdown {
-      background-color: $black;
-      padding-left: 20px;
-    }
+  .Navbar .NavCollapse .Dropdown a {
+    font-size: 20px !important;
+    line-height: 27px !important;
+    padding-left: 0 !important;
   }
 
   .NavbarToggler {
     margin-right: 15px !important;
+  }
+
+  // default styles for footer menu
+  .NavCollapseNew {
+    overflow: auto;
+    width: 100%;
+    padding-top: 30px;
+    flex-direction: column;
+
+    a {
+      font-size: 20px;
+      color: $white !important;
+      width: fit-content;
+      margin-top: 15px;
+    }
+
+    .Dropdown {
+      background-color: $black;
+
+      a {
+        color: $white !important;
+        font-size: 14px !important;
+        line-height: 27px !important;
+      }
+    }
   }
 }
