@@ -24,16 +24,17 @@ module.exports = {
         typeName: 'WordPress',
         fieldName: 'wordPress',
         url: 'http://canadamedlaser.wptestprev.icu/graphql',
-        refetchInterval: 10
+        refetchInterval: 60
       }
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Playfair Display:400,700,800,900', 'Open Sans:400,600,800']
+          families: ['Playfair Display:400,400i, 700', 'Open Sans:400,600,800']
         }
       }
-    }
+    },
+    `gatsby-plugin-catch-links`
   ]
 }

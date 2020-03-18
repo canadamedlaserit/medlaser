@@ -66,7 +66,6 @@ export class CustomNav extends Component {
                     ) : (
                       ""
                     )}
-                    {/* {console.log("mob" + this.props.isMobile)} */}
 
                     <Dropdown.Menu
                       className={`nav-item dropdown ${styles.Dropdown}`}

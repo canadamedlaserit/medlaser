@@ -24,6 +24,12 @@
   .NavCollapse {
     justify-content: flex-end;
 
+    @media (min-width: 992px) {
+      .Dropdown a {
+        color: $black !important;
+      }
+    }
+
     a {
       font-size: 24px;
       line-height: 32px;
@@ -76,7 +82,7 @@
   }
 }
 
-// dropdown
+// dropdown for top menu
 .Dropdown {
   margin-top: 0 !important;
 
@@ -311,7 +317,7 @@
   .NavCollapse {
     display: flex !important;
     flex-direction: column;
-    justify-content: start !important;
+    justify-content: flex-start !important;
     background: $black;
     height: 100vh !important;
     width: 100%;
@@ -349,7 +355,7 @@
   .NavCollapseNew {
     overflow: auto;
     width: 100%;
-    padding-top: 30px;
+    padding-top: 15px;
     flex-direction: column;
 
     a {

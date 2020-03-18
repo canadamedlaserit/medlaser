@@ -17,7 +17,7 @@ class Header extends Component {
 
     this.state = {
       isOpen: false,
-      windowWidth: 0,
+      windowWidth: 1440,
     }
   }
 
@@ -65,8 +65,8 @@ class Header extends Component {
     }
 
     const logo =
-      data.wpgraphql.pageBy.headerInfo.logo.imageFile.childImageSharp.fluid
-    const headerInfo = data.wpgraphql.pageBy.headerInfo
+      data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp.fluid
+    const headerInfo = data.wpgraphql.page.headerFooterInfo
 
     return (
       <header>
@@ -141,10 +141,7 @@ class Header extends Component {
           <div className={`container ${styles.container}`}>
             <Navbar.Brand className={styles.NavbarBrand}>
               <Link to="/" className={styles.Navbar_logo}>
-                <Img
-                  fluid={logo}
-                  alt={data.wpgraphql.pageBy.headerInfo.logo.altText}
-                />
+                <Img fluid={logo} alt={headerInfo.logo.altText} />
               </Link>
             </Navbar.Brand>
 
@@ -164,8 +161,7 @@ class Header extends Component {
                 styles.NavCollapse
               }`}
             >
-              {console.log(this.state.windowWidth)}
-
+              {console.log(this.state.windowWidth )}
               <CustomNav
                 isMobile={this.state.windowWidth > 991 ? false : true}
                 data={this.state.windowWidth > 991 ? mainMenu : mainMenuMobile}
@@ -177,8 +173,7 @@ class Header extends Component {
         <div className={styles.FloatingMenu}>
           {headerInfo.floatingmenu.map((item, index) => (
             <div key={index}>
-              <Link to={item.btnlink}>{item.btntext}</Link>
-
+              <a href={item.btnlink}>{item.btntext}</a>
             </div>
           ))}
         </div>

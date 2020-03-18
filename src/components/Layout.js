@@ -35,8 +35,8 @@ const Layout = ({ children, location }) => {
             }
           }
         }
-        pageBy(uri: "headerinfo") {
-          headerInfo {
+        page(id: "headerfooterinfo", idType: URI) {
+          headerFooterInfo {
             phone
             phoneurl
             btntext
@@ -54,9 +54,24 @@ const Layout = ({ children, location }) => {
               }
             }
             floatingmenu {
-              ... on WPGraphQL_Page_Headerinfo_floatingmenu {
+              ... on WPGraphQL_Page_Headerfooterinfo_floatingmenu {
                 btntext
                 btnlink
+              }
+            }
+            locationstitle
+            disclaimer
+            privacypolicy
+            socialstitle
+            privacypolicylink
+            locations {
+              ... on WPGraphQL_Page_Headerfooterinfo_locations {
+                info
+              }
+            }
+            socials {
+              ... on WPGraphQL_Page_Headerfooterinfo_socials {
+                link
               }
             }
           }
@@ -64,7 +79,6 @@ const Layout = ({ children, location }) => {
       }
     }
   `)
-
 
   return (
     <>

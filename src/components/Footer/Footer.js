@@ -8,6 +8,7 @@ class Footer extends Component {
   render() {
     const { data } = this.props
     const menus = data.wpgraphql.menus.edges
+    const footerInfo = data.wpgraphql.page.headerFooterInfo
     var footerMenu
 
     for (const menu in menus) {
@@ -20,8 +21,6 @@ class Footer extends Component {
       <footer className={styles.Footer}>
         <div className={`container ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
-            {console.log(footerMenu)}
-
             <div className={styles.NavWrapper}>
               <Navbar expand="lg">
                 <CustomNav isMobile={true} data={footerMenu} />
@@ -32,7 +31,7 @@ class Footer extends Component {
               if (node.childItems.edges.length !== 0) {
                 const submenu = node.childItems.edges
                 return (
-                  <div className="col-md-3" key={index}>
+                  <div className={`col-md-3 ${styles.DesktopMenu}`} key={index}>
                     <h3>{node.label}</h3>
                     <ul>
                       {submenu.map(({ node }, index) => (
@@ -44,21 +43,59 @@ class Footer extends Component {
                   </div>
                 )
               } else {
-                return (
-                  <div className="col-md-3" key={index}>
-                    <h3>{node.label}</h3>
-                  </div>
-                )
+                return('')
               }
             })}
 
-            {/* <div className="col-12">
-              <div className={styles.Footer_container}>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <div className={styles.LocatiosWrapper}>
+              <div className={styles.Locations}>
+                <div className="col-md-12">
+                  <h3 className={styles.Title}>{footerInfo.locationstitle}</h3>
+                </div>
+                {footerInfo.locations.map((single, index) => (
+                  <div
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: single.info }}
+                    className={`col-xl-3 col-lg-4 col-6 ${styles.LocationsCol}`}
+                  ></div>
+                ))}
               </div>
-            </div> */}
+            </div>
+
+            <div className={styles.SocialsWrapper}>
+              <div className="col-md-12">
+                <h3 className={styles.Title}>{footerInfo.socialstitle}</h3>
+              </div>
+
+              <div className={`col-md-12 ${styles.SocialsListWrapper}`}>
+                {footerInfo.socials.map((single, index) => (
+                  <a
+                    key={index}
+                    className={styles.SocialLink}
+                    href={single.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  ></a>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.PrivacyWrapper}>
+              <div className="col-md-12">
+                <Link className={styles.pp} to={footerInfo.privacypolicylink}>
+                  {footerInfo.privacypolicy}
+                </Link>
+
+                <p>{footerInfo.disclaimer}</p>
+              </div>
+            </div>
+
+            <div className={styles.CopyWrapper}>
+              <div className="col-md-12">
+                © Copyrights {new Date().getFullYear()} | All Rights Reserved |
+                Canada MedLaser Inc.
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -1,0 +1,45 @@
+.Section {
+  .Col {
+    min-height: 700px;
+  }
+  .TextSide {
+    display: flex;
+    align-items: center;
+
+    .TextSideWrapper {
+      max-width: 700px;
+      padding-left: 25px;
+      width: 100%;
+      margin-left: auto;
+      padding-right: 6%;
+    }
+
+    h3 {
+      text-align: left;
+      margin-bottom: 60px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    .Col {
+      min-height: 204px !important;
+    }
+    .TextSide {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .TextSideWrapper {
+      padding: 0 !important;
+    }
+
+    .TextSide h3 {
+      margin-bottom: 40px !important;
+    }
+
+    .Row {
+      flex-direction: column-reverse;
+    }
+  }
+}

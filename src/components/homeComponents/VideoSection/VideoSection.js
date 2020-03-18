@@ -24,9 +24,16 @@ export const fragment = graphql`
 `
 
 class VideoSection extends React.Component {
-  handlePlay(event) {
-    // event.target.pauseVideo()
-    // console.log('clicked')
+  state = {
+    started: false,
+  }
+
+  handleReady = () => {
+    this.setState({ started: true })
+  }
+
+  ref = player => {
+    this.player = player
   }
 
   render() {
@@ -38,17 +45,18 @@ class VideoSection extends React.Component {
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Col}`}>
-              <h2>{title}</h2>
+              <h2>{!this.state.started ? title : ""}</h2>
 
               <div className={styles.fic}></div>
               <div className={styles.PlayerWrapper}>
                 <ReactPlayer
+                  ref={this.ref}
                   className={styles.ReactPlayer}
                   playing
-                  playIcon={<Img className={styles.Icon} fluid={fluidImage}/>}
+                  playIcon={<Img className={styles.Icon} fluid={fluidImage} />}
                   url={videolink}
                   light={imagelink}
-                  onPlay={this.handlePlay()}
+                  onReady={this.handleReady}
                   width="100%"
                   height="100%"
                 />

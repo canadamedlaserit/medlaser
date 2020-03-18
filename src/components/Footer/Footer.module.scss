@@ -7,8 +7,7 @@
   .Container {
     max-width: 1712px;
     padding-top: 50px;
-    padding-bottom: 50px;
-
+    // padding-bottom: 50px;
   }
 
   .NavWrapper {
@@ -37,6 +36,125 @@
       }
     }
   }
+
+  .LocatiosWrapper {
+    width: 96%;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      padding-top: 15px;
+      display: block;
+      color: $white;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  .Title {
+    text-align: center;
+  }
+
+  .Locations {
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    > div {
+      margin-bottom: 30px;
+    }
+  }
+
+  .LocationsCol {
+    font-size: 14px;
+    line-height: 19px;
+    padding-right: 35px;
+  }
+
+  .SocialsWrapper {
+    width: 96%;
+    margin: auto;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .SocialLink {
+    display: block;
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:nth-child(1) {
+      background-image: url("../../images/youtube.svg");
+    }
+    &:nth-child(2) {
+      background-image: url("../../images/instagram.svg");
+    }
+    &:nth-child(3) {
+      background-image: url("../../images/facebook.svg");
+    }
+  }
+
+  .SocialsListWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .PrivacyWrapper {
+    width: 96%;
+    margin: auto;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+    font-size: 14px;
+
+    .pp {
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      color: $white;
+      text-decoration: underline;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
+  .CopyWrapper {
+    font-size: 14px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -45,16 +163,83 @@
   }
 }
 
-@media(max-width: 1599px) {
-    .Container {
-        padding-left: 35px;
-        padding-right: 35px;
-    }
+@media (max-width: 1599px) {
+  .Locations {
+    max-width: 900px !important;
+  }
+  .Container {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  .LocationsCol {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
 }
 
-@media(max-width: 767px) {
-    .Container {
-        padding-left: 15px;
-        padding-right: 15px;
+@media (max-width: 767px) {
+  .Container {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px !important;
+  }
+  .LocationsCol p {
+    font-size: 11px !important;
+    a:last-child {
+      font-size: 9px !important;
+      padding-right: 0px !important;
     }
+  }
+  .LocatiosWrapper,
+  .SocialsWrapper,
+  .PrivacyWrapper {
+    width: 100% !important;
+  }
+  .DesktopMenu {
+    display: none;
+  }
+  .LocationsCol {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .Footer {
+    padding-bottom: 60px;
+  }
+  .PrivacyWrapper {
+    font-size: 12px !important;
+    padding-top: 30px;
+    > div {
+      display: flex;
+      flex-direction: column-reverse;
+
+      a {
+        font-size: 14px !important;
+      }
+
+      p {
+        text-align: left;
+        line-height: 14px;
+      }
+    }
+  }
+  .CopyWrapper {
+    font-size: 12px;
+
+    > div {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+
+  .SocialLink {
+    margin-left: 8% !important;
+    margin-right: 8% !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .LocationsCol {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+  }
 }
