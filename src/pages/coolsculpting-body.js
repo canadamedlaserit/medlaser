@@ -2,6 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import InnerHero from "../components/InnerHero/InnerHero"
+import Contact from "../components/Contact/Contact"
+import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
+import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
+import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
+import VideoSlider from "../components/VideoSlider/VideoSlider"
 
 export const query = graphql`
   {
@@ -13,6 +18,13 @@ export const query = graphql`
           sections {
             __typename
             ...InnerHeroSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
+              fieldGroupName
+            }
+            ...BiggerLeftWithButtonsSection
+            ...TextFullWidthSection
+            ...BeforeAfterSection
+            ...VideoSliderSection
           }
         }
       }
@@ -31,6 +43,21 @@ const CoolsculptingBody = ({ data, location }) => {
         switch (typeName) {
           case "WPGraphQL_Page_Sectionfields_Sections_Innerhero":
             return <InnerHero key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
+            return <Contact key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Biggerleftwithbuttons":
+            return <BiggerLeftWithButtons key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Textfullwidth":
+            return <TextFullWidth key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Videoslider":
+            return <VideoSlider key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
+            return <BeforeAfter key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

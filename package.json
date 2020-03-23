@@ -17,6 +17,7 @@
     "axios": "^0.19.2",
     "body-scroll-lock": "^2.6.4",
     "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.18.12",
     "gatsby-background-image": "^0.10.2",
     "gatsby-image": "^2.2.40",
@@ -32,8 +33,10 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
     "react-id-swiper": "^3.0.0",
     "react-player": "^1.15.2",
+    "react-visibility-sensor": "^5.1.1",
     "swiper": "^5.3.6"
   },
   "devDependencies": {

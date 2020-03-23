@@ -26,6 +26,15 @@ const Layout = ({ children, location }) => {
                           id
                           label
                           url
+                          childItems {
+                            edges {
+                              node {
+                                id
+                                label
+                                url
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -42,6 +51,22 @@ const Layout = ({ children, location }) => {
             btntext
             btnlink
             cartlink
+            menuimages {
+              ... on WPGraphQL_Page_Headerfooterinfo_menuimages {
+                menuName
+                menuImage {
+                  sourceUrl
+                  altText
+                  imageFile {
+                    childImageSharp {
+                      fluid(maxWidth: 700) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                }
+              }
+            }
             logo {
               sourceUrl
               altText

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import SEO from "../components/particles/SEO"
 import MainHero from "../components/homeComponents/MainHero/MainHero"
 import Specials from "../components/homeComponents/Specials/Specials"
 import OurServices from "../components/homeComponents/OurServices/OurServices"
@@ -21,9 +22,32 @@ export const query = graphql`
         title
         description
       }
-      pageBy(uri: "home") {
+      page(id: "home", idType: URI) {
         id
         title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         sectionFields {
           sections {
             __typename
@@ -37,7 +61,9 @@ export const query = graphql`
             ...FullWidthImageSection
             ...ReviewsSection
             ...BeforeAfterSection
-            ...ContactSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
+              fieldGroupName
+            }
             ...LocationMapSection
           }
         }
@@ -47,10 +73,12 @@ export const query = graphql`
 `
 
 const Home = ({ data, location }) => {
-  const sections = data.wpgraphql.pageBy.sectionFields.sections
+  const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
     <Layout location={location}>
+      <SEO data={data.wpgraphql.page} />
+
       {sections.map((section, index) => {
         const typeName = section.__typename
 

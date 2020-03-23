@@ -26,7 +26,7 @@
 
     @media (min-width: 992px) {
       .Dropdown a {
-        color: $black !important;
+        color: $white !important;
       }
     }
 
@@ -36,6 +36,9 @@
       color: $white !important;
       padding-left: 23px !important;
       padding-right: 23px !important;
+
+      padding-top: 33px;
+      padding-bottom: 33px;
 
       &:hover {
         .dropdown-menu {
@@ -87,7 +90,7 @@
   margin-top: 0 !important;
 
   .InnerLink {
-    color: $black !important;
+    color: $white !important;
     padding-top: 7px !important;
     padding-bottom: 7px !important;
   }
@@ -247,6 +250,68 @@
     display: flex;
     flex-direction: row !important;
   }
+  .Dropdown {
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: $black;
+  }
+
+  .NavCollapse .MainLink {
+    position: inherit !important;
+  }
+
+  .DropdownWrapper {
+    width: 100%;
+    max-width: 1360px;
+    margin: 12px auto;
+    display: flex;
+    justify-content: space-between;
+
+    .ImageWrapper {
+      width: 45%;
+    }
+
+    .SubmenuWrapper {
+      width: 55%;
+
+      padding-left: 4%;
+
+      a {
+        width: 100%;
+      }
+    }
+    .SubmenuWrapper2 {
+      // display: flex;
+      width: 50%;
+      display: inline-block;
+      float: left;
+
+      &:nth-child(2) {
+        padding-left: 5%;
+      }
+
+    } 
+
+    .InnerLink2 {
+      font-family: "Playfair Display", sans-serif;
+      font-size: 20px !important;
+      text-transform: uppercase;
+      padding-top: 0 !important;
+      padding-bottom: 20px !important; 
+    }
+
+    .InnerLink {
+      font-family: "Open Sans", sans-serif;
+      font-size: 20px !important;
+      padding-top: 0 !important;
+      padding-bottom: 18px !important;
+
+      &:last-child {
+        padding-bottom: 0 !important;
+      }
+    }
+  }
 }
 
 @media (max-width: 1599px) {
@@ -279,6 +344,9 @@
   .NavCollapse a {
     font-size: 20px !important;
     line-height: 27px !important;
+
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
   }
 }
 
@@ -339,6 +407,9 @@
     width: fit-content;
     margin-bottom: 10px;
     margin-top: 0px;
+    // padding-top: 0.5rem 1rem;
+    padding-bottom: 0.5rem !important;
+    padding-top: 0.5rem !important;
   }
 
   .Navbar .NavCollapse .Dropdown a {

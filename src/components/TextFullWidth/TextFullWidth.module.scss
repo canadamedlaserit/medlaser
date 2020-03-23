@@ -1,0 +1,39 @@
+.Section {
+  padding-top: 120px;
+  padding-bottom: 105px;
+
+  .TextSideWrapper {
+    max-width: 914px;
+    margin: auto;
+  }
+
+  .Subtitle {
+    font-style: 28px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  .Content {
+    margin-top: 60px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 80px;
+    padding-bottom: 25px;
+
+    h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .Content {
+      margin-top: 40px;
+    }
+  }
+}

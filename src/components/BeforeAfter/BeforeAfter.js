@@ -31,7 +31,7 @@ export const fragment = graphql`
   }
 `
 
-const BeforeAfter = ({ title, subtitle, btntext, slides }) => {
+const BeforeAfter = ({ title, subtitle, btntext, btnlink, slides }) => {
   const params = {
     slidesPerView: 1,
     pagination: {
@@ -90,7 +90,7 @@ const BeforeAfter = ({ title, subtitle, btntext, slides }) => {
             <p className={styles.Subtitle}>{subtitle}</p>
             <Link
               className={`btn btn-small btn-black-transparent ${styles.Btn}`}
-              to="/"
+              to={btnlink}
             >
               {btntext}
             </Link>

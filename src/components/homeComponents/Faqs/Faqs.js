@@ -52,7 +52,7 @@ class Faqs extends Component {
             <div className={`col-md-12`}>
               <div className={styles.TitlesWrapper}>
                 <h2>{title}</h2>
-                <h2>{subtitle}</h2>
+                <h2 className={styles.Subtitle}>{subtitle}</h2>
               </div>
             </div>
             <div className={`col-md-7 biggerSide ${styles.TextSide}`}>

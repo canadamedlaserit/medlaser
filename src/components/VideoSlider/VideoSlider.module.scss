@@ -1,0 +1,105 @@
+@import "../../styles/_variables";
+
+.Section {
+  background-color: $black;
+  color: $white;
+  padding-top: 100px;
+  padding-bottom: 60px;
+
+  h3 {
+    text-align: left;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  svg path {
+    fill: $white;
+  }
+
+  .SwiperSlide {
+    // position: relative;
+    // padding-top: 24.75%;
+    margin-right: 20px;
+
+    max-width: 44%;
+    // min-height: 400px;
+    background-color: transparent;
+  }
+
+  .SwiperWrapper {
+    padding-right: 0px;
+    padding-left: 8%;
+  }
+
+  .InsideSlider {
+    position: relative;
+    // padding-top: 24.75%;
+    padding-top: 56.25%;
+  }
+
+  .Inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 40px;
+    padding-bottom: 25px;
+
+    h3 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    h5 {
+      font-size: 12px;
+      line-height: 17px;
+      margin-bottom: 15px;
+    }
+    .Titles {
+      padding-left: 15px;
+      margin-bottom: 36px;
+    }
+
+    .SwiperWrapper {
+      padding-left: 15px;
+    }
+
+    .SwiperSlide {
+      margin-right: 7px;
+      max-width: 77%;
+    }
+  }
+}
+
+// @media(min-width: 1599px) {
+//     .Section {
+//         .Row {
+//             justify-content: flex-end;
+//         }
+//         .SwiperWrapper, .Titles {
+//             flex: 0 0 91.666667%;
+//             max-width: 91.666667%;
+//         }
+//     }
+// }
+
+// @media(min-width: 1920px) {
+//     .Section {
+//         .Row {
+//             justify-content: flex-end;
+//         }
+//         .SwiperWrapper, .Titles {
+//             flex: 0 0 83.333333%;
+//             max-width: 83.333333%;
+//         }
+//     }
+// }

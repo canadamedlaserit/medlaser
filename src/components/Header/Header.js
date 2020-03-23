@@ -161,10 +161,11 @@ class Header extends Component {
                 styles.NavCollapse
               }`}
             >
-              {console.log(this.state.windowWidth )}
+              {/* {console.log(this.state.windowWidth )} */}
               <CustomNav
                 isMobile={this.state.windowWidth > 991 ? false : true}
                 data={this.state.windowWidth > 991 ? mainMenu : mainMenuMobile}
+                menuimages={data.wpgraphql.page.headerFooterInfo.menuimages}
               />
             </Navbar.Collapse>
           </div>
