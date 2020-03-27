@@ -1,0 +1,106 @@
+.Section {
+  h3 {
+    margin-top: 90px;
+    margin-bottom: 0px;
+  }
+
+  h4 {
+    text-transform: none;
+    text-align: left !important;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 50px;
+  }
+
+  .Row {
+    margin-top: 45px;
+  }
+
+  .ImageSide {
+    min-height: 390px;
+  }
+
+  .TextRight {
+    .TextSide {
+      max-width: 840px;
+      padding-left: 35px;
+      width: 100%;
+      margin-left: auto;
+      padding-right: 7%;
+    }
+  }
+
+  .TextLeft {
+    .TextSide {
+      max-width: 840px;
+      padding-right: 35px;
+      width: 100%;
+      margin-right: auto;
+      padding-left: 7%;
+    }
+  }
+
+  .TextSideWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .buttonsWrapper {
+    margin-top: 30px;
+    a {
+      margin-left: 0;
+    }
+  }
+  .RowsWrapper {
+    padding-top: 35px;
+    padding-bottom: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    h3 {
+      font-size: 22px;
+      line-height: 33px;
+      margin-top: 50px;
+    }
+    h4 {
+      font-size: 18px;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    .ImageSide {
+      min-height: 203px;
+    }
+    .RowsWrapper {
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+    .TextSide {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+    .Row {
+      margin-top: 0 !important;
+    }
+
+    .TextRight {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .buttonsWrapper {
+      a {
+        height: 50px;
+        font-size: 14px !important;
+        max-width: 256px;
+        margin: auto;
+      }
+    }
+  }
+}

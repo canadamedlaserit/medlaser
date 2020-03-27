@@ -1,0 +1,39 @@
+@import "../../styles/_variables";
+
+.Area {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 35px;
+  }
+
+  .AreaImage {
+    border-radius: 50%;
+    width: 102px;
+    min-width: 102px;
+    height: auto;
+    margin-right: 30px;
+  }
+
+  h5 {
+    font-size: 28px;
+    line-height: 35px;
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 767px) {
+  .Area {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    .AreaImage {
+      width: 65px;
+      min-width: 65px;
+      margin-right: 23px;
+    }
+  }
+}

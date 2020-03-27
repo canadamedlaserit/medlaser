@@ -119,7 +119,11 @@ export class CustomNav extends Component {
                           ""
                         )}
 
-                        <div className={`${menuimages ? `${styles.SubmenuWrapper}`  : ''}`}>
+                        <div
+                          className={`${
+                            menuimages ? `${styles.SubmenuWrapper}` : ""
+                          }`}
+                        >
                           {submenu.map(({ node }) => {
                             if (node.childItems.edges.length !== 0) {
                               const submenu = node.childItems.edges

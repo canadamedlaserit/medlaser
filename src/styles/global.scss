@@ -64,6 +64,10 @@ h4 {
   font-weight: 700;
 }
 
+.transition {
+  transition: .3s ease-in-out;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -449,9 +453,9 @@ main {
   }
 }
 @media (max-width: 1599px) {
-  body {
-    font-size: 16px;
-  }
+  // body {
+  //   font-size: 16px;
+  // }
   h1 {
     font-size: 38px;
     line-height: 60px;

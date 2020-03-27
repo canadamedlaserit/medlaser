@@ -10,6 +10,8 @@ import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
 import VideoSlider from "../components/VideoSlider/VideoSlider"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
+import TwoSidesLinks from "../components/TwoSidesLinks/TwoSidesLinks"
+import LocationMap from "../components/LocationMap/LocationMap"
 
 export const query = graphql`
   {
@@ -17,6 +19,29 @@ export const query = graphql`
       page(id: "laser-hair-removal", idType: URI) {
         id
         title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         sectionFields {
           sections {
             __typename
@@ -31,6 +56,8 @@ export const query = graphql`
             ...BiggerRightWithButtonsSection
             ...BeforeAfterSection
             ...VideoSliderSection
+            ...TwoSidesLinksSection
+            ...LocationMapSection
           }
         }
       }
@@ -73,6 +100,12 @@ const LaserHairRemoval = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
             return <BeforeAfter key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Twosideslinks":
+            return <TwoSidesLinks key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
+            return <LocationMap key={index} {...section} />
 
           default:
             return console.log("")

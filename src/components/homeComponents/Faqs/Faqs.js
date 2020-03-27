@@ -9,20 +9,26 @@ export const fragment = graphql`
   fragment FaqsSection on WPGraphQL_Page_Sectionfields_Sections_Faqs {
     title
     subtitle
+    type
     image {
       altText
       sourceUrl
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 654) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
     }
-
     list {
       ... on WPGraphQL_Page_Sectionfields_Sections_Faqs_list {
+        title
+        text
+      }
+    }
+    list2 {
+      ... on WPGraphQL_Page_Sectionfields_Sections_Faqs_list2 {
         title
         text
       }
@@ -33,6 +39,7 @@ export const fragment = graphql`
 class Faqs extends Component {
   state = {
     activeAccordion: 0,
+    activeAccordion2: -111,
   }
 
   handleAccordion = index => {
@@ -40,13 +47,22 @@ class Faqs extends Component {
       activeAccordion: index,
     })
   }
+  handleAccordion2 = index => {
+    this.setState({
+      activeAccordion2: index,
+    })
+  }
 
   render() {
-    const { title, subtitle, image, list } = this.props
-    const fluidImage = image.imageFile.childImageSharp.fluid
+    const { title, subtitle, image, list, list2, type } = this.props
+    // const fluidImage = image.imageFile.childImageSharp.fluid
 
     return (
-      <section className={`${styles.Section}`}>
+      <section
+        className={`${styles.Section} ${
+          type === "two-columns" ? `${styles.TwoColumnsSection}` : ""
+        }`}
+      >
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
@@ -55,7 +71,11 @@ class Faqs extends Component {
                 <h2 className={styles.Subtitle}>{subtitle}</h2>
               </div>
             </div>
-            <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
+            <div
+              className={`col-md-7 biggerSide ${styles.TextSide} ${
+                type === "two-columns" ? `${styles.TwoColumnsFaqs}` : ""
+              }`}
+            >
               <div className={styles.AccordionWrapper}>
                 <Accordion defaultActiveKey={this.state.activeAccordion}>
                   {list.map((single, index) => (
@@ -103,10 +123,64 @@ class Faqs extends Component {
               </div>
             </div>
 
-            <BackgroundImage
-              className={`col-md-5 smallerSide ${styles.ImageSide}`}
-              fluid={fluidImage}
-            ></BackgroundImage>
+            {image ? (
+              <BackgroundImage
+                className={`col-md-5 smallerSide ${styles.ImageSide}`}
+                fluid={image.imageFile.childImageSharp.fluid}
+              ></BackgroundImage>
+            ) : (
+              <div
+                className={`col-md-7 biggerSide ${styles.TextSide} ${
+                  type === "two-columns" ? `${styles.TwoColumnsFaqs}` : ""
+                }`}
+              >
+                <div className={styles.AccordionWrapper}>
+                  <Accordion defaultActiveKey={this.state.activeAccordion2}>
+                    {list2.map((single, index) => (
+                      <div className={styles.Question} key={index}>
+                        <Card className={styles.Card}>
+                          <Accordion.Toggle
+                            onClick={e => {
+                              this.handleAccordion2(index)
+                            }}
+                            className={`${
+                              this.state.activeAccordion2 === index
+                                ? `${styles.Active}`
+                                : ""
+                            } ${styles.Header}`}
+                            as={Card.Header}
+                            eventKey={index}
+                          >
+                            <div className={styles.Arrow}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="8"
+                                height="18"
+                                viewBox="0 0 8 18"
+                              >
+                                <defs></defs>
+                                <path
+                                  d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
+                                  transform="translate(-128.003)"
+                                />
+                              </svg>
+                            </div>
+                            {single.title}
+                          </Accordion.Toggle>
+
+                          <Accordion.Collapse eventKey={index}>
+                            <Card.Body
+                              className={styles.Body}
+                              dangerouslySetInnerHTML={{ __html: single.text }}
+                            ></Card.Body>
+                          </Accordion.Collapse>
+                        </Card>
+                      </div>
+                    ))}
+                  </Accordion>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

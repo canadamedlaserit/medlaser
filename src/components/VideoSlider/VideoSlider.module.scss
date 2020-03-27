@@ -20,13 +20,13 @@
     fill: $white;
   }
 
-  .SwiperSlide {
-    // position: relative;
-    // padding-top: 24.75%;
-    margin-right: 20px;
+  .Titles {
+    margin-bottom: 50px;
+  }
 
+  .SwiperSlide {
+    margin-right: 20px;
     max-width: 44%;
-    // min-height: 400px;
     background-color: transparent;
   }
 
@@ -37,7 +37,6 @@
 
   .InsideSlider {
     position: relative;
-    // padding-top: 24.75%;
     padding-top: 56.25%;
   }
 

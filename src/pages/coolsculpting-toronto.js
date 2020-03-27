@@ -9,6 +9,11 @@ import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLef
 import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 import VideoSlider from "../components/VideoSlider/VideoSlider"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
+import TwoSidesLinks from "../components/TwoSidesLinks/TwoSidesLinks"
+import LocationMap from "../components/LocationMap/LocationMap"
+import TreatmentAreas2 from "../components/TreatmentAreas/TreatmentAreas2"
+import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
+import Faqs from "../components/homeComponents/Faqs/Faqs"
 
 export const query = graphql`
   {
@@ -50,6 +55,11 @@ export const query = graphql`
             ...TextFullWidthSection
             ...VideoSliderSection
             ...BeforeAfterSection
+            ...TwoSidesLinksSection
+            ...LocationMapSection
+            ...TreatmentAreas2Section
+            ...LeftRightMultipleSection
+            ...FaqsSection
           }
         }
       }
@@ -84,6 +94,21 @@ const Coolsculpting = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
             return <BeforeAfter key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Twosideslinks":
+            return <TwoSidesLinks key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
+            return <LocationMap key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Treatmentareas2":
+            return <TreatmentAreas2 key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple":
+            return <LeftRightMultiple key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
+            return <Faqs key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

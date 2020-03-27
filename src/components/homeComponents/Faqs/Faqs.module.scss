@@ -12,6 +12,20 @@
   }
 }
 
+.TwoColumnsSection {
+  max-width: 1780px;
+  margin: auto;
+
+  .TwoColumnsFaqs {
+    max-width: 50%;
+    flex: 0 0 50%;
+
+    .AccordionWrapper {
+      max-width: none;
+    }
+  }
+}
+
 .AccordionWrapper {
   max-width: 953px;
   padding-right: 6% !important;
@@ -110,6 +124,7 @@
     .AccordionWrapper {
       padding-top: 0 !important;
       padding-right: 0 !important;
+      padding-bottom: 0px;
     }
 
     .Subtitle {
@@ -132,6 +147,21 @@
       padding-left: 20px;
       padding-top: 0.8rem;
       padding-bottom: 0.8rem;
+      font-size: 18px !important;
     }
   }
+
+  
+.TwoColumnsSection {
+
+
+  .TwoColumnsFaqs {
+    max-width: 100%;
+    flex: 0 0 100%;
+
+    .AccordionWrapper {
+      max-width: none;
+    }
+  }
+}
 }
