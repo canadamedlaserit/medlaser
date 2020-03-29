@@ -19,7 +19,7 @@ export const fragment = graphql`
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -41,25 +41,31 @@ class InnerHero extends Component {
       backgroundimage,
     } = this.props
 
-    const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
+    // const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
+
+    // console.log(backgroundimage.imageFile)
 
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.RowTop}`}>
-            <BackgroundImage
-              className={`col-md-12 ${styles.ImgCol}`}
-              fluid={fluidImage}
-            >
-              <div className={styles.innerWrapper}>
-                <h1>
-                  {title}
-                  <span className={styles.Label}>{label}</span>
-                </h1>
-              </div>
-              <div className={styles.Overlay}></div>
-              <div className={styles.Hatch}></div>
-            </BackgroundImage>
+            {backgroundimage ? (
+              <BackgroundImage
+                className={`col-md-12 ${styles.ImgCol}`}
+                fluid={backgroundimage.imageFile.childImageSharp.fluid}
+              >
+                <div className={styles.innerWrapper}>
+                  <h1>
+                    {title}
+                    <span className={styles.Label}>{label}</span>
+                  </h1>
+                </div>
+                <div className={styles.Overlay}></div>
+                <div className={styles.Hatch}></div>
+              </BackgroundImage>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className={`row ${styles.RowBot}`}>

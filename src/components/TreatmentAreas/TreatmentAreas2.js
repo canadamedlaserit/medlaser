@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import Areas from "./Areas"
 
 import styles from "./TreatmentAreas2.module.scss"

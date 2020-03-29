@@ -12,6 +12,8 @@ import VideoSlider from "../components/VideoSlider/VideoSlider"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import TwoSidesLinks from "../components/TwoSidesLinks/TwoSidesLinks"
 import LocationMap from "../components/LocationMap/LocationMap"
+import SEO from "../components/particles/SEO"
+
 
 export const query = graphql`
   {
@@ -70,6 +72,8 @@ const LaserHairRemoval = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <SEO data={data.wpgraphql.page} />
+
       {sections.map((section, index) => {
         const typeName = section.__typename
 

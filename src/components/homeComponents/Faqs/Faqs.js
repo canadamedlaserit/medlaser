@@ -57,6 +57,9 @@ class Faqs extends Component {
     const { title, subtitle, image, list, list2, type } = this.props
     // const fluidImage = image.imageFile.childImageSharp.fluid
 
+
+    // console.log(image)
+    // console.log(type)
     return (
       <section
         className={`${styles.Section} ${
@@ -123,7 +126,7 @@ class Faqs extends Component {
               </div>
             </div>
 
-            {image ? (
+            { type === "normal" ? (
               <BackgroundImage
                 className={`col-md-5 smallerSide ${styles.ImageSide}`}
                 fluid={image.imageFile.childImageSharp.fluid}

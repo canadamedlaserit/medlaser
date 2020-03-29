@@ -59,6 +59,7 @@ const CosmeticInjections = ({ data, location }) => {
             return console.log("You done. Default thing")
         }
       })}
+      hi
     </Layout>
   )
 }

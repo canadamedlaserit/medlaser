@@ -8,6 +8,8 @@ import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
 import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerRightWithButtons"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
+import SkinTypes from "../components/SkinTypes/SkinTypes"
+import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
 
 export const query = graphql`
   {
@@ -27,6 +29,8 @@ export const query = graphql`
             ...FaqsSection
             ...BeforeAfterSection
             ...BiggerRightWithButtonsSection
+            ...SkinTypesSection
+            ...ThreeImageLinksSection
           }
         }
       }
@@ -63,6 +67,12 @@ const CoolsculptingDoubleChin = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
             return <BeforeAfter key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Skintypes":
+            return <SkinTypes key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Threeimagelinks":
+            return <ThreeImageLinks key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

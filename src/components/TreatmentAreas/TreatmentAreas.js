@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import Areas from './Areas'
+import Areas from "./Areas"
 
 import styles from "./TreatmentAreas.module.scss"
 
@@ -41,18 +40,7 @@ const TreatmentAreas = ({ title, content, areas }) => {
 
           <div className={`col-md-6 ${styles.Col} ${styles.ListSide}`}>
             <div className={styles.InnerWrapper}>
-
               <Areas areas={areas} />
-
-              {/* {areas.map((area, index) => (
-                <div key={index} className={styles.Area}>
-                  <Img
-                    className={styles.AreaImage}
-                    fluid={area.image.imageFile.childImageSharp.fluid}
-                  ></Img>
-                  <h5>{area.title}</h5>
-                </div>
-              ))} */}
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLef
 import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import VideoSlider from "../components/VideoSlider/VideoSlider"
+import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
+import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
 
 export const query = graphql`
   {
@@ -25,6 +27,8 @@ export const query = graphql`
             ...TextFullWidthSection
             ...BeforeAfterSection
             ...VideoSliderSection
+            ...ThreeImageLinksSection
+            ...LeftRightMultipleSection
           }
         }
       }
@@ -58,6 +62,12 @@ const CoolsculptingBody = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
             return <BeforeAfter key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Threeimagelinks":
+            return <ThreeImageLinks key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple":
+            return <LeftRightMultiple key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

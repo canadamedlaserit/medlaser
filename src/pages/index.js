@@ -22,7 +22,7 @@ export const query = graphql`
         title
         description
       }
-      page(id: "home", idType: URI) {
+      pageBy(uri: "home") {
         id
         title
         slug
@@ -73,11 +73,11 @@ export const query = graphql`
 `
 
 const Home = ({ data, location }) => {
-  const sections = data.wpgraphql.page.sectionFields.sections
+  const sections = data.wpgraphql.pageBy.sectionFields.sections
 
   return (
     <Layout location={location}>
-      <SEO data={data.wpgraphql.page} />
+      <SEO data={data.wpgraphql.pageBy} />
 
       {sections.map((section, index) => {
         const typeName = section.__typename
@@ -101,11 +101,13 @@ const Home = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
             return <LookYounger key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
-            return <Faqs key={index} {...section} />
-
+      
           case "WPGraphQL_Page_Sectionfields_Sections_Fullwidthimage":
             return <FullWidthImage key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
+              return <Faqs key={index} {...section} />
+  
 
           case "WPGraphQL_Page_Sectionfields_Sections_Googlereviews":
             return <Reviews key={index} {...section} />

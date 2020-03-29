@@ -28,21 +28,24 @@
   }
 
   .Tone {
+    &:not(:first-child) {
+      margin-top: 70px;
+    }
     h5 {
       font-size: 24px !important;
       line-height: 36px;
       font-weight: 700 !important;
       font-family: "Playfair Display", sans-serif !important;
       margin-bottom: 35px;
+     
     }
 
     img {
       margin-right: 35px;
+      max-width: 79px;
     }
 
-    &:first-child {
-      margin-bottom: 70px;
-    }
+    
   }
 }
 
