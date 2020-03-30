@@ -12,7 +12,7 @@ const ImgRight = ({ data }) => {
     <div className={`row ${styles.Row} ${styles.TextRight}`}>
       <div className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}>
         <div className={styles.TextSideWrapper}>
-          <h4>{title}</h4>
+          {title ? <h4>{title}</h4> : ""}
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
 
           {btntext ? (

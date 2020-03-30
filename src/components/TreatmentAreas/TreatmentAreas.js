@@ -40,7 +40,8 @@ const TreatmentAreas = ({ title, content, areas }) => {
 
           <div className={`col-md-6 ${styles.Col} ${styles.ListSide}`}>
             <div className={styles.InnerWrapper}>
-              <Areas areas={areas} />
+              {areas ? ( <Areas areas={areas} />) : ''}
+             
             </div>
           </div>
         </div>

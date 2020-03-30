@@ -16,6 +16,10 @@
     padding-left: 40px;
     background-color: $black;
     color: $white;
+
+    a {
+      color: #e8e8e8;
+    }
   }
 
   .GreySide {
@@ -24,6 +28,10 @@
     padding-left: 40px;
     padding-right: 7%;
     background-color: $grey-mid;
+
+    a {
+      color: #000000;
+    }
   }
 
   .Hatch {
@@ -49,6 +57,15 @@
       transparent 100%
     );
     background-size: 12.73px 12.73px;
+  }
+
+  a {
+    font-size: 22px;
+    line-height: 35px;
+    text-decoration: underline;
+    letter-spacing: 0;
+    display: block;
+    font-family: "Playfair Display", sans-serif;
   }
 
   h3 {

@@ -18,8 +18,8 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1200) {
-            ...GatsbyImageSharpFluid
+          fluid(quality: 100, maxWidth: 960) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -57,7 +57,7 @@ class InnerHero extends Component {
                 <div className={styles.innerWrapper}>
                   <h1>
                     {title}
-                    <span className={styles.Label}>{label}</span>
+                    {label ? (<span className={styles.Label}>{label}</span>) : '' }
                   </h1>
                 </div>
                 <div className={styles.Overlay}></div>

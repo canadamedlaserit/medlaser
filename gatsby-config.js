@@ -20,8 +20,8 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `http://canadamedlaser.wptestprev.icu/graphql`,
-      },
+        url: `http://canadamedlaser.wptestprev.icu/graphql`
+      }
     },
     {
       resolve: 'gatsby-source-graphql',
@@ -29,7 +29,7 @@ module.exports = {
         typeName: 'WordPress',
         fieldName: 'wordPress',
         url: 'http://canadamedlaser.wptestprev.icu/graphql',
-        refetchInterval: 10
+        refetchInterval: 60
       }
     },
     {

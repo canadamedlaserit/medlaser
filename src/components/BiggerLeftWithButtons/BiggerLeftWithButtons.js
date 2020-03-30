@@ -19,7 +19,7 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1000) {
+          fluid(quality: 100, maxWidth: 800) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -63,7 +63,7 @@ const BiggerLeftWithButtons = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              <h3 style={{ color: textcolor }}>{title}</h3>
+              {title ? <h3 style={{ color: textcolor }}>{title}</h3> : ""}
 
               <div
                 style={{ color: textcolor }}
@@ -77,7 +77,7 @@ const BiggerLeftWithButtons = ({
                 </a>
                 {btntext2 ? (
                   <a
-                    to={btnlink2}
+                    href={btnlink2}
                     className="btn btn-mid btn-black-transparent"
                   >
                     {btntext2}

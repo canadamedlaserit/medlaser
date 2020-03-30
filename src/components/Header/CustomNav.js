@@ -203,7 +203,7 @@ export class CustomNav extends Component {
                                       className={`${styles.InnerLink2} nav-link`}
                                       to={node.url}
                                     >
-                                      {node.label}asd
+                                      {node.label}
                                     </Link>
                                     {submenu.map(({ node }) => (
                                       <Link
