@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 import styles from "./FullWidthImageRedBtn.module.scss"

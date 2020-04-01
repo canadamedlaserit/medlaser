@@ -1,0 +1,41 @@
+.Section {
+    padding-top: 80px;
+    padding-bottom: 0;
+  
+    .TextSideWrapper {
+      max-width: 914px;
+      margin: auto;
+    }
+  
+    .Subtitle {
+      font-style: 28px;
+    }
+  
+    h3 {
+      margin-bottom: 20px;
+    }
+  
+    .Content {
+      text-align: center;
+      line-height: 33px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .Section {
+      padding-top: 80px;
+      padding-bottom: 0px;
+  
+      h3 {
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 30px;
+      }
+  
+      .Content {
+        font-size: 14px !important;
+        line-height: 21px;
+      }
+    }
+  }
+  

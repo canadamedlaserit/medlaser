@@ -38,7 +38,6 @@ const LeftRightMultiple = ({
   textcolor,
 }) => {
 
-  console.log(title)
   return (
     <section
       style={{ backgroundColor: backgroundcolor, color: textcolor }}

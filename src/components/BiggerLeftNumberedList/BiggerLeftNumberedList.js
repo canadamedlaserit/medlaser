@@ -1,20 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import styled from "styled-components"
 
-import styles from "./BiggerLeftWithButtons.module.scss"
+import styles from "./BiggerLeftNumberedList.module.scss"
 
 export const fragment = graphql`
-  fragment BiggerLeftWithButtonsSection on WPGraphQL_Page_Sectionfields_Sections_Biggerleftwithbuttons {
-    maintitle
+  fragment BiggerLeftNumberedListSection on WPGraphQL_Page_Sectionfields_Sections_Biggerleftnumberedlist {
     title
+    subtitle
     content
     backgroundcolor
     textcolor
-    btntext1
-    btntext2
-    btnlink1
-    btnlink2
     image {
       sourceUrl
       imageFile {
@@ -25,33 +22,47 @@ export const fragment = graphql`
         }
       }
     }
+    mobileimage {
+      sourceUrl
+      imageFile {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 450) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+    }
   }
 `
 
-const BiggerLeftWithButtons = ({
-  maintitle,
+const BiggerLeftNumberedList = ({
   title,
+  subtitle,
   content,
   backgroundcolor,
   textcolor,
-  btntext1,
-  btntext2,
-  btnlink1,
-  btnlink2,
   image,
+  mobileimage,
 }) => {
   const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImageMobile = mobileimage.imageFile.childImageSharp.fluid
+
+
+
+//   const TextSide = styled.div`
+//     @media only screen and (max-width: 767px) {
+//       background-color: ${imagecontent ? "#000000" : "#ffffff"};
+//       color: ${imagecontent ? "#ffffff" : "#000000"};
+//     }
+//   `
 
   return (
-    <section
-      style={{ backgroundColor: backgroundcolor }}
-      className={styles.Section}
-    >
+    <section className={styles.Section}>
       <div className={`container-fluid `}>
-        {maintitle ? (
+        {title ? (
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
-              <h2 style={{ color: textcolor }}>{maintitle}</h2>
+              <h3>{title}</h3>
             </div>
           </div>
         ) : (
@@ -63,34 +74,12 @@ const BiggerLeftWithButtons = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              {title ? <h3 style={{ color: textcolor }}>{title}</h3> : ""}
+              {subtitle ? <h5>{subtitle}</h5> : ""}
 
               <div
-                style={{ color: textcolor }}
                 className="content text"
                 dangerouslySetInnerHTML={{ __html: content }}
               ></div>
-
-              <div className={styles.buttonsWrapper}>
-                {btntext1 ? (
-                  <a href={btnlink1} className="btn btn-mid btn-red">
-                    {btntext1}
-                  </a>
-                ) : (
-                  ""
-                )}
-
-                {btntext2 ? (
-                  <a
-                    href={btnlink2}
-                    className="btn btn-mid btn-black-transparent"
-                  >
-                    {btntext2}
-                  </a>
-                ) : (
-                  ""
-                )}
-              </div>
             </div>
           </div>
 
@@ -104,4 +93,4 @@ const BiggerLeftWithButtons = ({
   )
 }
 
-export default BiggerLeftWithButtons
+export default BiggerLeftNumberedList

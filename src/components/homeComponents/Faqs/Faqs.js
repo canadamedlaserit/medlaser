@@ -58,8 +58,8 @@ class Faqs extends Component {
     // const fluidImage = image.imageFile.childImageSharp.fluid
 
 
-    console.log(image)
-    console.log(type)
+    // console.log(image)
+    // console.log(type)
     return (
       <section
         className={`${styles.Section} ${
