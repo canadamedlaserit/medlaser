@@ -13,17 +13,13 @@ export const fragment = graphql`
 
 const TextFullWidthFont = ({ title, content, fontsizedesktop }) => {
   return (
-    <section
-      className={styles.Section}
-    >
+    <section className={styles.Section}>
       <div className={`container `}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
               {title ? (
-                <h3
-                  dangerouslySetInnerHTML={{ __html: title }}
-                ></h3>
+                <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
               ) : (
                 ""
               )}

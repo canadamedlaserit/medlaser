@@ -10,6 +10,8 @@ export const fragment = graphql`
     listcontent
     btntext
     btnlink
+    backgroundcolor
+    textcolor
   }
 `
 
@@ -19,9 +21,14 @@ const TextFullWidthListsButton = ({
   listcontent,
   btntext,
   btnlink,
+  backgroundcolor,
+  textcolor,
 }) => {
   return (
-    <section className={styles.Section}>
+    <section
+      className={styles.Section}
+      style={{ backgroundColor: backgroundcolor, color: textcolor }}
+    >
       <div className={`container ${styles.Container} `}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
@@ -38,12 +45,15 @@ const TextFullWidthListsButton = ({
                 className={`content text ${styles.Content2}`}
                 dangerouslySetInnerHTML={{ __html: listcontent }}
               ></div>
-
-              <div className={styles.buttonsWrapper}>
-                <a href={btnlink} className="btn btn-mid btn-red">
-                  {btntext}
-                </a>
-              </div>
+              {btntext ? (
+                <div className={styles.buttonsWrapper}>
+                  <a href={btnlink} className="btn btn-mid btn-red">
+                    {btntext}
+                  </a>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

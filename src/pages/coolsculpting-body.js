@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import SEO from "../components/particles/SEO"
 import InnerHero from "../components/InnerHero/InnerHero"
 import Contact from "../components/Contact/Contact"
 import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
@@ -16,6 +17,29 @@ export const query = graphql`
       page(id: "coolsculpting-body", idType: URI) {
         id
         title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         sectionFields {
           sections {
             __typename
@@ -41,6 +65,8 @@ const CoolsculptingBody = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <SEO data={data.wpgraphql.page} />
+
       {sections.map((section, index) => {
         const typeName = section.__typename
 

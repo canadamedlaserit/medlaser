@@ -1,0 +1,210 @@
+@import "../../styles/_variables";
+
+.Section {
+  ul {
+    padding-left: 20px;
+
+    li {
+      padding-bottom: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .Row {
+    margin: 0;
+  }
+
+  .Right {
+    background: #e8e8e8 0% 0% no-repeat padding-box;
+    padding-left: 0;
+
+    .TabContent {
+      max-width: 841px;
+    }
+  }
+
+  .Left {
+    padding-right: 0;
+
+    .InsideWrapper {
+      max-width: 500px;
+      margin-left: auto;
+      padding-top: 100px;
+      padding-bottom: 100px;
+
+      h3 {
+        text-align: left;
+        margin-bottom: 50px;
+      }
+
+      .TextWrapper {
+        max-width: 450px;
+      }
+    }
+  }
+
+  .TabList {
+    margin-top: 40px;
+
+    a {
+      background-color: $white !important;
+      color: $black;
+      text-align: left;
+      font-size: 22px;
+      line-height: 28px !important;
+      font-weight: 400;
+      letter-spacing: 0px;
+      padding: 15px 40px 15px 20px;
+      border-top: 2px solid #e8e8e8;
+      border-radius: 0 !important;
+      outline: none;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    > div {
+      &:last-child {
+        a {
+          border-bottom: 2px solid #e8e8e8;
+        }
+      }
+    }
+  }
+
+  .TabPane {
+    padding: 50px;
+
+    h3 {
+      font-size: 28px;
+      text-align: left;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .ButtonsWrapper {
+    margin-top: 30px;
+
+    a {
+      margin-left: 0 !important;
+      margin-right: auto;
+    }
+  }
+
+  // mobile part
+  .Question {
+    &:last-child {
+      .Header {
+        border-bottom: 1px solid #e8e8e8;
+      }
+    }
+  }
+  .AccordionWrapper {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  .Card {
+    border-radius: 0;
+    border: none;
+    background-color: $white;
+
+    h3 {
+      font-size: 20px;
+      line-height: 26px;
+      text-align: left;
+      letter-spacing: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .Arrow {
+    transform: rotate(90deg);
+    transition: all 0.3s;
+  }
+
+  .Header {
+    background-color: $white;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+
+    &.Active {
+      background-color: $grey-mid;
+      border-color: $grey-mid;
+
+      .Arrow {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  .Body {
+    transition: all 0.3s;
+  }
+
+  .ActiveBody {
+    background-color: $grey-mid;
+  }
+
+  .TextWrapperMobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .Link {
+    text-align: right;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.84px;
+    color: #9c1a3b;
+    text-transform: uppercase;
+    opacity: 1;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Section {
+    .TabList {
+      a {
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+      }
+    }
+
+    .TabPane {
+      padding: 50px 30px;
+
+      h3 {
+        font-size: 23px;
+        text-align: left;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .TextWrapper {
+      h3 {
+        text-align: center;
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 40px;
+      }
+
+      > div {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+    }
+
+    .ButtonsWrapper {
+      width: 100%;
+      text-align: right;
+    }
+  }
+}

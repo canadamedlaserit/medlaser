@@ -54,11 +54,15 @@ const FullWidthImageRedBtn = ({
                   ""
                 )}
 
-                <div className={styles.buttonsWrapper}>
-                  <a href={btnlink} className="btn btn-red">
-                    {btntext}
-                  </a>
-                </div>
+                {btntext ? (
+                  <div className={styles.buttonsWrapper}>
+                    <a href={btnlink} className="btn btn-red">
+                      {btntext}
+                    </a>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
 
               <div className={` ${styles.Overlay}`}></div>

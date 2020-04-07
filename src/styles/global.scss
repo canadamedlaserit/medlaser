@@ -331,11 +331,11 @@ main {
   }
 
   .swiper-button-prev {
-    background: #FFFFFF74 0% 0% no-repeat padding-box;
+    background: #ffffff74 0% 0% no-repeat padding-box;
     outline: none;
   }
   .swiper-button-next {
-    background: #FFFFFF74 0% 0% no-repeat padding-box;
+    background: #ffffff74 0% 0% no-repeat padding-box;
     outline: none;
   }
 
@@ -415,8 +415,6 @@ main {
 // red link in text
 .text {
   p {
-    // margin-bottom: 25px;
-
     a {
       color: $red;
       text-decoration: underline;
@@ -427,6 +425,21 @@ main {
     }
   }
 }
+
+// tabs left  start
+.tabs-arrow path {
+  fill: $grey;
+}
+.nav-pills .nav-link.active {
+  color: $black !important;
+  background-color: $grey-mid !important;
+  border-radius: 0 !important;
+
+  .tabs-arrow path {
+    fill: $black;
+  }
+}
+// tabs left end
 
 @media (min-width: 768px) {
   .special-swiper {
@@ -469,7 +482,6 @@ main {
 // swiper END
 
 // globals
-
 @media (min-width: 992px) {
   ::-webkit-scrollbar {
     width: 0.46875rem;
@@ -485,9 +497,6 @@ main {
   }
 }
 @media (max-width: 1599px) {
-  // body {
-  //   font-size: 16px;
-  // }
   h1 {
     font-size: 38px;
     line-height: 60px;

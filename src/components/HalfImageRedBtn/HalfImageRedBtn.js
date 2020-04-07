@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import styles from "./HalfImageRedBtn.module.scss"
 
@@ -48,16 +48,14 @@ class HalfImageRedBtn extends Component {
 
     const TextSide = styled.div`
       @media only screen and (max-width: 767px) {
-        background-color: ${imagecontent ? '#000000' : '#ffffff'};
-        color: ${imagecontent ? '#ffffff' : '#000000'};
-
+        background-color: ${imagecontent ? imageposition ==='right' ? "#000000" : "#ffffff" : ''};
+        color: ${imagecontent ? imageposition ==='right' ? "#ffffff" : "#000000" : ''};
       }
     `
 
     const Row = styled.div`
-    @media only screen and (max-width: 767px) {
-        flex-direction: ${imagecontent ? '' : 'column-reverse'} !important;
-
+      @media only screen and (max-width: 767px) {
+        flex-direction: ${imagecontent ? "" : "column-reverse"} !important;
       }
     `
 
@@ -79,7 +77,21 @@ class HalfImageRedBtn extends Component {
             className={`row ${styles.Row}`}
           >
             <TextSide className={`col-md-6 ${styles.TextSide} ${styles.Col}`}>
-              <div className={styles.InnerWrapper}>
+              <div
+                style={{
+                  marginRight: imageposition
+                    ? imageposition === "left"
+                      ? `auto`
+                      : "0"
+                    : "",
+                  marginLeft: imageposition
+                    ? imageposition === "left"
+                      ? `0`
+                      : "auto"
+                    : "",
+                }}
+                className={styles.InnerWrapper}
+              >
                 {texttitle ? <h3>{texttitle}</h3> : ""}
 
                 {textcontent ? (
@@ -97,7 +109,21 @@ class HalfImageRedBtn extends Component {
               className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}
               fluid={fluidImage}
             >
-              <div className={styles.InnerWrapper}>
+              <div
+                style={{
+                  marginRight: imageposition
+                    ? imageposition === "left"
+                      ? `0`
+                      : "auto"
+                    : "",
+                  marginLeft: imageposition
+                    ? imageposition === "left"
+                      ? `auto`
+                      : "0"
+                    : "",
+                }}
+                className={styles.InnerWrapper}
+              >
                 {imagetitle ? <h5>{imagetitle}</h5> : ""}
 
                 {imagecontent ? (

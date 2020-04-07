@@ -53,6 +53,8 @@ class InnerHero extends Component {
               <BackgroundImage
                 className={`col-md-12 ${styles.ImgCol}`}
                 fluid={backgroundimage.imageFile.childImageSharp.fluid}
+                critical
+                // fadeIn='false'
               >
                 <div className={styles.innerWrapper}>
                   <h1>

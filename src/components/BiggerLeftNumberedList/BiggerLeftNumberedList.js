@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import styled from "styled-components"
 
 import styles from "./BiggerLeftNumberedList.module.scss"
 
@@ -45,16 +44,6 @@ const BiggerLeftNumberedList = ({
   mobileimage,
 }) => {
   const fluidImage = image.imageFile.childImageSharp.fluid
-  const fluidImageMobile = mobileimage.imageFile.childImageSharp.fluid
-
-
-
-//   const TextSide = styled.div`
-//     @media only screen and (max-width: 767px) {
-//       background-color: ${imagecontent ? "#000000" : "#ffffff"};
-//       color: ${imagecontent ? "#ffffff" : "#000000"};
-//     }
-//   `
 
   return (
     <section className={styles.Section}>

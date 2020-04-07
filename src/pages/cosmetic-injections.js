@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-
+import SEO from "../components/particles/SEO"
 import InnerHero from "../components/InnerHero/InnerHero"
 import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
@@ -15,6 +15,29 @@ export const query = graphql`
       page(id: "cosmetic-injections", idType: URI) {
         id
         title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         sectionFields {
           sections {
             __typename
@@ -38,6 +61,8 @@ const CosmeticInjections = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <SEO data={data.wpgraphql.page} />
+
       {sections.map((section, index) => {
         const typeName = section.__typename
 
@@ -64,7 +89,7 @@ const CosmeticInjections = ({ data, location }) => {
             return console.log("You done. Default thing")
         }
       })}
-      hi
+      
     </Layout>
   )
 }
