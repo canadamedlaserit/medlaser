@@ -1,0 +1,58 @@
+@import "../../styles/_variables";
+
+.Section {
+  h3 {
+    color: $white;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+
+  .Content {
+    color: $white;
+    max-width: 830px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .Inner {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .Overlay {
+    background-color: $black;
+    opacity: 0.65;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    .Inner {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+    h3 {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 40px;
+    }
+
+    .Content {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+}

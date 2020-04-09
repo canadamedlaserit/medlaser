@@ -11,6 +11,7 @@ export const fragment = graphql`
     textcontent
     imagetitle
     imagecontent
+    imagecontentlight
     btntext
     btnlink
     imageposition
@@ -36,6 +37,7 @@ class HalfImageRedBtn extends Component {
       textcontent,
       imagetitle,
       imagecontent,
+      imagecontentlight,
       btntext,
       btnlink,
       imageposition,
@@ -48,14 +50,24 @@ class HalfImageRedBtn extends Component {
 
     const TextSide = styled.div`
       @media only screen and (max-width: 767px) {
-        background-color: ${imagecontent ? imageposition ==='right' ? "#000000" : "#ffffff" : ''};
-        color: ${imagecontent ? imageposition ==='right' ? "#ffffff" : "#000000" : ''};
+        background-color: ${imagecontent
+          ? imageposition === "right"
+            ? "#000000"
+            : ""
+          : ""};
+
+        color: ${imagecontent
+          ? imageposition === "right"
+            ? "#ffffff"
+            : ""
+          : ""};
       }
     `
 
+    // not needed
     const Row = styled.div`
       @media only screen and (max-width: 767px) {
-        flex-direction: ${imagecontent ? "" : "column-reverse"} !important;
+        flex-direction: ${imagecontent ? "" : "column"} !important;
       }
     `
 
@@ -134,6 +146,15 @@ class HalfImageRedBtn extends Component {
                 ) : (
                   ""
                 )}
+
+                {imagecontentlight ? (
+                  <div
+                    className={styles.ImageContentLight}
+                    dangerouslySetInnerHTML={{ __html: imagecontentlight }}
+                  ></div>
+                ) : (
+                  ""
+                )}
                 {btntext ? (
                   <div className={styles.buttonsWrapper}>
                     <a href={btnlink} className="btn btn-red">
@@ -144,7 +165,11 @@ class HalfImageRedBtn extends Component {
                   ""
                 )}
               </div>
-              {imagecontent ? <div className={` ${styles.Overlay}`}></div> : ""}
+              {imagecontent || imagecontentlight ? (
+                <div className={` ${styles.Overlay}`}></div>
+              ) : (
+                ""
+              )}
               <div className={`${styles.Hatch2} ${styles.Hatch}`}></div>
             </BackgroundImage>
           </Row>

@@ -111,6 +111,8 @@ export class CustomNav extends Component {
                                         />
                                       </div>
                                     )
+                                  } else {
+                                    return null;
                                   }
                                 })
                               : ""}

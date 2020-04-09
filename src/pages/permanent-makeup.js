@@ -5,9 +5,8 @@ import SEO from "../components/particles/SEO"
 import InnerHero from "../components/InnerHero/InnerHero"
 import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
 import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
-
+import PermanentTwoLists from "../components/PermanentTwoLists/PermanentTwoLists"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
-
 import Contact from "../components/Contact/Contact"
 import LinkSlider from "../components/LinkSlider/LinkSlider"
 
@@ -51,6 +50,7 @@ export const query = graphql`
             }
             ...TextFullWidthSection
             ...LinkSliderSection
+            ...PermanentTwoListsSection
           }
         }
       }
@@ -86,6 +86,9 @@ const PermanentMakeup = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Textfullwidth":
             return <TextFullWidth key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Permanenttwolists":
+            return <PermanentTwoLists key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

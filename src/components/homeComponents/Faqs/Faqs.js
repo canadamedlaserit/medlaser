@@ -40,26 +40,30 @@ class Faqs extends Component {
   state = {
     activeAccordion: 0,
     activeAccordion2: -111,
+    toggled: true,
+    toggled2: false,
+
   }
 
   handleAccordion = index => {
     this.setState({
       activeAccordion: index,
+      toggled:
+        this.state.activeAccordion === index ? !this.state.toggled : true,
     })
   }
   handleAccordion2 = index => {
     this.setState({
       activeAccordion2: index,
+      toggled2:
+      this.state.activeAccordion === index ? !this.state.toggled2 : true,
     })
   }
 
   render() {
     const { title, subtitle, image, list, list2, type } = this.props
-    // const fluidImage = image.imageFile.childImageSharp.fluid
 
 
-    // console.log(image)
-    // console.log(type)
     return (
       <section
         className={`${styles.Section} ${
@@ -89,7 +93,8 @@ class Faqs extends Component {
                             this.handleAccordion(index)
                           }}
                           className={`${
-                            this.state.activeAccordion === index
+                            this.state.activeAccordion === index &&
+                            this.state.toggled === true
                               ? `${styles.Active}`
                               : ""
                           } ${styles.Header}`}
@@ -147,7 +152,8 @@ class Faqs extends Component {
                               this.handleAccordion2(index)
                             }}
                             className={`${
-                              this.state.activeAccordion2 === index
+                              this.state.activeAccordion2 === index  &&
+                              this.state.toggled2 === true
                                 ? `${styles.Active}`
                                 : ""
                             } ${styles.Header}`}
