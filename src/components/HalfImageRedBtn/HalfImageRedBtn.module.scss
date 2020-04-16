@@ -30,7 +30,7 @@
 
   .TextSide {
     padding-top: 140px;
-    padding-bottom: 140px;
+    padding-bottom: 125px;
 
     .InnerWrapper {
       max-width: 840px;
@@ -40,13 +40,18 @@
       padding-right: 6%;
       position: relative;
       z-index: 2;
+
+ 
     }
   }
 
   .ImageSide {
     min-height: 248px;
     padding-top: 140px;
-    padding-bottom: 140px;
+    padding-bottom: 125px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
     .InnerWrapper {
       max-width: 840px;
@@ -56,6 +61,8 @@
       padding-right: 25px;
       position: relative;
       z-index: 2;
+
+ 
     }
   }
 

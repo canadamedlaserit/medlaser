@@ -1,0 +1,55 @@
+.Section {
+  .SwiperSlide {
+    max-height: 700px;
+    position: relative;
+  }
+  .Gimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    margin: auto;
+    min-height: 700px;
+
+    img {
+      opacity: 1 !important;
+    }
+  }
+
+  h3 {
+    text-align: left;
+  }
+
+  .SwiperSlide {
+    position: relative;
+    // transition: width 0.5s;
+
+  }
+
+  .Text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background: #000000a7 0% 0% no-repeat padding-box;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    > div {
+      padding-top: 10px;
+      background: linear-gradient(0deg, white, transparent);
+      opacity: 0;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  .Col {
+    padding: 0;
+  }
+}

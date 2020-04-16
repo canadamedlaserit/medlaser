@@ -64,6 +64,8 @@ class Header extends Component {
       }
     }
 
+    console.log(data)
+
     const logo =
       data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp.fluid
     const headerInfo = data.wpgraphql.page.headerFooterInfo

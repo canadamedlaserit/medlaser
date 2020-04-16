@@ -1,0 +1,11 @@
+.Section {
+    padding-top: 90px;
+    padding-bottom: 70px;
+}
+
+@media (max-width: 767px) {
+    .Section {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}

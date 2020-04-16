@@ -5,6 +5,8 @@
     color: $white;
     max-width: 830px;
     margin: auto;
+    margin-bottom: 50px;
+
   }
 
   .Content {
@@ -48,6 +50,9 @@
       line-height: 33px;
     }
 
+    .Content {
+      font-size: 16px;
+    }
     .buttonsWrapper {
       display: none;
     }

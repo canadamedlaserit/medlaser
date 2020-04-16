@@ -48,21 +48,7 @@ class HalfImageRedBtn extends Component {
 
     const fluidImage = image.imageFile.childImageSharp.fluid
 
-    const TextSide = styled.div`
-      @media only screen and (max-width: 767px) {
-        background-color: ${imagecontent
-          ? imageposition === "right"
-            ? "#000000"
-            : ""
-          : ""};
 
-        color: ${imagecontent
-          ? imageposition === "right"
-            ? "#ffffff"
-            : ""
-          : ""};
-      }
-    `
 
     // not needed
     const Row = styled.div`
@@ -88,7 +74,7 @@ class HalfImageRedBtn extends Component {
             }}
             className={`row ${styles.Row}`}
           >
-            <TextSide className={`col-md-6 ${styles.TextSide} ${styles.Col}`}>
+            <div className={`col-md-6 ${styles.TextSide} ${styles.Col}`}>
               <div
                 style={{
                   marginRight: imageposition
@@ -115,7 +101,7 @@ class HalfImageRedBtn extends Component {
                   ""
                 )}
               </div>
-            </TextSide>
+            </div>
 
             <BackgroundImage
               className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}

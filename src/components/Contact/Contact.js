@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import ConactForm from "./ContactForm"
 
-import styles from "./Contact.module.scss"
+import styles from "./ContactSection.module.scss"
 
 // export const fragment = graphql`
 //   fragment ContactSection on WPGraphQL_Page_Sectionfields_Sections_Contact {

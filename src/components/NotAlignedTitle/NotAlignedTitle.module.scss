@@ -1,0 +1,49 @@
+@import "../../styles/_variables";
+
+.Section {
+  color: $white;
+  background-color: $black;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .Container {
+    max-width: 1712px;
+  }
+
+  .Row {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .Text {
+    padding-top: 120px;
+  }
+
+  h3 {
+    text-align: left;
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    h3 {
+      font-size: 24px !important;
+      line-height: 36px;
+      letter-spacing: 0;
+      margin-bottom: 80px !important;
+    }
+
+    .Text {
+      padding-top: 0;
+    }
+    .Row {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}

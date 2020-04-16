@@ -6,16 +6,14 @@ import InnerHeroLocation from "../../components/InnerHeroLocation/InnerHeroLocat
 import LocationText from "../../components/LocationText/LocationText"
 import OurServicesSlider from "../../components/OurServicesSlider/OurServicesSlider"
 import LeftRightMultiple from "../../components/LeftRightMultiple/LeftRightMultiple"
+import FullWidthImageRedBtn from "../../components/FullWidthImageRedBtn/FullWidthImageRedBtn"
+import CategoryTabs from "../../components/CategoryTabs/CategoryTabs"
 import Faqs from "../../components/homeComponents/Faqs/Faqs"
 import ContactLocation from "../../components/Contact/ContactLocation"
-import BiggerRightWithButtons from "../../components/BiggerRightWithButtons/BiggerRightWithButtons"
-import TeamLocation from '../../components/TeamLocation/TeamLocation'
-import TextFullWidth from '../../components/TextFullWidth/TextFullWidth'
-
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "mississauga", idType: URI) {
+      page(id: "toronto", idType: URI) {
         id
         title
         slug
@@ -47,10 +45,10 @@ export const query = graphql`
             ...InnerHeroLocationSection
             ...LocationTextSection
             ...OurServicesSliderSection
-            ...TextFullWidthSection
-            ...BiggerRightWithButtonsSection
+            ...LeftRightMultipleSection
+            ...FullWidthImageRedBtnSection
+            ...CategoryTabsSection
             ...FaqsSection
-            ...TeamLocationSection
             ...ContactLocationSection
           }
         }
@@ -59,7 +57,7 @@ export const query = graphql`
   }
 `
 
-const Mississauga = ({ data, location }) => {
+const Toronto = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -82,18 +80,11 @@ const Mississauga = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple":
             return <LeftRightMultiple key={index} {...section} />
 
-            
+          case "WPGraphQL_Page_Sectionfields_Sections_Fullwidthimageredbtn":
+            return <FullWidthImageRedBtn key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_Textfullwidth":
-            return <TextFullWidth key={index} {...section} />
-
-          case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
-            return <BiggerRightWithButtons key={index} {...section} />
-
-            case "WPGraphQL_Page_Sectionfields_Sections_Teamlocation":
-              return <TeamLocation key={index} {...section} />
-  
-            
+          case "WPGraphQL_Page_Sectionfields_Sections_Categorytabs":
+            return <CategoryTabs key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
@@ -109,4 +100,4 @@ const Mississauga = ({ data, location }) => {
   )
 }
 
-export default Mississauga
+export default Toronto

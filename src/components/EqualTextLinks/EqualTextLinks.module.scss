@@ -1,0 +1,69 @@
+@import "../../styles/_variables";
+
+.Section {
+  position: relative;
+  overflow: hidden;
+
+  .Col {
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $grey-mid;
+
+      a {
+        color: $red;
+      }
+    }
+
+    a {
+      color: $black;
+      display: block;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+  .Hatch {
+    width: 100%;
+    height: 56px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
+    transform: rotate(90deg);
+    z-index: 3;
+    opacity: 0.44;
+    background-image: linear-gradient(
+      135deg,
+      #c6c6c6 5.56%,
+      transparent 5.56%,
+      transparent 50%,
+      #c6c6c6 50%,
+      #c6c6c6 55.56%,
+      transparent 55.56%,
+      transparent 100%
+    );
+    background-size: 12.73px 12.73px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    .Hatch {
+      transform: rotate(180deg);
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    .Col {
+      a {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+    }
+  }
+}

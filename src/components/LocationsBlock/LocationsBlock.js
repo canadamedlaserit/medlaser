@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styles from "./LocationsBlock.module.scss"
 
@@ -13,6 +13,7 @@ const LocationsBlock = () => {
             locations {
               ... on WPGraphQL_Page_Headerfooterinfo_locations {
                 info
+                link
               }
             }
           }
@@ -20,16 +21,29 @@ const LocationsBlock = () => {
       }
     }
   `)
-  console.log(data)
-  // const { title, btntext } = data.wpgraphql.page.contactFields
+  
+  const footerInfo = data.wpgraphql.page.headerFooterInfo
+
   return (
-    <section className={styles.Section}>
+    <>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <div className={`col-md-12 ${styles.Text}`}>LocationsBlock</div>
+          {footerInfo.locations.map((single, index) => (
+            <div
+              key={index}
+              className={`col-xl-4 col-lg-4 col-12 ${styles.Col}`}
+            >
+              <Link className={styles.Overlay} to={single.link}></Link>
+
+              <div
+                className={styles.Inner}
+                dangerouslySetInnerHTML={{ __html: single.info }}
+              ></div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </>
   )
 }
 
