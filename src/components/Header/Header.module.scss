@@ -290,15 +290,14 @@
       &:nth-child(2) {
         padding-left: 5%;
       }
-
-    } 
+    }
 
     .InnerLink2 {
       font-family: "Playfair Display", sans-serif;
       font-size: 20px !important;
       text-transform: uppercase;
       padding-top: 0 !important;
-      padding-bottom: 20px !important; 
+      padding-bottom: 20px !important;
     }
 
     .InnerLink {
@@ -429,11 +428,18 @@
     padding-top: 15px;
     flex-direction: column;
 
-    a {
-      font-size: 20px;
+    .Default {
+      font-size: 20px !important;
       color: $white !important;
-      width: fit-content;
-      margin-top: 15px;
+      width: fit-content !important;
+      margin-top: 15px !important;
+
+      background: transparent !important;
+      border: none !important;
+      height: unset !important;
+      text-align: left;
+      margin-left: unset;
+      font-weight: 400;
     }
 
     .Dropdown {

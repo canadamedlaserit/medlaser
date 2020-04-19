@@ -25,7 +25,6 @@
   .SwiperSlide {
     position: relative;
     // transition: width 0.5s;
-
   }
 
   .Text {
@@ -51,5 +50,27 @@
 
   .Col {
     padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .Section {
+    .SwiperSlide {
+      .Gimg {
+        min-height: 441px;
+      }
+    }
+
+    .Text {
+      h3 {
+        font-size: 24px;
+      }
+      > div {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        line-height: 1.2;
+      }
+    }
   }
 }

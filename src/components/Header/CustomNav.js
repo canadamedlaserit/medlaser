@@ -50,15 +50,23 @@ export class CustomNav extends Component {
                     onMouseLeave={this.handleClose}
                     className={`${styles.MainLink}`}
                   >
-                    <Dropdown.Toggle
-                      className={`nav-link`}
-                      to={node.url}
-                      as={Link}
-                    >
-                      <span className={styles.LinkWrapper}></span>
+                    {node.url ? (
+                      <Dropdown.Toggle
+                        className={`nav-link`}
+                        to={node.url}
+                        as={Link}
+                      >
+                        <span className={styles.LinkWrapper}></span>
 
-                      {node.label}
-                    </Dropdown.Toggle>
+                        {node.label}
+                      </Dropdown.Toggle>
+                    ) : (
+                      <Dropdown.Toggle className={`nav-link ${styles.Default}`}>
+                        <span className={styles.LinkWrapper}></span>
+
+                        {node.label}
+                      </Dropdown.Toggle>
+                    )}
 
                     {/* this is mobile arrow / show only on mobile */}
                     {this.props.isMobile === true ? (
@@ -112,7 +120,7 @@ export class CustomNav extends Component {
                                       </div>
                                     )
                                   } else {
-                                    return null;
+                                    return null
                                   }
                                 })
                               : ""}

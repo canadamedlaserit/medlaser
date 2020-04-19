@@ -52,7 +52,10 @@
   width: 50%;
   padding: 0 4.6%;
 }
-
+.FormColumnFull {
+  width: 100%;
+  padding: 0 4.6%;
+}
 @media (max-width: 1599px) {
   .Form___formSubmit {
     margin-top: 50px !important;
@@ -66,7 +69,7 @@
     font-size: 14px !important;
   }
 
-  .FormColumn {
+  .FormColumn, .FormColumnFull {
     width: 100% !important;
     padding: 0 !important;
   }

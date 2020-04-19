@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
 import styles from "./Form.module.scss"
 
-export class ContactForm extends Component {
+export class InjuryForm extends Component {
   render() {
     const { btntext } = this.props
 
@@ -58,40 +58,28 @@ export class ContactForm extends Component {
                 as="select"
               >
                 <option disabled value="DEFAULT">
-                  Desired Treatment
+                  Query Type
                 </option>
-                <option>Laser Hair Removal</option>
-                <option>Skin Treatments</option>
-                <option>CoolSculpting Body</option>
-                <option>CoolSculpting Chin</option>
-                <option>Cosmetic Injections</option>
-                <option>Skin Tightening</option>
-                <option>Cellulite</option>
-                <option>Hair Restoration</option>
-                <option>Anti Aging</option>
-                <option>Microblading</option>
-                <option>Nail Fungus</option>
+                <option>Sales</option>
+                <option>Finance</option>
+                <option>Marketing</option>
+                <option>Customer Care</option>
+                <option>Other Inquires</option>
               </Form.Control>
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div className={styles.FormColumnFull}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={styles.Form___formControl}
-                defaultValue={"DEFAULT"}
-                as="select"
-              >
-                <option disabled value="DEFAULT">
-                  Location
-                </option>
-                <option>Toronto</option>
-                <option>Vaughan</option>
-                <option>Mississauga</option>
-                <option>Newmarket</option>
-              </Form.Control>
+                as="textarea"
+                placeholder="Message"
+                rows="5"
+              />
             </Form.Group>
           </div>
+
 
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
@@ -109,4 +97,4 @@ export class ContactForm extends Component {
   }
 }
 
-export default ContactForm
+export default InjuryForm

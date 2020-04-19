@@ -7,18 +7,27 @@ export const fragment = graphql`
   fragment NotAlignedTitleSection on WPGraphQL_Page_Sectionfields_Sections_Notalignedtitle {
     title
     content
+    type
   }
 `
 
-const NotAlignedTitle = ({ title, content }) => {
+const NotAlignedTitle = ({ title, content, type }) => {
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <div className={`col-md-6 ${styles.Col}`}>
+          <div
+            className={`${type === "equal" ? "col-md-6" : "col-md-4"} ${
+              styles.Col
+            }`}
+          >
             <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
           </div>
-          <div className={`col-md-6 ${styles.Col}`}>
+          <div
+            className={`${type === "equal" ? " col-md-6" : "col-md-8"} ${
+              styles.Col
+            }`}
+          >
             <div
               className={styles.Text}
               dangerouslySetInnerHTML={{ __html: content }}

@@ -59,44 +59,48 @@ class InnerHero extends Component {
                 <div className={styles.innerWrapper}>
                   <h1>
                     {title}
-                    {label ? (<span className={styles.Label}>{label}</span>) : '' }
+                    {label ? <span className={styles.Label}>{label}</span> : ""}
                   </h1>
                 </div>
                 <div className={styles.Overlay}></div>
-                <div className={styles.Hatch}></div>
+                {subtitle ? <div className={styles.Hatch}></div> : ""}
               </BackgroundImage>
             ) : (
               ""
             )}
           </div>
 
-          <div className={`row ${styles.RowBot}`}>
-            <div className={`col-md-12 ${styles.TextCol}`}>
-              <h2 dangerouslySetInnerHTML={{ __html: subtitle }}></h2>
+          {subtitle ? (
+            <div className={`row ${styles.RowBot}`}>
+              <div className={`col-md-12 ${styles.TextCol}`}>
+                <h2 dangerouslySetInnerHTML={{ __html: subtitle }}></h2>
 
-              {btntext1 ? (
-                <>
+                {btntext1 ? (
+                  <>
+                    <div
+                      className={styles.TextItalic}
+                      dangerouslySetInnerHTML={{ __html: text }}
+                    ></div>
+                    <div className={styles.buttonsWrapper}>
+                      <a href={btnlink1} className="btn btn-red">
+                        {btntext1}
+                      </a>
+                      <Link to={btnlink2} className="btn btn-black-transparent">
+                        {btntext2}
+                      </Link>
+                    </div>
+                  </>
+                ) : (
                   <div
-                    className={styles.TextItalic}
+                    className={styles.Text}
                     dangerouslySetInnerHTML={{ __html: text }}
                   ></div>
-                  <div className={styles.buttonsWrapper}>
-                    <a href={btnlink1} className="btn btn-red">
-                      {btntext1}
-                    </a>
-                    <Link to={btnlink2} className="btn btn-black-transparent">
-                      {btntext2}
-                    </Link>
-                  </div>
-                </>
-              ) : (
-                <div
-                  className={styles.Text}
-                  dangerouslySetInnerHTML={{ __html: text }}
-                ></div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       </section>
     )

@@ -3,16 +3,17 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/particles/SEO"
 
-import InnerHeroClean from "../components/InnerHeroClean/InnerHeroClean"
+import InnerHero from "../components/InnerHero/InnerHero"
 import NotAlignedTitle from "../components/NotAlignedTitle/NotAlignedTitle"
-import EqualTextWithStrip from "../components/EqualTextWithStrip/EqualTextWithStrip"
-import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
+import TextAndThreeImages from "../components/TextAndThreeImages/TextAndThreeImages"
+import HalfImageRedBtn from "../components/HalfImageRedBtn/HalfImageRedBtn"
 import Contact from "../components/Contact/Contact"
+import LinkSlider from "../components/LinkSlider/LinkSlider"
 
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "community", idType: URI) {
+      page(id: "technology", idType: URI) {
         id
         title
         slug
@@ -41,13 +42,14 @@ export const query = graphql`
         sectionFields {
           sections {
             __typename
-            ...InnerHeroCleanSection
-            ...EqualTextWithStripSection
+            ...InnerHeroSection
             ...NotAlignedTitleSection
-            ...BeforeAfterSection
+            ...TextAndThreeImagesSection
+            ...HalfImageRedBtnSection
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
               fieldGroupName
             }
+            ...LinkSliderSection
           }
         }
       }
@@ -55,7 +57,7 @@ export const query = graphql`
   }
 `
 
-const Community = ({ data, location }) => {
+const Technology = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -66,17 +68,21 @@ const Community = ({ data, location }) => {
         const typeName = section.__typename
 
         switch (typeName) {
-          case "WPGraphQL_Page_Sectionfields_Sections_Innerheroclean":
-            return <InnerHeroClean key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Equaltextwithstrip":
-            return <EqualTextWithStrip key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Innerhero":
+            return <InnerHero key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Notalignedtitle":
             return <NotAlignedTitle key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
-            return <BeforeAfter key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Textandthreeimages":
+            return <TextAndThreeImages key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Halfimageredbtn":
+            return <HalfImageRedBtn key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Linkslider":
+            return <LinkSlider key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
             return <Contact key={index} {...section} />
@@ -89,4 +95,4 @@ const Community = ({ data, location }) => {
   )
 }
 
-export default Community
+export default Technology

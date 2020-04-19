@@ -10,12 +10,23 @@
     max-width: 1712px;
   }
 
+
+
   .Row {
     padding-left: 30px;
     padding-right: 30px;
   }
+
   .Text {
     padding-top: 120px;
+  }
+
+  ul {
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 30px;
+    }
   }
 
   h3 {
@@ -35,15 +46,24 @@
       font-size: 24px !important;
       line-height: 36px;
       letter-spacing: 0;
-      margin-bottom: 80px !important;
+      margin-bottom: 40px !important;
     }
 
     .Text {
       padding-top: 0;
     }
     .Row {
-      padding-left: 0px;
-      padding-right: 0px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    ul {
+      padding-left: 40px;
+      margin-bottom: 0;
+
+      li:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
