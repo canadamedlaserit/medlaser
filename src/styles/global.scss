@@ -558,6 +558,59 @@ main {
   }
 }
 
+// CLINICS SWIPER
+.clinics-swiper {
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #e8e8e8 0% 0% no-repeat padding-box;
+  }
+
+  .swiper-pagination-bullet {
+    background: #e8e8e8 0% 0% no-repeat padding-box;
+    min-width: 8px;
+    min-height: 8px;
+    outline: none;
+  }
+
+  .swiper-container {
+    position: initial;
+    padding-bottom: 60px;
+  }
+
+  .swiper-button-prev {
+    background: #ffffff74 !important;
+    outline: none;
+    left: 20px;
+  }
+  .swiper-button-next {
+    background: #ffffff74 !important;
+    outline: none;
+    right: 20px;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    display: none;
+  }
+  svg {
+    width: 17px;
+    height: 35px;
+  }
+}
+@media (min-width: 768px) {
+  .clinics-swiper {
+    .swiper-pagination {
+      display: none;
+    }
+
+    .swiper-container {
+      padding-bottom: 0px;
+    }
+  }
+}
+
 .navbar-collapse {
   transition: transform 0.3s ease-in-out !important;
 }

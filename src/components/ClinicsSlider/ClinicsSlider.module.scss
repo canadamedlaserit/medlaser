@@ -1,0 +1,92 @@
+@import "../../styles/_variables";
+
+.Section {
+  background-color: $black;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  position: relative;
+
+  h3 {
+    color: $white;
+    text-transform: capitalize !important;
+    margin-bottom: 50px;
+  }
+
+  .Content {
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+
+    p {
+      color: $white;
+    }
+  }
+
+  .ClinicsSliderRow {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .Container {
+    max-width: 1712px;
+  }
+
+  .SwiperWrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .BottomLine {
+    height: 250px;
+    background-color: $white;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .SwiperSlide {
+    position: relative;
+  }
+
+  .ContentWrapper {
+    position: absolute;
+    background: #000000b2 0% 0% no-repeat padding-box;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 63px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    h4 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0px;
+      color: #ffffff;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    h3 {
+      color: $white;
+      margin-bottom: 40px;
+    }
+
+    .BottomLine {
+      display: none;
+    }
+
+    .ClinicsSliderRow {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+  }
+}

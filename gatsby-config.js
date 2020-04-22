@@ -36,7 +36,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Playfair Display:400,400i, 700', 'Open Sans:400,600,800']
+          families: ['Playfair Display:400,400i,700', 'Open Sans:400,600,800']
         }
       }
     },

@@ -45,7 +45,6 @@ const BeforeAfterTabs = () => {
     }
   `)
 
-  console.log(data)
 
   const results = data.wpgraphql.results.nodes
   const categories = data.wpgraphql.categories.edges

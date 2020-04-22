@@ -33,6 +33,8 @@ class GalleryComponent extends Component {
                 </div>
               </div>
             )
+          } else {
+            return null
           }
         })}
       </>

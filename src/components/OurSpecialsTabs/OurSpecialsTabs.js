@@ -48,7 +48,6 @@ const OurSpecialsTabs = () => {
     }
   `)
 
-  console.log(data)
 
   const specials = data.wpgraphql.specials.nodes
   const categories = data.wpgraphql.categories.edges
@@ -132,6 +131,8 @@ const OurSpecialsTabs = () => {
                                 </div>
                               </div>
                             )
+                          } else {
+                            return null
                           }
                         })}
                       </Tab>
