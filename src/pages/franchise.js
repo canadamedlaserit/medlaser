@@ -7,6 +7,7 @@ import InquireButtonsBlock from "../components/InquireButtonsBlock/InquireButton
 import ClinicsSlider from "../components/ClinicsSlider/ClinicsSlider"
 import FourColumnsBlock from "../components/FourColumnsBlock/FourColumnsBlock"
 import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerRightWithButtons"
+import InquiryWithSubscription from "../components/Contact/InquiryWithSubscription"
 
 export const query = graphql`
   {
@@ -45,6 +46,9 @@ export const query = graphql`
             ...ClinicsSliderSection
             ...FourColumnsBlockSection
             ...BiggerRightWithButtonsSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_Inquiry2 {
+              fieldGroupName
+            }
           }
         }
       }
@@ -77,6 +81,9 @@ const Franchise = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
             return <BiggerRightWithButtons key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Inquiry2":
+            return <InquiryWithSubscription key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

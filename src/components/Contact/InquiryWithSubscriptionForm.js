@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, InputGroup, FormControl } from "react-bootstrap"
 import querystring from "query-string"
 import axios from "axios"
 
@@ -11,15 +11,20 @@ const initialState = {
   lastName: "",
   email: "",
   phone: "",
-  desiredTreatment: "",
-  location: "",
+  timeFrame: "",
+  postal: "",
+  opportunity: "",
+  message: "",
+  check: false,
 
   firstNameValid: false,
   lastNameValid: false,
   emailValid: false,
   phoneValid: false,
-  desiredTreatmentValid: false,
-  locationValid: false,
+  timeFrameValid: false,
+  postalValid: false,
+  opportunityValid: false,
+  messageValid: false,
 
   formValid: false,
   emailSent: false,
@@ -29,12 +34,14 @@ const initialState = {
     lastName: "",
     email: "",
     phone: "",
-    desiredTreatment: "",
-    location: "",
+    timeFrame: "",
+    postal: "",
+    opportunity: "",
+    message: "",
   },
 }
 
-export class ContactForm extends Component {
+export class InquiryWithSubscriptionForm extends Component {
   state = initialState
 
   reset() {
@@ -46,8 +53,11 @@ export class ContactForm extends Component {
     this.refs.lastName.value = ""
     this.refs.email.value = ""
     this.refs.phone.value = ""
-    this.refs.desiredTreatment.value = "DEFAULT"
-    this.refs.location.value = "DEFAULT"
+    this.refs.timeFrame.value = "DEFAULT"
+    this.refs.postal.value = ""
+    this.refs.opportunity.value = ""
+    this.refs.message.value = ""
+    this.refs.message.check = ""
   }
 
   handleChange = input => event => {
@@ -58,6 +68,10 @@ export class ContactForm extends Component {
     })
   }
 
+  handleCheck = e => {
+    this.setState({ check: e.target.checked })
+  }
+
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors
 
@@ -65,8 +79,10 @@ export class ContactForm extends Component {
     let lastNameValid = this.state.lastNameValid
     let emailValid = this.state.emailValid
     let phoneValid = this.state.phoneValid
-    let desiredTreatmentValid = this.state.desiredTreatmentValid
-    let locationValid = this.state.locationValid
+    let timeFrameValid = this.state.timeFrameValid
+    let postalValid = this.state.postalValid
+    let opportunityValid = this.state.opportunityValid
+    let messageValid = this.state.messageValid
 
     switch (fieldName) {
       case "firstName":
@@ -93,20 +109,30 @@ export class ContactForm extends Component {
         fieldValidationErrors.phone = phoneValid ? "" : "Phone is invalid"
         break
 
-      case "desiredTreatment":
-        desiredTreatmentValid = value.length >= 1
-        fieldValidationErrors.desiredTreatment = desiredTreatmentValid
+      case "timeFrame":
+        timeFrameValid = value.length >= 1
+        fieldValidationErrors.timeFrame = timeFrameValid
           ? ""
-          : "Select Desired Treatment"
-
-        console.log(value)
+          : "Select Time Frame"
         break
 
-      case "location":
-        locationValid = value.length >= 1
-        fieldValidationErrors.location = locationValid ? "" : "Select Location"
+      case "postal":
+        postalValid = value.length >= 1
+        fieldValidationErrors.postal = postalValid ? "" : "Postal is invalid"
+        break
 
-        console.log(value)
+      case "opportunity":
+        opportunityValid = value.length >= 1
+        fieldValidationErrors.opportunity = opportunityValid
+          ? ""
+          : "Opportunity is invalid"
+        break
+
+      case "message":
+        messageValid = value.length >= 1
+        fieldValidationErrors.message = messageValid
+          ? ""
+          : "Please, fill out comments field"
         break
 
       default:
@@ -120,8 +146,10 @@ export class ContactForm extends Component {
         lastNameValid: lastNameValid,
         emailValid: emailValid,
         phoneValid: phoneValid,
-        desiredTreatmentValid: desiredTreatmentValid,
-        locationValid: locationValid,
+        timeFrameValid: timeFrameValid,
+        postalValid: postalValid,
+        opportunityValid: opportunityValid,
+        messageValid: messageValid,
       },
       this.validateForm
     )
@@ -134,8 +162,10 @@ export class ContactForm extends Component {
         this.state.lastNameValid &&
         this.state.emailValid &&
         this.state.phoneValid &&
-        this.state.desiredTreatmentValid &&
-        this.state.locationValid,
+        this.state.timeFrameValid &&
+        this.state.postalValid &&
+        this.state.opportunityValid &&
+        this.state.messageValid,
     })
   }
 
@@ -143,41 +173,38 @@ export class ContactForm extends Component {
     event.preventDefault()
 
     if (this.state.formValid) {
-      console.log("form valid")
-
       const data = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         phone: this.state.phone,
         email: this.state.email,
-        desiredTreatment: this.state.desiredTreatment,
-        location: this.state.location,
+        timeFrame: this.state.timeFrame,
+        postal: this.state.postal,
+        opportunity: this.state.opportunity,
+        messageArea: this.state.message,
+        check: this.state.check
       }
 
       this.reset()
 
       axios
-        .post(`${wpUrl}/contact.php`, querystring.stringify(data))
+        .post(`${wpUrl}/contact-enquiry-sub.php`, querystring.stringify(data))
         .then(res => {
           this.setState({ emailSent: true })
 
           setTimeout(() => {
             this.setState({ emailSent: false })
           }, 2000)
-
-          console.log(res)
         })
     } else {
-      console.log("form invalid")
-
       this.validateField("firstName", this.state.firstName)
       this.validateField("lastName", this.state.lastName)
       this.validateField("email", this.state.email)
       this.validateField("phone", this.state.phone)
-      this.validateField("desiredTreatment", this.state.desiredTreatment)
-      this.validateField("location", this.state.location)
-
-      console.log(this.state.formErrors)
+      this.validateField("timeFrame", this.state.timeFrame)
+      this.validateField("postal", this.state.postal)
+      this.validateField("opportunity", this.state.opportunity)
+      this.validateField("message", this.state.message)
     }
   }
 
@@ -259,32 +286,15 @@ export class ContactForm extends Component {
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
-                  this.state.formErrors.desiredTreatment
-                    ? styles.ErrorField
-                    : ""
+                  this.state.formErrors.opportunity ? styles.ErrorField : ""
                 }`}
-                onChange={this.handleChange("desiredTreatment")}
-                defaultValue={"DEFAULT"}
-                as="select"
-                ref="desiredTreatment"
-              >
-                <option disabled value="DEFAULT">
-                  Desired Treatment
-                </option>
-                <option>Laser Hair Removal</option>
-                <option>Skin Treatments</option>
-                <option>CoolSculpting Body</option>
-                <option>CoolSculpting Chin</option>
-                <option>Cosmetic Injections</option>
-                <option>Skin Tightening</option>
-                <option>Cellulite</option>
-                <option>Hair Restoration</option>
-                <option>Anti Aging</option>
-                <option>Microblading</option>
-                <option>Nail Fungus</option>
-              </Form.Control>
+                onChange={this.handleChange("opportunity")}
+                type="text"
+                placeholder="How did you hear about the opportunity"
+                ref="opportunity"
+              />
               <p className={styles.ErrorMessage}>
-                {this.state.formErrors.desiredTreatment}
+                {this.state.formErrors.opportunity}
               </p>
             </Form.Group>
           </div>
@@ -293,25 +303,73 @@ export class ContactForm extends Component {
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
-                  this.state.formErrors.location ? styles.ErrorField : ""
+                  this.state.formErrors.postal ? styles.ErrorField : ""
                 }`}
-                onChange={this.handleChange("location")}
-                defaultValue={"DEFAULT"}
-                as="select"
-                ref="location"
-              >
-                <option disabled value="DEFAULT">
-                  Location
-                </option>
-                <option>Toronto</option>
-                <option>Vaughan</option>
-                <option>Mississauga</option>
-                <option>Newmarket</option>
-              </Form.Control>
+                onChange={this.handleChange("postal")}
+                type="text"
+                placeholder="Postal Code"
+                ref="postal"
+              />
               <p className={styles.ErrorMessage}>
-                {this.state.formErrors.location}
+                {this.state.formErrors.postal}
               </p>
             </Form.Group>
+          </div>
+
+          <div className={styles.FormColumn}>
+            <Form.Group className={styles.Form___group}>
+              <Form.Control
+                className={`${styles.Form___formControl} ${
+                  this.state.formErrors.timeFrame ? styles.ErrorField : ""
+                }`}
+                onChange={this.handleChange("timeFrame")}
+                defaultValue={"DEFAULT"}
+                as="select"
+                ref="timeFrame"
+              >
+                <option disabled value="DEFAULT">
+                  Time Frame
+                </option>
+                <option>0 Months</option>
+                <option>3 Months</option>
+                <option>6 Months</option>
+                <option>9 Months</option>
+                <option>12 Months</option>
+              </Form.Control>
+              <p className={styles.ErrorMessage}>
+                {this.state.formErrors.timeFrame}
+              </p>
+            </Form.Group>
+          </div>
+
+          <div className={styles.FormColumnFull}>
+            <Form.Group className={styles.Form___group}>
+              <Form.Control
+                className={`${styles.Form___formControl} ${
+                  this.state.formErrors.message ? styles.ErrorField : ""
+                }`}
+                onChange={this.handleChange("message")}
+                as="textarea"
+                placeholder="Comments"
+                rows="5"
+                ref="message"
+              />
+              <p className={styles.ErrorMessage}>
+                {this.state.formErrors.message}
+              </p>
+            </Form.Group>
+          </div>
+
+          <div className={styles.FormColumnFull}>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                onChange={this.handleCheck}
+                className={styles.Checkbox}
+                type="checkbox"
+                label="Subscribe me to receive great offers and updates from Canada MedLaser Clinics"
+              />
+            </Form.Group>
+
           </div>
 
           <Button
@@ -338,8 +396,7 @@ export class ContactForm extends Component {
           this.state.formErrors.lastName ||
           this.state.formErrors.email ||
           this.state.formErrors.phone ||
-          this.state.formErrors.desiredTreatment ||
-          this.state.formErrors.location ? (
+          this.state.formErrors.queryType ? (
             <div className={styles.ErrorBlock}>
               <p>Some Fields are invalid</p>
             </div>
@@ -352,4 +409,4 @@ export class ContactForm extends Component {
   }
 }
 
-export default ContactForm
+export default InquiryWithSubscriptionForm

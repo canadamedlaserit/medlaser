@@ -6,6 +6,7 @@
 
   &___group {
     margin-bottom: 2rem;
+    position: relative;
   }
   &___formControl {
     background-color: transparent !important;
@@ -46,6 +47,46 @@
 
     appearance: none;
   }
+
+  .ErrorField {
+    border-color: $red;
+  }
+
+  .ErrorMessage {
+    margin: 0;
+    position: absolute;
+    top: -15px;
+    color: $red !important;
+    right: 0;
+    font-size: 15px;
+  }
+
+  .Checkbox {
+    
+
+
+    input {
+      width: 16px;
+      height: 16px;
+      margin-top: 0.25rem;
+    }
+  }
+  
+}
+
+.NotificationBlock {
+  margin-top: 30px;
+  min-height: 50px;
+}
+
+.ErrorBlock {
+  text-align: center;
+  color: $red !important;
+}
+
+.SuccessBlock {
+  text-align: center;
+  color: $green !important;
 }
 
 .FormColumn {
@@ -69,7 +110,8 @@
     font-size: 14px !important;
   }
 
-  .FormColumn, .FormColumnFull {
+  .FormColumn,
+  .FormColumnFull {
     width: 100% !important;
     padding: 0 !important;
   }

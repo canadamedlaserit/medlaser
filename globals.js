@@ -1,5 +1,7 @@
 const Globals = {
-    blogURI: 'blog'
+    blogURI: 'knowledge-base',
+    wpUrl: "https://canadamedlaser.wptestprev.icu/"
+
 }
 
 
