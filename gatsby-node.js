@@ -164,6 +164,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   categories.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
+    const name = edge.node.name
     // console.log("slug + " + slug)
     let blogPostsCount = edge.node.posts.nodes.length
     // console.log("blogPostsCount + " + blogPostsCount)
@@ -190,7 +191,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
           paginatedPagesCount,
           pageNumber: i + 1,
           numPages: paginatedPagesCount,
-          hasNextPage:  paginatedPagesCount === i + 1 ? false : true
+          hasNextPage:  paginatedPagesCount === i + 1 ? false : true,
+          pageName: name
         },
       })
     }

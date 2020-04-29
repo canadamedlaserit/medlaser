@@ -2,7 +2,6 @@
 
 .Section {
   background-color: #e8e8e8;
-  padding-top: 70px;
   padding-bottom: 70px;
 
   .Container {
@@ -10,6 +9,7 @@
   }
 
   .EntriesWrapper {
+    margin-top: 70px;
     display: grid;
     column-gap: 50px;
     grid-template-columns: 2fr 2fr 1.45fr;
@@ -56,6 +56,8 @@
         }
       }
     }
+
+   
 
     .Entry {
       width: 100%;
@@ -185,6 +187,64 @@
       //   width: 25%;
     }
   }
+
+
+  .CategoryMobile {
+    width: 100%;
+
+    .Menu {
+      right: 0;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      transform: translate3d(0px, 66px, 0px) !important;
+      background-color: $black;
+      border: none !important;
+
+
+      a {
+        color: $white;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    button {
+      position: relative;
+      background-color: $black !important;
+      margin-top: 10px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      max-width: unset;
+      border: none;
+  
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Playfair Display', sans-serif;
+      box-shadow: none !important;
+  
+      span {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        transition: .3s;
+        height: 18px;
+  
+        svg path {
+          fill: $white;
+        }
+      }
+    }
+  }
+
 }
 
 @media (max-width: 1024px) {
@@ -219,6 +279,7 @@
     .EntriesWrapper {
       display: flex;
       flex-wrap: wrap;
+      margin-top: 0px;;
 
       .Entry {
         width: 100%;

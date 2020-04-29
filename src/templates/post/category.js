@@ -1,48 +1,102 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import PostEntry from "../../components/PostEntry"
-import Pagination from "../../components/Pagination"
-import styles from "../../components/BlogMain/BlogMain.module.scss"
-import CategoryList from "../../components/CategoryList"
+import LocationMap from "../../components/LocationMap/LocationMap"
+import Contact from "../../components/Contact/Contact"
+import CategoriesMain from "../../components/BlogMain/CategoriesMain"
+import CategoryPageHero from "../../components/BlogMain/CategoryPageHero"
 
-const CategoryPage = ({ location, pageContext }) => {
-  const { slug, posts, pageNumber, hasNextPage, numPages } = pageContext
+export const query = graphql`
+  {
+    wpgraphql {
+      page(id: "blog", idType: URI) {
+        id
+        title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
+        sectionFields {
+          sections {
+            __typename
+            ...InnerHeroImageFullWidthSection
+
+            ... on WPGraphQL_Page_Sectionfields_Sections_Blogmain {
+              fieldGroupName
+            }
+            ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
+              fieldGroupName
+            }
+            ...LocationMapSection
+          }
+        }
+      }
+    }
+  }
+`
+
+const CategoryPage = ({ data, location, pageContext }) => {
+  const { slug, posts, pageNumber, hasNextPage, numPages, pageName } = pageContext
+  const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
     <Layout location={location}>
-      <section className="firstSection">
-        <div className="container">
-          <div className="row">
-            <div style={{ marginTop: "200px" }} className="col-md-12">
-              <h2> CATEGORY PAGE //// {slug}</h2>
-              <h2> current {pageNumber}</h2>
-            </div>
-          </div>
-        </div>
-      </section>
+      {sections.map((section, index) => {
+        const typeName = section.__typename
 
-      <article className={styles.Section}>
-        <div className={`container ${styles.Container}`}>
-          <div className="row">
-            <div className="col-md-12">
-              <div className={styles.EntriesWrapper}>
-                {posts.map((node, index) => (
-                  <PostEntry key={index} post={node} />
-                ))}
-
-                <CategoryList />
-              </div>
-
-              <Pagination
-                pageNumber={pageNumber}
-                hasNextPage={hasNextPage}
-                numPages={numPages}
-                pageUri={`category/${slug}`}
+        switch (typeName) {
+          case "WPGraphQL_Page_Sectionfields_Sections_Innerheroimagefullwidth":
+            return (
+              <CategoryPageHero
+                pageName={pageName}
+                slug={slug}
+                key={index}
+                {...section}
               />
-            </div>
-          </div>
-        </div>
-      </article>
+            )
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Blogmain":
+            return (
+              <CategoriesMain
+                posts={posts}
+                hasNextPage={hasNextPage}
+                pageNumber={pageNumber}
+                numPages={numPages}
+                slug={slug}
+                key={index}
+                {...section}
+              />
+            )
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
+            return <Contact key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
+            return <LocationMap key={index} {...section} />
+
+          default:
+            return ""
+        }
+      })}
     </Layout>
   )
 }

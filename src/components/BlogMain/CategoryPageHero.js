@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import styles from "./InnerHeroImageFullWidth.module.scss"
+import styles from "../InnerHeroImageFullWidth/InnerHeroImageFullWidth.module.scss"
 
 export const fragment = graphql`
   fragment InnerHeroImageFullWidthSection on WPGraphQL_Page_Sectionfields_Sections_Innerheroimagefullwidth {
@@ -21,7 +21,7 @@ export const fragment = graphql`
   }
 `
 
-const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
+const CategoryPageHero = ({ pageName, image }) => {
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
@@ -33,18 +33,10 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
               critical
             >
               <div className={styles.innerWrapper}>
-                <h1>{title}</h1>
+                  <div>category</div>
+                  <h1>{pageName}</h1>
               </div>
               <div className={styles.Overlay}></div>
-              <div
-                className={`${
-                  hidestripondevice & (hidestripondevice === "desktop")
-                    ? styles.HideDesktop
-                    : hidestripondevice === "mobile"
-                    ? styles.HideMobile
-                    : ""
-                } ${styles.Hatch}`}
-              ></div>
             </BackgroundImage>
           ) : (
             ""
@@ -55,4 +47,4 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
   )
 }
 
-export default InnerHeroImageFullWidth
+export default CategoryPageHero

@@ -7,7 +7,6 @@ import styles from "../styles/pagination.module.scss"
 
 const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
   if (pageNumber === 1 && !hasNextPage) return null
-  console.log(hasNextPage)
 
   return (
     <div className={styles.PagiantionWrapper}>
@@ -15,7 +14,6 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
         {pageNumber > 1 && (
           <Link
             className={`prev page-numbers ${styles.PrevNext}`}
-            
             to={
               pageNumber > 2
                 ? `/${pageUri}/page/${pageNumber - 1}`
@@ -26,8 +24,6 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
           </Link>
         )}
 
-
-          
         <ul>
           {Array.from({ length: numPages }, (_, i) => (
             <li
@@ -42,7 +38,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
                   padding: "5px",
                   textDecoration: "none",
                 }}
-                className={`${i + 1 === pageNumber ? styles.Active : ''}`}
+                className={`${i + 1 === pageNumber ? styles.Active : ""}`}
               >
                 {i + 1}
               </Link>

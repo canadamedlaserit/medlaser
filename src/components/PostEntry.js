@@ -1,8 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-// import Image from "./Image"
-// import { blogURI } from "../../globals"
-
+import DateStyle from '../components/DateStyle'
 import styles from "./BlogMain/BlogMain.module.scss"
 
 const PostEntry = ({ post }) => {
@@ -17,34 +15,6 @@ const PostEntry = ({ post }) => {
     author,
   } = post
 
-  const dateMiliseconds = Date.parse(date)
-
-  var monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ]
-
-  var postDate = new Date(dateMiliseconds)
-
-  var dd = postDate.getDate()
-
-  var mm = postDate.getMonth()
-  var yyyy = postDate.getFullYear()
-
-  if (dd < 10) {
-    dd = "0" + dd
-  }
-  postDate = monthNames[mm] + " " + dd + ", " + yyyy
 
   return (
     <div className={styles.Entry}>
@@ -66,7 +36,10 @@ const PostEntry = ({ post }) => {
               </Link>
             ))}
           </div>
-          <div className={styles.Date}>{postDate}</div>
+          <div className={styles.Date}>
+            <DateStyle date={date} />
+            
+            </div>
         </div>
 
         <Link to={`/${uri}/`}>

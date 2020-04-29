@@ -20,8 +20,10 @@
       width: 100%;
       position: relative;
       z-index: 3;
+      padding-left: 15px;
+      padding-right: 15px;
 
-      h3 {
+      h1 {
         font-size: 38px;
         line-height: 57px;
         font-weight: 400;
@@ -40,7 +42,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #00000072;
+      background-color: #0000009a;
       z-index: 2;
     }
 
@@ -107,17 +109,64 @@
 
   .Main {
     max-width: 920px;
-    margin: 40px auto;
-
-    // .Content {
-    // }
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0 auto;
 
     .Date {
-      text-align: right;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0px;
-      color: #89898c;
+      padding-bottom: 50px;
+    }
+
+    .Content {
+      h2 {
+        text-align: left;
+        font-weight: 400;
+        font-size: 24px !important;
+        color: #000000;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+      }
+
+      a,
+      a span {
+        color: #3897f0;
+        font-weight: 600 !important;
+      }
+    }
+
+    .SingleNextPrev {
+      color: $black;
+
+      svg {
+        margin-top: -2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Wrapper {
+    .Hero {
+      min-height: 264px;
+
+      h1 {
+        margin-bottom: 50px !important;
+        font-size: 20px !important;
+        line-height: 30px !important;
+      }
+
+      .Author {
+        font-size: 12px;
+        color: #ffffff;
+      }
+  
+      .Term {
+        font-size: 12px;
+      }
+
+      .Hatch {
+        display: none;
+      }
     }
   }
 }
