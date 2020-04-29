@@ -97,10 +97,10 @@ class MainHero extends Component {
                 <h3>{subtitle}</h3>
 
                 <div className={styles.buttonsWrapper}>
-                  <Link to="/" className="btn btn-red">
+                  <Link to="/#book" className="btn btn-red">
                     {btntext1}
                   </Link>
-                  <Link to="/" className="btn btn-black-transparent">
+                  <Link to="/#book" className="btn btn-black-transparent">
                     {btntext2}
                   </Link>
                 </div>

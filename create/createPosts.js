@@ -8,6 +8,7 @@ const {
   const postTemplate = require.resolve("../src/templates/post/index.js")
   const blogTemplate = require.resolve("../src/templates/post/blog.js")
   
+  
   const GET_POSTS = `
       # Here we make use of the imported fragments which are referenced above
       ${PostTemplateFragment}
@@ -45,7 +46,7 @@ const {
 const allPosts = []
 const blogPages = [];
 let pageNumber = 0;
-const itemsPerPage = 4;
+const itemsPerPage = 5;
 
 
 /**
@@ -172,7 +173,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
           next
         },
       })
-      console.log(post.date)
+   
       reporter.info(`post created:  ${post.uri}`)
     })
 

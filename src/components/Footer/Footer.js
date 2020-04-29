@@ -75,7 +75,7 @@ class Footer extends Component {
                     href={single.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                  ></a>
+                  >socials link</a>
                 ))}
               </div>
             </div>

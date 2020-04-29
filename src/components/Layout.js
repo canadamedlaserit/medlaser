@@ -14,13 +14,13 @@ const Layout = ({ children, location }) => {
             node {
               id
               name
-              menuItems {
+              menuItems(first: 100) {
                 edges {
                   node {
                     id
                     label
                     url
-                    childItems {
+                    childItems(first: 100) {
                       edges {
                         node {
                           id

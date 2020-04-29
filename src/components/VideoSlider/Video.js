@@ -35,8 +35,8 @@ class Video extends Component {
           playing={this.props.isVisible && this.state.playing ? true : false}
           playIcon={
             <img
-              loading="lazy"
               alt="play-icon"
+              loading="lazy"
               className={styles.Icon}
               src={play}
             />

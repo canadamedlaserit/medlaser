@@ -110,6 +110,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    font-size: 0;
+    color: transparent;
 
     &:nth-child(1) {
       background-image: url("../../images/youtube.svg");

@@ -53,7 +53,7 @@ const Specials = ({ title, text, btntext, slides }) => {
           <div className={`col-md-4 ${styles.TextSide}`}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link className={`btn btn-small btn-white-transparent ${styles.Btn}`} to="/">
+            <Link className={`btn btn-small btn-white-transparent ${styles.Btn}`} to="/specials">
               {btntext}
             </Link>
           </div>

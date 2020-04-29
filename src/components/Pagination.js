@@ -2,40 +2,34 @@
 
 import React from "react"
 import { Link } from "gatsby"
-import { blogURI } from "../../globals"
 
-const Pagination = ({ pageNumber, hasNextPage, numPages }) => {
+import styles from "../styles/pagination.module.scss"
 
+const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
   if (pageNumber === 1 && !hasNextPage) return null
-  //   console.log(pageNumber);
+  console.log(hasNextPage)
 
   return (
-    <div style={{ margin: "60px auto", textAlign: "center" }}>
-      <h2>Posts navigation</h2>
-      <div>
-        {
-          pageNumber > 1 && (
-            <Link
-              className="prev page-numbers"
-              style={{
-                padding: "4px 8px 5px 8px",
-                backgroundColor: "rgba(0,0,0,.05)",
-                borderRadius: "3px",
-              }}
-              to={pageNumber > 2 ? `/${blogURI}/page/${pageNumber - 1}` : `/${blogURI}/`}
-            >
-              <span>Previous page</span>
-            </Link>
-          )
-        }
-        {/* <span aria-current="page" className="page-numbers current" style={{ padding: "5px 10px" }}>
-          <span className="meta-nav screen-reader-text">Page </span>
-          {pageNumber}
+    <div className={styles.PagiantionWrapper}>
+      <div className={styles.Pagination}>
+        {pageNumber > 1 && (
+          <Link
+            className={`prev page-numbers ${styles.PrevNext}`}
+            
+            to={
+              pageNumber > 2
+                ? `/${pageUri}/page/${pageNumber - 1}`
+                : `/${pageUri}/`
+            }
+          >
+            <span>Previous</span>
+          </Link>
+        )}
 
 
-        </span> */}
-
-        {Array.from({ length: numPages }, (_, i) => (
+          
+        <ul>
+          {Array.from({ length: numPages }, (_, i) => (
             <li
               key={`pagination-number${i + 1}`}
               style={{
@@ -43,35 +37,27 @@ const Pagination = ({ pageNumber, hasNextPage, numPages }) => {
               }}
             >
               <Link
-                to={`/${blogURI}/${i === 0 ? '' : 'page/'+ (i + 1)}`}
+                to={`/${pageUri}/${i === 0 ? "" : "page/" + (i + 1)}`}
                 style={{
-                  padding: '5px',
-                  textDecoration: 'none',
-                  color: i + 1 === pageNumber ? '#ffffff' : '',
-                  background: i + 1 === pageNumber ? '#007acc' : '',
+                  padding: "5px",
+                  textDecoration: "none",
                 }}
+                className={`${i + 1 === pageNumber ? styles.Active : ''}`}
               >
                 {i + 1}
               </Link>
             </li>
           ))}
+        </ul>
 
-        {
-          hasNextPage && (
-            <Link
-              style={{
-                padding: "4px 8px 5px 8px",
-                backgroundColor: "rgba(0,0,0,.05)",
-                borderRadius: "3px",
-              }}
-              className="next page-numbers"
-              to={`/${blogURI}/page/${pageNumber + 1}`
-              }
-            >
-              <span>Next page </span>
-            </Link>
-          )
-        }
+        {hasNextPage && (
+          <Link
+            className={`next page-numbers ${styles.PrevNext}`}
+            to={`/${pageUri}/page/${pageNumber + 1}`}
+          >
+            <span>Next</span>
+          </Link>
+        )}
       </div>
     </div>
   )
