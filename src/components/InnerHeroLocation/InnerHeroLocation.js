@@ -25,7 +25,6 @@ export const fragment = graphql`
 class InnerHeroLocation extends Component {
   render() {
     const { title, subtitle, text, backgroundimage } = this.props
-    console.log(subtitle)
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>

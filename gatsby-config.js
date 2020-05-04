@@ -5,6 +5,7 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,13 +33,38 @@ module.exports = {
         refetchInterval: 60
       }
     },
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Playfair Display:400,400i,700', 'Open Sans:400,600,800']
+    //     }
+    //   }
+    // },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: 'gatsby-plugin-webfonts',
       options: {
-        google: {
-          families: ['Playfair Display:400,400i,700', 'Open Sans:400,600,800']
-        }
-      }
+        fonts: {
+          google: [
+            {
+              family: "Playfair Display",
+              variants: ["400", "400i", "800"], 
+              fontDisplay: 'swap',
+              strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
+            {
+              family: "Open Sans",
+              variants: ["400", "600", "800"], 
+              fontDisplay: 'swap',
+              strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
+          ],
+        },
+        //formats: ['woff2', 'woff'],
+        //useMinify: true,
+        usePreload: true,
+        //usePreconnect: false,
+      },
     },
     `gatsby-plugin-catch-links`
   ]

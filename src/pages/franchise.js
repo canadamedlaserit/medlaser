@@ -8,6 +8,7 @@ import ClinicsSlider from "../components/ClinicsSlider/ClinicsSlider"
 import FourColumnsBlock from "../components/FourColumnsBlock/FourColumnsBlock"
 import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerRightWithButtons"
 import InquiryWithSubscription from "../components/Contact/InquiryWithSubscription"
+import LocationsMapWithOptions from "../components/LocationsMapWithOptions/LocationsMapWithOptions"
 
 export const query = graphql`
   {
@@ -49,6 +50,7 @@ export const query = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_Inquiry2 {
               fieldGroupName
             }
+            ...LocationsMapWithOptionsSection
           }
         }
       }
@@ -84,6 +86,9 @@ const Franchise = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Inquiry2":
             return <InquiryWithSubscription key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmapwithoptions":
+            return <LocationsMapWithOptions key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

@@ -11,7 +11,8 @@ body {
 }
 
 h1 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
   font-weight: 700;
   font-size: 46px;
   line-height: 65px;
@@ -26,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 36px;
   line-height: 48px;
   text-align: center;
@@ -41,7 +42,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Playfair Display", sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 24px;
   line-height: 36px;
   text-align: center;
@@ -133,6 +134,55 @@ main {
     height: 100%;
   }
 }
+
+// GOOGLE MAPS ADDITIONAL STYLES START
+.gm-ui-hover-effect {
+  display: none !important;
+}
+.gm-style-iw-t {
+  bottom: 53px !important;
+
+  &::after {
+    display: none;
+  }
+}
+.gm-style-iw-c {
+  min-width: 280px !important;
+  box-shadow: 0px 10px 20px #00000029 !important;
+  top: 130px !important;
+  max-height: unset !important;
+}
+.gm-style-iw-d {
+  max-height: unset !important;
+  min-width: 100% !important;
+}
+
+// - infos
+.email-c {
+  &:before {
+    background-image: url(../images/awesome-phone-alt.svg) !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+  }
+}
+
+.phone-c {
+  &:before {
+    background-image: url(../images/material-email.svg) !important;
+    min-width: 18px !important;
+    min-height: 14px !important;
+  }
+}
+//
+
+@media(max-width: 767px) {
+  .gm-style-iw-c {
+    top: 330px !important;
+    max-height: unset !important;
+  }
+}
+
+// GOOGLE MAPS ADDITIONAL STYLES END
 
 .entry-content {
   img.alignright {
