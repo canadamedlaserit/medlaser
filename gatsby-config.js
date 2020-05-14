@@ -21,7 +21,7 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `https://canadamedlaser.wptestprev.icu/graphql`
+        url: `https://canadamed.2marketing.ca/graphql`
       }
     },
     {
@@ -29,7 +29,7 @@ module.exports = {
       options: {
         typeName: 'WordPress',
         fieldName: 'wordPress',
-        url: 'https://canadamedlaser.wptestprev.icu/graphql',
+        url: 'https://canadamed.2marketing.ca/graphql',
         refetchInterval: 60
       }
     },
