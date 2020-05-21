@@ -134,7 +134,7 @@ class Faqs extends Component {
             { type === "normal" ? (
               <BackgroundImage
                 className={`col-md-5 smallerSide ${styles.ImageSide}`}
-                fluid={image.imageFile.childImageSharp.fluid}
+                fluid={image ? image.imageFile.childImageSharp.fluid : null}
               ></BackgroundImage>
             ) : (
               <div

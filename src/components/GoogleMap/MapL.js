@@ -164,7 +164,7 @@ export class MapContainerL extends Component {
                 lng: positions[location].lng,
               }}
               icon={{
-                url: `${markeractive.sourceUrl}`,
+                url: `${markeractive ? markeractive.sourceUrl : null}`,
                 scaledSize: new window.google.maps.Size(25, 42),
               }}
             />

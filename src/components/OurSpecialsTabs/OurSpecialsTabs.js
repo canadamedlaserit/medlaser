@@ -19,6 +19,7 @@ const OurSpecialsTabs = () => {
               text
               image {
                 sourceUrl
+                altText
                 imageFile {
                   childImageSharp {
                     fluid(quality: 100, maxWidth: 600) {
@@ -47,7 +48,6 @@ const OurSpecialsTabs = () => {
       }
     }
   `)
-
 
   const specials = data.wpgraphql.specials.nodes
   const categories = data.wpgraphql.categories.edges
@@ -89,12 +89,17 @@ const OurSpecialsTabs = () => {
                                 key={index}
                               >
                                 <div className={styles.ImageSide}>
-                                  <Img
-                                    fluid={
-                                      special.specialsFields.image.imageFile
-                                        .childImageSharp.fluid
-                                    }
-                                  />
+                                  {special.specialsFields.image ? (
+                                    <Img
+                                      alt={special.specialsFields.image.altText}
+                                      fluid={
+                                        special.specialsFields.image.imageFile
+                                          .childImageSharp.fluid
+                                      }
+                                    />
+                                  ) : (
+                                    ""
+                                  )}
                                 </div>
 
                                 <div className={styles.TextSide}>

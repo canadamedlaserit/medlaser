@@ -8,12 +8,12 @@ const CategoryList = ({ showOnDevice }) => {
   const data = useStaticQuery(graphql`
     query CategoriesListQuery {
       wpgraphql {
-        categories {
+        categories (first: 500) {
           edges {
             node {
               name
               slug
-              posts {
+              posts (first: 500) {
                 edges {
                   node {
                     id

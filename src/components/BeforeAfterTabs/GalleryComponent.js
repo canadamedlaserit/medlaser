@@ -16,11 +16,16 @@ class GalleryComponent extends Component {
             return (
               <div className={styles.SpecialWrapper} key={index}>
                 <div className={styles.ImageSide}>
-                  <Img
-                    fluid={
-                      result.resultsFields.image.imageFile.childImageSharp.fluid
-                    }
-                  />
+                  {result.resultsFields.image ? (
+                    <Img
+                      fluid={
+                        result.resultsFields.image.imageFile.childImageSharp
+                          .fluid
+                      }
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
 
                 <div className={styles.TextSide}>

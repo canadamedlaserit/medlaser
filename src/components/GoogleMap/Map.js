@@ -192,8 +192,8 @@ export class MapContainer extends Component {
                 url: `
                 ${
                   this.state.activeMarkerIndex === index
-                    ? markeractive.sourceUrl
-                    : marker.sourceUrl
+                    ? markeractive ?  markeractive.sourceUrl : null
+                    : marker ? marker.sourceUrl : null
                 }`,
                 scaledSize: new window.google.maps.Size(25, 42),
               }}

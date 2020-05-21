@@ -107,11 +107,15 @@ const ClinicsSlider = ({ title, content, slides }) => {
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
                   <div className={styles.ImageWrapper}>
-                    <Img
-                      className={styles.Gimg}
-                      alt={slide.altText}
-                      fluid={slide.image.imageFile.childImageSharp.fluid}
-                    />
+                    {slide.image ? (
+                      <Img
+                        className={styles.Gimg}
+                        alt={slide.image.altText}
+                        fluid={slide.image.imageFile.childImageSharp.fluid}
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <div className={styles.ContentWrapper}>

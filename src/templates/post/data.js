@@ -44,6 +44,13 @@ const BlogPreviewFragment = `
     content
     termNames
     termSlugs
+    categories {
+      nodes {
+        name
+        slug
+        id
+      }
+    }
     featuredImage {
       sourceUrl
       altText

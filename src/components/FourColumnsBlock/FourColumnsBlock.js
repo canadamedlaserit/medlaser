@@ -29,19 +29,21 @@ const FourColumnsBlock = ({ title, columns }) => {
         </div>
 
         <div className={`row ${styles.Row}`}>
-
           {columns.map((column, index) => (
             <div key={index} className={`col-md-3 ${styles.Col}`}>
               <div
-                style={{ backgroundImage: `url(${column.image.sourceUrl})` }}
+                style={{
+                  backgroundImage: `url(${
+                    column.image ? column.image.sourceUrl : null
+                  })`,
+                }}
                 className={styles.Icon}
               ></div>
               <h5>{column.title}</h5>
               <div dangerouslySetInnerHTML={{ __html: column.text }}></div>
             </div>
           ))}
-
-          </div>
+        </div>
       </div>
       <div className={styles.BottomLine}></div>
     </section>

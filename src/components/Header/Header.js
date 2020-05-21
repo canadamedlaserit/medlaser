@@ -64,9 +64,12 @@ class Header extends Component {
       }
     }
 
+    //if no image display nothing
+    const logo = data.wpgraphql.page.headerFooterInfo.logo
+      ? data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp
+          .fluid
+      : false
 
-    const logo =
-      data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp.fluid
     const headerInfo = data.wpgraphql.page.headerFooterInfo
 
     return (
@@ -142,7 +145,7 @@ class Header extends Component {
           <div className={`container ${styles.container}`}>
             <Navbar.Brand className={styles.NavbarBrand}>
               <Link to="/" className={styles.Navbar_logo}>
-                <Img fluid={logo} alt={headerInfo.logo.altText} />
+                {logo ? <Img fluid={logo} alt={headerInfo.logo.altText} /> : ""}
               </Link>
             </Navbar.Brand>
 
@@ -166,7 +169,7 @@ class Header extends Component {
               <CustomNav
                 isMobile={this.state.windowWidth > 991 ? false : true}
                 data={this.state.windowWidth > 991 ? mainMenu : mainMenuMobile}
-                menuimages={data.wpgraphql.page.headerFooterInfo.menuimages}
+                menuimages={data.wpgraphql.page.headerFooterInfo.menuimages} 
               />
             </Navbar.Collapse>
           </div>

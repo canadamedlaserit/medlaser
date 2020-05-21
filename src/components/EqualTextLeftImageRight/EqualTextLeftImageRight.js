@@ -27,7 +27,7 @@ class EqualTextLeftImageRight extends Component {
   render() {
     const { title, content, backgroundcolor, textcolor, image } = this.props
 
-    const fluidImage = image.imageFile.childImageSharp.fluid
+    const fluidImage = image ? image.imageFile.childImageSharp.fluid: null
 
     return (
       <section

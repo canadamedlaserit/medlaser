@@ -8,10 +8,15 @@ const Areas = ({ areas }) => {
     <>
       {areas.map((area, index) => (
         <div key={index} className={styles.Area}>
-          <Img
-            className={styles.AreaImage}
-            fluid={area.image.imageFile.childImageSharp.fluid}
-          ></Img>
+          {area.image ? (
+            <Img
+              className={styles.AreaImage}
+              fluid={area.image.imageFile.childImageSharp.fluid}
+            ></Img>
+          ) : (
+            ""
+          )}
+
           <h5>{area.title}</h5>
         </div>
       ))}

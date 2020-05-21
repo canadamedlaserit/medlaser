@@ -6,7 +6,7 @@ import styles from "./LeftRightMultiple.module.scss"
 
 const ImgLeft = ({ data }) => {
   const { title, content, image, btntext, btnlink } = data
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid:null
 
   return (
     <div className={`row ${styles.Row} ${styles.TextLeft}`}>

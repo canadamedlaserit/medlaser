@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import DateStyle from '../components/DateStyle'
+import DateStyle from "../components/DateStyle"
 import styles from "./BlogMain/BlogMain.module.scss"
 
 const PostEntry = ({ post }) => {
@@ -13,7 +13,10 @@ const PostEntry = ({ post }) => {
     termSlugs,
     date,
     author,
+    categories,
   } = post
+
+  {console.log(post.categories)}
 
 
   return (
@@ -30,16 +33,20 @@ const PostEntry = ({ post }) => {
       <article>
         <div className={styles.ArticleHeaderWrapper}>
           <div className={styles.Term}>
-            {termNames.map((term, index) => (
+            {categories.nodes.map((category, index) => (
+              <Link key={index} to={`/category/${category.slug}/`}>
+                <span>{category.name} </span>
+              </Link>
+            ))}
+            {/* {termNames.map((term, index) => (
               <Link key={index} to={`/category/${termSlugs[index]}/`}>
                 <span>{term} </span>
               </Link>
-            ))}
+            ))} */}
           </div>
           <div className={styles.Date}>
             <DateStyle date={date} />
-            
-            </div>
+          </div>
         </div>
 
         <Link to={`/${uri}/`}>

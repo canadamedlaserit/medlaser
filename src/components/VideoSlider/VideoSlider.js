@@ -13,7 +13,9 @@ export const fragment = graphql`
       ... on WPGraphQL_Page_Sectionfields_Sections_Videoslider_slides {
         title
         videolink
-        imagelink
+        imagelink {
+          sourceUrl
+        }
       }
     }
   }

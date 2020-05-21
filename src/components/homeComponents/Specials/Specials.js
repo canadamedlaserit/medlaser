@@ -53,7 +53,10 @@ const Specials = ({ title, text, btntext, slides }) => {
           <div className={`col-md-4 ${styles.TextSide}`}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link className={`btn btn-small btn-white-transparent ${styles.Btn}`} to="/specials">
+            <Link
+              className={`btn btn-small btn-white-transparent ${styles.Btn}`}
+              to="/specials"
+            >
               {btntext}
             </Link>
           </div>
@@ -61,11 +64,16 @@ const Specials = ({ title, text, btntext, slides }) => {
             <Swiper {...params}>
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={slide.altText}
-                    fluid={slide.image.imageFile.childImageSharp.fluid}
-                  />
+                  {slide.image ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={slide.altText}
+                      fluid={slide.image.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
+
                   <div className={styles.ContentWrapper}>
                     <span className={styles.Price}>
                       {slide.price}
@@ -80,7 +88,10 @@ const Specials = ({ title, text, btntext, slides }) => {
                 </div>
               ))}
             </Swiper>
-            <Link className={`btn btn-small btn-white-transparent ${styles.Btn_bottom}`} to="/">
+            <Link
+              className={`btn btn-small btn-white-transparent ${styles.Btn_bottom}`}
+              to="/"
+            >
               {btntext}
             </Link>
           </div>

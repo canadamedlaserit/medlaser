@@ -90,27 +90,39 @@ const TextAndThreeImages = ({
           </div>
 
           <div className={`${styles.Col} col-md-4`}>
-            <Img
-              className={styles.Gimg}
-              alt={image1.altText}
-              fluid={image1.imageFile.childImageSharp.fluid}
-            />
+            {image1 ? (
+              <Img
+                className={styles.Gimg}
+                alt={image1.altText}
+                fluid={image1.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
           </div>
 
           <div className={`${styles.Col} col-md-4`}>
-            <Img
-              className={styles.Gimg}
-              alt={image2.altText}
-              fluid={image2.imageFile.childImageSharp.fluid}
-            />
+            {image2 ? (
+              <Img
+                className={styles.Gimg}
+                alt={image2.altText}
+                fluid={image2.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
           </div>
 
           <div className={`${styles.Col} col-md-4`}>
-            <Img
-              className={styles.Gimg}
-              alt={image3.altText}
-              fluid={image3.imageFile.childImageSharp.fluid}
-            />
+            {image3 ? (
+              <Img
+                className={styles.Gimg}
+                alt={image3.altText}
+                fluid={image3.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
           </div>
 
           <div
@@ -119,29 +131,41 @@ const TextAndThreeImages = ({
             <Swiper {...params}>
               <div className={styles.SwiperSlide}>
                 <div className={styles.ImageWrapper}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={image1.altText}
-                    fluid={image1.imageFile.childImageSharp.fluid}
-                  />
+                  {image1 ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={image1.altText}
+                      fluid={image1.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <div className={styles.SwiperSlide}>
                 <div className={styles.ImageWrapper}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={image2.altText}
-                    fluid={image2.imageFile.childImageSharp.fluid}
-                  />
+                  {image2 ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={image2.altText}
+                      fluid={image2.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <div className={styles.SwiperSlide}>
                 <div className={styles.ImageWrapper}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={image3.altText}
-                    fluid={image3.imageFile.childImageSharp.fluid}
-                  />
+                  {image3 ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={image3.altText}
+                      fluid={image3.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </Swiper>

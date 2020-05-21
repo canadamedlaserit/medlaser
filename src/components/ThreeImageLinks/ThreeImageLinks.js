@@ -34,7 +34,7 @@ const ThreeImageLinks = ({ links }) => {
           {links.map((link, index) => (
             <div key={index} className={`col-md-4 ${styles.Col}`}>
               <BackgroundImage
-                fluid={link.image.imageFile.childImageSharp.fluid}
+                fluid={link.image ? link.image.imageFile.childImageSharp.fluid:null}
                 className={styles.InsideWrapper}
               >
                 <div className={styles.Titles}>

@@ -130,7 +130,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const categories = await graphql(`
     {
       wpgraphql {
-        categories {
+        categories (first: 500) {
           edges {
             node {
               id
@@ -143,6 +143,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   excerpt
                   termNames
                   termSlugs
+                  categories {
+                    nodes {
+                      name
+                      slug
+                      id
+                    }
+                  }
                   author {
                     name
                     slug

@@ -28,16 +28,20 @@ export const fragment = graphql`
 `
 
 const LookYounger = ({ title, btntext, btnlink, image, list }) => {
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : ""
 
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <BackgroundImage
-            className={`col-md-5 smallerSide ${styles.ImageSide}`}
-            fluid={fluidImage}
-          ></BackgroundImage>
+          {fluidImage ? (
+            <BackgroundImage
+              className={`col-md-5 smallerSide ${styles.ImageSide}`}
+              fluid={fluidImage}
+            ></BackgroundImage>
+          ) : (
+            ""
+          )}
           <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
             <div className={styles.TextInside}>
               <h2>{title}</h2>

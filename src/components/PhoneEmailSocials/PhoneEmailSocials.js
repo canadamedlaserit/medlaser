@@ -39,7 +39,7 @@ const PhoneEmailSocials = ({ phoneinfo, emailinfo, socials }) => {
                 <div key={index}>
                   <a
                     className={styles.Icon}
-                    style={{ backgroundImage: `URL(${item.image.sourceUrl})` }}
+                    style={{ backgroundImage: `URL(${item.image ? item.image.sourceUrl:null})` }}
                     target="_blank"
                     rel="noopener noreferrer"
                     href={item.link}

@@ -7,26 +7,36 @@ import styles from "../../styles/singleBlog.module.scss"
 
 const Post = ({ pageContext, location }) => {
   const {
-    post: { title, content, date, featuredImage, author, termNames, termSlugs },
+    post: { title, content, date, featuredImage, author, termNames, termSlugs, categories },
     previous,
     next,
   } = pageContext
+
+  {console.log(termNames)}
+  {console.log(termSlugs)}
+  {console.log(categories)}
+  
 
   return (
     <Layout location={location}>
       <article className={`entry-content ${styles.Wrapper}`}>
         <section
-          style={{ backgroundImage: `url(${featuredImage.sourceUrl})` }}
+          style={{ backgroundImage: `url(${featuredImage ? featuredImage.sourceUrl : null})` }}
           className={`${styles.Section} ${styles.Hero}`}
         >
           <div className={styles.HeroWrapper}>
             <div className={styles.ArticleHeaderWrapper}>
               <div className={styles.Term}>
-                {termNames.map((term, index) => (
+                {categories.nodes.map((category, index) => (
+                  <Link key={index} to={`/category/${category.slug}/`}>
+                    <span>{category.name} </span>
+                  </Link>
+                ))}
+                {/* {termNames.map((term, index) => (
                   <Link key={index} to={`/category/${termSlugs[index]}/`}>
                     <span>{term} </span>
                   </Link>
-                ))}
+                ))} */}
               </div>
               <div className={styles.Author}>
                 by {author.name === "admin" ? "Canada MedLaser" : author.name}

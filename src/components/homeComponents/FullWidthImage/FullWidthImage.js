@@ -25,7 +25,7 @@ export const fragment = graphql`
 `
 
 const FullWidthImage = ({ title, subtitle, btntext, btnlink, image, altText }) => {
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
 
   return (
     <section className={styles.Section}>

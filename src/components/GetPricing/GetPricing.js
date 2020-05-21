@@ -34,7 +34,7 @@ const GetPricing = ({
   btnlink,
   image,
 }) => {
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
 
   return (
     <section className={styles.Section}>

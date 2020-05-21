@@ -40,7 +40,7 @@ const LaserClinics = ({
   btnlink1,
   btnlink2,
 }) => {
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : false
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
@@ -68,11 +68,14 @@ const LaserClinics = ({
               </div>
             </div>
           </div>
-
-          <BackgroundImage
-            className={`col-md-5 smallerSide ${styles.ImageSide}`}
-            fluid={fluidImage}
-          ></BackgroundImage>
+          {fluidImage ? (
+            <BackgroundImage
+              className={`col-md-5 smallerSide ${styles.ImageSide}`}
+              fluid={fluidImage}
+            ></BackgroundImage>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </section>

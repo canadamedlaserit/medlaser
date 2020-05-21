@@ -111,12 +111,16 @@ export class CustomNav extends Component {
                                   if (index.menuName === node.label) {
                                     return (
                                       <div key={item}>
-                                        <Img
-                                          fluid={
-                                            index.menuImage.imageFile
-                                              .childImageSharp.fluid
-                                          }
-                                        />
+                                        {index.menuImage ? (
+                                          <Img
+                                            fluid={
+                                              index.menuImage.imageFile
+                                                .childImageSharp.fluid
+                                            }
+                                          />
+                                        ) : (
+                                          ""
+                                        )}
                                       </div>
                                     )
                                   } else {

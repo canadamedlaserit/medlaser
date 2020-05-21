@@ -41,11 +41,16 @@ const OurServices = ({ title, btntext, btnlink, services }) => {
             {services.map((service, index) => (
               <div className={styles.SingleService} key={index}>
                 <Link to={service.link}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={service.altText}
-                    fluid={service.image.imageFile.childImageSharp.fluid}
-                  />
+                  {service.image ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={service.altText}
+                      fluid={service.image.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
+
                   <h4>{service.title}</h4>
                 </Link>
               </div>

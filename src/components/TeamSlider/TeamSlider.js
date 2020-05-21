@@ -56,7 +56,7 @@ const TeamSlider = ({ teamcategory, teammembers }) => {
       768: {
         slidesPerView: 3,
         centeredSlides: true,
-        loop: true
+        loop: true,
       },
     },
     renderPrevButton: () => (
@@ -117,15 +117,18 @@ const TeamSlider = ({ teamcategory, teammembers }) => {
                           ></div>
                         </div>
                       </div>
-
-                      <Img
-                        className={styles.Gimg}
-                        alt={member.teamMembersDescription.altText}
-                        fluid={
-                          member.teamMembersDescription.image.imageFile
-                            .childImageSharp.fluid
-                        }
-                      />
+                      {member.teamMembersDescription.image ? (
+                        <Img
+                          className={styles.Gimg}
+                          alt={member.teamMembersDescription.image.altText}
+                          fluid={
+                            member.teamMembersDescription.image.imageFile
+                              .childImageSharp.fluid
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   ))
                 : ""}

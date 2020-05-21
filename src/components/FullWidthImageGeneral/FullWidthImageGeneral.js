@@ -27,7 +27,7 @@ const FullWidthImageGeneral = ({ title, content, image, altText }) => {
     <section className={styles.Section}>
       <div className={`container-fluid`}>
         <div className={`row`}>
-          {image.imageFile ? (
+          {image ? (
             <BackgroundImage
               className={`col-md-12 ${styles.Col}`}
               fluid={image.imageFile.childImageSharp.fluid}

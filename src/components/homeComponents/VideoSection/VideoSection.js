@@ -38,7 +38,7 @@ class VideoSection extends React.Component {
 
   render() {
     const { title, videolink, imagelink, playicon } = this.props
-    const fluidImage = playicon.imageFile.childImageSharp.fluid
+    const fluidImage = playicon ? playicon.imageFile.childImageSharp.fluid : false
 
     return (
       <section className={styles.Section}>
@@ -53,7 +53,7 @@ class VideoSection extends React.Component {
                   ref={this.ref}
                   className={styles.ReactPlayer}
                   playing
-                  playIcon={<Img className={styles.Icon} fluid={fluidImage} />}
+                  playIcon={ fluidImage ? (<Img className={styles.Icon} fluid={fluidImage} />) : ''}
                   url={videolink}
                   light={imagelink}
                   onReady={this.handleReady}

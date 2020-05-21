@@ -36,11 +36,11 @@ const FullWidthImageRedBtn = ({
     <section className={styles.Section}>
       <div className={`container-fluid`}>
         <div className={`row`}>
-          {image.imageFile ? (
+          {image ? (
             <BackgroundImage
               className={`col-md-12 ${styles.Col}`}
               fluid={image.imageFile.childImageSharp.fluid}
-              altText={altText}
+              // altText={altText}
             >
               <div className={styles.Inner}>
                 {title ? <h3>{title}</h3> : ""}

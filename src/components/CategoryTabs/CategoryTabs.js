@@ -124,11 +124,16 @@ class CategoryTabs extends Component {
                         key={index}
                         eventKey={index}
                       >
-                        <Img
-                          className={styles.Img}
-                          alt={item.image.altText}
-                          fluid={item.image.imageFile.childImageSharp.fluid}
-                        />
+                        {item.image ? (
+                          <Img
+                            className={styles.Img}
+                            alt={item.image.altText}
+                            fluid={item.image.imageFile.childImageSharp.fluid}
+                          />
+                        ) : (
+                          ""
+                        )}
+
                         <h3>{item.title}</h3>
                         <div
                           className="content"

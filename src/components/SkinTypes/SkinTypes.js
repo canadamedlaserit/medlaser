@@ -41,13 +41,13 @@ const SkinTypes = ({ title, content, tones }) => {
                 {tones.map((tone, index) => {
                   return (
                     <div key={index} className={styles.Tone}>
-                      {tone.title ? (<h5>{tone.title}</h5>) : ''}
+                      {tone.title ? <h5>{tone.title}</h5> : ""}
                       <div className={styles.Images}>
                         {tone.images.map(({ image }, index) => (
                           <img
                             key={index}
-                            src={image.sourceUrl}
-                            alt={image.altText}
+                            src={image ? image.sourceUrl : ""}
+                            alt={image ? image.altText : ""}
                           />
                         ))}
                       </div>

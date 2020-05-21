@@ -37,7 +37,7 @@ export const fragment = graphql`
 `
 
 const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
-  console.log(teammembers)
+  // console.log(teammembers)
   return (
     <section className={styles.Section}>
       <div className={`container ${styles.Container}`}>
@@ -59,14 +59,19 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
                   } ${styles.MemberCol} `}
                   key={index}
                 >
-                  <Img
-                    className={styles.Gimg}
-                    alt={member.altText}
-                    fluid={
-                      member.teamMembersDescription.image.imageFile
-                        .childImageSharp.fluid
-                    }
-                  />
+                  {member.teamMembersDescription.image ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={member.teamMembersDescription.image.altText}
+                      fluid={
+                        member.teamMembersDescription.image.imageFile
+                          .childImageSharp.fluid
+                      }
+                    />
+                  ) : (
+                    ""
+                  )}
+
                   <h5>{member.teamMembersDescription.name}</h5>
 
                   {member.teamMembersDescription.position ? (

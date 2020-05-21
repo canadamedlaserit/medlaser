@@ -102,11 +102,16 @@ const BeforeAfter = ({ title, subtitle, btntext, btnlink, slides }) => {
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
                   <div className={styles.ImageWrapper}>
-                    <Img
-                      className={styles.Gimg}
-                      alt={slide.altText}
-                      fluid={slide.image.imageFile.childImageSharp.fluid}
-                    />
+                    {slide.image ? (
+                      <Img
+                        className={styles.Gimg}
+                        alt={slide.altText}
+                        fluid={slide.image.imageFile.childImageSharp.fluid}
+                      />
+                    ) : (
+                      ""
+                    )}
+
                     <div className={styles.Overlay}></div>
                     <div className={styles.Divider}>
                       <svg

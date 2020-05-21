@@ -75,21 +75,31 @@ class MainHero extends Component {
       backgroundimagemobile,
     } = this.props
 
-    const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
-    const fluidImageMobile =
-      backgroundimagemobile.imageFile.childImageSharp.fluid
+    //if no image display nothing
+    const fluidImage = backgroundimage
+      ? backgroundimage.imageFile.childImageSharp.fluid
+      : false
+
+    const fluidImageMobile = backgroundimagemobile
+      ? backgroundimagemobile.imageFile.childImageSharp.fluid
+      : false
 
     return (
       <section className={styles.MainHero}>
         <div className={`container-fluid ${styles.container}`}>
           <div className={`row ${styles.row}`}>
-            <BackgroundImage
-              fadeIn="true"
-              className={`col-md-7 biggerSide ${styles.imgSide}`}
-              fluid={
-                this.state.windowWidth > 767 ? fluidImage : fluidImageMobile
-              }
-            ></BackgroundImage>
+         
+            {fluidImage && fluidImageMobile ? (
+              <BackgroundImage
+                fadeIn="true"
+                className={`col-md-7 biggerSide ${styles.imgSide}`}
+                fluid={
+                  this.state.windowWidth > 767 ? fluidImage : fluidImageMobile
+                }
+              ></BackgroundImage>
+            ) : (
+              ""
+            )}
 
             <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
               <div className={styles.rightSideWrapper}>

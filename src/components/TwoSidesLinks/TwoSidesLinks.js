@@ -45,8 +45,8 @@ const TwoSidesLinks = ({
   image1,
   image2,
 }) => {
-  const fluidImage1 = image1.imageFile.childImageSharp.fluid
-  const fluidImage2 = image2.imageFile.childImageSharp.fluid
+  const fluidImage1 = image1 ? image1.imageFile.childImageSharp.fluid:null
+  const fluidImage2 = image2 ? image2.imageFile.childImageSharp.fluid:null
 
   return (
     <section className={styles.Section}>

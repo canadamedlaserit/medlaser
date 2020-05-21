@@ -40,7 +40,7 @@ const BiggerLeftWithButtons = ({
   btnlink2,
   image,
 }) => {
-  const fluidImage = image.imageFile.childImageSharp.fluid
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid: null
 
   return (
     <section

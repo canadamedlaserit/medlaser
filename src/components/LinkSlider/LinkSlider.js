@@ -29,7 +29,7 @@ export const fragment = graphql`
 
 const LinkSlider = ({ slides }) => {
   const params = {
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
@@ -59,11 +59,16 @@ const LinkSlider = ({ slides }) => {
             <Swiper {...params}>
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
-                  <Img
-                    className={styles.Gimg}
-                    alt={slide.image.altText}
-                    fluid={slide.image.imageFile.childImageSharp.fluid}
-                  />
+                  {slide.image ? (
+                    <Img
+                      className={styles.Gimg}
+                      alt={slide.image.altText}
+                      fluid={slide.image.imageFile.childImageSharp.fluid}
+                    />
+                  ) : (
+                    ""
+                  )}
+
                   <div className={styles.ContentWrapper}>
                     <Link className={`${styles.OverflowLink}`} to={slide.link}>
                       <h3> {slide.title}</h3>
