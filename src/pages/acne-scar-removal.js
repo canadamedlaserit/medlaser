@@ -6,6 +6,7 @@ import SEO from "../components/particles/SEO"
 import InnerHero from "../components/InnerHero/InnerHero"
 import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
 import EqualTextLeftImageRight from "../components/EqualTextLeftImageRight/EqualTextLeftImageRight"
+import EqualTextRightImageLeft from "../components/EqualTextRightImageLeft/EqualTextRightImageLeft"
 import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerRightWithButtons"
 import HalfImageRedBtn from "../components/HalfImageRedBtn/HalfImageRedBtn"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
@@ -48,6 +49,7 @@ export const query = graphql`
             ...InnerHeroSection
             ...BiggerLeftWithButtonsSection
             ...EqualTextLeftImageRightSection
+            ...EqualTextRightImageLeftSection
             ...BiggerRightWithButtonsSection
             ...HalfImageRedBtnSection
             ...FaqsSection
@@ -82,6 +84,9 @@ const AcneScar = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Equaltextleftimageright":
             return <EqualTextLeftImageRight key={index} {...section} />
+            
+          case "WPGraphQL_Page_Sectionfields_Sections_Equaltextrightimageleft":
+            return <EqualTextRightImageLeft key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
             return <BiggerRightWithButtons key={index} {...section} />

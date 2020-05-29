@@ -10,6 +10,8 @@ import FullWidthImageRedBtn from "../../components/FullWidthImageRedBtn/FullWidt
 import CategoryTabs from "../../components/CategoryTabs/CategoryTabs"
 import Faqs from "../../components/homeComponents/Faqs/Faqs"
 import ContactLocation from "../../components/Contact/ContactLocation"
+import LocationsMapWithOptions from "../../components/LocationsMapWithOptions/LocationsMapWithOptions"
+
 export const query = graphql`
   {
     wpgraphql {
@@ -50,6 +52,7 @@ export const query = graphql`
             ...CategoryTabsSection
             ...FaqsSection
             ...ContactLocationSection
+            ...LocationsMapWithOptionsSection
           }
         }
       }
@@ -91,6 +94,9 @@ const Thornhill = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contactlocation":
             return <ContactLocation key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmapwithoptions":
+            return <LocationsMapWithOptions key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

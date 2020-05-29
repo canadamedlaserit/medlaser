@@ -9,7 +9,8 @@ import LeftRightMultiple from "../../components/LeftRightMultiple/LeftRightMulti
 import Faqs from "../../components/homeComponents/Faqs/Faqs"
 import ContactLocation from "../../components/Contact/ContactLocation"
 import BiggerRightWithButtons from "../../components/BiggerRightWithButtons/BiggerRightWithButtons"
-import TeamLocation from '../../components/TeamLocation/TeamLocation'
+import TeamLocation from "../../components/TeamLocation/TeamLocation"
+import LocationsMapWithOptions from "../../components/LocationsMapWithOptions/LocationsMapWithOptions"
 
 export const query = graphql`
   {
@@ -50,6 +51,7 @@ export const query = graphql`
             ...FaqsSection
             ...TeamLocationSection
             ...ContactLocationSection
+            ...LocationsMapWithOptionsSection
           }
         }
       }
@@ -83,16 +85,17 @@ const Newmarket = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
             return <BiggerRightWithButtons key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_Teamlocation":
-              return <TeamLocation key={index} {...section} />
-  
-            
+          case "WPGraphQL_Page_Sectionfields_Sections_Teamlocation":
+            return <TeamLocation key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contactlocation":
             return <ContactLocation key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationsmapwithoptions":
+            return <LocationsMapWithOptions key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

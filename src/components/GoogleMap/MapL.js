@@ -105,7 +105,7 @@ export class MapContainerL extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-    console.log("marker clickied")
+    // console.log("marker clickied")
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -115,7 +115,7 @@ export class MapContainerL extends Component {
             lng: position.coords.longitude,
           }
 
-          console.log(pos)
+          // console.log(pos)
         },
         function() {
           console.log("some error")
