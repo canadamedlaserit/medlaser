@@ -29,7 +29,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
           </Link>
         )}
 
-        {/* <ul>
+         <ul>
           {Array.from({ length: numPages }, (_, i) => {
             var index = i + 1 // index same as numpages
             if (numPages > 6) {
@@ -91,7 +91,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
               )
             }
           })}
-        </ul> */}
+        </ul> 
 
         {hasNextPage && (
           <Link
