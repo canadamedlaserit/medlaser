@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 70px;
+    flex-wrap: wrap;
   }
 
   ul {
@@ -15,6 +16,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
   }
 
   a {
@@ -30,10 +32,20 @@
     }
   }
 
-
-
   .PrevNext {
-      padding-left: 18px !important;
-      padding-right: 18px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .PagiantionWrapper {
+    .Pagination {
+      justify-content: space-between;
+    }
+    .PrevNext {
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
   }
 }

@@ -22,7 +22,7 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url: `https://canadamed.2marketing.ca/graphql`,
-        refetchInterval: 10
+        refetchInterval: 30
 
       }
     },
@@ -32,7 +32,7 @@ module.exports = {
         typeName: 'WordPress',
         fieldName: 'wordPress',
         url: 'https://canadamed.2marketing.ca/graphql',
-        refetchInterval: 10
+        refetchInterval: 30
       }
     },
     // {
@@ -68,6 +68,12 @@ module.exports = {
         //usePreconnect: false,
       },
     },
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -120
+      }
+    }
   ]
 }

@@ -11,13 +11,15 @@ const CategoriesMain = ({ posts, pageNumber, hasNextPage, numPages, slug }) => {
     <article className={styles.Section}>
       <div className={`container ${styles.Container}`}>
         <div className="row">
+          <CategoryList showOnDevice="mobile" />
+
           <div className="col-md-12">
             <div className={styles.EntriesWrapper}>
               {posts.map((node, index) => (
                 <PostEntry key={index} post={node} />
               ))}
 
-              <CategoryList />
+              <CategoryList showOnDevice="desktop" />
             </div>
 
             <Pagination

@@ -2,18 +2,20 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { Dropdown } from "react-bootstrap"
 
+import CategoryShowMore from "../components/CategoryShowMore"
+
 import styles from "../components/BlogMain/BlogMain.module.scss"
 
 const CategoryList = ({ showOnDevice }) => {
   const data = useStaticQuery(graphql`
     query CategoriesListQuery {
       wpgraphql {
-        categories (first: 500) {
+        categories(first: 500) {
           edges {
             node {
               name
               slug
-              posts (first: 500) {
+              posts(first: 500) {
                 edges {
                   node {
                     id
@@ -26,6 +28,13 @@ const CategoryList = ({ showOnDevice }) => {
       }
     }
   `)
+
+  // const [rowsToDisplay, setRowsToDisplay] = useState(14)
+
+  // const showMore = () => {
+  //   let listLength = data.wpgraphql.categories.edges
+  //   setRowsToDisplay(listLength)
+  // }
 
   return (
     <div
@@ -58,7 +67,7 @@ const CategoryList = ({ showOnDevice }) => {
               All
             </Dropdown.Item>
 
-            {data.wpgraphql.categories.edges.map(({ node }, index) => {
+            {/* {data.wpgraphql.categories.edges.map(({ node }, index) => {
               if (node.posts.edges.length) {
                 return (
                   <Dropdown.Item
@@ -70,7 +79,9 @@ const CategoryList = ({ showOnDevice }) => {
                   </Dropdown.Item>
                 )
               } else return null
-            })}
+            })} */}
+
+            <CategoryShowMore type="mobile" data={data} />
           </Dropdown.Menu>
         </Dropdown>
       ) : (
@@ -81,7 +92,7 @@ const CategoryList = ({ showOnDevice }) => {
             <li>
               <Link to={`/knowledge-base`}>All</Link>
             </li>
-            {data.wpgraphql.categories.edges.map(({ node }, index) => {
+            {/* {data.wpgraphql.categories.edges.map(({ node }, index) => {
               if (node.posts.edges.length) {
                 return (
                   <li key={index}>
@@ -89,7 +100,9 @@ const CategoryList = ({ showOnDevice }) => {
                   </li>
                 )
               } else return null
-            })}
+            })} */}
+
+            <CategoryShowMore type="desktop" data={data} />
           </ul>
         </div>
       )}

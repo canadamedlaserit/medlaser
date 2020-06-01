@@ -8,6 +8,7 @@ import CategoryList from "../CategoryList"
 import styles from "./BlogMain.module.scss"
 
 const BlogMain = ({ nodes, pageNumber, hasNextPage, numPages }) => {
+
   return (
     <article className={styles.Section}>
       <div className={`container ${styles.Container}`}>

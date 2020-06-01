@@ -16,7 +16,7 @@ const PostEntry = ({ post }) => {
     categories,
   } = post
 
-  {console.log(post.categories)}
+  // {console.log(post.featuredImage)}
 
 
   return (
@@ -50,7 +50,7 @@ const PostEntry = ({ post }) => {
         </div>
 
         <Link to={`/${uri}/`}>
-          <h3 style={{ marginBottom: "5px" }}>{title}</h3>
+          <h3 dangerouslySetInnerHTML={{__html: title}} style={{ marginBottom: "5px" }}></h3>
         </Link>
 
         <div className={styles.ArticleAuthorWrapper}>

@@ -55,7 +55,7 @@ const Specials = ({ title, text, btntext, slides }) => {
             <p>{text}</p>
             <Link
               className={`btn btn-small btn-white-transparent ${styles.Btn}`}
-              to="/specials"
+              to="/specials/"
             >
               {btntext}
             </Link>

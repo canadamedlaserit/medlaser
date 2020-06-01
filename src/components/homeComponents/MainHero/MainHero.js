@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./MainHero.module.scss"
 
@@ -107,10 +108,10 @@ class MainHero extends Component {
                 <h3>{subtitle}</h3>
 
                 <div className={styles.buttonsWrapper}>
-                  <Link to="/#book" className="btn btn-red">
+                  <AnchorLink to="/#book" className="btn btn-red">
                     {btntext1}
-                  </Link>
-                  <Link to="/#book" className="btn btn-black-transparent">
+                  </AnchorLink>
+                  <Link to="/before-after/" className="btn btn-black-transparent">
                     {btntext2}
                   </Link>
                 </div>

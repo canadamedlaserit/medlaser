@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+
 import BackgroundImage from "gatsby-background-image"
 
 import styles from "./InnerHero.module.scss"
@@ -82,12 +84,12 @@ class InnerHero extends Component {
                       dangerouslySetInnerHTML={{ __html: text }}
                     ></div>
                     <div className={styles.buttonsWrapper}>
-                      <a href={btnlink1} className="btn btn-red">
+                      <AnchorLink to={btnlink1} className="btn btn-red">
                         {btntext1}
-                      </a>
-                      <Link to={btnlink2} className="btn btn-black-transparent">
+                      </AnchorLink>
+                      <AnchorLink to={btnlink2} className="btn btn-black-transparent">
                         {btntext2}
-                      </Link>
+                      </AnchorLink>
                     </div>
                   </>
                 ) : (

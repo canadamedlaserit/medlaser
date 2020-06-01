@@ -8,6 +8,25 @@
     max-width: 1250px;
   }
 
+  .ShowMore {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    outline: none;
+
+    @media (max-width: 767px) {
+      font-family: "Open Sans", sans-serif !important;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      font-weight: 400 !important;
+    }
+  }
+
   .EntriesWrapper {
     margin-top: 70px;
     display: grid;
@@ -24,7 +43,7 @@
       .CatWrapper {
         background-color: $black !important;
         box-shadow: 0px 10px 20px #00000019;
-        padding: 40px;
+        padding: 40px 20px 20px 40px;
 
         h3 {
           color: $white;
@@ -56,8 +75,6 @@
         }
       }
     }
-
-   
 
     .Entry {
       width: 100%;
@@ -183,11 +200,21 @@
 
     .Categories {
       grid-area: sidebar;
-      max-height: 100%;
+      // max-height: 100%;
       //   width: 25%;
+      // max-height: 1050px;
+
+      ul {
+        max-height: 1000px;
+        overflow-y: scroll;
+        padding-right: 10px !important;
+
+        div {
+          padding-top: 20px;
+        }
+      }
     }
   }
-
 
   .CategoryMobile {
     width: 100%;
@@ -200,7 +227,6 @@
       transform: translate3d(0px, 66px, 0px) !important;
       background-color: $black;
       border: none !important;
-
 
       a {
         color: $white;
@@ -221,12 +247,12 @@
       margin-right: 0;
       max-width: unset;
       border: none;
-  
+
       font-size: 18px;
       font-weight: 700;
-      font-family: 'Playfair Display', sans-serif;
+      font-family: "Playfair Display", sans-serif;
       box-shadow: none !important;
-  
+
       span {
         position: absolute;
         right: 20px;
@@ -235,16 +261,15 @@
         margin: auto;
         display: flex;
         align-items: center;
-        transition: .3s;
+        transition: 0.3s;
         height: 18px;
-  
+
         svg path {
           fill: $white;
         }
       }
     }
   }
-
 }
 
 @media (max-width: 1024px) {
@@ -279,7 +304,7 @@
     .EntriesWrapper {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 0px;;
+      margin-top: 0px;
 
       .Entry {
         width: 100%;
@@ -340,7 +365,5 @@
     .CategoryMobile {
       display: none;
     }
-
-   
   }
 }

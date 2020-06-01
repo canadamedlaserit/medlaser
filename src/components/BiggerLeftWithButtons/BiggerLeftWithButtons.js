@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./BiggerLeftWithButtons.module.scss"
 
@@ -73,20 +74,20 @@ const BiggerLeftWithButtons = ({
 
               <div className={styles.buttonsWrapper}>
                 {btntext1 ? (
-                  <a href={btnlink1} className="btn btn-mid btn-red">
+                  <AnchorLink to={btnlink1} className="btn btn-mid btn-red">
                     {btntext1}
-                  </a>
+                  </AnchorLink>
                 ) : (
                   ""
                 )}
 
                 {btntext2 ? (
-                  <a
-                    href={btnlink2}
+                  <AnchorLink
+                    to={btnlink2}
                     className="btn btn-mid btn-black-transparent"
                   >
                     {btntext2}
-                  </a>
+                  </AnchorLink>
                 ) : (
                   ""
                 )}

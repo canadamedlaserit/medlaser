@@ -884,3 +884,9 @@ main {
     line-height: 19px !important;
   }
 }
+
+
+//
+.swiper-button-next.swiper-button-disabled {
+  pointer-events: auto;
+}

@@ -8,7 +8,6 @@ import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple
 import TextFullWidthListsButton from "../components/TextFullWidthListsButton/TextFullWidthListsButton"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
-import LinkSlider from "../components/LinkSlider/LinkSlider"
 import ThreeImageLinks from '../components/ThreeImageLinks/ThreeImageLinks'
 
 export const query = graphql`
