@@ -14,8 +14,6 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.0",
-    "@material-ui/lab": "^4.0.0-alpha.54",
     "axios": "^0.19.2",
     "body-scroll-lock": "^2.6.4",
     "bootstrap": "^4.4.1",
@@ -36,7 +34,6 @@
     "gatsby-source-graphql": "^2.1.32",
     "gatsby-transformer-sharp": "^2.4.3",
     "google-maps-react": "^2.0.6",
-    "material-ui": "^0.20.2",
     "node-sass": "^4.14.1",
     "query-string": "^6.12.1",
     "react": "^16.12.0",

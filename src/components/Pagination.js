@@ -1,6 +1,6 @@
 // src/components/Pagination.js
 
-import React, { useState } from "react"
+import React from "react"
 
 import { Link } from "gatsby"
 import styles from "../styles/pagination.module.scss"
@@ -8,10 +8,7 @@ import styles from "../styles/pagination.module.scss"
 const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
   if (pageNumber === 1 && !hasNextPage) return null
 
-  const pageChanged = e => {
-    console.log(e)
-  }
-  console.log(pageNumber)
+
 
   // numPages = 7
   // const item
@@ -32,7 +29,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
           </Link>
         )}
 
-        <ul>
+        {/* <ul>
           {Array.from({ length: numPages }, (_, i) => {
             var index = i + 1 // index same as numpages
             if (numPages > 6) {
@@ -94,7 +91,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
               )
             }
           })}
-        </ul>
+        </ul> */}
 
         {hasNextPage && (
           <Link
@@ -106,9 +103,6 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
         )}
       </div>
 
-      {/* <div>
-        <UsePagination1 pageNumber={pageNumber} numPages={numPages} />
-      </div> */}
     </div>
   )
 }
