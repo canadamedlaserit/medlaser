@@ -13,7 +13,7 @@ import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import TwoSidesLinks from "../components/TwoSidesLinks/TwoSidesLinks"
 import LocationMap from "../components/LocationMap/LocationMap"
 import SEO from "../components/particles/SEO"
-
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -49,6 +49,9 @@ export const query = graphql`
             __typename
             ...InnerHeroSection
             ...VideoSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
               fieldGroupName
             }
@@ -86,6 +89,9 @@ const LaserHairRemoval = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
             return <Contact key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor  key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerleftwithbuttons":
             return <BiggerLeftWithButtons key={index} {...section} />

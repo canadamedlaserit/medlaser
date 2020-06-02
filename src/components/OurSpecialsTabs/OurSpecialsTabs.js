@@ -1,6 +1,7 @@
 import React from "react"
 import { Tabs, Tab } from "react-bootstrap"
 import Img from "gatsby-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -118,12 +119,12 @@ const OurSpecialsTabs = () => {
                                     </div>
 
                                     <div className={styles.buttonsWrapper}>
-                                      <a
-                                        href="#book"
+                                      <AnchorLink
+                                        to="/specials/#book"
                                         className="btn btn-white-transparent"
                                       >
                                         Reserve it
-                                      </a>
+                                      </AnchorLink>
                                     </div>
                                   </div>
 

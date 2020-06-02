@@ -168,6 +168,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
         path: path,
         component: postTemplate,
         context: {
+          id: post.id,
           post: post,
           previous,
           next

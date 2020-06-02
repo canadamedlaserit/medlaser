@@ -10,6 +10,19 @@
     display: flex;
     position: relative;
 
+    .HeroImage {
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        >div {
+          max-width: 100%;
+          height: 100%;
+        }
+     
+    }
+
     .HeroWrapper {
       display: flex;
       justify-content: flex-end;
@@ -30,7 +43,8 @@
         color: #ffffff;
         text-transform: capitalize;
         text-align: left;
-        margin-bottom: 90px;
+        margin-bottom: 70px;
+        max-width: 800px;
       }
     }
 
@@ -118,19 +132,51 @@
     }
 
     .Content {
-      h2 {
+      h1,
+      h4,
+      h2,
+      h3 {
         text-align: left;
-        font-weight: 400;
-        font-size: 24px !important;
+        font-weight: 400 !important;
+        font-size: 26px !important;
         color: #000000;
-        text-transform: capitalize;
-        margin-bottom: 30px;
+        text-transform: none;
+        margin-bottom: 25px;
+
+        strong,
+        b {
+          font-weight: 600;
+        }
+      }
+      h1 {
+        font-size: 34px !important;
+      }
+      h3 {
+        font-size: 24px !important;
+        font-family: "Open Sans", sans-serif;
+      }
+      h4 {
+        font-size: 22px !important;
+        margin-top: 40px;
+        font-family: "Open Sans", sans-serif;
+      }
+      h5 {
+        margin-top: 20px;
+        font-family: "Open Sans", sans-serif;
       }
 
       a,
       a span {
         color: #3897f0;
         font-weight: 600 !important;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      ul {
+        list-style: disc;
       }
     }
 
@@ -159,7 +205,7 @@
         font-size: 12px;
         color: #ffffff;
       }
-  
+
       .Term {
         font-size: 12px;
       }

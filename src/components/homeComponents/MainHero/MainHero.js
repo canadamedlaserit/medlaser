@@ -111,7 +111,7 @@ class MainHero extends Component {
                   <AnchorLink to="/#book" className="btn btn-red">
                     {btntext1}
                   </AnchorLink>
-                  <Link to="/before-after/" className="btn btn-black-transparent">
+                  <Link to="/" className="btn btn-black-transparent">
                     {btntext2}
                   </Link>
                 </div>

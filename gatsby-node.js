@@ -46,86 +46,13 @@ exports.createPagesStatefully = async (
   await createPosts({ actions, graphql, reporter }, options)
 }
 
-// // create category Pages
-// exports.createPages = async ({ actions, graphql, reporter }) => {
-//   const { createPage } = actions
-//   const categoryTemplate = path.resolve("src/templates/post/category.js")
-//   const result = await graphql(`
-//     {
-//       wpgraphql {
-//         categories {
-//           edges {
-//             node {
-//               id
-//               name
-//               slug
-//               posts {
-//                 pageInfo {
-//                   hasNextPage
-//                   endCursor
-//                 }
-//                 nodes {
-//                   title
-//                   excerpt
-//                   uri
-//                   termNames
-//                   termSlugs
-//                   date
-//                   featuredImage {
-//                     sourceUrl
-//                     altText
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
 
-//   // handle errors
-//   if (result.errors) {
-//     reporter.panicOnBuild(`Error while running GraphQL query.`)
-//     return
-//   }
-
-//   // Extract category data from query
-//   let categories = result.data.wpgraphql.categories.edges
-
-//   // Make category pages
-//   categories.forEach(category => {
-//     // console.log(category.node.name)
-
-//     if (!excludeCategory.includes(category.node.slug)) {
-//       createPage({
-//         path: `/category/${category.node.slug}/`,
-//         component: categoryTemplate,
-//         context: {
-//           category: category.node.name,
-//           posts: category.node.posts,
-//         },
-//       })
-//     }
-//   })
-// }
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
 
-  // const blogList = await graphql(`
-  //   query {
-  //     allWordpressPost {
-  //       edges {
-  //         node {
-  //           slug
-  //           date(formatString: "YYYY-MM")
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+
 
   const categories = await graphql(`
     {

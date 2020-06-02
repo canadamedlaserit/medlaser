@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import BackgroundImage from "gatsby-background-image"

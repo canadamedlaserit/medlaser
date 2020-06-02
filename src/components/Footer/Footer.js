@@ -86,7 +86,7 @@ class Footer extends Component {
                   {footerInfo.privacypolicy}
                 </Link>
 
-                <p>{footerInfo.disclaimer}</p>
+                <p id="disclaimer">{footerInfo.disclaimer}</p>
               </div>
             </div>
 

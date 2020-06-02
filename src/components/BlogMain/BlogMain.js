@@ -21,7 +21,7 @@ const BlogMain = ({ nodes, pageNumber, hasNextPage, numPages }) => {
 
               {nodes &&
                 nodes.map((post, index) => (
-                  <PostEntry key={index} post={post} />
+                  <PostEntry id={post.id} key={index} post={post} />
                 ))}
 
               <CategoryList showOnDevice="desktop" />

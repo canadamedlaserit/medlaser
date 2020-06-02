@@ -1,7 +1,7 @@
 @import "../../../styles/_variables";
 
 .Section {
-  background-color: $black;
+  background-color: #161616;
   color: $white;
   text-align: left !important;
   padding-top: 100px;
@@ -38,53 +38,53 @@
         .SwiperSlide {
           position: relative;
 
-          .ContentWrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #00000067 0% 0% no-repeat padding-box;
+          // .ContentWrapper {
+          //   position: absolute;
+          //   top: 0;
+          //   left: 0;
+          //   right: 0;
+          //   bottom: 0;
+          //   background: #00000067 0% 0% no-repeat padding-box;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 23px 29px 25px 43px;
+          //   display: flex;
+          //   flex-direction: column;
+          //   justify-content: space-between;
+          //   padding: 23px 29px 25px 43px;
 
-            .Text {
-              h5 {
-                font-family: "Playfair Display", sans-serif;
-                font-size: 28px;
-                line-height: 37px;
-                font-weight: 700;
-                letter-spacing: 0;
-                text-transform: capitalize;
-                margin-bottom: 18px;
-              }
+          //   .Text {
+          //     h5 {
+          //       font-family: "Playfair Display", sans-serif;
+          //       font-size: 28px;
+          //       line-height: 37px;
+          //       font-weight: 700;
+          //       letter-spacing: 0;
+          //       text-transform: capitalize;
+          //       margin-bottom: 18px;
+          //     }
 
-              p {
-                margin-bottom: 0px;
-              }
-            }
-            .Price {
-              font-size: 56px;
-              line-height: 67px;
-              font-family: "Playfair Display", sans-serif;
-              letter-spacing: 0;
-              text-transform: capitalize;
-              font-weight: 700;
-              text-align: right;
-              margin-right: 0;
-              margin-left: auto;
+          //     p {
+          //       margin-bottom: 0px;
+          //     }
+          //   }
+          //   .Price {
+          //     font-size: 56px;
+          //     line-height: 67px;
+          //     font-family: "Playfair Display", sans-serif;
+          //     letter-spacing: 0;
+          //     text-transform: capitalize;
+          //     font-weight: 700;
+          //     text-align: right;
+          //     margin-right: 0;
+          //     margin-left: auto;
 
-              .Label {
-                font-size: 24px;
-                line-height: 40px;
-                font-family: "Playfair Display", sans-serif;
-                text-transform: uppercase;
-              }
-            }
-          }
+          //     .Label {
+          //       font-size: 24px;
+          //       line-height: 40px;
+          //       font-family: "Playfair Display", sans-serif;
+          //       text-transform: uppercase;
+          //     }
+          //   }
+          // }
 
           @media (min-width: 768px) {
             max-width: 454px;
@@ -102,9 +102,9 @@
 }
 
 @media (max-width: 1599px) {
-  .SwiperSlide {
-    max-width: 340px !important;
-  }
+  // .SwiperSlide {
+  //   max-width: 340px !important;
+  // }
 
   .TextSide {
     h2 {
@@ -119,9 +119,9 @@
 }
 
 @media (max-width: 991px) {
-  .SwiperSlide {
-    max-width: 240px !important;
-  }
+  // .SwiperSlide {
+  //   max-width: 240px !important;
+  // }
 
   .TextSide {
     h2 {
@@ -140,6 +140,11 @@
   .Section {
     padding-top: 70px;
     padding-bottom: 60px;
+
+    .SwiperSide {
+      padding-right: 15px !important;
+    }
+
   }
   .TextSide {
     padding-left: 15px !important;
@@ -166,14 +171,14 @@
     min-height: 380px;
   }
 
-  .ContentWrapper {
-    padding: 23px 15px 15px 15px !important;
+  // .ContentWrapper {
+  //   padding: 23px 15px 15px 15px !important;
 
-    .Label {
-      font-size: 18px !important;
-      line-height: 1 !important;
-    }
-  }
+  //   .Label {
+  //     font-size: 18px !important;
+  //     line-height: 1 !important;
+  //   }
+  // }
 
   .Text {
     min-height: 120px !important;

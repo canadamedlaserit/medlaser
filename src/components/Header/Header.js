@@ -7,6 +7,8 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+
 
 import CustomNav from "./CustomNav"
 import styles from "./Header.module.scss"
@@ -102,12 +104,12 @@ class Header extends Component {
                   </a>
                 </div>
                 <div className={styles.ButtonWrapper}>
-                  <Link
+                  <AnchorLink
                     to={headerInfo.btnlink}
                     className={`btn btn-red ${styles.Btn}`}
                   >
                     {headerInfo.btntext}
-                  </Link>
+                  </AnchorLink>
                 </div>
                 <div className={styles.CartWrapper}>
                   <Link

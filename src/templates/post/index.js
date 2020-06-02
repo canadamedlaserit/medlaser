@@ -2,28 +2,47 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../../components/Layout"
 import DateStyle from "../../components/DateStyle"
-
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import styles from "../../styles/singleBlog.module.scss"
 
-const Post = ({ pageContext, location }) => {
+const Post = ({ pageContext, location, data }) => {
   const {
-    post: { title, content, date, featuredImage, author, termNames, termSlugs, categories },
+    post: {
+      title,
+      content,
+      date,
+      featuredImage,
+      author,
+      categories,
+      id,
+    },
     previous,
     next,
   } = pageContext
 
-  {console.log(termNames)}
-  {console.log(termSlugs)}
-  {console.log(categories)}
-  
+  // console.log(featuredImage)
+  // console.log(data)
+  // console.log(id)
 
   return (
     <Layout location={location}>
       <article className={`entry-content ${styles.Wrapper}`}>
         <section
-          style={{ backgroundImage: `url(${featuredImage ? featuredImage.sourceUrl : null})` }}
           className={`${styles.Section} ${styles.Hero}`}
         >
+          <div className={styles.HeroImage}>
+            {data.wpgraphql.post.featuredImage ? (
+              <Img
+                fluid={
+                  data.wpgraphql.post.featuredImage.imageFile.childImageSharp
+                    .fluid
+                }
+              />
+            ) : (
+              null
+            )}
+          </div>
           <div className={styles.HeroWrapper}>
             <div className={styles.ArticleHeaderWrapper}>
               <div className={styles.Term}>
@@ -75,7 +94,7 @@ const Post = ({ pageContext, location }) => {
                       justifyContent: `space-between`,
                       listStyle: `none`,
                       padding: 0,
-                      marginTop: '40px'
+                      marginTop: "40px",
                     }}
                   >
                     <li>
@@ -88,7 +107,7 @@ const Post = ({ pageContext, location }) => {
                           {/* ← {previous.title} */}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            style={{marginRight: '20px'}}
+                            style={{ marginRight: "20px" }}
                             width="10"
                             height="34.982"
                             viewBox="0 0 25.432 50.865"
@@ -119,7 +138,7 @@ const Post = ({ pageContext, location }) => {
                             width="10"
                             height="34.982"
                             viewBox="0 0 16.325 34.982"
-                            style={{marginLeft: '20px'}}
+                            style={{ marginLeft: "20px" }}
                           >
                             <defs></defs>
                             <path
@@ -142,3 +161,23 @@ const Post = ({ pageContext, location }) => {
 }
 
 export default Post
+
+export const pageQuery = graphql`
+  query BlogPostByID($id: ID!) {
+    wpgraphql {
+      post(id: $id) {
+        featuredImage {
+          altText
+          sourceUrl
+          imageFile {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

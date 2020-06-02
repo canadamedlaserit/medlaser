@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Swiper from "react-id-swiper"
 import Img from "gatsby-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./Specials.module.scss"
 
@@ -12,17 +13,13 @@ export const fragment = graphql`
     btntext
     slides {
       ... on WPGraphQL_Page_Sectionfields_Sections_Homeourspecials_slides {
-        title
-        text
-        price
-        label
         image {
           altText
           sourceUrl
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 354) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -34,7 +31,7 @@ export const fragment = graphql`
 
 const Specials = ({ title, text, btntext, slides }) => {
   const params = {
-    slidesPerView: "auto",
+    slidesPerView: 1,
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
@@ -45,6 +42,13 @@ const Specials = ({ title, text, btntext, slides }) => {
       prevEl: ".swiper-button-prev",
     },
     spaceBetween: 20,
+    breakpoints: {
+      // when window width is >= 1200px
+
+      768: {
+        slidesPerView: "auto",
+      },
+    },
   }
   return (
     <section className={styles.Section}>
@@ -65,16 +69,18 @@ const Specials = ({ title, text, btntext, slides }) => {
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
                   {slide.image ? (
-                    <Img
-                      className={styles.Gimg}
-                      alt={slide.altText}
-                      fluid={slide.image.imageFile.childImageSharp.fluid}
-                    />
+                    <AnchorLink to="/#book">
+                      <Img
+                        className={styles.Gimg}
+                        alt={slide.altText}
+                        fluid={slide.image.imageFile.childImageSharp.fluid}
+                      />
+                    </AnchorLink>
                   ) : (
                     ""
                   )}
 
-                  <div className={styles.ContentWrapper}>
+                  {/* <div className={styles.ContentWrapper}>
                     <span className={styles.Price}>
                       {slide.price}
                       <div className={styles.Label}>{slide.label}</div>
@@ -84,13 +90,13 @@ const Specials = ({ title, text, btntext, slides }) => {
                       <h5>{slide.title}</h5>
                       <p>{slide.text}</p>
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </Swiper>
             <Link
               className={`btn btn-small btn-white-transparent ${styles.Btn_bottom}`}
-              to="/"
+              to="/specials/"
             >
               {btntext}
             </Link>

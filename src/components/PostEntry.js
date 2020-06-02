@@ -9,14 +9,12 @@ const PostEntry = ({ post }) => {
     title,
     featuredImage,
     excerpt,
-    // termNames,
-    // termSlugs,
     date,
     author,
     categories,
   } = post
 
-  // {console.log(post.featuredImage)}
+
 
 
   return (
@@ -38,11 +36,6 @@ const PostEntry = ({ post }) => {
                 <span>{category.name} </span>
               </Link>
             ))}
-            {/* {termNames.map((term, index) => (
-              <Link key={index} to={`/category/${termSlugs[index]}/`}>
-                <span>{term} </span>
-              </Link>
-            ))} */}
           </div>
           <div className={styles.Date}>
             <DateStyle date={date} />
@@ -50,7 +43,10 @@ const PostEntry = ({ post }) => {
         </div>
 
         <Link to={`/${uri}/`}>
-          <h3 dangerouslySetInnerHTML={{__html: title}} style={{ marginBottom: "5px" }}></h3>
+          <h3
+            dangerouslySetInnerHTML={{ __html: title }}
+            style={{ marginBottom: "5px" }}
+          ></h3>
         </Link>
 
         <div className={styles.ArticleAuthorWrapper}>
