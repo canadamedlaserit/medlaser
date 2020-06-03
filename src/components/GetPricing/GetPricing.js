@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./GetPricing.module.scss"
 
@@ -49,9 +50,9 @@ const GetPricing = ({
 
               <p className={styles.Subtitle}>{subtitleleft}</p>
 
-              <Link to={btnlink} className="btn btn-white-transparent">
+              <AnchorLink to={btnlink} className="btn btn-white-transparent">
                 {btntext}
-              </Link>
+              </AnchorLink>
             </div>
             <div className={styles.Overlay}></div>
           </BackgroundImage>

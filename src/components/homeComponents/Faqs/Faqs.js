@@ -56,7 +56,7 @@ class Faqs extends Component {
     this.setState({
       activeAccordion2: index,
       toggled2:
-      this.state.activeAccordion === index ? !this.state.toggled2 : true,
+      this.state.activeAccordion2 === index ? !this.state.toggled2 : true,
     })
   }
 

@@ -160,7 +160,7 @@ const BeforeAfter = ({ title, subtitle, btntext, btnlink, slides }) => {
           </div>
           <Link
             className={`btn btn-small btn-black-transparent ${styles.Btn2}`}
-            to="/"
+            to={btnlink}
           >
             {btntext}
           </Link>

@@ -11,6 +11,8 @@ import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerR
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import SkinTypes from "../components/SkinTypes/SkinTypes"
 import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+
 
 export const query = graphql`
   {
@@ -55,6 +57,9 @@ export const query = graphql`
             ...BiggerRightWithButtonsSection
             ...SkinTypesSection
             ...ThreeImageLinksSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -99,6 +104,10 @@ const CoolsculptingDoubleChin = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Threeimagelinks":
             return <ThreeImageLinks key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />
+  
 
           default:
             return console.log("You done. Default thing")

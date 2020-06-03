@@ -11,7 +11,7 @@ import styles from "./ContactSection.module.scss"
 //   }
 // `
 
-const Contact = () => {
+const Contact = ({bgcolor}) => {
   const data = useStaticQuery(graphql`
     query PageQuery {
       wpgraphql {
@@ -28,7 +28,7 @@ const Contact = () => {
 
   const { title, btntext } = data.wpgraphql.page.contactFields
   return (
-    <section id="book" className={styles.Section}>
+    <section id="book" className={styles.Section} style={{backgroundColor: bgcolor ? bgcolor : '#000000'}}>
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>

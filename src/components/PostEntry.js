@@ -4,18 +4,9 @@ import DateStyle from "../components/DateStyle"
 import styles from "./BlogMain/BlogMain.module.scss"
 
 const PostEntry = ({ post }) => {
-  const {
-    uri,
-    title,
-    featuredImage,
-    excerpt,
-    date,
-    author,
-    categories,
-  } = post
+  const { uri, title, featuredImage, excerpt, date, author, categories } = post
 
-
-
+  console.log(featuredImage)
 
   return (
     <div className={styles.Entry}>
@@ -24,6 +15,8 @@ const PostEntry = ({ post }) => {
           <img
             src={featuredImage ? featuredImage.sourceUrl : ""}
             alt={featuredImage ? featuredImage.altText : ""}
+            srcSet={featuredImage ? featuredImage.srcSet : ""}
+            sizes="(max-width: 600px) 300px"
           />
         </Link>
       </header>

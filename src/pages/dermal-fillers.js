@@ -14,6 +14,8 @@ import Contact from "../components/Contact/Contact"
 import LinkSlider from "../components/LinkSlider/LinkSlider"
 import HalfImageRedBtn from "../components/HalfImageRedBtn/HalfImageRedBtn"
 import BiggerLeftNumberedList from "../components/BiggerLeftNumberedList/BiggerLeftNumberedList"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+
 
 export const query = graphql`
   {
@@ -61,6 +63,9 @@ export const query = graphql`
             }
             ...LinkSliderSection
             ...BiggerLeftNumberedListSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -114,6 +119,9 @@ const DermalFillers = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerleftnumberedlist":
             return <BiggerLeftNumberedList key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />  
 
           default:
             return console.log("You done. Default thing")

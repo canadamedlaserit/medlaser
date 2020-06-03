@@ -7,7 +7,7 @@ import Specials from "../components/homeComponents/Specials/Specials"
 import OurServices from "../components/homeComponents/OurServices/OurServices"
 import LaserClinics from "../components/homeComponents/LaserClinics/LaserClinics"
 import VideoSection from "../components/homeComponents/VideoSection/VideoSection"
-import LookYounger from "../components/homeComponents/LookYounger/LookYounger"
+// import LookYounger from "../components/homeComponents/LookYounger/LookYounger"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
 import FullWidthImage from "../components/homeComponents/FullWidthImage/FullWidthImage"
 import Reviews from "../components/homeComponents/Reviews/Reviews"
@@ -56,7 +56,7 @@ export const query = graphql`
             ...ServicesSection
             ...LaserClinicsSection
             ...VideoSection
-            ...LookYoungerSection
+            # ...LookYoungerSection
             ...FaqsSection
             ...FullWidthImageSection
             ...ReviewsSection
@@ -98,8 +98,8 @@ const Home = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo":
             return <VideoSection key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
-            return <LookYounger key={index} {...section} />
+          // case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
+          //   return <LookYounger key={index} {...section} />
 
       
           case "WPGraphQL_Page_Sectionfields_Sections_Fullwidthimage":
@@ -116,13 +116,13 @@ const Home = ({ data, location }) => {
             return <BeforeAfter key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
-            return <Contact key={index} {...section} />
+            return <Contact bgcolor="#161616" key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
             return <LocationMap key={index} {...section} />
 
           default:
-            return <p key={index}>You done busted it.</p>
+            return console.log("You done. Default thing")
         }
       })}
     </Layout>

@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./TextFullWidthListsButton.module.scss"
 
@@ -47,9 +48,9 @@ const TextFullWidthListsButton = ({
               ></div>
               {btntext ? (
                 <div className={styles.buttonsWrapper}>
-                  <a href={btnlink} className="btn btn-mid btn-red">
+                  <AnchorLink to={btnlink} className="btn btn-mid btn-red">
                     {btntext}
-                  </a>
+                  </AnchorLink>
                 </div>
               ) : (
                 ""

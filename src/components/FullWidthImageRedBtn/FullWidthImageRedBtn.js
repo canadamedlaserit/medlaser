@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./FullWidthImageRedBtn.module.scss"
 
@@ -56,9 +57,9 @@ const FullWidthImageRedBtn = ({
 
                 {btntext ? (
                   <div className={styles.buttonsWrapper}>
-                    <a href={btnlink} className="btn btn-red">
+                    <AnchorLink to={btnlink} className="btn btn-red">
                       {btntext}
-                    </a>
+                    </AnchorLink>
                   </div>
                 ) : (
                   ""

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./LaserClinics.module.scss"
 
@@ -56,15 +57,24 @@ const LaserClinics = ({
               </ul>
 
               <div className={styles.ButtonsWrpper}>
-                <Link
-                  to={btnlink1}
-                  className="btn btn-small btn-white-transparent"
-                >
-                  {btntext1}
-                </Link>
-                <Link to={btnlink2} className="btn btn-small btn-red">
-                  {btntext2}
-                </Link>
+                {btntext1 ? (
+                  <Link
+                    to={btnlink1}
+                    className="btn btn-small btn-white-transparent"
+                  >
+                    {btntext1}
+                  </Link>
+                ) : (
+                  ""
+                )}
+
+                {btntext2 ? (
+                  <AnchorLink to={btnlink2} className="btn btn-small btn-red">
+                    {btntext2}
+                  </AnchorLink>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>

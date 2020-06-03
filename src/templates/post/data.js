@@ -54,6 +54,7 @@ const BlogPreviewFragment = `
     featuredImage {
       sourceUrl
       altText
+      srcSet(size: MEDIUM)
     }
     author {
       name

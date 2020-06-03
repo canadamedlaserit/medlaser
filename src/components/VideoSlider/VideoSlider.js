@@ -98,43 +98,7 @@ class VideoSlider extends Component {
             </div>
             <div className={`col-md-12 video-swiper ${styles.SwiperWrapper}`}>
               <Swiper id="sample" {...params}>
-                {/* {slides.map((slide, index) => (
-                  <div key={index} className={styles.SwiperSlide}>
-                    <h5>{slide.title}</h5>
-
-                    <div className={styles.InsideSlider}>
-                      <div className={styles.Inner}>
-                        <Video
-                          index={index}
-                          videolink={slide.videolink}
-                          imagelink={slide.imagelink}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))} */}
-
-                {/* {slides.map((slide, index) => (
-                  <div key={index} className={styles.SwiperSlide}>
-                    <VisibilitySensor containment={containmentDOMRect}>
-                      <div>
-                        <h5>{slide.title}</h5>
-
-                        <div className={styles.InsideSlider}>
-                          <div className={styles.Inner}>
-                            <Video
-                              index={index}
-                              videolink={slide.videolink}
-                              imagelink={slide.imagelink}
-                              isV
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </VisibilitySensor>
-                  </div>
-                ))} */}
-
+          
                 {slides.map((slide, index) => {
                   return (
                     <div key={index} className={styles.SwiperSlide}>

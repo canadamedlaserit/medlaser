@@ -12,18 +12,12 @@ const Post = ({ pageContext, location, data }) => {
       title,
       content,
       date,
-      featuredImage,
       author,
       categories,
-      id,
     },
     previous,
     next,
   } = pageContext
-
-  // console.log(featuredImage)
-  // console.log(data)
-  // console.log(id)
 
   return (
     <Layout location={location}>

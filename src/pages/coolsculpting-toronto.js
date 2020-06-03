@@ -14,6 +14,7 @@ import LocationMap from "../components/LocationMap/LocationMap"
 import TreatmentAreas2 from "../components/TreatmentAreas/TreatmentAreas2"
 import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -49,6 +50,9 @@ export const query = graphql`
             __typename
             ...InnerHeroSection
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
+              fieldGroupName
+            }
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
               fieldGroupName
             }
             ...BiggerLeftWithButtonsSection
@@ -109,6 +113,9 @@ const Coolsculpting = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

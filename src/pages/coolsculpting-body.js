@@ -10,6 +10,7 @@ import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import VideoSlider from "../components/VideoSlider/VideoSlider"
 import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
 import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -53,6 +54,9 @@ export const query = graphql`
             ...VideoSliderSection
             ...ThreeImageLinksSection
             ...LeftRightMultipleSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -94,6 +98,9 @@ const CoolsculptingBody = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple":
             return <LeftRightMultiple key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")
