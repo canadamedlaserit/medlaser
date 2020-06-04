@@ -13,6 +13,7 @@ import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple
 import EqualTextWithStrip from "../components/EqualTextWithStrip/EqualTextWithStrip"
 import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 import HalfImageRedBtn from "../components/HalfImageRedBtn/HalfImageRedBtn"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -59,6 +60,9 @@ export const query = graphql`
             ...EqualTextWithStripSection
             ...TextFullWidthSection
             ...HalfImageRedBtnSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -109,6 +113,9 @@ const HairGrowth = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Halfimageredbtn":
             return <HalfImageRedBtn key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

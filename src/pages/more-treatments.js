@@ -8,6 +8,7 @@ import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
 import LocationMap from "../components/LocationMap/LocationMap"
 import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -49,6 +50,9 @@ export const query = graphql`
               fieldGroupName
             }
             ...LocationMapSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -84,6 +88,9 @@ const MoreTreatments = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
             return <Contact key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./HalfImageRedBtn.module.scss"
 
@@ -143,9 +144,9 @@ class HalfImageRedBtn extends Component {
                 )}
                 {btntext ? (
                   <div className={styles.buttonsWrapper}>
-                    <a href={btnlink} className="btn btn-red">
+                    <AnchorLink to={btnlink} className="btn btn-red">
                       {btntext}
-                    </a>
+                    </AnchorLink>
                   </div>
                 ) : (
                   ""

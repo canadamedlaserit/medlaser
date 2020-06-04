@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./Reviews.module.scss"

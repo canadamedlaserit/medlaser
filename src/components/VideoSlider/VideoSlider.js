@@ -26,6 +26,8 @@ class VideoSlider extends Component {
     getElement: null,
   }
 
+
+
   componentDidMount() {
     this.setState(() => {
       return {

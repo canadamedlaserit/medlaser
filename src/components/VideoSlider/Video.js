@@ -25,6 +25,12 @@ class Video extends Component {
     this.setState({ playing: true })
   }
 
+  youtube_parser(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+    var match = url.match(regExp)
+    return match && match[7].length === 11 ? match[7] : false
+  }
+
   render() {
     const { videolink, imagelink } = this.props
 
@@ -43,7 +49,13 @@ class Video extends Component {
             />
           }
           url={videolink}
-          light={imagelink ? imagelink.sourceUrl : fallback}
+          light={
+            imagelink
+              ? imagelink.sourceUrl
+              : videolink ? `http://img.youtube.com/vi/${this.youtube_parser(
+                  videolink
+                )}/hqdefault.jpg` : fallback
+          }
           width="100%"
           height="100%"
           onPause={this.handlePause}

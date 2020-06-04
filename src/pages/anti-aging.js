@@ -7,6 +7,7 @@ import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLef
 import Contact from "../components/Contact/Contact"
 import LocationMap from "../components/LocationMap/LocationMap"
 import CategoryTabs from "../components/CategoryTabs/CategoryTabs"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
 
 export const query = graphql`
   {
@@ -47,6 +48,9 @@ export const query = graphql`
             }
             ...LocationMapSection
             ...CategoryTabsSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -79,6 +83,9 @@ const AntiAging = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Categorytabs":
             return <CategoryTabs key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

@@ -9,6 +9,8 @@ import PermanentTwoLists from "../components/PermanentTwoLists/PermanentTwoLists
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
 import LinkSlider from "../components/LinkSlider/LinkSlider"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+
 
 export const query = graphql`
   {
@@ -51,6 +53,9 @@ export const query = graphql`
             ...TextFullWidthSection
             ...LinkSliderSection
             ...PermanentTwoListsSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
           }
         }
       }
@@ -89,6 +94,10 @@ const PermanentMakeup = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Permanenttwolists":
             return <PermanentTwoLists key={index} {...section} />
+
+            
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")
