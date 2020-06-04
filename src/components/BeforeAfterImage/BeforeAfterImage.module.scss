@@ -1,0 +1,47 @@
+@import "../../styles/_variables";
+
+.Section {
+  h3 {
+    color: $white;
+    max-width: 830px;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  .Inner {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .Overlay {
+    background-color: $black;
+    opacity: 0.65;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    h3 {
+      font-size: 22px;
+      line-height: 33px;
+    }
+    .buttonsWrapper {
+      a {
+        max-width: 296px;
+        margin: auto !important;
+        height: 50px;
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+    }
+  }
+}

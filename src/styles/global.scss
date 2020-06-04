@@ -2,12 +2,15 @@
 
 html,
 body {
-  font-family: "Open Sans", sans-serif;
+  // font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   color: $black;
   line-height: 24px;
+  // line-height: 1.7em;
 }
 
 h1 {
@@ -67,6 +70,12 @@ h4 {
 
 strong {
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none;
+  }
 }
 
 .video {

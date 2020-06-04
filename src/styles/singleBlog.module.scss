@@ -120,16 +120,18 @@
   }
 
   .Main {
-    max-width: 920px;
+    // max-width: 920px;
     padding-top: 40px;
     padding-bottom: 40px;
     margin: 0 auto;
 
     .Date {
-      padding-bottom: 50px;
+      padding-bottom: 20px;
     }
 
     .Content {
+      margin-top: 30px;
+
       h1,
       h4,
       h2,

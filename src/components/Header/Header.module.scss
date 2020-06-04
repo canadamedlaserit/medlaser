@@ -24,9 +24,34 @@
   .NavCollapse {
     justify-content: flex-end;
 
+
+
+    .InnerLink, .InnerLink2 {
+      &:hover {
+        color: $red !important;
+      }
+    }
+
     @media (min-width: 992px) {
       .Dropdown a {
         color: $white !important;
+      }
+      .MainLink {
+        > a {
+          &:hover {
+            &:before {
+              content: "";
+              height: 2px;
+              background-color: $red;
+              display: block;
+              position: absolute;
+              bottom: -2px;
+              left: 0;
+              right: 0;
+              z-index: 1001;
+            }
+          }
+        }
       }
     }
 
@@ -39,6 +64,8 @@
 
       padding-top: 33px;
       padding-bottom: 33px;
+      position: relative;
+      transition: 0.3s;
 
       &:hover {
         .dropdown-menu {
@@ -445,7 +472,7 @@
     }
 
     .Dropdown {
-      background-color: $black;
+      background-color: #161616;
 
       a {
         color: $white !important;

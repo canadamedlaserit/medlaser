@@ -5,7 +5,7 @@ import { Dropdown } from "react-bootstrap"
 import styles from "../components/BlogMain/BlogMain.module.scss"
 
 const CategoryList = ({ data, type }) => {
-  const [rowsToDisplay, setRowsToDisplay] = useState(14)
+  const [rowsToDisplay, setRowsToDisplay] = useState(12)
   const [loadMore, setLoadMore] = useState(false)
 
   const showMore = () => {

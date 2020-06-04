@@ -62,22 +62,20 @@
   }
 
   .Checkbox {
-    
-
-
     input {
       width: 16px;
       height: 16px;
       margin-top: 0.25rem;
     }
   }
-  
 }
 
 .NotificationBlock {
   margin-top: 30px;
   min-height: 50px;
 }
+
+
 
 .ErrorBlock {
   text-align: center;
@@ -93,6 +91,24 @@
   width: 50%;
   padding: 0 4.6%;
 }
+
+// type of column styles. on sidenav blog page exmpl
+.NotificationBlockType {
+  margin-top: 15px;
+  font-size: 12px !important;
+}
+.FormColumnType {
+  width: 100%;
+  padding: 0;
+  > div {
+    margin-bottom: 25px;
+  }
+}
+.ButtonColumnType {
+  margin-top: 30px;
+  height: 50px;
+}
+
 .FormColumnFull {
   width: 100%;
   padding: 0 4.6%;

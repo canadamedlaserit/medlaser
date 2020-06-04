@@ -4,17 +4,14 @@ import Layout from "../../components/Layout"
 import DateStyle from "../../components/DateStyle"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import CategoryList from "../../components/CategoryList"
+import Contact from "../../components/Contact/Contact"
+
 import styles from "../../styles/singleBlog.module.scss"
 
 const Post = ({ pageContext, location, data }) => {
   const {
-    post: {
-      title,
-      content,
-      date,
-      author,
-      categories,
-    },
+    post: { title, content, date, author, categories },
     previous,
     next,
   } = pageContext
@@ -22,9 +19,7 @@ const Post = ({ pageContext, location, data }) => {
   return (
     <Layout location={location}>
       <article className={`entry-content ${styles.Wrapper}`}>
-        <section
-          className={`${styles.Section} ${styles.Hero}`}
-        >
+        <section className={`${styles.Section} ${styles.Hero}`}>
           <div className={styles.HeroImage}>
             {data.wpgraphql.post.featuredImage ? (
               <Img
@@ -33,9 +28,7 @@ const Post = ({ pageContext, location, data }) => {
                     .fluid
                 }
               />
-            ) : (
-              null
-            )}
+            ) : null}
           </div>
           <div className={styles.HeroWrapper}>
             <div className={styles.ArticleHeaderWrapper}>
@@ -62,6 +55,7 @@ const Post = ({ pageContext, location, data }) => {
           <div className={styles.Overlay}></div>
           <div className={styles.Hatch}></div>
         </section>
+        <CategoryList showOnDevice="mobile" />
 
         <section className={styles.Main}>
           <div className="container">
@@ -75,7 +69,7 @@ const Post = ({ pageContext, location, data }) => {
           </div>
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-lg-8">
                 <div
                   className={styles.Content}
                   dangerouslySetInnerHTML={{ __html: content }}
@@ -146,9 +140,16 @@ const Post = ({ pageContext, location, data }) => {
                   </ul>
                 </div>
               </div>
+              <div className="col-lg-4">
+                <CategoryList maxHeight="unset" showOnDevice="desktop" />
+              </div>
             </div>
           </div>
         </section>
+
+        <div className="show-mobile">
+          <Contact />
+        </div>
       </article>
     </Layout>
   )

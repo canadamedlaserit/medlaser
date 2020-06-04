@@ -60,6 +60,12 @@ module.exports = {
               fontDisplay: 'swap',
               strategy: 'selfHosted' // 'base64' || 'cdn'
             },
+            {
+              family: "Roboto",
+              variants: ["400", "500", "700"], 
+              fontDisplay: 'swap',
+              strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
           ],
         },
         //formats: ['woff2', 'woff'],

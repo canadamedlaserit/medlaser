@@ -182,12 +182,16 @@ export class ContactForm extends Component {
   }
 
   render() {
-    const { btntext } = this.props
+    const { btntext, column } = this.props
 
     return (
       <div className={styles.FormWrapper}>
         <Form className={styles.Form}>
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -204,7 +208,11 @@ export class ContactForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -221,7 +229,11 @@ export class ContactForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -238,7 +250,11 @@ export class ContactForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -255,7 +271,11 @@ export class ContactForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -289,7 +309,11 @@ export class ContactForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
+          <div
+            className={`${styles.FormColumn} ${
+              column ? styles.FormColumnType : ""
+            }`}
+          >
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -303,10 +327,12 @@ export class ContactForm extends Component {
                 <option disabled value="DEFAULT">
                   Location
                 </option>
-                <option>Toronto</option>
                 <option>Vaughan</option>
                 <option>Mississauga</option>
+                <option>Toronto</option>
                 <option>Newmarket</option>
+                <option>Thornhill</option>
+                <option>Maple</option>
               </Form.Control>
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.location}
@@ -315,7 +341,9 @@ export class ContactForm extends Component {
           </div>
 
           <Button
-            className={` ${styles.Form___formSubmit} btn btn-red`}
+            className={` ${styles.Form___formSubmit} btn btn-red ${
+              column ? styles.ButtonColumnType : ""
+            }`}
             onClick={this.handleSubmit}
             type="submit"
           >
@@ -323,7 +351,9 @@ export class ContactForm extends Component {
           </Button>
         </Form>
 
-        <div className={styles.NotificationBlock}>
+        <div className={`${styles.NotificationBlock} ${
+              column ? styles.NotificationBlockType : ""
+            }`}>
           {/* Email send block */}
           {this.state.emailSent ? (
             <div className={styles.SuccessBlock}>

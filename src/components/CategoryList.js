@@ -1,12 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { Dropdown } from "react-bootstrap"
+import ContactForm from "../components/Contact/ContactForm"
 
 import CategoryShowMore from "../components/CategoryShowMore"
 
 import styles from "../components/BlogMain/BlogMain.module.scss"
 
-const CategoryList = ({ showOnDevice }) => {
+const CategoryList = ({ showOnDevice, maxHeight }) => {
   const data = useStaticQuery(graphql`
     query CategoriesListQuery {
       wpgraphql {
@@ -28,13 +29,6 @@ const CategoryList = ({ showOnDevice }) => {
       }
     }
   `)
-
-  // const [rowsToDisplay, setRowsToDisplay] = useState(14)
-
-  // const showMore = () => {
-  //   let listLength = data.wpgraphql.categories.edges
-  //   setRowsToDisplay(listLength)
-  // }
 
   return (
     <div
@@ -67,43 +61,27 @@ const CategoryList = ({ showOnDevice }) => {
               All
             </Dropdown.Item>
 
-            {/* {data.wpgraphql.categories.edges.map(({ node }, index) => {
-              if (node.posts.edges.length) {
-                return (
-                  <Dropdown.Item
-                    key={index}
-                    as={Link}
-                    to={`/category/${node.slug}`}
-                  >
-                    {node.name}
-                  </Dropdown.Item>
-                )
-              } else return null
-            })} */}
 
             <CategoryShowMore type="mobile" data={data} />
           </Dropdown.Menu>
         </Dropdown>
       ) : (
-        <div className={styles.CatWrapper}>
-          <h3>Categories</h3>
+        <div>
+          <div className={styles.FormWrapper}>
+            <h3>Free Consultation</h3>
+            <ContactForm column="true" btntext="Book Now" />
+          </div>
+          <div className={styles.CatWrapper}>
+            <h3>Categories</h3>
 
-          <ul>
-            <li>
-              <Link to={`/knowledge-base`}>All</Link>
-            </li>
-            {/* {data.wpgraphql.categories.edges.map(({ node }, index) => {
-              if (node.posts.edges.length) {
-                return (
-                  <li key={index}>
-                    <Link to={`/category/${node.slug}`}>{node.name}</Link>
-                  </li>
-                )
-              } else return null
-            })} */}
-
-            <CategoryShowMore type="desktop" data={data} />
-          </ul>
+            <ul style={{maxHeight: maxHeight ? maxHeight : '686px'}}>
+              <li>
+                <Link to={`/knowledge-base`}>All</Link>
+              </li>
+              
+              <CategoryShowMore type="desktop" data={data} />
+            </ul>
+          </div>
         </div>
       )}
     </div>

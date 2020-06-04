@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./Reviews.module.scss"
 
@@ -30,9 +31,9 @@ class Reviews extends React.Component {
               <div className={styles.InsideWrapper}>
                 <h2 dangerouslySetInnerHTML={{ __html: titleRight }}></h2>
                 <p>{contentRight}</p>
-                <Link to={btnlink} className="btn btn-small btn-red">
+                <AnchorLink to={btnlink} className="btn btn-small btn-red">
                   {btntext}
-                </Link>
+                </AnchorLink>
               </div>
             </div>
           </div>
