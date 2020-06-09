@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import Swiper from "react-id-swiper"
 import Img from "gatsby-image"
 
@@ -28,6 +28,44 @@ export const fragment = graphql`
 `
 
 const LinkSlider = ({ slides }) => {
+  const staticData = useStaticQuery(graphql`
+    query LinkSliderGlobalQuery {
+      wpgraphql {
+        page(id: "link-slider-global", idType: URI) {
+          sectionFields {
+            sections {
+              ... on WPGraphQL_Page_Sectionfields_Sections_Linkslider {
+                slides {
+                  ... on WPGraphQL_Page_Sectionfields_Sections_Linkslider_slides {
+                    title
+                    link
+                    image {
+                      altText
+                      sourceUrl
+                      imageFile {
+                        childImageSharp {
+                          fluid(quality: 100, maxWidth: 700) {
+                            ...GatsbyImageSharpFluid_withWebp_noBase64
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const slidesData = slides
+    ? slides
+    : staticData.wpgraphql.page.sectionFields.sections[0].slides
+    ? staticData.wpgraphql.page.sectionFields.sections[0].slides
+    : ""
+
+console.log(slides)
   const params = {
     slidesPerView: "auto",
     pagination: {
@@ -57,7 +95,7 @@ const LinkSlider = ({ slides }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 link-swiper ${styles.SwiperSide}`}>
             <Swiper {...params}>
-              {slides.map((slide, index) => (
+              {slidesData ? slidesData.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
                   {slide.image ? (
                     <Img
@@ -75,7 +113,7 @@ const LinkSlider = ({ slides }) => {
                     </Link>
                   </div>
                 </div>
-              ))}
+              )) : ''}
             </Swiper>
           </div>
         </div>

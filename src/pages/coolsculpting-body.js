@@ -11,6 +11,7 @@ import VideoSlider from "../components/VideoSlider/VideoSlider"
 import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
 import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
 import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from '../components/BeforeAfterImage/BeforeAfterImage'
 
 export const query = graphql`
   {
@@ -57,6 +58,8 @@ export const query = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
               fieldGroupName
             }
+            ...BeforeAfterImageSection
+
           }
         }
       }
@@ -101,6 +104,9 @@ const CoolsculptingBody = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
             return <MoreInfoAnchor key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+              return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

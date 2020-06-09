@@ -8,6 +8,7 @@ import Contact from "../components/Contact/Contact"
 import LocationMap from "../components/LocationMap/LocationMap"
 import CategoryTabs from "../components/CategoryTabs/CategoryTabs"
 import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -51,6 +52,7 @@ export const query = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
               fieldGroupName
             }
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -84,8 +86,11 @@ const AntiAging = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Categorytabs":
             return <CategoryTabs key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
-              return <MoreInfoAnchor key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

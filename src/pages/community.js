@@ -8,6 +8,7 @@ import NotAlignedTitle from "../components/NotAlignedTitle/NotAlignedTitle"
 import EqualTextWithStrip from "../components/EqualTextWithStrip/EqualTextWithStrip"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -48,6 +49,7 @@ export const query = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
               fieldGroupName
             }
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -80,6 +82,9 @@ const Community = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contact":
             return <Contact key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

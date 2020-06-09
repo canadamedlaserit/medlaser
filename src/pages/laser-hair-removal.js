@@ -14,6 +14,7 @@ import TwoSidesLinks from "../components/TwoSidesLinks/TwoSidesLinks"
 import LocationMap from "../components/LocationMap/LocationMap"
 import SEO from "../components/particles/SEO"
 import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -63,6 +64,7 @@ export const query = graphql`
             ...VideoSliderSection
             ...TwoSidesLinksSection
             ...LocationMapSection
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -91,7 +93,7 @@ const LaserHairRemoval = ({ data, location }) => {
             return <Contact key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
-            return <MoreInfoAnchor  key={index} {...section} />
+            return <MoreInfoAnchor key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerleftwithbuttons":
             return <BiggerLeftWithButtons key={index} {...section} />
@@ -116,6 +118,9 @@ const LaserHairRemoval = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
             return <LocationMap key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("")

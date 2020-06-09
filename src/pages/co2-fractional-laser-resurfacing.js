@@ -5,14 +5,14 @@ import SEO from "../components/particles/SEO"
 
 import InnerHero from "../components/InnerHero/InnerHero"
 import BiggerLeftWithButtons from "../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
-import VideoSlider from '../components/VideoSlider/VideoSlider'
+import VideoSlider from "../components/VideoSlider/VideoSlider"
 import BiggerRightWithButtons from "../components/BiggerRightWithButtons/BiggerRightWithButtons"
-import HalfImageRedBtn from '../components/HalfImageRedBtn/HalfImageRedBtn'
-import Faqs from '../components/homeComponents/Faqs/Faqs'
+import HalfImageRedBtn from "../components/HalfImageRedBtn/HalfImageRedBtn"
+import Faqs from "../components/homeComponents/Faqs/Faqs"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
 import LinkSlider from "../components/LinkSlider/LinkSlider"
-
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -57,6 +57,7 @@ export const query = graphql`
               fieldGroupName
             }
             ...LinkSliderSection
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -81,9 +82,8 @@ const CO2Fractional = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerleftwithbuttons":
             return <BiggerLeftWithButtons key={index} {...section} />
 
-
-            case "WPGraphQL_Page_Sectionfields_Sections_Videoslider":
-                return <VideoSlider key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Videoslider":
+            return <VideoSlider key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
             return <BiggerRightWithButtons key={index} {...section} />
@@ -91,9 +91,8 @@ const CO2Fractional = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Halfimageredbtn":
             return <HalfImageRedBtn key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
-                return <Faqs key={index} {...section} />
-    
+          case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
+            return <Faqs key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
             return <BeforeAfter key={index} {...section} />
@@ -103,6 +102,9 @@ const CO2Fractional = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Linkslider":
             return <LinkSlider key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

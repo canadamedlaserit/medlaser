@@ -8,7 +8,10 @@ import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple
 import TextFullWidthListsButton from "../components/TextFullWidthListsButton/TextFullWidthListsButton"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
-import ThreeImageLinks from '../components/ThreeImageLinks/ThreeImageLinks'
+import ThreeImageLinks from "../components/ThreeImageLinks/ThreeImageLinks"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+
 
 export const query = graphql`
   {
@@ -49,7 +52,12 @@ export const query = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
               fieldGroupName
             }
-...ThreeImageLinksSection
+            ...ThreeImageLinksSection
+            ...BeforeAfterImageSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
+
             # ...LinkSliderSection
           }
         }
@@ -89,6 +97,12 @@ const LaserBodyTreatments = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Threeimagelinks":
             return <ThreeImageLinks key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+              return <MoreInfoAnchor key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

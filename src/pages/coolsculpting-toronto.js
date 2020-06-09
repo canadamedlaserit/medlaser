@@ -15,6 +15,7 @@ import TreatmentAreas2 from "../components/TreatmentAreas/TreatmentAreas2"
 import LeftRightMultiple from "../components/LeftRightMultiple/LeftRightMultiple"
 import Faqs from "../components/homeComponents/Faqs/Faqs"
 import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from '../components/BeforeAfterImage/BeforeAfterImage'
 
 export const query = graphql`
   {
@@ -64,6 +65,8 @@ export const query = graphql`
             ...TreatmentAreas2Section
             ...LeftRightMultipleSection
             ...FaqsSection
+            ...BeforeAfterImageSection
+
           }
         }
       }
@@ -116,6 +119,9 @@ const Coolsculpting = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
             return <MoreInfoAnchor key={index} {...section} />
+
+            case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+              return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

@@ -75,15 +75,17 @@ const OurServicesSlider = ({ title, services }) => {
             <Swiper {...params}>
               {services.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
-                  {slide.image ? (
-                    <Img
-                      className={styles.Gimg}
-                      alt={slide.image.altText}
-                      fluid={slide.image.imageFile.childImageSharp.fluid}
-                    />
-                  ) : (
-                    ""
-                  )}
+                  <Link className={`${styles.OverflowLink}`} to={slide.link}>
+                    {slide.image ? (
+                      <Img
+                        className={styles.Gimg}
+                        alt={slide.image.altText}
+                        fluid={slide.image.imageFile.childImageSharp.fluid}
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </Link>
 
                   <div className={styles.ContentWrapper}>
                     <Link className={`${styles.OverflowLink}`} to={slide.link}>

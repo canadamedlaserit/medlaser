@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import CategoryList from "../../components/CategoryList"
 import Contact from "../../components/Contact/Contact"
+import SEO from "../../components/particles/SEO"
 
 import styles from "../../styles/singleBlog.module.scss"
 
@@ -18,6 +19,8 @@ const Post = ({ pageContext, location, data }) => {
 
   return (
     <Layout location={location}>
+      {/* <SEO data={data.wpgraphql.page} /> */}
+
       <article className={`entry-content ${styles.Wrapper}`}>
         <section className={`${styles.Section} ${styles.Hero}`}>
           <div className={styles.HeroImage}>

@@ -572,8 +572,10 @@ main {
       z-index: 3333;
       background: transparent;
 
-      svg {
-        display: none;
+      @media (min-width: 768px) {
+        svg {
+          display: none;
+        }
       }
     }
     .swiper-button-next {

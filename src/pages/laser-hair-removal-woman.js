@@ -15,6 +15,7 @@ import TreatmentAreas from "../components/TreatmentAreas/TreatmentAreas"
 import SkinTypes from "../components/SkinTypes/SkinTypes"
 import EqualTextWithStrip from "../components/EqualTextWithStrip/EqualTextWithStrip"
 import GetPricing from "../components/GetPricing/GetPricing"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -62,6 +63,7 @@ export const query = graphql`
             ...SkinTypesSection
             ...EqualTextWithStripSection
             ...GetPricingSection
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -115,6 +117,9 @@ const LaserHairRemovalWoman = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Getpricing":
             return <GetPricing key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

@@ -11,6 +11,8 @@ import Faqs from "../components/homeComponents/Faqs/Faqs"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
 import LinkSlider from "../components/LinkSlider/LinkSlider"
+import MoreInfoAnchor from "../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -55,6 +57,10 @@ export const query = graphql`
               fieldGroupName
             }
             ...LinkSliderSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
+              fieldGroupName
+            }
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -99,6 +105,12 @@ const LaserSkinTightening = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Linkslider":
             return <LinkSlider key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
+            return <MoreInfoAnchor key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")

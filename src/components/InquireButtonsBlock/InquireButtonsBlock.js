@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./InquireButtonsBlock.module.scss"
 
@@ -22,9 +23,9 @@ const InquireButtonsBlock = ({ title, btntext1, btntext2, link1, link2 }) => {
             <h3>{title}</h3>
 
             <div className={styles.buttonsWrapper}>
-              <a href={link1} className="btn btn-red">
+              <AnchorLink to={link1} className="btn btn-red">
                 {btntext1}
-              </a>
+              </AnchorLink>
               <a
                 href={link2}
                 target="_blank"

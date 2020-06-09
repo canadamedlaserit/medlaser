@@ -57,6 +57,7 @@ const TeamSlider = ({ teamcategory, teammembers }) => {
         slidesPerView: 3,
         centeredSlides: true,
         loop: true,
+        
       },
     },
     renderPrevButton: () => (
