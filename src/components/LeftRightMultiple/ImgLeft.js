@@ -1,6 +1,6 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
-import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./LeftRightMultiple.module.scss"
 
@@ -22,9 +22,9 @@ const ImgLeft = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
           {btntext ? (
             <div className={styles.buttonsWrapper}>
-              <Link to={btnlink} className="btn btn-red">
+              <AnchorLink to={btnlink} className="btn btn-red">
                 {btntext}
-              </Link>
+              </AnchorLink>
             </div>
           ) : (
             ""

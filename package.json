@@ -31,6 +31,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-plugin-webfonts": "^1.1.2",
     "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-source-google-reviews": "0.0.7",
     "gatsby-source-graphql": "^2.1.32",
     "gatsby-transformer-sharp": "^2.4.3",
     "google-maps-react": "^2.0.6",

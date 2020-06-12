@@ -5,6 +5,7 @@ import ImgLeft from "./ImgLeft"
 import ImgRight from "./ImgRight"
 import styles from "./LeftRightMultiple.module.scss"
 
+
 export const fragment = graphql`
   fragment LeftRightMultipleSection on WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple {
     title

@@ -23,7 +23,6 @@ module.exports = {
         fieldName: "wpgraphql",
         url: `https://canadamed.2marketing.ca/graphql`,
         refetchInterval: 30
-
       }
     },
     {
@@ -35,14 +34,6 @@ module.exports = {
         refetchInterval: 30
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Playfair Display:400,400i,700', 'Open Sans:400,600,800']
-    //     }
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-webfonts',
       options: {
@@ -54,24 +45,21 @@ module.exports = {
               fontDisplay: 'swap',
               strategy: 'selfHosted' // 'base64' || 'cdn'
             },
-            {
-              family: "Open Sans",
-              variants: ["400", "600", "800"], 
-              fontDisplay: 'swap',
-              strategy: 'selfHosted' // 'base64' || 'cdn'
-            },
+            // {
+            //   family: "Open Sans",
+            //   variants: ["400", "600", "800"], 
+            //   fontDisplay: 'swap',
+            //   strategy: 'selfHosted'
+            // },
             {
               family: "Roboto",
               variants: ["400", "500", "700"], 
               fontDisplay: 'swap',
-              strategy: 'selfHosted' // 'base64' || 'cdn'
+              strategy: 'selfHosted'
             },
           ],
         },
-        //formats: ['woff2', 'woff'],
-        //useMinify: true,
         usePreload: true,
-        //usePreconnect: false,
       },
     },
     `gatsby-plugin-catch-links`,

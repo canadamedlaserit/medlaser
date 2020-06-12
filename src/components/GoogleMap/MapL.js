@@ -104,27 +104,27 @@ export class MapContainerL extends Component {
     })
   }
 
-  onMarkerClick = (props, marker, e) => {
-    // console.log("marker clickied")
+  // onMarkerClick = (props, marker, e) => {
+  //   // console.log("marker clickied")
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          }
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       function(position) {
+  //         var pos = {
+  //           lat: position.coords.latitude,
+  //           lng: position.coords.longitude,
+  //         }
 
-          // console.log(pos)
-        },
-        function() {
-          console.log("some error")
-        }
-      )
-    } else {
-      console.log("some error")
-    }
-  }
+  //         // console.log(pos)
+  //       },
+  //       function() {
+  //         console.log("some error")
+  //       }
+  //     )
+  //   } else {
+  //     console.log("some error")
+  //   }
+  // }
 
   render() {
     const { locations, markeractive, location } = this.props
@@ -134,10 +134,10 @@ export class MapContainerL extends Component {
       currentIndex = positions[location].index
     }
 
-    const triangleCoords = [
-      { lat: 43.6532, lng: -79.3832 },
-      { lat: 44.0592, lng: -79.4613 },
-    ]
+    // const triangleCoords = [
+    //   { lat: 43.6532, lng: -79.3832 },
+    //   { lat: 44.0592, lng: -79.4613 },
+    // ]
 
     return (
       <div>
@@ -158,7 +158,7 @@ export class MapContainerL extends Component {
           >
             <Marker
               className={styles.Markers}
-              onClick={this.onMarkerClick}
+              // onClick={this.onMarkerClick}
               position={{
                 lat: positions[location].lat,
                 lng: positions[location].lng,

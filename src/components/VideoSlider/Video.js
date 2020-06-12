@@ -52,7 +52,7 @@ class Video extends Component {
           light={
             imagelink
               ? imagelink.sourceUrl
-              : videolink ? `http://img.youtube.com/vi/${this.youtube_parser(
+              : videolink ? `https://img.youtube.com/vi/${this.youtube_parser(
                   videolink
                 )}/hqdefault.jpg` : fallback
           }

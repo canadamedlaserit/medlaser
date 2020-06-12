@@ -8,8 +8,6 @@ import styles from "../styles/pagination.module.scss"
 const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
   if (pageNumber === 1 && !hasNextPage) return null
 
-
-
   // numPages = 7
   // const item
 
@@ -29,7 +27,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
           </Link>
         )}
 
-         <ul>
+        <ul>
           {Array.from({ length: numPages }, (_, i) => {
             var index = i + 1 // index same as numpages
             if (numPages > 6) {
@@ -66,8 +64,6 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
                     {index === 1 && pageNumber > 4 ? "..." : ""}
                   </li>
                 )
-
-                console.log(pageNumber)
               }
             } else {
               return (
@@ -91,7 +87,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
               )
             }
           })}
-        </ul> 
+        </ul>
 
         {hasNextPage && (
           <Link
@@ -102,7 +98,6 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
           </Link>
         )}
       </div>
-
     </div>
   )
 }

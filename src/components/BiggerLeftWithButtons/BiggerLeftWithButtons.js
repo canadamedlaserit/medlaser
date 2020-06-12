@@ -41,7 +41,7 @@ const BiggerLeftWithButtons = ({
   btnlink2,
   image,
 }) => {
-  const fluidImage = image ? image.imageFile.childImageSharp.fluid: null
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
 
   return (
     <section
@@ -74,20 +74,39 @@ const BiggerLeftWithButtons = ({
 
               <div className={styles.buttonsWrapper}>
                 {btntext1 ? (
-                  <AnchorLink to={btnlink1} className="btn btn-mid btn-red">
-                    {btntext1}
-                  </AnchorLink>
+                  <>
+                    {btnlink1.includes("tel") ? (
+                      <a href={btnlink1} className="btn btn-mid btn-red">
+                        {btntext1}
+                      </a>
+                    ) : (
+                      <AnchorLink to={btnlink1} className="btn btn-mid btn-red">
+                        {btntext1}
+                      </AnchorLink>
+                    )}
+                  </>
                 ) : (
                   ""
                 )}
 
                 {btntext2 ? (
-                  <AnchorLink
-                    to={btnlink2}
-                    className="btn btn-mid btn-black-transparent"
-                  >
-                    {btntext2}
-                  </AnchorLink>
+                  <>
+                    {btnlink2.includes("tel") ? (
+                      <a
+                        href={btnlink2}
+                        className="btn btn-mid btn-black-transparent"
+                      >
+                        {btntext2}
+                      </a>
+                    ) : (
+                      <AnchorLink
+                        to={btnlink2}
+                        className="btn btn-mid btn-black-transparent"
+                      >
+                        {btntext2}
+                      </AnchorLink>
+                    )}
+                  </>
                 ) : (
                   ""
                 )}
