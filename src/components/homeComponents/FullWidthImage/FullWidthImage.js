@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./FullWidthImage.module.scss"
 
@@ -24,18 +24,24 @@ export const fragment = graphql`
   }
 `
 
-const FullWidthImage = ({ title, subtitle, btntext, btnlink, image, altText }) => {
-  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
+const FullWidthImage = ({ title, subtitle, btntext, btnlink, image }) => {
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : false
 
   return (
     <section className={styles.Section}>
       <div className={`container-fluid`}>
         <div className={`row`}>
-          <BackgroundImage
-            className={`col-md-12 ${styles.Col}`}
-            fluid={fluidImage}
-            altText={altText}
-          >
+          <div className={`col-md-12 ${styles.Col}`}>
+            {fluidImage ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
+
             <div className={styles.Inner}>
               <h2>{title}</h2>
               <p>{subtitle}</p>
@@ -45,7 +51,7 @@ const FullWidthImage = ({ title, subtitle, btntext, btnlink, image, altText }) =
             </div>
 
             <div className={` ${styles.Overlay}`}></div>
-          </BackgroundImage>
+          </div>
         </div>
       </div>
     </section>

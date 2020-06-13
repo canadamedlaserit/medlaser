@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./LookYounger.module.scss"
 
@@ -11,6 +11,7 @@ export const fragment = graphql`
     btntext
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1000) {
@@ -34,14 +35,18 @@ const LookYounger = ({ title, btntext, btnlink, image, list }) => {
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          {fluidImage ? (
-            <BackgroundImage
-              className={`col-md-5 smallerSide ${styles.ImageSide}`}
-              fluid={fluidImage}
-            ></BackgroundImage>
-          ) : (
-            ""
-          )}
+          <div className={`col-md-5 smallerSide ${styles.ImageSide}`}>
+            {fluidImage ? (
+              <Img
+                className="gatsby-image-background"
+                alt={image.altText}
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+
           <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
             <div className={styles.TextInside}>
               <h2>{title}</h2>

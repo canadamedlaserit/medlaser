@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./ThreeImageLinks.module.scss"
 
@@ -13,6 +13,7 @@ export const fragment = graphql`
         link
         image {
           sourceUrl
+          altText
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 500) {
@@ -33,10 +34,17 @@ const ThreeImageLinks = ({ links }) => {
         <div className={`row ${styles.Row}`}>
           {links.map((link, index) => (
             <div key={index} className={`col-md-4 ${styles.Col}`}>
-              <BackgroundImage
-                fluid={link.image ? link.image.imageFile.childImageSharp.fluid:null}
-                className={styles.InsideWrapper}
-              >
+              <div className={styles.InsideWrapper}>
+                {link.image ? (
+                  <Img
+                    alt={link.image.altText}
+                    className="gatsby-image-background"
+                    fluid={link.image.imageFile.childImageSharp.fluid}
+                  />
+                ) : (
+                  ""
+                )}
+
                 <div className={styles.Titles}>
                   <Link to={link.link}>
                     <h3>
@@ -46,7 +54,7 @@ const ThreeImageLinks = ({ links }) => {
                   </Link>
                 </div>
                 <Link className={styles.Overlay} to={link.link}></Link>
-              </BackgroundImage>
+              </div>
             </div>
           ))}
         </div>

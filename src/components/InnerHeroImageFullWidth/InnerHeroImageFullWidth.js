@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./InnerHeroImageFullWidth.module.scss"
 
@@ -10,6 +10,7 @@ export const fragment = graphql`
     hidestripondevice
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1920) {
@@ -26,7 +27,31 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.RowTop}`}>
-          {image ? (
+          <div className={`col-md-12 ${styles.ImgCol}`}>
+            {image ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={image.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
+            <div className={styles.innerWrapper}>
+              <h1>{title}</h1>
+            </div>
+            <div className={styles.Overlay}></div>
+            <div
+              className={`${
+                hidestripondevice & (hidestripondevice === "desktop")
+                  ? styles.HideDesktop
+                  : hidestripondevice === "mobile"
+                  ? styles.HideMobile
+                  : ""
+              } ${styles.Hatch}`}
+            ></div>
+          </div>
+          {/* {image ? (
             <BackgroundImage
               className={`col-md-12 ${styles.ImgCol}`}
               fluid={image.imageFile.childImageSharp.fluid}
@@ -48,7 +73,7 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
             </BackgroundImage>
           ) : (
             ""
-          )}
+          )} */}
         </div>
       </div>
     </section>

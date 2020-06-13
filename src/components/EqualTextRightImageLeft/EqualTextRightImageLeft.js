@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./EqualTextRightImageLeft.module.scss"
 
@@ -12,6 +12,7 @@ export const fragment = graphql`
     textcolor
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 950) {
@@ -27,7 +28,7 @@ class EqualTextRightImageLeft extends Component {
   render() {
     const { title, content, backgroundcolor, textcolor, image } = this.props
 
-    const fluidImage = image ? image.imageFile.childImageSharp.fluid: null
+    const fluidImage = image ? image.imageFile.childImageSharp.fluid : false
 
     return (
       <section
@@ -36,11 +37,17 @@ class EqualTextRightImageLeft extends Component {
       >
         <div className={`container-fluid `}>
           <div className={`row ${styles.Row}`}>
-
-          <BackgroundImage
-              className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}
-              fluid={fluidImage}
-            ></BackgroundImage>
+            <div className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}>
+              {fluidImage ? (
+                <Img
+                  alt={image.altText}
+                  className="gatsby-image-background"
+                  fluid={fluidImage}
+                />
+              ) : (
+                ""
+              )}
+            </div>
 
             <div className={`col-md-6 ${styles.TextSide} ${styles.Col}`}>
               <div className={styles.TextSideWrapper}>
@@ -53,8 +60,6 @@ class EqualTextRightImageLeft extends Component {
                 ></div>
               </div>
             </div>
-
-           
           </div>
         </div>
       </section>

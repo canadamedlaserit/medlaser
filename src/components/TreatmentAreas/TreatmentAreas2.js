@@ -12,6 +12,7 @@ export const fragment = graphql`
         title
         image {
           sourceUrl
+          altText
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 102) {
@@ -27,6 +28,7 @@ export const fragment = graphql`
         title
         image {
           sourceUrl
+          altText
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 102) {

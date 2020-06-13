@@ -16,6 +16,7 @@ const BeforeAfterTabs = () => {
               description
               image {
                 sourceUrl
+                altText
                 imageFile {
                   childImageSharp {
                     fluid(quality: 100, maxWidth: 600) {

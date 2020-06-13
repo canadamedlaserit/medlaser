@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./BiggerLeftNumberedList.module.scss"
 
@@ -13,6 +13,7 @@ export const fragment = graphql`
     textcolor
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 800) {
@@ -23,6 +24,7 @@ export const fragment = graphql`
     }
     mobileimage {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 450) {
@@ -43,7 +45,7 @@ const BiggerLeftNumberedList = ({
   image,
   mobileimage,
 }) => {
-  const fluidImage = image ?image.imageFile.childImageSharp.fluid:null
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
 
   return (
     <section className={styles.Section}>
@@ -72,10 +74,19 @@ const BiggerLeftNumberedList = ({
             </div>
           </div>
 
-          <BackgroundImage
+          <div
             className={`col-md-5 smallerSide2 ${styles.ImageSide} ${styles.Col}`}
-            fluid={fluidImage}
-          ></BackgroundImage>
+          >
+            {image ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </section>

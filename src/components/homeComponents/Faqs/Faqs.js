@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 import { Accordion, Card } from "react-bootstrap"
 
 import styles from "./Faqs.module.scss"
@@ -42,7 +42,6 @@ class Faqs extends Component {
     activeAccordion2: -111,
     toggled: true,
     toggled2: false,
-
   }
 
   handleAccordion = index => {
@@ -56,13 +55,12 @@ class Faqs extends Component {
     this.setState({
       activeAccordion2: index,
       toggled2:
-      this.state.activeAccordion2 === index ? !this.state.toggled2 : true,
+        this.state.activeAccordion2 === index ? !this.state.toggled2 : true,
     })
   }
 
   render() {
     const { title, subtitle, image, list, list2, type } = this.props
-
 
     return (
       <section
@@ -131,11 +129,20 @@ class Faqs extends Component {
               </div>
             </div>
 
-            { type === "normal" ? (
-              <BackgroundImage
-                className={`col-md-5 smallerSide ${styles.ImageSide}`}
-                fluid={image ? image.imageFile.childImageSharp.fluid : null}
-              ></BackgroundImage>
+          
+
+            {type === "normal" ? (
+              <div className={`col-md-5 smallerSide ${styles.ImageSide}`}>
+                {image ? (
+                  <Img
+                    alt={image.altText}
+                    className="gatsby-image-background"
+                    fluid={image ? image.imageFile.childImageSharp.fluid : null}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
             ) : (
               <div
                 className={`col-md-7 biggerSide ${styles.TextSide} ${
@@ -152,7 +159,7 @@ class Faqs extends Component {
                               this.handleAccordion2(index)
                             }}
                             className={`${
-                              this.state.activeAccordion2 === index  &&
+                              this.state.activeAccordion2 === index &&
                               this.state.toggled2 === true
                                 ? `${styles.Active}`
                                 : ""

@@ -5,6 +5,7 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
+    `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sass`,
     {

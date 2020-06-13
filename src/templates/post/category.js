@@ -38,7 +38,7 @@ export const query = graphql`
         sectionFields {
           sections {
             __typename
-            ...InnerHeroImageFullWidthSection
+            ...InnerHeroImageFullWidthSection2
 
             ... on WPGraphQL_Page_Sectionfields_Sections_Blogmain {
               fieldGroupName

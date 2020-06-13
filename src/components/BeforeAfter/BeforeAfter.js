@@ -105,7 +105,7 @@ const BeforeAfter = ({ title, subtitle, btntext, btnlink, slides }) => {
                     {slide.image ? (
                       <Img
                         className={styles.Gimg}
-                        alt={slide.altText}
+                        alt={slide.image.altText}
                         fluid={slide.image.imageFile.childImageSharp.fluid}
                       />
                     ) : (

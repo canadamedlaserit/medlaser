@@ -12,6 +12,7 @@ export const fragment = graphql`
     imagelink
     playicon {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 65) {
@@ -53,7 +54,7 @@ class VideoSection extends React.Component {
                   ref={this.ref}
                   className={styles.ReactPlayer}
                   playing
-                  playIcon={ fluidImage ? (<Img className={styles.Icon} fluid={fluidImage} />) : ''}
+                  playIcon={ fluidImage ? (<Img className={styles.Icon} alt={playicon.altText} fluid={fluidImage} />) : ''}
                   url={videolink}
                   light={imagelink}
                   onReady={this.handleReady}

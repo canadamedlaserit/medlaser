@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./BeforeAfterImage.module.scss"
 
@@ -20,34 +20,34 @@ export const fragment = graphql`
   }
 `
 
-
-
 const BeforeAfterImage = ({ image }) => {
-
   return (
     <section className={styles.Section}>
       <div className={`container-fluid`}>
         <div className={`row`}>
-          {image ? (
-            <BackgroundImage
-              className={`col-md-12 ${styles.Col}`}
-              fluid={image.imageFile.childImageSharp.fluid}
-            >
-              <div className={styles.Inner}>
-                <h3>Real Results</h3>
+          <div className={`col-md-12 ${styles.Col}`}>
+            {image ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={image.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
 
-                <div className={styles.buttonsWrapper}>
-                  <Link to="/before-after/" className="btn btn-red">
-                    Before & After
-                  </Link>
-                </div>
+            <div className={styles.Inner}>
+              <h3>Real Results</h3>
+
+              <div className={styles.buttonsWrapper}>
+                <Link to="/before-after/" className="btn btn-red">
+                  Before & After
+                </Link>
               </div>
+            </div>
 
-              <div className={` ${styles.Overlay}`}></div>
-            </BackgroundImage>
-          ) : (
-            ""
-          )}
+            <div className={` ${styles.Overlay}`}></div>
+          </div>
         </div>
       </div>
     </section>

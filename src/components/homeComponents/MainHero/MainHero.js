@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import Img from "gatsby-image"
 
 import styles from "./MainHero.module.scss"
 
@@ -12,6 +12,7 @@ export const fragment = graphql`
     btntext1
     btntext2
     backgroundimage {
+      altText
       sourceUrl
       imageFile {
         childImageSharp {
@@ -30,6 +31,7 @@ export const fragment = graphql`
       }
     }
     backgroundimagemobile {
+      altText
       sourceUrl
       imageFile {
         childImageSharp {
@@ -89,18 +91,20 @@ class MainHero extends Component {
       <section className={styles.MainHero}>
         <div className={`container-fluid ${styles.container}`}>
           <div className={`row ${styles.row}`}>
-         
-            {fluidImage && fluidImageMobile ? (
-              <BackgroundImage
-                fadeIn="true"
-                className={`col-md-7 biggerSide ${styles.imgSide}`}
-                fluid={
-                  this.state.windowWidth > 767 ? fluidImage : fluidImageMobile
-                }
-              ></BackgroundImage>
-            ) : (
-              ""
-            )}
+            <div className={`col-md-7 biggerSide ${styles.imgSide}`}>
+              {fluidImage ? (
+                <Img
+                  alt={backgroundimage.altText}
+                  className="gatsby-image-background"
+                  fluid={
+                    this.state.windowWidth > 767 ? fluidImage : fluidImageMobile
+                  }
+                />
+              ) : (
+                ""
+              )}
+            </div>
+
 
             <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
               <div className={styles.rightSideWrapper}>

@@ -10,6 +10,7 @@ const Areas = ({ areas }) => {
         <div key={index} className={styles.Area}>
           {area.image ? (
             <Img
+              alt={area.image.altText}
               className={styles.AreaImage}
               fluid={area.image.imageFile.childImageSharp.fluid}
             ></Img>

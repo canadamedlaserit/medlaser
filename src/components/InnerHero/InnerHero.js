@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./InnerHero.module.scss"
 
@@ -18,6 +17,7 @@ export const fragment = graphql`
     text
     backgroundimage {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 960) {
@@ -43,33 +43,29 @@ class InnerHero extends Component {
       backgroundimage,
     } = this.props
 
-    // const fluidImage = backgroundimage.imageFile.childImageSharp.fluid
-
-    // console.log(backgroundimage.imageFile)
-
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.RowTop}`}>
-            {backgroundimage ? (
-              <BackgroundImage
-                className={`col-md-12 ${styles.ImgCol}`}
-                fluid={backgroundimage.imageFile.childImageSharp.fluid}
-                critical
-                // fadeIn='false'
-              >
-                <div className={styles.innerWrapper}>
-                  <h1>
-                    {title}
-                    {label ? <span className={styles.Label}>{label}</span> : ""}
-                  </h1>
-                </div>
-                <div className={styles.Overlay}></div>
-                {subtitle ? <div className={styles.Hatch}></div> : ""}
-              </BackgroundImage>
-            ) : (
-              ""
-            )}
+            <div className={`col-md-12 ${styles.ImgCol}`}>
+              {backgroundimage ? (
+                <Img
+                  alt={backgroundimage.altText}
+                  className={`gatsby-image-background ${styles.halfImage}`}
+                  fluid={backgroundimage.imageFile.childImageSharp.fluid}
+                />
+              ) : (
+                ""
+              )}
+              <div className={styles.innerWrapper}>
+                <h1>
+                  {title}
+                  {label ? <span className={styles.Label}>{label}</span> : ""}
+                </h1>
+              </div>
+              <div className={styles.Overlay}></div>
+              {subtitle ? <div className={styles.Hatch}></div> : ""}
+            </div>
           </div>
 
           {subtitle ? (
@@ -87,7 +83,10 @@ class InnerHero extends Component {
                       <AnchorLink to={btnlink1} className="btn btn-red">
                         {btntext1}
                       </AnchorLink>
-                      <AnchorLink to={btnlink2} className="btn btn-black-transparent">
+                      <AnchorLink
+                        to={btnlink2}
+                        className="btn btn-black-transparent"
+                      >
                         {btntext2}
                       </AnchorLink>
                     </div>

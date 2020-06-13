@@ -44,7 +44,7 @@ const OurServices = ({ title, btntext, btnlink, services }) => {
                   {service.image ? (
                     <Img
                       className={styles.Gimg}
-                      alt={service.altText}
+                      alt={service.image.altText}
                       fluid={service.image.imageFile.childImageSharp.fluid}
                     />
                   ) : (

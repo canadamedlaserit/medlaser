@@ -18,6 +18,7 @@ class GalleryComponent extends Component {
                 <div className={styles.ImageSide}>
                   {result.resultsFields.image ? (
                     <Img
+                      altText={result.resultsFields.image.altText}
                       fluid={
                         result.resultsFields.image.imageFile.childImageSharp
                           .fluid

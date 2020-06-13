@@ -157,7 +157,7 @@ export class MapContainer extends Component {
     const pixelOffsetMobile = new window.google.maps.Size(20, 300)
     const pixelOffsetDesktop = new window.google.maps.Size(200, 100)
 
-    console.log(this.props.google)
+    // console.log(this.props.google)
 
     return (
       <div className={styles.Wrapper}>

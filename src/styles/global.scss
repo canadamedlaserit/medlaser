@@ -72,6 +72,14 @@ strong {
   font-weight: 600;
 }
 
+.gatsby-image-background {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
 @media (min-width: 768px) {
   .show-mobile {
     display: none;

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./GetPricing.module.scss"
@@ -15,6 +15,7 @@ export const fragment = graphql`
     btnlink
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 800) {
@@ -35,16 +36,22 @@ const GetPricing = ({
   btnlink,
   image,
 }) => {
-  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : false
 
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <BackgroundImage
-            fluid={fluidImage}
-            className={`col-md-6 ${styles.Col} ${styles.ImageSide}`}
-          >
+          <div className={`col-md-6 ${styles.Col} ${styles.ImageSide}`}>
+            {fluidImage ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
             <div className={styles.TextWrapper}>
               <h2>{titleleft}</h2>
 
@@ -55,7 +62,7 @@ const GetPricing = ({
               </AnchorLink>
             </div>
             <div className={styles.Overlay}></div>
-          </BackgroundImage>
+          </div>
 
           <div className={`col-md-6 ${styles.Col} ${styles.TextSide}`}>
             <div className={styles.TextWrapper}>

@@ -19,6 +19,7 @@ export const fragment = graphql`
         btnlink
         image {
           sourceUrl
+          altText
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 800) {

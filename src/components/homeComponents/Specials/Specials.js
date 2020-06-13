@@ -72,7 +72,7 @@ const Specials = ({ title, text, btntext, slides }) => {
                     <AnchorLink to="/#book">
                       <Img
                         className={styles.Gimg}
-                        alt={slide.altText}
+                        alt={slide.image.altText}
                         fluid={slide.image.imageFile.childImageSharp.fluid}
                       />
                     </AnchorLink>

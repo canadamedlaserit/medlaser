@@ -13,7 +13,7 @@ import TextFullWidth from "../components/TextFullWidth/TextFullWidth"
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "skin-care-products", idType: URI) {
+      page(id: "skin-care-products-3", idType: URI) {
         id
         title
         slug
@@ -60,7 +60,7 @@ export const query = graphql`
   }
 `
 
-const FaceSculpting = ({ data, location }) => {
+const SkinCareProducts = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -100,4 +100,4 @@ const FaceSculpting = ({ data, location }) => {
   )
 }
 
-export default FaceSculpting
+export default SkinCareProducts

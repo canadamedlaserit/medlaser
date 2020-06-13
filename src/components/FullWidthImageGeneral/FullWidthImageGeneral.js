@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./FullWidthImageGeneral.module.scss"
 
@@ -22,35 +22,36 @@ export const fragment = graphql`
   }
 `
 
-const FullWidthImageGeneral = ({ title, content, image, altText }) => {
+const FullWidthImageGeneral = ({ title, content, image }) => {
   return (
     <section className={styles.Section}>
       <div className={`container-fluid`}>
         <div className={`row`}>
-          {image ? (
-            <BackgroundImage
-              className={`col-md-12 ${styles.Col}`}
-              fluid={image.imageFile.childImageSharp.fluid}
-              altText={altText}
-            >
-              <div className={styles.Inner}>
-                {title ? <h3>{title}</h3> : ""}
+          <div className={`col-md-12 ${styles.Col}`}>
+            {image ? (
+              <Img
+                alt={image.altText}
+                className="gatsby-image-background"
+                fluid={image.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
+            <div className={styles.Inner}>
+              {title ? <h3>{title}</h3> : ""}
 
-                {content ? (
-                  <div
-                    className={styles.Content}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                  ></div>
-                ) : (
-                  ""
-                )}
-              </div>
+              {content ? (
+                <div
+                  className={styles.Content}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                ></div>
+              ) : (
+                ""
+              )}
+            </div>
 
-              <div className={` ${styles.Overlay}`}></div>
-            </BackgroundImage>
-          ) : (
-            ""
-          )}
+            <div className={` ${styles.Overlay}`}></div>
+          </div>
         </div>
       </div>
     </section>

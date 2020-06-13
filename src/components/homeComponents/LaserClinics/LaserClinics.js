@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import Img from "gatsby-image"
 
 import styles from "./LaserClinics.module.scss"
 
@@ -20,6 +20,7 @@ export const fragment = graphql`
     }
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 700) {
@@ -78,14 +79,17 @@ const LaserClinics = ({
               </div>
             </div>
           </div>
-          {fluidImage ? (
-            <BackgroundImage
-              className={`col-md-5 smallerSide ${styles.ImageSide}`}
-              fluid={fluidImage}
-            ></BackgroundImage>
-          ) : (
-            ""
-          )}
+          <div className={`col-md-5 smallerSide ${styles.ImageSide}`}>
+            {fluidImage ? (
+              <Img
+                className="gatsby-image-background"
+                alt={image.altText}
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </section>

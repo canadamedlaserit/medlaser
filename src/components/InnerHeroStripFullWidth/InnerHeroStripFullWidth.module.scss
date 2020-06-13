@@ -79,6 +79,12 @@
   }
 }
 
+@media(min-width: 768px) {
+  .halfImage {
+    width: 50%;
+  }
+}
+
 @media (max-width: 767px) {
   .Section {
     .RowTop {

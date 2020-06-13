@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./InnerHeroStripFullWidth.module.scss"
 
@@ -9,6 +9,7 @@ export const fragment = graphql`
     title
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 960) {
@@ -28,21 +29,23 @@ class InnerHeroStripFullWidth extends Component {
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.RowTop}`}>
-            {image ? (
-              <BackgroundImage
-                className={`col-md-12 ${styles.ImgCol}`}
-                fluid={image.imageFile.childImageSharp.fluid}
-                critical
-              >
-                <div className={styles.innerWrapper}>
-                  <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
-                </div>
-                <div className={styles.Overlay}></div>
-                <div className={styles.Hatch}></div>
-              </BackgroundImage>
-            ) : (
-              ""
-            )}
+            <div className={`col-md-12 ${styles.ImgCol}`}>
+              {image ? (
+                <Img
+                  alt={image.altText}
+                  className={`gatsby-image-background ${styles.halfImage}`}
+
+                  fluid={image.imageFile.childImageSharp.fluid}
+                />
+              ) : (
+                ""
+              )}
+              <div className={styles.innerWrapper}>
+                <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+              </div>
+              <div className={styles.Overlay}></div>
+              <div className={styles.Hatch}></div>
+            </div>
           </div>
         </div>
       </section>

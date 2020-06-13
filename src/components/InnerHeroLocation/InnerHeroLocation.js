@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import styles from "./InnerHeroLocation.module.scss"
 
@@ -11,6 +11,7 @@ export const fragment = graphql`
     text
     backgroundimage {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 960) {
@@ -29,7 +30,23 @@ class InnerHeroLocation extends Component {
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.RowTop}`}>
-            {backgroundimage ? (
+            <div className={`col-md-12 ${styles.ImgCol}`}>
+              {backgroundimage ? (
+                <Img
+                  alt={backgroundimage.altText}
+                  className={`gatsby-image-background ${styles.halfImage}`}
+                  fluid={backgroundimage.imageFile.childImageSharp.fluid}
+                />
+              ) : (
+                ""
+              )}
+              <div className={styles.innerWrapper}>
+                <h1>{title}</h1>
+              </div>
+              <div className={styles.Overlay}></div>
+              <div className={styles.Hatch}></div>
+            </div>
+            {/* {backgroundimage ? (
               <BackgroundImage
                 className={`col-md-12 ${styles.ImgCol}`}
                 fluid={backgroundimage.imageFile.childImageSharp.fluid}
@@ -43,7 +60,7 @@ class InnerHeroLocation extends Component {
               </BackgroundImage>
             ) : (
               ""
-            )}
+            )} */}
           </div>
 
           <div className={`row ${styles.RowBot}`}>

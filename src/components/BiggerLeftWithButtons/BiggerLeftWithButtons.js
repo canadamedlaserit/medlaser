@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import styles from "./BiggerLeftWithButtons.module.scss"
@@ -18,6 +18,7 @@ export const fragment = graphql`
     btnlink2
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 800) {
@@ -41,7 +42,7 @@ const BiggerLeftWithButtons = ({
   btnlink2,
   image,
 }) => {
-  const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
+  const fluidImage = image ? image.imageFile.childImageSharp.fluid : false
 
   return (
     <section
@@ -114,10 +115,19 @@ const BiggerLeftWithButtons = ({
             </div>
           </div>
 
-          <BackgroundImage
+          <div
             className={`col-md-5 smallerSide2 ${styles.ImageSide} ${styles.Col}`}
-            fluid={fluidImage}
-          ></BackgroundImage>
+          >
+            {fluidImage ? (
+              <Img
+                alt={image.altText}
+                className={`gatsby-image-background ${styles.halfImage}`}
+                fluid={fluidImage}
+              />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </section>

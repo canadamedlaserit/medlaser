@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
@@ -20,6 +20,7 @@ export const fragment = graphql`
     textcolor
     image {
       sourceUrl
+      altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 960) {
@@ -47,9 +48,7 @@ class HalfImageRedBtn extends Component {
       image,
     } = this.props
 
-    const fluidImage = image ? image.imageFile.childImageSharp.fluid: null
-
-
+    const fluidImage = image ? image.imageFile.childImageSharp.fluid : null
 
     // not needed
     const Row = styled.div`
@@ -104,10 +103,17 @@ class HalfImageRedBtn extends Component {
               </div>
             </div>
 
-            <BackgroundImage
-              className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}
-              fluid={fluidImage}
-            >
+            <div className={`col-md-6 ${styles.ImageSide} ${styles.Col}`}>
+              {fluidImage ? (
+                <Img
+                  alt={image.altText}
+                  className="gatsby-image-background"
+                  fluid={fluidImage}
+                />
+              ) : (
+                ""
+              )}
+
               <div
                 style={{
                   marginRight: imageposition
@@ -158,7 +164,7 @@ class HalfImageRedBtn extends Component {
                 ""
               )}
               <div className={`${styles.Hatch2} ${styles.Hatch}`}></div>
-            </BackgroundImage>
+            </div>
           </Row>
         </div>
       </section>
