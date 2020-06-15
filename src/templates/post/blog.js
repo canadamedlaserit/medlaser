@@ -12,6 +12,9 @@ export const query = graphql`
     wpgraphql {
       page(id: "blog", idType: URI) {
         id
+        featuredImage {
+          sourceUrl
+        }
         title
         slug
         seo {
@@ -62,7 +65,7 @@ const Blog = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO data={data.wpgraphql.page} />
+      <SEO article="true" data={data.wpgraphql.page} />
 
       {sections.map((section, index) => {
         const typeName = section.__typename

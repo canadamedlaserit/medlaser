@@ -14,7 +14,7 @@ import Reviews from "../components/homeComponents/Reviews/Reviews"
 import BeforeAfter from "../components/BeforeAfter/BeforeAfter"
 import Contact from "../components/Contact/Contact"
 import LocationMap from "../components/LocationMap/LocationMap"
-import BeforeAfterImage from '../components/BeforeAfterImage/BeforeAfterImage'
+import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
@@ -25,6 +25,9 @@ export const query = graphql`
       }
       pageBy(uri: "home") {
         id
+        featuredImage {
+          sourceUrl
+        }
         title
         slug
         seo {

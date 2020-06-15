@@ -51,16 +51,18 @@ exports.createPagesStatefully = async (
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
-
-
-
   const categories = await graphql(`
     {
       wpgraphql {
         categories (first: 500) {
+
           edges {
             node {
               id
+              seo {
+                title
+                metaDesc
+              }
               name
               slug
               posts (first: 500) {
@@ -94,21 +96,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  // const posts = blogList.data.allWordpressPost.edges
 
   categories.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
     const name = edge.node.name
-    // console.log("slug + " + slug)
-    let blogPostsCount = edge.node.posts.nodes.length
-    // console.log("blogPostsCount + " + blogPostsCount)
+    const cat = edge.node
 
+    let blogPostsCount = edge.node.posts.nodes.length
     let blogPostsPerPaginatedPage = 5
     let paginatedPagesCount = Math.ceil(
       blogPostsCount / blogPostsPerPaginatedPage
     )
-
-    // console.log("paginatedPagesCount + " + paginatedPagesCount)
 
     for (let i = 0; i < paginatedPagesCount; i++) {
       createPage({
@@ -118,6 +116,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             ? `/category/${slug}`
             : `/category/${slug}/page/${i + 1}`,
         context: {
+          cat: cat,
           slug: slug,
           posts: edge.node.posts.nodes.slice(i * blogPostsPerPaginatedPage, i * blogPostsPerPaginatedPage + blogPostsPerPaginatedPage),
           limit: blogPostsPerPaginatedPage,

@@ -19,7 +19,7 @@ const Post = ({ pageContext, location, data }) => {
 
   return (
     <Layout location={location}>
-      {/* <SEO data={data.wpgraphql.page} /> */}
+      <SEO article="true" data={data.wpgraphql.post} />
 
       <article className={`entry-content ${styles.Wrapper}`}>
         <section className={`${styles.Section} ${styles.Hero}`}>
@@ -41,11 +41,6 @@ const Post = ({ pageContext, location, data }) => {
                     <span>{category.name} </span>
                   </Link>
                 ))}
-                {/* {termNames.map((term, index) => (
-                  <Link key={index} to={`/category/${termSlugs[index]}/`}>
-                    <span>{term} </span>
-                  </Link>
-                ))} */}
               </div>
               <div className={styles.Author}>
                 by {author.name === "admin" ? "Canada MedLaser" : author.name}
@@ -164,6 +159,30 @@ export const pageQuery = graphql`
   query BlogPostByID($id: ID!) {
     wpgraphql {
       post(id: $id) {
+        title
+        slug
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         featuredImage {
           altText
           sourceUrl

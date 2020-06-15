@@ -65,7 +65,6 @@ const LinkSlider = ({ slides }) => {
     ? staticData.wpgraphql.page.sectionFields.sections[0].slides
     : ""
 
-console.log(slides)
   const params = {
     slidesPerView: "auto",
     pagination: {

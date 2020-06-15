@@ -34,7 +34,9 @@
 
     @media (min-width: 992px) {
       .Dropdown a {
-        color: $white !important;
+        // color: $white !important;
+        color: #000000 !important;
+        
       }
       .MainLink {
         > a {
@@ -117,7 +119,8 @@
   margin-top: 0 !important;
 
   .InnerLink {
-    color: $white !important;
+    // color: $white !important;
+    color: #000000 !important;
     padding-top: 7px !important;
     padding-bottom: 7px !important;
   }
@@ -281,7 +284,7 @@
     width: 100%;
     left: 0;
     right: 0;
-    background-color: $black;
+    // background-color: $black;
   }
 
   .NavCollapse .MainLink {
@@ -329,9 +332,10 @@
 
     .InnerLink {
       font-family: "Open Sans", sans-serif;
-      font-size: 20px !important;
+      font-size: 16px !important;
+      line-height: 22px !important;
       padding-top: 0 !important;
-      padding-bottom: 18px !important;
+      padding-bottom: 16px !important;
 
       &:last-child {
         padding-bottom: 0 !important;

@@ -5,36 +5,13 @@ import LocationMap from "../../components/LocationMap/LocationMap"
 import Contact from "../../components/Contact/Contact"
 import CategoriesMain from "../../components/BlogMain/CategoriesMain"
 import CategoryPageHero from "../../components/BlogMain/CategoryPageHero"
+import SEO from "../../components/particles/SEO"
+
 
 export const query = graphql`
   {
     wpgraphql {
       page(id: "blog", idType: URI) {
-        id
-        title
-        slug
-        seo {
-          title
-          metaDesc
-          focuskw
-          metaKeywords
-          metaRobotsNoindex
-          metaRobotsNofollow
-          opengraphTitle
-          opengraphDescription
-          opengraphImage {
-            altText
-            sourceUrl
-            srcSet
-          }
-          twitterTitle
-          twitterDescription
-          twitterImage {
-            altText
-            sourceUrl
-            srcSet
-          }
-        }
         sectionFields {
           sections {
             __typename
@@ -51,15 +28,21 @@ export const query = graphql`
         }
       }
     }
+    
   }
 `
 
 const CategoryPage = ({ data, location, pageContext }) => {
-  const { slug, posts, pageNumber, hasNextPage, numPages, pageName } = pageContext
+  const {cat, slug, posts, pageNumber, hasNextPage, numPages, pageName } = pageContext
   const sections = data.wpgraphql.page.sectionFields.sections
+  
+
+console.log(cat)
 
   return (
     <Layout location={location}>
+      <SEO article="true" data={cat}/>
+
       {sections.map((section, index) => {
         const typeName = section.__typename
 
@@ -102,3 +85,4 @@ const CategoryPage = ({ data, location, pageContext }) => {
 }
 
 export default CategoryPage
+

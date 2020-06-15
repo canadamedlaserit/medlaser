@@ -6,7 +6,7 @@ import styles from "./BlogMain/BlogMain.module.scss"
 const PostEntry = ({ post }) => {
   const { uri, title, featuredImage, excerpt, date, author, categories } = post
 
-  console.log(featuredImage)
+  // console.log(featuredImage)
 
   return (
     <div className={styles.Entry}>

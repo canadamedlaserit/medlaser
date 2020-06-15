@@ -21,6 +21,9 @@ export const query = graphql`
     wpgraphql {
       page(id: "acne-scar-removal", idType: URI) {
         id
+        featuredImage {
+          sourceUrl
+        }
         title
         slug
         seo {
