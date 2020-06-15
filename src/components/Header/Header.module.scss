@@ -12,7 +12,7 @@
   .NavbarBrand {
     width: 100%;
     height: auto;
-    max-width: 112px;
+    max-width: 95px;
 
     .Navbar_logo {
       .gatsby-image-wrapper {
@@ -64,8 +64,8 @@
       padding-left: 23px !important;
       padding-right: 23px !important;
 
-      padding-top: 33px;
-      padding-bottom: 33px;
+      padding-top: 28px;
+      padding-bottom: 28px;
       position: relative;
       transition: 0.3s;
 
@@ -91,8 +91,8 @@
     color: $white !important;
     padding-left: 23px !important;
     padding-right: 23px !important;
-    padding-top: 22px !important;
-    padding-bottom: 22px !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
   }
 
   .MainLink {
@@ -159,6 +159,9 @@
   }
   .ButtonWrapper {
     .Btn {
+      height: 53px;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
       min-width: 174px;
     }
   }
@@ -349,7 +352,7 @@
     a {
       font-size: 15px !important;
       line-height: 20px !important;
-      padding: 20px !important;
+      padding: 16px 20px !important;
     }
   }
 
@@ -366,7 +369,7 @@
   }
 
   .NavbarBrand {
-    max-width: 97px !important;
+    max-width: 80px !important;
     padding-top: 0.6rem !important;
     padding-bottom: 0.6rem !important;
   }
@@ -375,8 +378,6 @@
     font-size: 20px !important;
     line-height: 27px !important;
 
-    padding-top: 35px !important;
-    padding-bottom: 35px !important;
   }
 }
 
@@ -385,7 +386,7 @@
     a {
       font-size: 12px !important;
       line-height: 20px !important;
-      padding: 20px 15px !important;
+      padding: 16px 15px !important;
     }
   }
 
@@ -431,7 +432,7 @@
   }
 
   .Navbar .NavCollapse a {
-    font-size: 24px !important;
+    font-size: 22px !important;
     line-height: 32px !important;
     padding-left: 0 !important;
     width: fit-content;
