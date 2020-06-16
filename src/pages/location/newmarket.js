@@ -15,7 +15,7 @@ import LocationsMapWithOptions from "../../components/LocationsMapWithOptions/Lo
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "newmarket", idType: URI) {
+      page(id: "location/newmarket", idType: URI) {
         id
         title
         slug
@@ -61,6 +61,8 @@ export const query = graphql`
 
 const Newmarket = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
+
+  console.log(data)
 
   return (
     <Layout location={location}>

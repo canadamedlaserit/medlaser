@@ -8,7 +8,7 @@ module.exports = {
     title: `Medlaser`,
     description: `Laser clinics in Toronto offers laser hair removal, Brazilian and permanent facial hair removal, Botox injections, CoolSculpting and lip augmentation.`,
     author: `@Medlaser`,
-    image: `/logos/logo.png`,
+    image: `/icons/icon.png`,
     siteName: "Toronto Laser Clinics",
     siteLanguage: "en-CA",
     ogLanguage: "en_US",

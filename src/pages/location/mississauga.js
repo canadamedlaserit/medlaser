@@ -17,7 +17,7 @@ import LocationsMapWithOptions from "../../components/LocationsMapWithOptions/Lo
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "mississauga", idType: URI) {
+      page(id: "location/mississauga", idType: URI) {
         id
         title
         slug

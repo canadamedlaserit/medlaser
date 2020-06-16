@@ -12,7 +12,7 @@ import MoreInfoAnchor from "../../../components/MoreInfoAnchor/MoreInfoAnchor"
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "cellulite-treatment-mississauga", idType: URI) {
+      page(id: "location/mississauga/cellulite-treatment-mississauga", idType: URI) {
         id
         title
         slug

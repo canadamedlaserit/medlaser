@@ -8,7 +8,7 @@ import LocationsWp from '../components/LocationsWp/LocationsWp'
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "locations", idType: URI) {
+      page(id: "location", idType: URI) {
         id
         title
         slug

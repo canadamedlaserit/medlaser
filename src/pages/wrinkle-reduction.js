@@ -69,7 +69,7 @@ export const query = graphql`
   }
 `
 
-const Botox = ({ data, location }) => {
+const WrinkleReduction = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -121,4 +121,4 @@ const Botox = ({ data, location }) => {
   )
 }
 
-export default Botox
+export default WrinkleReduction

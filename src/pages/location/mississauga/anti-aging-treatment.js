@@ -12,7 +12,7 @@ import BiggerRightWithButtons from "../../../components/BiggerRightWithButtons/B
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "anti-aging-treatment-mississauga", idType: URI) {
+      page(id: "location/mississauga/anti-aging-treatment", idType: URI) {
         id
         title
         slug

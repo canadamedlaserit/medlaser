@@ -15,7 +15,7 @@ import TextFullWidth from "../../../components/TextFullWidth/TextFullWidth"
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "beauty-treatments-mississauga", idType: URI) {
+      page(id: "location/mississauga/beauty-treatments-mississauga", idType: URI) {
         id
         title
         slug

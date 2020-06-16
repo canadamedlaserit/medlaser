@@ -63,7 +63,7 @@ export const query = graphql`
   }
 `
 
-const SkinConcerns = ({ data, location }) => {
+const SkinProcedures = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -106,4 +106,4 @@ const SkinConcerns = ({ data, location }) => {
   )
 }
 
-export default SkinConcerns
+export default SkinProcedures

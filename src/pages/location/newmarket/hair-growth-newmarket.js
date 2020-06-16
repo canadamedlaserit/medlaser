@@ -5,20 +5,21 @@ import SEO from "../../../components/particles/SEO"
 import InnerHero from "../../../components/InnerHero/InnerHero"
 import BiggerLeftWithButtons from "../../../components/BiggerLeftWithButtons/BiggerLeftWithButtons"
 import VideoSlider from "../../../components/VideoSlider/VideoSlider"
-import TextFullWidth from "../../../components/TextFullWidth/TextFullWidth"
-import TwoSidesLinks from "../../../components/TwoSidesLinks/TwoSidesLinks"
-import BiggerRightWithButtons from '../../../components/BiggerRightWithButtons/BiggerRightWithButtons'
-import TreatmentAreas2 from "../../../components/TreatmentAreas/TreatmentAreas2"
-import LocationMap from "../../../components/LocationMap/LocationMap"
-import Faqs from "../../../components/homeComponents/Faqs/Faqs"
-import BeforeAfterImage from "../../../components/BeforeAfterImage/BeforeAfterImage"
+import EqualTextLeftImageRight from "../../../components/EqualTextLeftImageRight/EqualTextLeftImageRight"
+import BeforeAfter from "../../../components/BeforeAfter/BeforeAfter"
 import Contact from "../../../components/Contact/Contact"
+import LocationMap from "../../../components/LocationMap/LocationMap"
+import LeftRightMultiple from "../../../components/LeftRightMultiple/LeftRightMultiple"
+import EqualTextWithStrip from "../../../components/EqualTextWithStrip/EqualTextWithStrip"
+import TextFullWidth from "../../../components/TextFullWidth/TextFullWidth"
+import HalfImageRedBtn from "../../../components/HalfImageRedBtn/HalfImageRedBtn"
 import MoreInfoAnchor from "../../../components/MoreInfoAnchor/MoreInfoAnchor"
+import BeforeAfterImage from "../../../components/BeforeAfterImage/BeforeAfterImage"
 
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "location/newmarket/coolsculpting-newmarket", idType: URI) {
+      page(id: "location/newmarket/hair-growth-newmarket", idType: URI) {
         id
         title
         slug
@@ -50,19 +51,20 @@ export const query = graphql`
             ...InnerHeroSection
             ...BiggerLeftWithButtonsSection
             ...VideoSliderSection
-            ...TextFullWidthSection
-            ...TwoSidesLinksSection
-            ...BiggerRightWithButtonsSection
-            ...TreatmentAreas2Section
-            ...FaqsSection
-            ...BeforeAfterImageSection
-            ...LocationMapSection
+            ...EqualTextLeftImageRightSection
+            ...BeforeAfterSection
             ... on WPGraphQL_Page_Sectionfields_Sections_Contact {
               fieldGroupName
             }
+            ...LocationMapSection
+            ...LeftRightMultipleSection
+            ...EqualTextWithStripSection
+            ...TextFullWidthSection
+            ...HalfImageRedBtnSection
             ... on WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor {
               fieldGroupName
             }
+            ...BeforeAfterImageSection
           }
         }
       }
@@ -70,7 +72,7 @@ export const query = graphql`
   }
 `
 
-const CoolsculptingNewmarket = ({ data, location }) => {
+const HairGrowthNewmarket = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -90,32 +92,35 @@ const CoolsculptingNewmarket = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Videoslider":
             return <VideoSlider key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Textfullwidth":
-            return <TextFullWidth key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Equaltextleftimageright":
+            return <EqualTextLeftImageRight key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Twosideslinks":
-            return <TwoSidesLinks key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple":
+            return <LeftRightMultiple key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Biggerrightwithbuttons":
-            return <BiggerRightWithButtons key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfter":
+            return <BeforeAfter key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Treatmentareas2":
-            return <TreatmentAreas2 key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
+            return <Contact key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
-            return <Faqs key={index} {...section} />
-
-          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
-            return <BeforeAfterImage key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Equaltextwithstrip":
+            return <EqualTextWithStrip key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
             return <LocationMap key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_Textfullwidth":
+            return <TextFullWidth key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Halfimageredbtn":
+            return <HalfImageRedBtn key={index} {...section} />
+
           case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
             return <MoreInfoAnchor key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
-            return <Contact key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
+            return <BeforeAfterImage key={index} {...section} />
 
           default:
             return console.log("You done. Default thing")
@@ -125,4 +130,4 @@ const CoolsculptingNewmarket = ({ data, location }) => {
   )
 }
 
-export default CoolsculptingNewmarket
+export default HairGrowthNewmarket

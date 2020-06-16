@@ -38,7 +38,6 @@ exports.createResolvers = async ({
 }
 
 const createPosts = require("./create/createPosts")
-
 exports.createPagesStatefully = async (
   { graphql, actions, reporter },
   options
@@ -48,14 +47,64 @@ exports.createPagesStatefully = async (
 
 
 
+// category pages for each category multiple pages
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
-  const categories = await graphql(`
+  const blogTagFilter = path.resolve("src/templates/post/tag.js")
+  const pageFilter = path.resolve("src/templates/post/pageTemplate.js")
+  
+  const query = await graphql(`
     {
       wpgraphql {
-        categories (first: 500) {
-
+        pages(last: 500) {
+          edges {
+            node {
+              id
+              uri
+            }
+          }
+        }
+        tags(first: 500) {
+          edges {
+            node {
+              id
+              uri
+              name
+              slug
+              seo {
+                title
+                metaDesc
+              }
+              posts(first: 500) {
+                nodes {
+                  uri
+                  title
+                  excerpt
+                  termNames
+                  termSlugs
+                  categories {
+                    nodes {
+                      name
+                      slug
+                      id
+                    }
+                  }
+                  author {
+                    name
+                    slug
+                  }
+                  date
+                  featuredImage {
+                    sourceUrl
+                    altText
+                  }
+                }
+              }
+            }
+          }
+        }
+        categories(first: 500) {
           edges {
             node {
               id
@@ -65,7 +114,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
               }
               name
               slug
-              posts (first: 500) {
+              posts(first: 500) {
                 nodes {
                   uri
                   title
@@ -97,7 +146,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  categories.data.wpgraphql.categories.edges.forEach(edge => {
+  query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
     const name = edge.node.name
     const cat = edge.node
@@ -111,23 +160,125 @@ module.exports.createPages = async ({ graphql, actions }) => {
     for (let i = 0; i < paginatedPagesCount; i++) {
       createPage({
         component: blogCategoryFilter,
-        path:
-          i === 0
-            ? `/category/${slug}`
-            : `/category/${slug}/page/${i + 1}`,
+        path: i === 0 ? `/category/${slug}` : `/category/${slug}/page/${i + 1}`,
         context: {
           cat: cat,
           slug: slug,
-          posts: edge.node.posts.nodes.slice(i * blogPostsPerPaginatedPage, i * blogPostsPerPaginatedPage + blogPostsPerPaginatedPage),
+          posts: edge.node.posts.nodes.slice(
+            i * blogPostsPerPaginatedPage,
+            i * blogPostsPerPaginatedPage + blogPostsPerPaginatedPage
+          ),
           limit: blogPostsPerPaginatedPage,
           skip: i * blogPostsPerPaginatedPage,
           paginatedPagesCount,
           pageNumber: i + 1,
           numPages: paginatedPagesCount,
-          hasNextPage:  paginatedPagesCount === i + 1 ? false : true,
-          pageName: name
+          hasNextPage: paginatedPagesCount === i + 1 ? false : true,
+          pageName: name,
         },
       })
     }
   })
+
+
+  query.data.wpgraphql.tags.edges.forEach(edge => {
+    const uri = edge.node.uri
+    const slug = edge.node.slug
+    const name = edge.node.name
+    const cat = edge.node
+
+    createPage({
+      component: blogTagFilter,
+      path: uri,
+      context: {
+        cat: cat,
+        slug: slug,
+        posts: edge.node.posts.nodes,
+        pageName: name,
+      },
+    })
+  })
+
+
+  // query.data.wpgraphql.pages.edges.forEach(edge => {
+  //   const uri = edge.node.uri
+  //   const id = edge.node.id
+
+  //   createPage({
+  //     component: pageFilter,
+  //     path: uri,
+  //     context: {
+  //      id: id
+  //     },
+  //   })
+  // })
 }
+
+// // tag pages
+// module.exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
+//   const blogTagFilter = path.resolve("src/templates/post/tag.js")
+//   const tags = await graphql(`
+//     {
+//       wpgraphql {
+//         tags(first: 500) {
+//           edges {
+//             node {
+//               id
+//               uri
+//               name
+//               slug
+//               seo {
+//                 title
+//                 metaDesc
+//               }
+//               posts(first: 500) {
+//                 nodes {
+//                   uri
+//                   title
+//                   excerpt
+//                   termNames
+//                   termSlugs
+//                   categories {
+//                     nodes {
+//                       name
+//                       slug
+//                       id
+//                     }
+//                   }
+//                   author {
+//                     name
+//                     slug
+//                   }
+//                   date
+//                   featuredImage {
+//                     sourceUrl
+//                     altText
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `)
+
+//   tags.data.wpgraphql.tags.edges.forEach(edge => {
+//     const uri = edge.node.uri
+//     const slug = edge.node.slug
+//     const name = edge.node.name
+//     const cat = edge.node
+
+//     createPage({
+//       component: blogTagFilter,
+//       path: uri,
+//       context: {
+//         cat: cat,
+//         slug: slug,
+//         posts: edge.node.posts.nodes,
+//         pageName: name,
+//       },
+//     })
+//   })
+// }

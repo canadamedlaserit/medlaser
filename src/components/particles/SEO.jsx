@@ -133,7 +133,7 @@ const SEO = ({ data, article }) => {
 
   const seo = {
     title: title || defaultTitle,
-    description: metaDesc || defaultDescription,
+    description: metaDesc,
     image: featuredImage || `${siteUrl}${defaultImage}`,
     url: `${siteUrl}${pathname}`,
   }
@@ -146,7 +146,7 @@ const SEO = ({ data, article }) => {
       <link rel="canonical" href={seo.url} />
 
       {/* facebook meta */}
-      {article ? (
+      {article ? ( 
         <meta property="og:type" content="article" />
       ) : (
         <meta property="og:type" content="website" />
