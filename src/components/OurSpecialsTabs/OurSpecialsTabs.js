@@ -7,6 +7,14 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import styles from "./OurSpecialsTabs.module.scss"
 
+
+export const fragment = graphql`
+  fragment OurSpecialsTabsSection on WPGraphQL_Page_Sectionfields_Sections_Beforeaftertabs {
+    fieldGroupName
+  }
+`
+
+
 const OurSpecialsTabs = () => {
   const data = useStaticQuery(graphql`
     query Specials {

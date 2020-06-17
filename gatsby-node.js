@@ -45,23 +45,37 @@ exports.createPagesStatefully = async (
   await createPosts({ actions, graphql, reporter }, options)
 }
 
-
-
-// category pages for each category multiple pages
+// category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
   const blogTagFilter = path.resolve("src/templates/post/tag.js")
   const pageFilter = path.resolve("src/templates/post/pageTemplate.js")
-  
+
   const query = await graphql(`
     {
       wpgraphql {
-        pages(last: 500) {
+        pages(first: 500) {
           edges {
             node {
               id
               uri
+              childPages(first: 500) {
+                edges {
+                  node {
+                    id
+                    uri
+                    childPages(first: 500) {
+                      edges {
+                        node {
+                          id
+                          uri
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -108,12 +122,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               id
+              uri
+              name
+              slug
               seo {
                 title
                 metaDesc
               }
-              name
-              slug
               posts(first: 500) {
                 nodes {
                   uri
@@ -146,6 +161,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
     const name = edge.node.name
@@ -180,7 +196,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
-
+  //tags
   query.data.wpgraphql.tags.edges.forEach(edge => {
     const uri = edge.node.uri
     const slug = edge.node.slug
@@ -199,86 +215,50 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // pages
+  query.data.wpgraphql.pages.edges.forEach(edge => {
+    // console.log(edge.node.uri)
+    if (
+      edge.node.uri === "contact-global/" ||
+      edge.node.uri === "globalsections/" ||
+      edge.node.uri === "headerfooterinfo/" ||
+      edge.node.uri === "link-slider-global/" ||
+      edge.node.uri === "knowledge-base/"
+    ) {
+      console.log('skip: ' + edge.node.uri)
+   
+    } else {
+      createPage({
+        component: pageFilter,
+        path: edge.node.uri,
+        context: {
+          id: edge.node.id,
+        },
+      })
 
-  // query.data.wpgraphql.pages.edges.forEach(edge => {
-  //   const uri = edge.node.uri
-  //   const id = edge.node.id
+      if (edge.node.childPages) {
+        edge.node.childPages.edges.forEach(child => {
+          createPage({
+            component: pageFilter,
+            path: child.node.uri,
+            context: {
+              id: child.node.id,
+            },
+          })
 
-  //   createPage({
-  //     component: pageFilter,
-  //     path: uri,
-  //     context: {
-  //      id: id
-  //     },
-  //   })
-  // })
+          if (child.node.childPages) {
+            child.node.childPages.edges.forEach(child => {
+              createPage({
+                component: pageFilter,
+                path: child.node.uri,
+                context: {
+                  id: child.node.id,
+                },
+              })
+            })
+          }
+        })
+      }
+    }
+  })
 }
-
-// // tag pages
-// module.exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
-//   const blogTagFilter = path.resolve("src/templates/post/tag.js")
-//   const tags = await graphql(`
-//     {
-//       wpgraphql {
-//         tags(first: 500) {
-//           edges {
-//             node {
-//               id
-//               uri
-//               name
-//               slug
-//               seo {
-//                 title
-//                 metaDesc
-//               }
-//               posts(first: 500) {
-//                 nodes {
-//                   uri
-//                   title
-//                   excerpt
-//                   termNames
-//                   termSlugs
-//                   categories {
-//                     nodes {
-//                       name
-//                       slug
-//                       id
-//                     }
-//                   }
-//                   author {
-//                     name
-//                     slug
-//                   }
-//                   date
-//                   featuredImage {
-//                     sourceUrl
-//                     altText
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
-
-//   tags.data.wpgraphql.tags.edges.forEach(edge => {
-//     const uri = edge.node.uri
-//     const slug = edge.node.slug
-//     const name = edge.node.name
-//     const cat = edge.node
-
-//     createPage({
-//       component: blogTagFilter,
-//       path: uri,
-//       context: {
-//         cat: cat,
-//         slug: slug,
-//         posts: edge.node.posts.nodes,
-//         pageName: name,
-//       },
-//     })
-//   })
-// }

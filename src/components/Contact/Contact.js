@@ -4,12 +4,11 @@ import ConactForm from "./ContactForm"
 
 import styles from "./ContactSection.module.scss"
 
-// export const fragment = graphql`
-//   fragment ContactSection on WPGraphQL_Page_Sectionfields_Sections_Contact {
-//     title
-//     btntext
-//   }
-// `
+export const fragment = graphql`
+  fragment ContactSection on WPGraphQL_Page_Sectionfields_Sections_Contact {
+    fieldGroupName
+  }
+`
 
 const Contact = ({bgcolor}) => {
   const data = useStaticQuery(graphql`

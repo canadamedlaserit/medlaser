@@ -11,7 +11,7 @@ import SEO from "../../components/particles/SEO"
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "blog", idType: URI) {
+      page(id: "knowledge-base", idType: URI) {
         sectionFields {
           sections {
             __typename

@@ -1,9 +1,14 @@
 import React from "react"
 import InquiryWithSubscriptionForm from "./InquiryWithSubscriptionForm"
+import { graphql } from "gatsby"
 
 import styles from "./ContactSection.module.scss"
 
-
+export const fragment = graphql`
+  fragment InquiryWithSubscriptionSection on WPGraphQL_Page_Sectionfields_Sections_Inquiry2 {
+    fieldGroupName
+  }
+`
 
 const InquiryWithSubscription = () => {
 

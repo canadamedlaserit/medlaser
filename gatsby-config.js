@@ -13,7 +13,7 @@ module.exports = {
     siteLanguage: "en-CA",
     ogLanguage: "en_US",
     twitterUsername: "@CanadaMedLaser",
-    icon: `src/images/logo.png`,
+    icon: `/icons/icon.png`,
   },
   plugins: [
     {

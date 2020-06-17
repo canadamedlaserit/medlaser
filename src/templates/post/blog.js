@@ -10,7 +10,7 @@ import { graphql } from "gatsby"
 export const query = graphql`
   {
     wpgraphql {
-      page(id: "blog", idType: URI) {
+      page(id: "knowledge-base", idType: URI) {
         id
         featuredImage {
           sourceUrl
@@ -61,6 +61,11 @@ const Blog = ({ data, pageContext, location }) => {
   const { nodes, pageNumber, hasNextPage, itemsPerPage, allPosts } = pageContext
   const numPages = Math.ceil(allPosts.length / itemsPerPage)
   const sections = data.wpgraphql.page.sectionFields.sections
+
+  console.log(data)
+
+  console.log(pageContext)
+
 
 
   return (

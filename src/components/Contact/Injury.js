@@ -1,9 +1,14 @@
 import React from "react"
 import InjuryForm from "./InjuryForm"
+import { graphql } from "gatsby"
 
 import styles from "./ContactSection.module.scss"
 
-
+export const fragment = graphql`
+  fragment InjurySection on WPGraphQL_Page_Sectionfields_Sections_Injury {
+    fieldGroupName
+  }
+`
 
 const Injury = () => {
 
