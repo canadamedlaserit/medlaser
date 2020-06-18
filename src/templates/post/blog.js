@@ -62,9 +62,9 @@ const Blog = ({ data, pageContext, location }) => {
   const numPages = Math.ceil(allPosts.length / itemsPerPage)
   const sections = data.wpgraphql.page.sectionFields.sections
 
-  console.log(data)
+  // console.log(data)
 
-  console.log(pageContext)
+  // console.log(pageContext)
 
 
 

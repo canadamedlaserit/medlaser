@@ -43,7 +43,6 @@ class Video extends Component {
           playIcon={
             <img
               alt="play-icon"
-              loading="lazy"
               className={styles.Icon}
               src={play}
             />

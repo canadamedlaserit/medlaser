@@ -37,7 +37,7 @@ const TagPage = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
   
 
-console.log(pageContext)
+// console.log(pageContext)
 
   return (
     <Layout location={location}>
@@ -52,7 +52,7 @@ console.log(pageContext)
             return (
               <CategoryPageHero
                 pageName={pageName}
-                slug={slug}
+                slug="Tag"
                 key={index}
                 {...section}
               />

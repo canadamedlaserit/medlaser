@@ -122,7 +122,7 @@ const SEO = ({ data, article }) => {
   const { site } = useStaticQuery(query)
   const {
     defaultTitle,
-    defaultDescription,
+    // defaultDescription,
     siteUrl,
     defaultImage,
     twitterUsername,

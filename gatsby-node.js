@@ -51,10 +51,20 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
   const blogTagFilter = path.resolve("src/templates/post/tag.js")
   const pageFilter = path.resolve("src/templates/post/pageTemplate.js")
+  const memberFilter = path.resolve("src/templates/post/member.js")
 
   const query = await graphql(`
     {
       wpgraphql {
+        teams(first: 100) {
+          edges {
+            node {
+              id
+              uri
+              slug
+            }
+          }
+        }
         pages(first: 500) {
           edges {
             node {
@@ -225,7 +235,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       edge.node.uri === "link-slider-global/" ||
       edge.node.uri === "knowledge-base/"
     ) {
-      console.log('skip: ' + edge.node.uri)
+      // console.log('skip: ' + edge.node.uri)
    
     } else {
       createPage({
@@ -261,4 +271,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   })
+
+
+    //members
+    query.data.wpgraphql.teams.edges.forEach(edge => {
+      let path = edge.node.slug + '/'
+
+      createPage({
+        component: memberFilter,
+        path: path,
+        context: {
+          id: edge.node.id,
+        },
+      })
+    })
+
 }

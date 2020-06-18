@@ -22,7 +22,7 @@ export const fragment = graphql`
   }
 `
 
-const CategoryPageHero = ({ pageName, image }) => {
+const CategoryPageHero = ({ pageName, image, slug }) => {
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
@@ -39,7 +39,7 @@ const CategoryPageHero = ({ pageName, image }) => {
             )}
 
             <div className={styles.innerWrapper}>
-              <div>category</div>
+            <div>{slug ? slug : "category"}</div>
               <h1>{pageName}</h1>
             </div>
             <div className={styles.Overlay}></div>

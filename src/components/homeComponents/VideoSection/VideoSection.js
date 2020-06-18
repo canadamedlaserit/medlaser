@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import ReactPlayer from "react-player"
-import Img from "gatsby-image"
+import play from "../../../images/play-icon.png"
+import fallback from "../../../images/fallback.svg"
 
 import styles from "./VideoSection.module.scss"
 
@@ -9,17 +10,8 @@ export const fragment = graphql`
   fragment VideoSection on WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo {
     title
     videolink
-    imagelink
-    playicon {
+    image {
       sourceUrl
-      altText
-      imageFile {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 65) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   }
 `
@@ -37,9 +29,15 @@ class VideoSection extends React.Component {
     this.player = player
   }
 
+  youtube_parser(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+    var match = url.match(regExp)
+    return match && match[7].length === 11 ? match[7] : false
+  }
+
   render() {
-    const { title, videolink, imagelink, playicon } = this.props
-    const fluidImage = playicon ? playicon.imageFile.childImageSharp.fluid : false
+    const { title, videolink, image } = this.props
+
 
     return (
       <section className={styles.Section}>
@@ -54,9 +52,17 @@ class VideoSection extends React.Component {
                   ref={this.ref}
                   className={styles.ReactPlayer}
                   playing
-                  playIcon={ fluidImage ? (<Img className={styles.Icon} alt={playicon.altText} fluid={fluidImage} />) : ''}
+                  playIcon={
+                    <img alt="play-icon" className={styles.Icon} src={play} />
+                  }
                   url={videolink}
-                  light={imagelink}
+                  light={
+                    image
+                      ? image.sourceUrl
+                      : videolink ? `https://img.youtube.com/vi/${this.youtube_parser(
+                          videolink
+                        )}/hqdefault.jpg` : fallback
+                  }
                   onReady={this.handleReady}
                   width="100%"
                   height="100%"

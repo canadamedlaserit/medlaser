@@ -64,7 +64,7 @@ const Pagination = ({ pageNumber, hasNextPage, numPages, pageUri }) => {
                     {index === 1 && pageNumber > 4 ? "..." : ""}
                   </li>
                 )
-              }
+              } else {return null}
             } else {
               return (
                 <li

@@ -36,9 +36,6 @@ const CategoryPage = ({ data, location, pageContext }) => {
   const {cat, slug, posts, pageNumber, hasNextPage, numPages, pageName } = pageContext
   const sections = data.wpgraphql.page.sectionFields.sections
   
-
-console.log(cat)
-
   return (
     <Layout location={location}>
       <SEO article="true" data={cat}/>

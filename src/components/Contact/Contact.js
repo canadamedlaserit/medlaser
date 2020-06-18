@@ -7,10 +7,13 @@ import styles from "./ContactSection.module.scss"
 export const fragment = graphql`
   fragment ContactSection on WPGraphQL_Page_Sectionfields_Sections_Contact {
     fieldGroupName
+    title
+    buttonText
+    backgroundColor
   }
 `
 
-const Contact = ({bgcolor}) => {
+const Contact = ({ backgroundColor, title, buttonText }) => {
   const data = useStaticQuery(graphql`
     query PageQuery {
       wpgraphql {
@@ -25,15 +28,20 @@ const Contact = ({bgcolor}) => {
     }
   `)
 
-  const { title, btntext } = data.wpgraphql.page.contactFields
+  const titleDef = data.wpgraphql.page.contactFields.title
+  const btntextDef = data.wpgraphql.page.contactFields.btntext
   return (
-    <section id="book" className={styles.Section} style={{backgroundColor: bgcolor ? bgcolor : '#000000'}}>
+    <section
+      id="book"
+      className={styles.Section}
+      style={{ backgroundColor: backgroundColor ? backgroundColor : "#000000" }}
+    >
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>
             <div className={styles.Inner}>
-              <h2>{title}</h2>
-              <ConactForm btntext={btntext} />
+              <h2>{title ? title : titleDef}</h2>
+              <ConactForm btntext={buttonText ? buttonText : btntextDef} />
             </div>
 
             <div className={` ${styles.Overlay}`}></div>
