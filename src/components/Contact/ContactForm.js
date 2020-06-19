@@ -166,8 +166,8 @@ export class ContactForm extends Component {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": form.getAttribute("name"),
-          ...data,
+          "form-name": "contact",
+          ...this.state,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))
@@ -192,17 +192,16 @@ export class ContactForm extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="contactGeneral"
+          name="contact"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input type="hidden" name="form-name" value="contactGeneral" />
-          
+          <input type="hidden" name="form-name" value="contact" />
+
           <div
             className={`${styles.FormColumn} ${
               column ? styles.FormColumnType : ""

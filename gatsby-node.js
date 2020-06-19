@@ -37,13 +37,13 @@ exports.createResolvers = async ({
   })
 }
 
-const createPosts = require("./create/createPosts")
-exports.createPagesStatefully = async (
-  { graphql, actions, reporter },
-  options
-) => {
-  await createPosts({ actions, graphql, reporter }, options)
-}
+// const createPosts = require("./create/createPosts")
+// exports.createPagesStatefully = async (
+//   { graphql, actions, reporter },
+//   options
+// ) => {
+//   await createPosts({ actions, graphql, reporter }, options)
+// }
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
