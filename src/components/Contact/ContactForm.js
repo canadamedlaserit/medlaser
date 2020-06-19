@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
 import querystring from "query-string"
 import axios from "axios"
-
+import { navigate } from "gatsby-link"
 import styles from "./Form.module.scss"
 import { wpUrl } from "../../../globals"
 
@@ -32,6 +32,12 @@ const initialState = {
     desiredTreatment: "",
     location: "",
   },
+}
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 export class ContactForm extends Component {
@@ -139,8 +145,8 @@ export class ContactForm extends Component {
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault()
 
     if (this.state.formValid) {
       console.log("form valid")
@@ -156,17 +162,29 @@ export class ContactForm extends Component {
 
       this.reset()
 
-      axios
-        .post(`${wpUrl}/contact.php`, querystring.stringify(data))
-        .then(res => {
-          this.setState({ emailSent: true })
+      const form = e.target
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          ...data,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch(error => alert(error))
 
-          setTimeout(() => {
-            this.setState({ emailSent: false })
-          }, 2000)
+      // axios
+      //   .post(`${wpUrl}/contact.php`, querystring.stringify(data))
+      //   .then(res => {
+      //     this.setState({ emailSent: true })
 
-          console.log(res)
-        })
+      //     setTimeout(() => {
+      //       this.setState({ emailSent: false })
+      //     }, 2000)
+
+      //     console.log(res + "resw")
+      //   })
     } else {
       console.log("form invalid")
 
@@ -186,7 +204,16 @@ export class ContactForm extends Component {
 
     return (
       <div className={styles.FormWrapper}>
-        <Form className={styles.Form}>
+        <Form
+          name="contact"
+          method="post"
+          action="/test/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={this.handleSubmit}
+          className={styles.Form}
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <div
             className={`${styles.FormColumn} ${
               column ? styles.FormColumnType : ""
@@ -344,16 +371,18 @@ export class ContactForm extends Component {
             className={` ${styles.Form___formSubmit} btn btn-red ${
               column ? styles.ButtonColumnType : ""
             }`}
-            onClick={this.handleSubmit}
+            // onClick={this.handleSubmit}
             type="submit"
           >
             {btntext}
           </Button>
         </Form>
 
-        <div className={`${styles.NotificationBlock} ${
-              column ? styles.NotificationBlockType : ""
-            }`}>
+        <div
+          className={`${styles.NotificationBlock} ${
+            column ? styles.NotificationBlockType : ""
+          }`}
+        >
           {/* Email send block */}
           {this.state.emailSent ? (
             <div className={styles.SuccessBlock}>
