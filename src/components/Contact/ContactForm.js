@@ -192,7 +192,7 @@ export class ContactForm extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="contact"
+          name="contactGeneral"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -201,7 +201,7 @@ export class ContactForm extends Component {
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contactGeneral" />
           <p className="hidden">
             <label>
               Don’t fill this out if you're human: <input name="bot-field" />
