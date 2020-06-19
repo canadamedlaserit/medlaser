@@ -20,7 +20,6 @@ const initialState = {
   phoneValid: false,
   desiredTreatmentValid: false,
   locationValid: false,
-
   formValid: false,
   emailSent: false,
 
@@ -168,10 +167,11 @@ export class ContactForm extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": form.getAttribute("name"),
-          ...data,
+          data,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))
+        // .then(() => console.log(form))
         .catch(error => alert(error))
 
       // axios
@@ -214,6 +214,12 @@ export class ContactForm extends Component {
           className={styles.Form}
         >
           <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out:
+              <input name="bot-field" onChange={this.handleChange('bot-field')} />
+            </label>
+          </p>
           <div
             className={`${styles.FormColumn} ${
               column ? styles.FormColumnType : ""
