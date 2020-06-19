@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
-import querystring from "query-string"
-import axios from "axios"
+// import querystring from "query-string"
+// import axios from "axios"
 import { navigate } from "gatsby-link"
 import styles from "./Form.module.scss"
-import { wpUrl } from "../../../globals"
+// import { wpUrl } from "../../../globals"
 
 const initialState = {
   firstName: "",
@@ -33,7 +33,7 @@ const initialState = {
   },
 }
 
-function encode(data) {
+const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&")
@@ -167,24 +167,11 @@ export class ContactForm extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": form.getAttribute("name"),
-          data,
+          ...data,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))
-        // .then(() => console.log(form))
         .catch(error => alert(error))
-
-      // axios
-      //   .post(`${wpUrl}/contact.php`, querystring.stringify(data))
-      //   .then(res => {
-      //     this.setState({ emailSent: true })
-
-      //     setTimeout(() => {
-      //       this.setState({ emailSent: false })
-      //     }, 2000)
-
-      //     console.log(res + "resw")
-      //   })
     } else {
       console.log("form invalid")
 
@@ -207,19 +194,20 @@ export class ContactForm extends Component {
         <Form
           name="contact"
           method="post"
-          action="/test/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
+          action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
           <input type="hidden" name="form-name" value="contact" />
-          <p hidden>
+          <p className="hidden">
             <label>
-              Don’t fill this out:
-              <input name="bot-field" onChange={this.handleChange('bot-field')} />
+              Don’t fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
+          
           <div
             className={`${styles.FormColumn} ${
               column ? styles.FormColumnType : ""
@@ -234,6 +222,7 @@ export class ContactForm extends Component {
                 type="text"
                 placeholder="First Name"
                 ref="firstName"
+                name="firstName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.firstName}
@@ -255,6 +244,7 @@ export class ContactForm extends Component {
                 type="text"
                 placeholder="Last Name"
                 ref="lastName"
+                name="lastName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.lastName}
@@ -276,6 +266,7 @@ export class ContactForm extends Component {
                 type="tel"
                 placeholder="Phone"
                 ref="phone"
+                name="phone"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.phone}
@@ -297,6 +288,7 @@ export class ContactForm extends Component {
                 type="email"
                 placeholder="Email"
                 ref="email"
+                name="email"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.email}
@@ -320,6 +312,7 @@ export class ContactForm extends Component {
                 defaultValue={"DEFAULT"}
                 as="select"
                 ref="desiredTreatment"
+                name="desiredTreatment"
               >
                 <option disabled value="DEFAULT">
                   Desired Treatment
@@ -356,6 +349,7 @@ export class ContactForm extends Component {
                 defaultValue={"DEFAULT"}
                 as="select"
                 ref="location"
+                name="location"
               >
                 <option disabled value="DEFAULT">
                   Location

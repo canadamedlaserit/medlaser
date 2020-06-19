@@ -2,19 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import styles from "./InnerHeroImageFullWidth.module.scss"
+import styles from "./ThankYouHero.module.scss"
 
 export const fragment = graphql`
-  fragment InnerHeroImageFullWidthSection on WPGraphQL_Page_Sectionfields_Sections_Innerheroimagefullwidth {
+  fragment ThankYouHeroSection on WPGraphQL_Page_Sectionfields_Sections_ThankYouHero {
     title
-    hidestripondevice
+    subtitle
     image {
       sourceUrl
       altText
       imageFile {
         childImageSharp {
           fluid(quality: 100, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -22,7 +22,7 @@ export const fragment = graphql`
   }
 `
 
-const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
+const ThankYouHero = ({ title, image, subtitle }) => {
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
@@ -38,18 +38,10 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
               ""
             )}
             <div className={styles.innerWrapper}>
-              <h1>{title}</h1>
+              {title ? <h1>{title}</h1> : ""}
+              {subtitle ? <p>{subtitle}</p> : ""}
             </div>
             <div className={styles.Overlay}></div>
-            <div
-              className={`${
-                hidestripondevice & (hidestripondevice === "desktop")
-                  ? styles.HideDesktop
-                  : hidestripondevice === "mobile"
-                  ? styles.HideMobile
-                  : ""
-              } ${styles.Hatch}`}
-            ></div>
           </div>
         </div>
       </div>
@@ -57,4 +49,4 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
   )
 }
 
-export default InnerHeroImageFullWidth
+export default ThankYouHero

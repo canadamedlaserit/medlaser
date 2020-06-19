@@ -56,12 +56,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Medlaser`,
+        name: `Canada Medlaser`,
         short_name: `CML`,
         description: "Canada Medlaser Clinics",
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#161616`,
+        theme_color: `#9c1a3b`,
         display: `standalone`,
       },
     },

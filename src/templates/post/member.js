@@ -4,7 +4,7 @@ import Layout from "../../components/Layout"
 import LocationMap from "../../components/LocationMap/LocationMap"
 import Contact from "../../components/Contact/Contact"
 import CategoryPageHero from "../../components/BlogMain/CategoryPageHero"
-// import SEO from "../../components/particles/SEO"
+import SEO from "../../components/particles/SEO"
 import MemberMain from "../../components/BlogMain/MemberMain"
 
 const MemberPage = ({ data, location, pageContext }) => {
@@ -12,11 +12,9 @@ const MemberPage = ({ data, location, pageContext }) => {
 
   const member = data.wpgraphql.team
 
-  console.log(member.slug)
-
   return (
     <Layout location={location}>
-      {/* <SEO article="true" data={cat}/> */}
+      <SEO article="true" data={member}/>
 
       {sections.map((section, index) => {
         const typeName = section.__typename
@@ -79,6 +77,32 @@ export const memberQuery = graphql`
       team(id: $id, idType: ID) {
         id
         slug
+        featuredImage {
+          sourceUrl
+        }
+        title
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+        }
         teamMembersDescription {
           description
           name

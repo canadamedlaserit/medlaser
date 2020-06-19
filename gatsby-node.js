@@ -52,11 +52,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const blogTagFilter = path.resolve("src/templates/post/tag.js")
   const pageFilter = path.resolve("src/templates/post/pageTemplate.js")
   const memberFilter = path.resolve("src/templates/post/member.js")
+  const sitemapFilter = path.resolve("src/templates/post/sitemap.js")
 
   const query = await graphql(`
     {
       wpgraphql {
-        teams(first: 100) {
+        teams(first: 200) {
           edges {
             node {
               id
@@ -70,16 +71,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               id
               uri
+              title
               childPages(first: 500) {
                 edges {
                   node {
                     id
                     uri
+                    title
                     childPages(first: 500) {
                       edges {
                         node {
                           id
                           uri
+                          title
                         }
                       }
                     }
@@ -236,7 +240,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       edge.node.uri === "knowledge-base/"
     ) {
       // console.log('skip: ' + edge.node.uri)
-   
     } else {
       createPage({
         component: pageFilter,
@@ -272,18 +275,40 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
+  //members
+  query.data.wpgraphql.teams.edges.forEach(edge => {
+    let path = edge.node.slug + "/"
 
-    //members
-    query.data.wpgraphql.teams.edges.forEach(edge => {
-      let path = edge.node.slug + '/'
-
-      createPage({
-        component: memberFilter,
-        path: path,
-        context: {
-          id: edge.node.id,
-        },
-      })
+    createPage({
+      component: memberFilter,
+      path: path,
+      context: {
+        id: edge.node.id,
+      },
     })
+  })
 
+  //sitemap
+  createPage({
+    component: sitemapFilter,
+    path: "sitemap/",
+    context: {
+      data: query.data.wpgraphql,
+    },
+  })
+
+  // debug only home pages
+  // query.data.wpgraphql.pages.edges.forEach(edge => {
+  //   // console.log(edge.node.uri)
+  //   if (edge.node.uri === "/") {
+  //     createPage({
+  //       component: pageFilter,
+  //       path: edge.node.uri,
+  //       context: {
+  //         id: edge.node.id,
+  //       },
+  //     })
+  //   } else {
+  //   }
+  // })
 }
