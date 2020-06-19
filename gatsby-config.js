@@ -66,8 +66,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,

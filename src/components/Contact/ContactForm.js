@@ -202,11 +202,6 @@ export class ContactForm extends Component {
           className={styles.Form}
         >
           <input type="hidden" name="form-name" value="contactGeneral" />
-          <p className="hidden">
-            <label>
-              Don’t fill this out if you're human: <input name="bot-field" />
-            </label>
-          </p>
           
           <div
             className={`${styles.FormColumn} ${
