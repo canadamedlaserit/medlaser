@@ -7,18 +7,21 @@ class GalleryComponent extends Component {
   render() {
     const { category, results } = this.props
 
+    console.log(results)
+
     return (
       <>
         {results.map((result, index) => {
           if (
             result.terms.filter(e => e.name === category.node.name).length > 0
           ) {
+
             return (
               <div className={styles.SpecialWrapper} key={index}>
                 <div className={styles.ImageSide}>
                   {result.resultsFields.image ? (
                     <Img
-                      altText={result.resultsFields.image.altText}
+                      alt={result.resultsFields.image.altText}
                       fluid={
                         result.resultsFields.image.imageFile.childImageSharp
                           .fluid
@@ -30,12 +33,12 @@ class GalleryComponent extends Component {
                 </div>
 
                 <div className={styles.TextSide}>
-                  <h3>{result.resultsFields.title}</h3>
+                  {/* <h3>{result.resultsFields.title}</h3>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: result.resultsFields.description,
                     }}
-                  ></div>
+                  ></div> */}
                 </div>
               </div>
             )

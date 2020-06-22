@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://medlaser.netlify.app`,
-    title: `Medlaser`,
+    title: `Canada MedLaser Clinics`,
     description: `Laser clinics in Toronto offers laser hair removal, Brazilian and permanent facial hair removal, Botox injections, CoolSculpting and lip augmentation.`,
     author: `@Medlaser`,
     image: `/icons/icon.png`,
@@ -84,7 +84,7 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url: `https://canadamed.2marketing.ca/graphql`,
-        // refetchInterval: 30
+        refetchInterval: 30
       },
     },
     {

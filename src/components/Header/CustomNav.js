@@ -110,7 +110,10 @@ export class CustomNav extends Component {
                               ? menuimages.map((index, item) => {
                                   if (index.menuName === node.label) {
                                     return (
-                                      <div className="menu-image-wrapper" key={item}>
+                                      <div
+                                        className="menu-image-wrapper"
+                                        key={item}
+                                      >
                                         {index.menuImage ? (
                                           <Img
                                             className="gatsby-image-background"

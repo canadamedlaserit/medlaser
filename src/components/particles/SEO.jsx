@@ -101,22 +101,13 @@ import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ data, article }) => {
-  const {
-    title,
-    metaDesc,
-    // focuskw,
-    // metaKeywords,
-    // metaRobotsNoindex,
-    // metaRobotsNofollow,
-    // opengraphDescription,
-    // opengraphTitle,
-    // opengraphImage,
-    // twitterTitle,
-    // twitterDescription,
-    // twitterImage,
-  } = data.seo
+  const { title, metaDesc } = data.seo
 
-  const featuredImage = data.featuredImage ? data.featuredImage.sourceUrl : false
+  const { date, modified } = data
+  const pageTitle = data.title
+  const featuredImage = data.featuredImage
+    ? data.featuredImage.sourceUrl
+    : false
 
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
@@ -129,6 +120,7 @@ const SEO = ({ data, article }) => {
     siteLanguage,
     ogLanguage,
     siteName,
+    image,
   } = site.siteMetadata
 
   const seo = {
@@ -136,6 +128,112 @@ const SEO = ({ data, article }) => {
     description: metaDesc,
     image: featuredImage || `${siteUrl}${defaultImage}`,
     url: `${siteUrl}${pathname}`,
+  }
+
+  console.log(data)
+
+  const webPage = {
+    "@context": "http://schema.org/",
+    "@type": "WebPage",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": seo.url,
+    },
+    headline: pageTitle,
+    name: seo.title,
+    image: featuredImage,
+    description: seo.description,
+    datePublished: date,
+    dateModified: modified,
+    url: seo.url,
+    publisher: {
+      "@type": "Organization",
+      name: defaultTitle,
+      logo: {
+        "@type": "ImageObject",
+        url: image,
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "admin",
+    },
+    video: {
+      "@context": "http://schema.org",
+      "@type": "VideoObject",
+      "@id": "https://www.youtube.com/watch?v=pWNuBg_QSNU",
+      name: "Canada Medlaser - #Laser Clinic#laser hair removal#Botox clinic",
+      description:
+        "We have a goal to provide the ultimate treatment experience to our patients. In addition to compliance with uncompromising high professional standards of treatments, the clinic is characterized with a unique service approach, which puts our patients in the center of our attention.",
+      uploadDate: "2015-04-13T16:40:32Z",
+      thumbnailUrl: "https://i.ytimg.com/vi/pWNuBg_QSNU/sddefault.jpg",
+      duration: "PT1M51S",
+      interactionCount: "41599",
+      embedUrl: "https://www.youtube.com/embed/pWNuBg_QSNU",
+      contentUrl: "https://youtu.be/pWNuBg_QSNU",
+      publisher: {
+        "@type": "Organization",
+        "@id": "https://www.youtube.com/channel/UCh-ujT1skgeh1dX5gZ64coQ",
+        url: "https://www.youtube.com/channel/UCh-ujT1skgeh1dX5gZ64coQ",
+        name: "Canada MedLaser Clinics",
+        description:
+          "Welcome to the YouTube Channel of Canada MedLaser laser clinics in Toronto! Please, browse our official channel to find out more about aesthetic laser medicine procedures provided in our clinic.\n\nCanada MedLaser Clinics offers innovative and effective solutions for skin resurfacing and rejuvenation. Watch our How To videos or visit our website to learn more about our laser stretch marks removal procedure, laser treatment for scars, laser hair removal procedures and laser nail fungus treatment. Get more information about the latest trends in skin rejuvenation, laser hair removal and body shaping and be aware of the groundbreaking innovations in cosmetic medical laser industry.",
+        logo: {
+          "@type": "ImageObject",
+          url:
+            "https://yt3.ggpht.com/a/AATXAJzHTwoiEUpg59mGpiBBD_FrY84amdXTr_wi=s800-c-k-c0xffffffff-no-rj-mo",
+          width: 800,
+          height: 800,
+        },
+      },
+    },
+  }
+
+  const schemaOrgLocalBusiness = {
+    "@context": "http://schema.org",
+    "@type": "localBusiness",
+    name: "Canada MedLaser Clinics",
+    description:
+      "Laser clinic provides skin treatments and laser hair removal in Toronto.",
+    url: siteUrl,
+    logo: image,
+    image: image,
+    priceRange: "$100",
+    hasMap: "https://goo.gl/maps/igTk8LugHJv",
+    telephone: "855-633-7721",
+    email: "info@canadamedlaser.ca",
+    address: [
+      {
+        "@type": "PostalAddress",
+        streetAddress: "249 Queen’s Quay W. #113",
+        addressLocality: "Toronto",
+        addressRegion: "Ontario",
+        addressCountry: "Canada",
+        postalCode: "M5J 2N5",
+      },
+      {
+        "@type": "PostalAddress",
+        streetAddress: "2780, Highway 7, #110",
+        addressLocality: "Vaughan",
+        addressRegion: "Ontario",
+        addressCountry: "Canada",
+        postalCode: "L4K 3R9",
+      },
+      {
+        "@type": "PostalAddress",
+        streetAddress: "1705 Lakeshore Road West Mississauga",
+        addressLocality: "Mississauga",
+        addressRegion: "Ontario",
+        addressCountry: "Canada",
+        postalCode: "L5J 1J4",
+      },
+    ],
+    sameAs: [
+      "https://www.facebook.com/canadamedlaser",
+      "https://twitter.com/CanadaMedLaser",
+      "https://www.youtube.com/channel/UCh-ujT1skgeh1dX5gZ64coQ",
+      "https://www.instagram.com/canadamedlaser/",
+    ],
   }
 
   return (
@@ -146,7 +244,7 @@ const SEO = ({ data, article }) => {
       <link rel="canonical" href={seo.url} />
 
       {/* facebook meta */}
-      {article ? ( 
+      {article ? (
         <meta property="og:type" content="article" />
       ) : (
         <meta property="og:type" content="website" />
@@ -172,6 +270,16 @@ const SEO = ({ data, article }) => {
       {twitterUsername && (
         <meta name="twitter:creator" content={twitterUsername} />
       )}
+
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgLocalBusiness)}
+      </script>
+
+      {article ? (
+        <script type="application/ld+json">{JSON.stringify(webPage)}</script>
+      ) : (
+        <script type="application/ld+json">{JSON.stringify(webPage)}</script>
+      )}
     </Helmet>
   )
 }
@@ -193,6 +301,7 @@ const query = graphql`
         siteLanguage
         ogLanguage
         siteName
+        image
       }
     }
   }

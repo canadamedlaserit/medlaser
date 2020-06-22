@@ -16,7 +16,7 @@ const BeforeAfterTabs = () => {
   const data = useStaticQuery(graphql`
     query Results {
       wpgraphql {
-        results {
+        results(first: 200) {
           nodes {
             resultsFields {
               title

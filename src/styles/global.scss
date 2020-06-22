@@ -44,6 +44,19 @@ h2 {
   }
 }
 
+.ref {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px !important;
+  height: 42px !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  padding-right: 0px !important;
+  transition: transform 0.3s;
+}
+
 h3 {
   font-family: "Playfair Display", serif;
   font-size: 24px;

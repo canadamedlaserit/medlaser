@@ -67,8 +67,7 @@ import InquireButtonsBlock from "../../components/InquireButtonsBlock/InquireBut
 import ClinicsSlider from "../../components/ClinicsSlider/ClinicsSlider"
 import FourColumnsBlock from "../../components/FourColumnsBlock/FourColumnsBlock"
 import MoreInfoAnchor from "../../components/MoreInfoAnchor/MoreInfoAnchor"
-import ThankYouHero from '../../components/ThankYouHero/ThankYouHero'
-
+import ThankYouHero from "../../components/ThankYouHero/ThankYouHero"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -273,9 +272,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_MoreInfoAnchor":
             return <MoreInfoAnchor key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_ThankYouHero":
-              return <ThankYouHero key={index} {...section} />
-            
+          case "WPGraphQL_Page_Sectionfields_Sections_ThankYouHero":
+            return <ThankYouHero key={index} {...section} />
+
           default:
             return ""
         }
@@ -296,6 +295,8 @@ export const pageQuery = graphql`
         }
         title
         slug
+        modified
+        date
         seo {
           title
           metaDesc
