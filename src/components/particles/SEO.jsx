@@ -130,7 +130,6 @@ const SEO = ({ data, article }) => {
     url: `${siteUrl}${pathname}`,
   }
 
-  console.log(data)
 
   const webPage = {
     "@context": "http://schema.org/",

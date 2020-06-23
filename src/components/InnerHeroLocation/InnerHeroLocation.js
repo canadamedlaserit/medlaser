@@ -46,21 +46,6 @@ class InnerHeroLocation extends Component {
               <div className={styles.Overlay}></div>
               <div className={styles.Hatch}></div>
             </div>
-            {/* {backgroundimage ? (
-              <BackgroundImage
-                className={`col-md-12 ${styles.ImgCol}`}
-                fluid={backgroundimage.imageFile.childImageSharp.fluid}
-                critical
-              >
-                <div className={styles.innerWrapper}>
-                  <h1>{title}</h1>
-                </div>
-                <div className={styles.Overlay}></div>
-                <div className={styles.Hatch}></div>
-              </BackgroundImage>
-            ) : (
-              ""
-            )} */}
           </div>
 
           <div className={`row ${styles.RowBot}`}>

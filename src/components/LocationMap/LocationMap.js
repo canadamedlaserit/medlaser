@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import VisibilitySensor from "react-visibility-sensor"
 
 import Map from "../GoogleMap/Map"
 
@@ -34,22 +35,44 @@ const LocationMap = ({ title }) => {
     }
   `)
 
+  const [isItemVisible, setIsItemVisible] = React.useState(false)
+
+  const onChange = isVisible => {
+    if (isVisible) {
+      setIsItemVisible(true)
+    }
+  }
+
   const locations = data.wpgraphql.page.headerFooterInfo.locations
   const marker = data.wpgraphql.page.headerFooterInfo.marker
   const markeractive = data.wpgraphql.page.headerFooterInfo.markeractive
 
   return (
-    <section className={styles.Section}>
-      {/* <div className={`container-fluid ${styles.Container}`}> */}
-        {/* <div className={`row ${styles.Row}`}> */}
-          {/* <div className="col-md-12"> */}
-            <h2>{title}</h2>
+    <VisibilitySensor
+      delayedCall={true}
+      scrollCheck={true}
+      partialVisibility={"bottom"}
+      offset={{
+        bottom: -700,
+      }}
+      onChange={onChange}
+    >
+      <section className={styles.Section}>
+        <h2>{title}</h2>
 
-            <Map markeractive={markeractive} marker={marker} locations={locations} />
-          {/* </div>
+        <div>
+          {isItemVisible ? (
+            <Map
+              markeractive={markeractive}
+              marker={marker}
+              locations={locations}
+            />
+          ) : (
+            ""
+          )}
         </div>
-      </div> */}
-    </section>
+      </section>
+    </VisibilitySensor>
   )
 }
 

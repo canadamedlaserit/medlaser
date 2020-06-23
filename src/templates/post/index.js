@@ -161,6 +161,8 @@ export const pageQuery = graphql`
       post(id: $id) {
         title
         slug
+        modified
+        date
         seo {
           title
           metaDesc

@@ -68,6 +68,7 @@ import ClinicsSlider from "../../components/ClinicsSlider/ClinicsSlider"
 import FourColumnsBlock from "../../components/FourColumnsBlock/FourColumnsBlock"
 import MoreInfoAnchor from "../../components/MoreInfoAnchor/MoreInfoAnchor"
 import ThankYouHero from "../../components/ThankYouHero/ThankYouHero"
+import SpecialTXT from '../../components/SpecialTXT/SpecialTXT'
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -275,6 +276,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_ThankYouHero":
             return <ThankYouHero key={index} {...section} />
 
+            case "WPGraphQL_Page_Sectionfields_Sections_SpecialTxt":
+              return <SpecialTXT location={location} key={index} {...section} />
+
           default:
             return ""
         }
@@ -386,6 +390,7 @@ export const pageQuery = graphql`
             ...FourColumnsBlockSection
             ...MoreInfoAnchorSection
             ...ThankYouHeroSection
+            ...SpecialTxtSection
           }
         }
       }

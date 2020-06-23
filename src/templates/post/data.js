@@ -32,6 +32,8 @@ const PostTemplateFragment = `
   }
 `
 
+
+
 const BlogPreviewFragment = `
   fragment BlogPreviewFragment on WPGraphQL_Post {
     id
