@@ -16,15 +16,7 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(
-            quality: 100
-            maxWidth: 1200
-            traceSVG: {
-              color: "#9C1A3B"
-              turnPolicy: TURNPOLICY_MINORITY
-              # blackOnWhite: false
-            }
-          ) {
+          fluid(quality: 100, maxWidth: 1000) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -35,7 +27,7 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 400) {
+          fluid(quality: 100, maxWidth: 375) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -94,17 +86,18 @@ class MainHero extends Component {
             <div className={`col-md-7 biggerSide ${styles.imgSide}`}>
               {fluidImage ? (
                 <Img
-                  alt={backgroundimage.altText}
-                  className="gatsby-image-background"
                   fluid={
                     this.state.windowWidth > 767 ? fluidImage : fluidImageMobile
                   }
+                  loading="eager"
+                  fadeIn={false}
+                  alt={backgroundimage.altText}
+                  className="gatsby-image-background"
                 />
               ) : (
                 ""
               )}
             </div>
-
 
             <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
               <div className={styles.rightSideWrapper}>

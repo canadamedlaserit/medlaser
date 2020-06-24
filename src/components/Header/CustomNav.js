@@ -72,6 +72,7 @@ export class CustomNav extends Component {
                     {this.props.isMobile === true ? (
                       <Dropdown.Toggle
                         className={`dropdown-arrow ${styles.lil}`}
+                        aria-label="Mobile Arrow"
                       >
                         <svg
                           className="firstArrow"
@@ -174,6 +175,7 @@ export class CustomNav extends Component {
                                     {this.props.isMobile === true ? (
                                       <Dropdown.Toggle
                                         className={`dropdown-arrow ${styles.lil}`}
+                                        aria-label="Mobile Arrow"
                                       >
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"

@@ -46,14 +46,17 @@ const ThreeImageLinks = ({ links }) => {
                 )}
 
                 <div className={styles.Titles}>
-                  <Link to={link.link}>
+                  <Link to={link.link ? link.link : ""}>
                     <h3>
                       {link.title}
                       <span>{link.label ? link.label : " "}</span>
                     </h3>
                   </Link>
                 </div>
-                <Link className={styles.Overlay} to={link.link}></Link>
+                <Link
+                  className={styles.Overlay}
+                  to={link.link ? link.link : ""}
+                ></Link>
               </div>
             </div>
           ))}

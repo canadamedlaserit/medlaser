@@ -150,14 +150,14 @@ export class ContactForm extends Component {
     if (this.state.formValid) {
       console.log("form valid")
 
-      const data = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        phone: this.state.phone,
-        email: this.state.email,
-        desiredTreatment: this.state.desiredTreatment,
-        location: this.state.location,
-      }
+      // const data = {
+      //   firstName: this.state.firstName,
+      //   lastName: this.state.lastName,
+      //   phone: this.state.phone,
+      //   email: this.state.email,
+      //   desiredTreatment: this.state.desiredTreatment,
+      //   location: this.state.location,
+      // }
 
       this.reset()
 

@@ -84,7 +84,7 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url: `https://canadamed.2marketing.ca/graphql`,
-        // refetchInterval: 30
+        refetchInterval: 30
       },
     },
     {
