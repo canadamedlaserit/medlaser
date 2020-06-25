@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import ReactPlayer from "react-player"
 import play from "../../../images/play-icon.png"
 // import fallback from "../../../images/fallback.svg"
-import videoBg from "../../../images/video-bg.jpg"
+import videoBg from "../../../images/video-bg.webp"
 
 import styles from "./VideoSection.module.scss"
 

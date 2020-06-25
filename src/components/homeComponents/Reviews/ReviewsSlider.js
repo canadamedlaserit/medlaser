@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { GoogleApiWrapper } from "google-maps-react"
 import Swiper from "react-id-swiper"
-
+import StarRatings from "react-star-ratings"
 import styles from "./Reviews.module.scss"
 
 class ReviewsSlider extends Component {
@@ -33,6 +33,7 @@ class ReviewsSlider extends Component {
 
     const params = {
       slidesPerView: 1,
+      autoHeight: true, //enable auto height
       loop: true,
       pagination: {
         el: ".swiper-pagination",
@@ -48,31 +49,44 @@ class ReviewsSlider extends Component {
     return (
       <>
         <div id="map"></div>
-
-        {places.length >= 5 ? (
-          <Swiper {...params}>
-            {places.map(review => {
-              if (review.rating > 4) {
-                return (
-                  <div className={styles.SwiperSlide} key={review.author_name}>
-                    {review.author_name}
-                    <div></div>
-                    {review.rating}
-                    {review.text}
-                    <img
-                      alt={review.author_name}
-                      src={review.profile_photo_url}
-                    />
-                  </div>
-                )
-              } else {
-                return null
-              }
-            })}
-          </Swiper>
-        ) : (
-          ""
-        )}
+        <div className="reviews-swiper">
+          {places.length >= 5 ? (
+            <Swiper {...params}>
+              {places.map(review => {
+                if (review.rating > 4) {
+                  return (
+                    <div
+                      className={styles.SwiperSlide}
+                      key={review.author_name}
+                    >
+                      <div className={styles.SwiperSlideInside}>
+                        <div className={styles.ReviewText}>{review.text}</div>
+                        <div className={styles.ReviewRaiting}>
+                          <div>Google</div>
+                          <StarRatings
+                            rating={review.rating}
+                            starRatedColor="#e39d00"
+                            changeRating={this.changeRating}
+                            numberOfStars={5}
+                            name="rating"
+                            starDimension="30px"
+                          />
+                        </div>
+                        <div className={styles.ReviewAuthor}>
+                          {review.author_name} <span>- Google Reviews</span>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                } else {
+                  return null
+                }
+              })}
+            </Swiper>
+          ) : (
+            ""
+          )}
+        </div>
       </>
     )
   }

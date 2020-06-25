@@ -28,7 +28,42 @@
       margin-bottom: 50px;
     }
   }
+  .SwiperSlideInside {
+    max-width: 500px;
+    margin: 40px auto 0px;
 
+    .ReviewText {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      color: #000000;
+      font-style: italic;
+    }
+
+    .ReviewRaiting {
+      font-weight: 600;
+      font-style: 24px;
+      color: #000000;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .ReviewAuthor {
+      text-align: center;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-bottom: solid 1px #e8e8e8;
+      border-top: solid 1px #e8e8e8;
+      max-width: 377px;
+      margin: 30px auto 0px;
+
+      span {
+        color: #c6c6c6;
+      }
+    }
+  }
 }
 
 @media (max-width: 1599px) {
@@ -40,7 +75,8 @@
 @media (max-width: 767px) {
   .Section {
     background: none;
-    padding-bottom: 0px;
+    padding-bottom: 0;
+    padding-top: 50px;
 
     .RightSide {
       padding-top: 50px;
@@ -50,7 +86,17 @@
       a {
         max-width: 296px;
         height: 50px;
-        margin: auto!important;
+        margin: auto !important;
+      }
+    }
+
+    .LeftSide {
+      padding-bottom: 30px;
+    }
+    .SwiperSlideInside {
+      .ReviewText {
+        font-size: 14px !important;
+        line-height: 18px !important;
       }
     }
   }

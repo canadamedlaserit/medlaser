@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
-import querystring from "query-string"
-import axios from "axios"
+import { navigate } from "gatsby-link"
 
 import styles from "./Form.module.scss"
-import { wpUrl } from "../../../globals"
 
 const initialState = {
   firstName: "",
@@ -39,6 +37,12 @@ const initialState = {
     opportunity: "",
     message: "",
   },
+}
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 export class InquiryWithSubscriptionForm extends Component {
@@ -169,8 +173,8 @@ export class InquiryWithSubscriptionForm extends Component {
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault()
 
     if (this.state.formValid) {
       const data = {
@@ -182,20 +186,22 @@ export class InquiryWithSubscriptionForm extends Component {
         postal: this.state.postal,
         opportunity: this.state.opportunity,
         messageArea: this.state.message,
-        check: this.state.check
+        check: this.state.check,
       }
 
       this.reset()
 
-      axios
-        .post(`${wpUrl}/contact-enquiry-sub.php`, querystring.stringify(data))
-        .then(res => {
-          this.setState({ emailSent: true })
-
-          setTimeout(() => {
-            this.setState({ emailSent: false })
-          }, 2000)
-        })
+      const form = e.target
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "InquiryWithSubscription",
+          ...data,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch(error => alert(error))
     } else {
       this.validateField("firstName", this.state.firstName)
       this.validateField("lastName", this.state.lastName)
@@ -213,7 +219,20 @@ export class InquiryWithSubscriptionForm extends Component {
 
     return (
       <div className={styles.FormWrapper}>
-        <Form className={styles.Form}>
+        <Form
+          name="InquiryWithSubscription"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          action="/thank-you/"
+          onSubmit={this.handleSubmit}
+          className={styles.Form}
+        >
+          <input
+            type="hidden"
+            name="form-name"
+            value="InquiryWithSubscription"
+          />
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -369,12 +388,11 @@ export class InquiryWithSubscriptionForm extends Component {
                 label="Subscribe me to receive great offers and updates from Canada MedLaser Clinics"
               />
             </Form.Group>
-
           </div>
 
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
-            onClick={this.handleSubmit}
+            // onClick={this.handleSubmit}
             type="submit"
           >
             {btntext}

@@ -1,10 +1,7 @@
 import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
-import querystring from "query-string"
-import axios from "axios"
-
+import { navigate } from "gatsby-link"
 import styles from "./Form.module.scss"
-import { wpUrl } from "../../../globals"
 
 const initialState = {
   firstName: "",
@@ -19,7 +16,7 @@ const initialState = {
   emailValid: false,
   phoneValid: false,
   queryTypeValid: false,
-  // messageValid: false,
+  messageValid: false,
 
   formValid: false,
   emailSent: false,
@@ -30,8 +27,14 @@ const initialState = {
     email: "",
     phone: "",
     queryType: "",
-    // message: "",
+    message: "",
   },
+}
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 export class InjuryForm extends Component {
@@ -66,7 +69,7 @@ export class InjuryForm extends Component {
     let emailValid = this.state.emailValid
     let phoneValid = this.state.phoneValid
     let queryTypeValid = this.state.queryTypeValid
-    // let messageValid = this.state.messageValid
+    let messageValid = this.state.messageValid
 
     switch (fieldName) {
       case "firstName":
@@ -98,14 +101,14 @@ export class InjuryForm extends Component {
         fieldValidationErrors.queryType = queryTypeValid
           ? ""
           : "Select Query Type"
-
         break
 
-      // case "message":
-      //   locationValid = value.length >= 1
-      //   fieldValidationErrors.message = locationValid ? "" : "Select Location"
-
-      //   break
+      case "message":
+        messageValid = value.length >= 1
+        fieldValidationErrors.message = messageValid
+          ? ""
+          : "Please, fill out message field"
+        break
 
       default:
         break
@@ -119,6 +122,7 @@ export class InjuryForm extends Component {
         emailValid: emailValid,
         phoneValid: phoneValid,
         queryTypeValid: queryTypeValid,
+        messageValid: messageValid,
       },
       this.validateForm
     )
@@ -131,15 +135,15 @@ export class InjuryForm extends Component {
         this.state.lastNameValid &&
         this.state.emailValid &&
         this.state.phoneValid &&
-        this.state.queryTypeValid,
+        this.state.queryTypeValid &&
+        this.state.messageValid,
     })
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault()
 
     if (this.state.formValid) {
-
       const data = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -151,20 +155,23 @@ export class InjuryForm extends Component {
 
       this.reset()
 
-      axios
-        .post(`${wpUrl}/contact-enquiry.php`, querystring.stringify(data))
-        .then(res => {
-          this.setState({ emailSent: true })
-
-          setTimeout(() => {
-            this.setState({ emailSent: false })
-          }, 2000)
-        })
+      const form = e.target
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "EnquiryContactPage",
+          ...data,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch(error => alert(error))
     } else {
       this.validateField("firstName", this.state.firstName)
       this.validateField("lastName", this.state.lastName)
       this.validateField("email", this.state.email)
       this.validateField("phone", this.state.phone)
+      this.validateField("message", this.state.message)
       this.validateField("queryType", this.state.queryType)
     }
   }
@@ -174,7 +181,16 @@ export class InjuryForm extends Component {
 
     return (
       <div className={styles.FormWrapper}>
-        <Form className={styles.Form}>
+        <Form
+          name="EnquiryContactPage"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          action="/thank-you/"
+          onSubmit={this.handleSubmit}
+          className={styles.Form}
+        >
+          <input type="hidden" name="form-name" value="EnquiryContactPage" />
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -263,7 +279,7 @@ export class InjuryForm extends Component {
                 <option>Customer Care</option>
                 <option>Other Inquires</option>
               </Form.Control>
-              <p className={styles.ErrorMessage}> 
+              <p className={styles.ErrorMessage}>
                 {this.state.formErrors.queryType}
               </p>
             </Form.Group>
@@ -280,13 +296,15 @@ export class InjuryForm extends Component {
                 ref="message"
               />
 
-              
+              <p className={styles.ErrorMessage}>
+                {this.state.formErrors.message}
+              </p>
             </Form.Group>
           </div>
 
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
-            onClick={this.handleSubmit}
+            // onClick={this.handleSubmit}
             type="submit"
           >
             {btntext}

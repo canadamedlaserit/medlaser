@@ -714,6 +714,28 @@ main {
   }
 }
 
+
+.reviews-swiper {
+
+  .swiper-container {
+    padding-bottom: 60px !important;
+  }
+  .swiper-pagination {
+    bottom: 0px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #e8e8e8 0% 0% no-repeat padding-box;
+  }
+
+  .swiper-pagination-bullet {
+    background: #e8e8e8 0% 0% no-repeat padding-box;
+    min-width: 8px;
+    min-height: 8px;
+    outline: none;
+  }
+}
+
+
 // CLINICS SWIPER
 .clinics-swiper {
   .swiper-pagination {

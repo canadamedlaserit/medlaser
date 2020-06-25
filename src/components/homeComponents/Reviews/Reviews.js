@@ -1,9 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-// import ReviewsSlider from './ReviewsSlider'
-
+import ReviewsSlider from "./ReviewsSlider"
 import styles from "./Reviews.module.scss"
+import VisibilitySensor from "react-visibility-sensor"
 
 export const fragment = graphql`
   fragment ReviewsSection on WPGraphQL_Page_Sectionfields_Sections_Googlereviews {
@@ -15,18 +15,32 @@ export const fragment = graphql`
   }
 `
 
-class Reviews extends Component {
-  render() {
-    const { titleRight, titleLeft, contentRight, btntext, btnlink } = this.props
+const Reviews = ({ titleRight, titleLeft, contentRight, btntext, btnlink }) => {
+  const [isItemVisible, setIsItemVisible] = React.useState(false)
+  const onChange = isVisible => {
+    if (isVisible) {
+      setIsItemVisible(true)
+    }
+  }
 
-    return (
+  return (
+    <VisibilitySensor
+      delayedCall={true}
+      scrollCheck={true}
+      partialVisibility={"bottom"}
+      offset={{
+        bottom: -700,
+      }}
+      onChange={onChange}
+    >
       <section className={styles.Section}>
         <div className={`container ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-6 ${styles.LeftSide}`}>
               <div className={styles.InsideWrapper}></div>
               <h2 dangerouslySetInnerHTML={{ __html: titleLeft }}></h2>
-              {/* <ReviewsSlider /> */}
+
+              <div>{isItemVisible ? <ReviewsSlider /> : ""}</div>
             </div>
 
             <div className={`col-md-6 ${styles.RightSide}`}>
@@ -41,8 +55,8 @@ class Reviews extends Component {
           </div>
         </div>
       </section>
-    )
-  }
+    </VisibilitySensor>
+  )
 }
 
 export default Reviews

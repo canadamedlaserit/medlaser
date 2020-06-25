@@ -19,7 +19,7 @@ export const fragment = graphql`
           imageFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 354) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
@@ -79,18 +79,6 @@ const Specials = ({ title, text, btntext, slides }) => {
                   ) : (
                     ""
                   )}
-
-                  {/* <div className={styles.ContentWrapper}>
-                    <span className={styles.Price}>
-                      {slide.price}
-                      <div className={styles.Label}>{slide.label}</div>
-                    </span>
-
-                    <span className={styles.Text}>
-                      <h5>{slide.title}</h5>
-                      <p>{slide.text}</p>
-                    </span>
-                  </div> */}
                 </div>
               ))}
             </Swiper>

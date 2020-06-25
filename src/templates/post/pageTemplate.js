@@ -68,7 +68,9 @@ import ClinicsSlider from "../../components/ClinicsSlider/ClinicsSlider"
 import FourColumnsBlock from "../../components/FourColumnsBlock/FourColumnsBlock"
 import MoreInfoAnchor from "../../components/MoreInfoAnchor/MoreInfoAnchor"
 import ThankYouHero from "../../components/ThankYouHero/ThankYouHero"
-import SpecialTXT from '../../components/SpecialTXT/SpecialTXT'
+import SpecialTXT from "../../components/SpecialTXT/SpecialTXT"
+import Newsletter from "../../components/Newsletter/Newsletter"
+import SpecialCard from "../../components/SpecialCard/SpecialCard"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -276,8 +278,14 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_ThankYouHero":
             return <ThankYouHero key={index} {...section} />
 
-            case "WPGraphQL_Page_Sectionfields_Sections_SpecialTxt":
-              return <SpecialTXT location={location} key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_SpecialTxt":
+            return <SpecialTXT location={location} key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Newsletter":
+            return <Newsletter key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_SpecialCard":
+            return <SpecialCard location={location} key={index} {...section} />
 
           default:
             return ""
@@ -391,6 +399,8 @@ export const pageQuery = graphql`
             ...MoreInfoAnchorSection
             ...ThankYouHeroSection
             ...SpecialTxtSection
+            ...NewsletterSection
+            ...SpecialCardSection
           }
         }
       }
