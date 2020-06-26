@@ -14,7 +14,7 @@ const InquiryWithSubscription = () => {
 
 
   return (
-    <section id="book" className={styles.Section}>
+    <section id="contact" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>

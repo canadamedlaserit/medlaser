@@ -32,7 +32,7 @@ const Contact = ({ backgroundColor, title, buttonText }) => {
   const btntextDef = data.wpgraphql.page.contactFields.btntext
   return (
     <section
-      id="book"
+      id="contact"
       className={styles.Section}
       style={{ backgroundColor: backgroundColor ? backgroundColor : "#000000" }}
     >

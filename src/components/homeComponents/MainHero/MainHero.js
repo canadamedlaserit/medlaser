@@ -105,7 +105,7 @@ class MainHero extends Component {
                 <h3>{subtitle}</h3>
 
                 <div className={styles.buttonsWrapper}>
-                  <AnchorLink to="/#book" className="btn btn-red">
+                  <AnchorLink to="/#contact" className="btn btn-red">
                     {btntext1}
                   </AnchorLink>
                   <Link to="/" className="btn btn-black-transparent">

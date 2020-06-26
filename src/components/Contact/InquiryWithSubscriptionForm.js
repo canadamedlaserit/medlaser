@@ -177,17 +177,17 @@ export class InquiryWithSubscriptionForm extends Component {
     e.preventDefault()
 
     if (this.state.formValid) {
-      const data = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        phone: this.state.phone,
-        email: this.state.email,
-        timeFrame: this.state.timeFrame,
-        postal: this.state.postal,
-        opportunity: this.state.opportunity,
-        messageArea: this.state.message,
-        check: this.state.check,
-      }
+      // const data = {
+      //   firstName: this.state.firstName,
+      //   lastName: this.state.lastName,
+      //   phone: this.state.phone,
+      //   email: this.state.email,
+      //   timeFrame: this.state.timeFrame,
+      //   postal: this.state.postal,
+      //   opportunity: this.state.opportunity,
+      //   messageArea: this.state.message,
+      //   check: this.state.check,
+      // }
 
       this.reset()
 
@@ -197,7 +197,7 @@ export class InquiryWithSubscriptionForm extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "InquiryWithSubscription",
-          ...data,
+          ...this.state,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))

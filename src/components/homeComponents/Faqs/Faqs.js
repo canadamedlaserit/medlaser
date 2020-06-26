@@ -72,8 +72,7 @@ class Faqs extends Component {
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
               <div className={styles.TitlesWrapper}>
-                <h2>{title}</h2>
-                <h2 className={styles.Subtitle}>{subtitle}</h2>
+                <h2 className={styles.Subtitle}>{title}<span>{subtitle}</span></h2>
               </div>
             </div>
             <div

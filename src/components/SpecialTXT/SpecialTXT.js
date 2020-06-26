@@ -40,7 +40,7 @@ const SpecialTXT = ({ showButton, image, location }) => {
 
               {showButton === "yes" ? (
                 <AnchorLink
-                  to={`${location.pathname}#book`}
+                  to={`${location.pathname}#contact`}
                   className="btn btn-mid btn-red"
                 >
                   Preserve it

@@ -11,8 +11,12 @@
     font-style: 28px;
   }
 
-  h3 {
+  h2 {
     margin-bottom: 20px;
+    font-size: 32px !important;
+    line-height: 43px;
+    text-align: center;
+    letter-spacing: 0;
   }
 
   .Content {
@@ -53,17 +57,15 @@
     // padding-bottom: 25px;
     padding-bottom: 55px;
 
-    h3 {
-      margin-bottom: 20px;
-      // font-size: 20px;
-      font-size: 22px;
-      line-height: 30px;
+    h2 {
+      margin-bottom: 20px !important;
+      font-size: 22px !important;
+      line-height: 30px !important;
     }
 
     .Content {
       margin-top: 40px;
       line-height: 24px;
     }
-    
   }
 }

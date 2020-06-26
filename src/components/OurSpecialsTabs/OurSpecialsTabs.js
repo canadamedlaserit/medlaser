@@ -128,7 +128,7 @@ const OurSpecialsTabs = () => {
 
                                     <div className={styles.buttonsWrapper}>
                                       <AnchorLink
-                                        to="/specials/#book"
+                                        to="/specials/#contact"
                                         className="btn btn-white-transparent"
                                       >
                                         Reserve it

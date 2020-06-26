@@ -69,7 +69,7 @@ const Specials = ({ title, text, btntext, slides }) => {
               {slides.map((slide, index) => (
                 <div className={styles.SwiperSlide} key={index}>
                   {slide.image ? (
-                    <AnchorLink to="/#book">
+                    <AnchorLink to="/#contact">
                       <Img
                         className={styles.Gimg}
                         alt={slide.image.altText}

@@ -7,7 +7,7 @@ class GalleryComponent extends Component {
   render() {
     const { category, results } = this.props
 
-    console.log(results)
+    // console.log(results)
 
     return (
       <>

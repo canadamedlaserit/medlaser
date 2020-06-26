@@ -144,14 +144,14 @@ export class InjuryForm extends Component {
     e.preventDefault()
 
     if (this.state.formValid) {
-      const data = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        phone: this.state.phone,
-        email: this.state.email,
-        queryType: this.state.queryType,
-        messageArea: this.state.message,
-      }
+      // const data = {
+      //   firstName: this.state.firstName,
+      //   lastName: this.state.lastName,
+      //   phone: this.state.phone,
+      //   email: this.state.email,
+      //   queryType: this.state.queryType,
+      //   messageArea: this.state.message,
+      // }
 
       this.reset()
 
@@ -161,7 +161,7 @@ export class InjuryForm extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "EnquiryContactPage",
-          ...data,
+          ...this.state,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))

@@ -9,7 +9,7 @@ export const fragment = graphql`
 `
 
 const MoreInfoAnchor = () => {
-  return <div id="more-info"></div>
+  return <div id="moreinfo"></div>
 }
 
 export default MoreInfoAnchor

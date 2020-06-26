@@ -714,9 +714,7 @@ main {
   }
 }
 
-
 .reviews-swiper {
-
   .swiper-container {
     padding-bottom: 60px !important;
   }
@@ -734,7 +732,6 @@ main {
     outline: none;
   }
 }
-
 
 // CLINICS SWIPER
 .clinics-swiper {
@@ -821,7 +818,7 @@ main {
       text-decoration: underline;
 
       &:hover {
-        color: $black;
+        text-decoration: none;
       }
     }
   }

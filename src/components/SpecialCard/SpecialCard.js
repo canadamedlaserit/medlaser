@@ -55,7 +55,7 @@ const SpecialCard = ({image, text, subtitle, location}) => {
 
                   <div className={styles.buttonsWrapper}>
                     <AnchorLink
-                      to={`${location.pathname}#book`}
+                      to={`${location.pathname}#contact`}
                       className="btn btn-white-transparent"
                     >
                       Reserve it
