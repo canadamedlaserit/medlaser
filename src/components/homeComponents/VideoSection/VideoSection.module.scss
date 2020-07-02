@@ -7,7 +7,6 @@
     // padding-top: 46.25%;
     padding-top: 36.25%;
 
-
     .ReactPlayer {
       position: absolute;
       top: 0;
@@ -19,16 +18,32 @@
 .Col {
   padding: 0;
 
-  h2 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 15%;
-    z-index: 3;
-    color: $white;
-    font-size: 89px;
-    max-width: 1100px;
-    margin: auto;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 46px !important;
+      line-height: 54px;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      line-height: 43px !important;
+      text-transform: none !important;
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 15%;
+      z-index: 3;
+      color: $white;
+      max-width: 1100px;
+      margin: auto;
+    }
   }
 
   .Icon {
@@ -44,10 +59,6 @@
 
 @media (max-width: 1599px) {
   .Section {
-    h2 {
-      font-size: 48px !important;
-    }
-
     .PlayerWrapper {
       padding-top: 36.25%;
     }
@@ -56,13 +67,20 @@
 
 @media (max-width: 767px) {
   .Section {
-    h2 {
-      font-size: 28px !important;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 28px !important;
+      }
     }
 
     .PlayerWrapper {
       padding-top: 108%;
     }
   }
-
 }

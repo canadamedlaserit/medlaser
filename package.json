@@ -38,6 +38,7 @@
     "gatsby-source-google-reviews": "0.0.7",
     "gatsby-source-graphql": "^2.1.32",
     "gatsby-transformer-sharp": "^2.4.3",
+    "gatsby-wpgraphql-inline-images": "^0.2.5",
     "google-maps-react": "^2.0.6",
     "node-sass": "^4.14.1",
     "query-string": "^6.12.1",

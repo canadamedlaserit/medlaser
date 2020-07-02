@@ -12,13 +12,31 @@
     max-width: 1380px;
   }
 
-  h3 {
-    text-align: center;
-    margin-bottom: 110px;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      margin-bottom: 110px !important;
+      text-align: center !important;
+      margin-top: 0px !important;
+      text-transform: none !important;
+    }
   }
 
   .InnerWrapper {
-      padding-left: 25%;
+    ul {
+      padding-left: 10%;
+      columns: 2;
+    }
   }
 }
 
@@ -35,12 +53,30 @@
       margin-bottom: 40px;
     }
 
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+        margin-bottom: 40px !important;
+      }
+    }
+
     .ListSide {
       padding-top: 25px;
     }
 
     .InnerWrapper {
-        padding-left: 0;
+      ul {
+        padding-left: 0 !important;
+
+        columns: 1;
+      }
     }
   }
 }

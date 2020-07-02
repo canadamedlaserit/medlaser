@@ -13,11 +13,6 @@ export const fragment = graphql`
     btntext2
     btnlink1
     btnlink2
-    list {
-      ... on WPGraphQL_Page_Sectionfields_Sections_Laserclinics_list {
-        listitem
-      }
-    }
     image {
       sourceUrl
       altText
@@ -36,7 +31,6 @@ const LaserClinics = ({
   title,
   text,
   image,
-  list,
   btntext1,
   btntext2,
   btnlink1,
@@ -49,13 +43,11 @@ const LaserClinics = ({
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
             <div className={styles.TextSideWrapper}>
-              <h2>{title}</h2>
-              <p>{text}</p>
-              <ul className="listType-normal">
-                {list.map((single, index) => (
-                  <li key={index}>{single.listitem}</li>
-                ))}
-              </ul>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
+              <div dangerouslySetInnerHTML={{ __html: text }}></div>
 
               <div className={styles.ButtonsWrpper}>
                 {btntext1 ? (

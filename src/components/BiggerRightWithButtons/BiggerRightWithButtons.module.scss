@@ -1,4 +1,23 @@
 .Section {
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      line-height: 43px !important;
+      text-transform: none !important;
+    }
+  }
+
   .TextSide {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -30,7 +49,7 @@
     ul {
       margin-bottom: 0;
       padding-left: 20px;
-      
+
       li {
         padding-bottom: 20px;
         font-size: 18px;
@@ -42,20 +61,23 @@
 
 @media (max-width: 767px) {
   .Section {
-    h3 {
-      font-size: 20px !important;
-      line-height: 30px !important;
-      letter-spacing: 0;
-      margin-bottom: 40px !important;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 20px !important;
+        line-height: 30px !important;
+        margin-bottom: 40px !important;
+      }
     }
 
     .ImageSide {
       min-height: 248px;
     }
-
-    // .Row {
-    //   flex-direction: column-reverse;
-    // }
 
     .TextSide {
       padding-top: 40px;
@@ -82,7 +104,6 @@
     }
 
     ul {
-
       li {
         font-size: 14px !important;
         line-height: 21px;

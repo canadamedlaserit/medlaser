@@ -41,7 +41,7 @@ class InnerHeroStripFullWidth extends Component {
                 ""
               )}
               <div className={styles.innerWrapper}>
-                <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+                <div className={styles.Title} dangerouslySetInnerHTML={{ __html: title }}></div>
               </div>
               <div className={styles.Overlay}></div>
               <div className={styles.Hatch}></div>

@@ -8,7 +8,6 @@ import styles from "./InnerHero.module.scss"
 export const fragment = graphql`
   fragment InnerHeroSection on WPGraphQL_Page_Sectionfields_Sections_Innerhero {
     title
-    label
     subtitle
     btntext1
     btntext2
@@ -33,7 +32,6 @@ class InnerHero extends Component {
   render() {
     const {
       title,
-      label,
       subtitle,
       text,
       btntext1,
@@ -58,10 +56,10 @@ class InnerHero extends Component {
                 ""
               )}
               <div className={styles.innerWrapper}>
-                <h1>
-                  {title}
-                  {label ? <span className={styles.Label}>{label}</span> : ""}
-                </h1>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
               </div>
               <div className={styles.Overlay}></div>
               {subtitle ? <div className={styles.Hatch}></div> : ""}
@@ -71,7 +69,10 @@ class InnerHero extends Component {
           {subtitle ? (
             <div className={`row ${styles.RowBot}`}>
               <div className={`col-md-12 ${styles.TextCol}`}>
-                <h2 dangerouslySetInnerHTML={{ __html: subtitle }}></h2>
+                <div
+                  className={styles.SubTitle}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
+                ></div>
 
                 {btntext1 ? (
                   <>

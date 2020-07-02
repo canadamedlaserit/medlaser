@@ -63,7 +63,16 @@ const BiggerRightWithButtons = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              <h3 style={{ color: textcolor }}>{title}</h3>
+
+              {title ? (
+                <div
+                  className={styles.Title}
+                  style={{ color: textcolor }}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               <div
                 style={{ color: textcolor }}

@@ -38,7 +38,14 @@ const FullWidthImageGeneral = ({ title, content, image }) => {
               ""
             )}
             <div className={styles.Inner}>
-              {title ? <h3>{title}</h3> : ""}
+              {title ? (
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               {content ? (
                 <div

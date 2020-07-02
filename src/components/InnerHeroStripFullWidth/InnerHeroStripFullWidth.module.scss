@@ -4,19 +4,29 @@
   .RowTop {
     min-height: 529px;
 
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-family: "Playfair Display", serif !important;
+        font-size: 40px !important;
+        line-height: 96px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0 !important;
+        text-align: right !important;
+        margin-bottom: 50px !important;
+        text-transform: none !important;
+        position: relative;
+      }
+    }
+
     .ImgCol {
       padding: 0px;
       background-color: $black;
-
-      h1 {
-        font-size: 64px;
-        font-weight: 700;
-        letter-spacing: 0px;
-        text-align: right;
-        line-height: 96px;
-        text-transform: capitalize;
-        position: relative;
-      }
 
       &::before,
       &::after {
@@ -94,18 +104,19 @@
         padding: 0px;
         background-color: $black;
 
-        h1 {
-            font-size: 35px;
-            line-height: 49px;
-            text-align: center;
-            letter-spacing: 0px;
-
-            p {
-                text-align: center !important;
-            }
-            br {
-                display: none;
-            }
+        .Title {
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p {
+            font-size: 30px !important;
+            line-height: 49px !important;
+            text-align: center !important;
+           
+          }
         }
 
         &::before,

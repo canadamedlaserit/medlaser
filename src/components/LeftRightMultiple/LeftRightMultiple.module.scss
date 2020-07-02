@@ -1,21 +1,48 @@
 .Section {
-  h3 {
-    margin-top: 90px;
-    margin-bottom: 0px;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      margin-bottom: 0px !important;
+      margin-top: 90px !important;
+      text-transform: none !important;
+      text-align: center !important;
+    }
   }
 
-  h4 {
-    text-transform: none;
-    text-align: left !important;
-    font-size: 24px;
-    line-height: 32px;
-    margin-bottom: 50px;
+  .Subtitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 24px !important;
+      line-height: 32px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+      text-align: left !important;
+    }
   }
+
 
   ul {
     padding-left: 20px;
     padding-top: 15px;
-    
+
     li {
       margin-bottom: 30px;
     }
@@ -74,16 +101,38 @@
 
 @media (max-width: 767px) {
   .Section {
-    h3 {
-      font-size: 22px;
-      line-height: 33px;
-      margin-top: 50px;
+
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 22px !important;
+        line-height: 33px !important;
+        margin-bottom: 0px !important;
+        margin-top: 50px !important;
+        text-transform: none !important;
+      }
     }
-    h4 {
-      font-size: 18px;
-      margin-bottom: 40px;
-      font-weight: 700;
+
+    .Subtitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 18px !important;
+        line-height: 28px !important;
+        margin-bottom: 40px !important;
+      }
     }
+
+
     .ImageSide {
       min-height: 203px;
     }

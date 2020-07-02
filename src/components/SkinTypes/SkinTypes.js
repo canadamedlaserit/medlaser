@@ -30,7 +30,8 @@ const SkinTypes = ({ title, content, tones }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-6 ${styles.Col} ${styles.TextSide}`}>
             <div className={styles.TextWrapper}>
-              <h3>{title}</h3>
+              <div className={styles.Title} dangerouslySetInnerHTML={{__html: title}}></div>
+
               <div dangerouslySetInnerHTML={{ __html: content }}></div>
             </div>
           </div>

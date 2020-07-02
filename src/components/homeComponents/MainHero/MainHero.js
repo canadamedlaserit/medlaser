@@ -7,7 +7,9 @@ import styles from "./MainHero.module.scss"
 
 export const fragment = graphql`
   fragment MainHeroSection on WPGraphQL_Page_Sectionfields_Sections_Mainhero {
-    title
+    heading1
+    heading2
+    separator
     subtitle
     btntext1
     btntext2
@@ -62,7 +64,9 @@ class MainHero extends Component {
 
   render() {
     const {
-      title,
+      heading1,
+      heading2,
+      separator,
       subtitle,
       btntext1,
       btntext2,
@@ -101,8 +105,16 @@ class MainHero extends Component {
 
             <div className={`col-md-5 smallerSide ${styles.rightSide}`}>
               <div className={styles.rightSideWrapper}>
-                <h1>{title}</h1>
-                <h3>{subtitle}</h3>
+                <div className={styles.Title}>
+                  <h1>{heading1}</h1>
+                  <span>{separator} </span>
+                  <h2>{heading2}</h2>
+                </div>
+
+                <div
+                  className={styles.Subtitle}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
+                ></div>
 
                 <div className={styles.buttonsWrapper}>
                   <AnchorLink to="/#contact" className="btn btn-red">

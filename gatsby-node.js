@@ -37,13 +37,13 @@ exports.createResolvers = async ({
   })
 }
 
-const createPosts = require("./create/createPosts")
-exports.createPagesStatefully = async (
-  { graphql, actions, reporter },
-  options
-) => {
-  await createPosts({ actions, graphql, reporter }, options)
-}
+// const createPosts = require("./create/createPosts")
+// exports.createPagesStatefully = async (
+//   { graphql, actions, reporter },
+//   options
+// ) => {
+//   await createPosts({ actions, graphql, reporter }, options)
+// }
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -175,6 +175,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  /*
+
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -229,6 +231,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+
+  //members
+  query.data.wpgraphql.teams.edges.forEach(edge => {
+    let path = edge.node.slug + "/"
+
+    createPage({
+      component: memberFilter,
+      path: path,
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
+
+  //sitemap
+  createPage({
+    component: sitemapFilter,
+    path: "sitemap/",
+    context: {
+      data: query.data.wpgraphql,
+    },
+  })
+
+
+  */
+ 
   // pages
   query.data.wpgraphql.pages.edges.forEach(edge => {
     // console.log(edge.node.uri)
@@ -275,32 +303,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
-  //members
-  query.data.wpgraphql.teams.edges.forEach(edge => {
-    let path = edge.node.slug + "/"
-
-    createPage({
-      component: memberFilter,
-      path: path,
-      context: {
-        id: edge.node.id,
-      },
-    })
-  })
-
-  //sitemap
-  createPage({
-    component: sitemapFilter,
-    path: "sitemap/",
-    context: {
-      data: query.data.wpgraphql,
-    },
-  })
-
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {
-  //   // console.log(edge.node.uri)
-  //   if (edge.node.uri === "/") {
+  //   if (
+  //     edge.node.uri === "/" ||
+  //     edge.node.uri === "laser-hair-removal/" ||
+  //     edge.node.uri === "laser-hair-removal-woman/" ||
+  //     edge.node.uri === "coolsculpting-toronto/" ||
+  //     edge.node.uri === "laser-hair-removal-men/"
+  //   ) {
   //     createPage({
   //       component: pageFilter,
   //       path: edge.node.uri,

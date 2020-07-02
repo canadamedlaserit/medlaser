@@ -53,9 +53,14 @@ const GetPricing = ({
               ""
             )}
             <div className={styles.TextWrapper}>
-              <h2>{titleleft}</h2>
-
-              <p className={styles.Subtitle}>{subtitleleft}</p>
+              <div
+                className={styles.TitleLeft}
+                dangerouslySetInnerHTML={{ __html: titleleft }}
+              ></div>
+              <div
+                className={styles.Subtitle}
+                dangerouslySetInnerHTML={{ __html: subtitleleft }}
+              ></div>
 
               <AnchorLink to={btnlink} className="btn btn-white-transparent">
                 {btntext}
@@ -66,7 +71,10 @@ const GetPricing = ({
 
           <div className={`col-md-6 ${styles.Col} ${styles.TextSide}`}>
             <div className={styles.TextWrapper}>
-              <h3>{titleright}</h3>
+              <div
+                className={styles.TitleRight}
+                dangerouslySetInnerHTML={{ __html: titleright }}
+              ></div>
               <div dangerouslySetInnerHTML={{ __html: content }}></div>
             </div>
           </div>

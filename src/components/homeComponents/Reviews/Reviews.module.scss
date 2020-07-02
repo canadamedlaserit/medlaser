@@ -14,20 +14,51 @@
     margin: 0 auto;
   }
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 46px !important;
+      line-height: 54px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      text-transform: none !important;
+      max-width: 432px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .RightSide {
     color: $white;
     text-align: center;
+    display: flex;
+    align-items: center;
 
-    h2 {
-      font-size: 52px;
-      line-height: 1.4;
-      margin-bottom: 50px;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        color: $white;
+        margin-bottom: 50px;
+      }
     }
 
     p {
       margin-bottom: 50px;
     }
   }
+
   .SwiperSlideInside {
     max-width: 500px;
     margin: 40px auto 0px;
@@ -78,10 +109,37 @@
     padding-bottom: 0;
     padding-top: 50px;
 
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        max-width: 343px;
+        font-size: 35px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0;
+      }
+    }
+
     .RightSide {
       padding-top: 50px;
       padding-bottom: 50px;
       background-color: #161616;
+
+      .Title {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          margin-bottom: 50px;
+        }
+      }
 
       a {
         max-width: 296px;

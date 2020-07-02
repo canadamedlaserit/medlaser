@@ -6,14 +6,42 @@
   padding-top: 100px;
   padding-bottom: 60px;
 
-  h3 {
-    text-align: left;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      line-height: 43px !important;
+      text-transform: none !important;
+      margin-bottom: 0.5rem;
+    }
   }
 
-  h5 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 20px;
+  .SlideTitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      line-height: 24px !important;
+      text-transform: none !important;
+      margin-bottom: 20px !important;
+    }
   }
 
   svg path {
@@ -54,15 +82,33 @@
     padding-top: 40px;
     padding-bottom: 25px;
 
-    h3 {
-      font-size: 22px;
-      line-height: 30px;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 22px !important;
+        line-height: 30px !important;
+      }
     }
-    h5 {
-      font-size: 12px;
-      line-height: 17px;
-      margin-bottom: 15px;
+
+    .SlideTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 12px !important;
+        line-height: 17px !important;
+        margin-bottom: 15px !important;
+      }
     }
+
     .Titles {
       padding-left: 15px;
       margin-bottom: 36px;
@@ -78,27 +124,3 @@
     }
   }
 }
-
-// @media(min-width: 1599px) {
-//     .Section {
-//         .Row {
-//             justify-content: flex-end;
-//         }
-//         .SwiperWrapper, .Titles {
-//             flex: 0 0 91.666667%;
-//             max-width: 91.666667%;
-//         }
-//     }
-// }
-
-// @media(min-width: 1920px) {
-//     .Section {
-//         .Row {
-//             justify-content: flex-end;
-//         }
-//         .SwiperWrapper, .Titles {
-//             flex: 0 0 83.333333%;
-//             max-width: 83.333333%;
-//         }
-//     }
-// }

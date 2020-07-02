@@ -32,9 +32,12 @@
         text-align: center;
         padding-top: 30px;
         margin-bottom: 50px;
-        color: $white;
         position: relative;
         z-index: 2;
+
+        a {
+          color: $white;
+        }
       }
 
       .ReadMore {

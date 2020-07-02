@@ -42,7 +42,7 @@ const FullWidthImageRedBtn = ({ title, content, btntext, btnlink, image }) => {
             )}
 
             <div className={styles.Inner}>
-              {title ? <h3>{title}</h3> : ""}
+              {title ? <div className={styles.Title}dangerouslySetInnerHTML={{__html: title}}></div> : ""}
 
               {content ? (
                 <div

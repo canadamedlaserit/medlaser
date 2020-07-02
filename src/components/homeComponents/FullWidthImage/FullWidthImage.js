@@ -43,8 +43,15 @@ const FullWidthImage = ({ title, subtitle, btntext, btnlink, image }) => {
             )}
 
             <div className={styles.Inner}>
-              <h2>{title}</h2>
-              <p>{subtitle}</p>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
+              <div
+                className={styles.Subtitle}
+                dangerouslySetInnerHTML={{ __html: subtitle }}
+              ></div>
+
               <Link to={btnlink} className="btn btn-white-transparent">
                 {btntext}
               </Link>

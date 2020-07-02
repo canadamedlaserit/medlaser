@@ -44,7 +44,14 @@ class VideoSection extends React.Component {
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Col}`}>
-              <h2>{!this.state.started ? title : ""}</h2>
+              {!this.state.started ? (
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               <div className={styles.fic}></div>
               <div className={styles.PlayerWrapper}>

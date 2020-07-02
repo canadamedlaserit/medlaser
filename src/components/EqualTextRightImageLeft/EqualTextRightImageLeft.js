@@ -51,7 +51,11 @@ class EqualTextRightImageLeft extends Component {
 
             <div className={`col-md-6 ${styles.TextSide} ${styles.Col}`}>
               <div className={styles.TextSideWrapper}>
-                <h3 style={{ color: textcolor }}>{title}</h3>
+                <div
+                  style={{ color: textcolor }}
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
 
                 <div
                   style={{ color: textcolor }}

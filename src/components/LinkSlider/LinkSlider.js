@@ -108,7 +108,7 @@ const LinkSlider = ({ slides }) => {
 
                   <div className={styles.ContentWrapper}>
                     <Link className={`${styles.OverflowLink}`} to={slide.link}>
-                      <h3> {slide.title}</h3>
+                      <h2> {slide.title}</h2>
                     </Link>
                   </div>
                 </div>

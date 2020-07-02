@@ -28,7 +28,7 @@ class InnerHeroClean extends Component {
 
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Text}`}>
-              <h1 style={{ color: textcolor}}>{title}</h1>
+              <div style={{ color: textcolor}} className={styles.Title} dangerouslySetInnerHTML={{__html: title}}></div>
             </div>
           </div>
         </div>

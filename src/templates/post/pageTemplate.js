@@ -9,7 +9,7 @@ import OurServices from "../../components/homeComponents/OurServices/OurServices
 import OurServicesSlider from "../../components/OurServicesSlider/OurServicesSlider"
 import LaserClinics from "../../components/homeComponents/LaserClinics/LaserClinics"
 import VideoSection from "../../components/homeComponents/VideoSection/VideoSection"
-import LookYounger from "../../components/homeComponents/LookYounger/LookYounger"
+// import LookYounger from "../../components/homeComponents/LookYounger/LookYounger"
 import Faqs from "../../components/homeComponents/Faqs/Faqs"
 import FullWidthImage from "../../components/homeComponents/FullWidthImage/FullWidthImage"
 import FullWidthImageRedBtn from "../../components/FullWidthImageRedBtn/FullWidthImageRedBtn"
@@ -101,8 +101,8 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo":
             return <VideoSection key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
-            return <LookYounger key={index} {...section} />
+          // case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
+          //   return <LookYounger key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
@@ -339,7 +339,7 @@ export const pageQuery = graphql`
             ...OurServicesSliderSection
             ...LaserClinicsSection
             ...VideoSection
-            ...LookYoungerSection
+            # ...LookYoungerSection
             ...FaqsSection
             ...FullWidthImageSection
             ...FullWidthImageRedBtnSection

@@ -1,6 +1,29 @@
 @import "../../styles/_variables";
 
 .Section {
+
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 40px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+    }
+  }
+
+
+
+
   ul {
     padding-left: 20px;
 
@@ -170,6 +193,23 @@
 
 @media (max-width: 1200px) {
   .Section {
+
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+        margin-bottom: 40px !important;
+        text-align: center !important;
+      }
+    }
+
+
     .TabList {
       a {
         font-size: 20px;
@@ -189,13 +229,6 @@
     }
 
     .TextWrapper {
-      h3 {
-        text-align: center;
-        font-size: 24px;
-        line-height: 36px;
-        margin-bottom: 40px;
-      }
-
       > div {
         text-align: center;
         margin-bottom: 40px;

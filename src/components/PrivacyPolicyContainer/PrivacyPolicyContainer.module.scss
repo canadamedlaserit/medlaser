@@ -20,10 +20,14 @@
     word-wrap: break-word;
   }
 
-  h3 {
-    font-weight: 700;
-    text-align: left;
-    margin-bottom: 50px;
+  h1 {
+    font-size: 32px !important;
+    line-height: 43px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+    margin-bottom: 50px !important;
+    text-transform: none !important;
   }
 
   h4 {
@@ -42,10 +46,10 @@
     padding-top: 50px;
     padding-bottom: 50px;
 
-    h3 {
-      font-size: 24px;
-      line-height: 36px;
-      margin-bottom: 20px;
+    h1 {
+      font-size: 24px !important;
+      line-height: 36px !important;
+      margin-bottom: 20px !important;
     }
 
     h4 {

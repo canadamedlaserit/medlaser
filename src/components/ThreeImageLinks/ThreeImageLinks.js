@@ -9,7 +9,6 @@ export const fragment = graphql`
     links {
       ... on WPGraphQL_Page_Sectionfields_Sections_Threeimagelinks_links {
         title
-        label
         link
         image {
           sourceUrl
@@ -47,10 +46,7 @@ const ThreeImageLinks = ({ links }) => {
 
                 <div className={styles.Titles}>
                   <Link to={link.link ? link.link : ""}>
-                    <h3>
-                      {link.title}
-                      <span>{link.label ? link.label : " "}</span>
-                    </h3>
+                    <div className={styles.Title} dangerouslySetInnerHTML={{ __html: link.title }}></div>
                   </Link>
                 </div>
                 <Link

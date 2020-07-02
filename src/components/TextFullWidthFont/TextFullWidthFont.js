@@ -19,7 +19,9 @@ const TextFullWidthFont = ({ title, content, fontsizedesktop }) => {
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
               {title ? (
-                <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
+                <div 
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}></div>
               ) : (
                 ""
               )}

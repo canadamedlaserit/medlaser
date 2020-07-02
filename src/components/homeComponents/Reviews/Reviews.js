@@ -35,18 +35,28 @@ const Reviews = ({ titleRight, titleLeft, contentRight, btntext, btnlink }) => {
     >
       <section className={styles.Section}>
         <div className={`container ${styles.Container}`}>
-          <div className={`row ${styles.Row}`}>
+          <div className={`row`}>
             <div className={`col-md-6 ${styles.LeftSide}`}>
               <div className={styles.InsideWrapper}></div>
-              <h2 dangerouslySetInnerHTML={{ __html: titleLeft }}></h2>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: titleLeft }}
+              ></div>
 
               <div>{isItemVisible ? <ReviewsSlider /> : ""}</div>
             </div>
 
             <div className={`col-md-6 ${styles.RightSide}`}>
               <div className={styles.InsideWrapper}>
-                <h2 dangerouslySetInnerHTML={{ __html: titleRight }}></h2>
-                <p>{contentRight}</p>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: titleRight }}
+                ></div>
+                <div
+                  className={styles.Content}
+                  dangerouslySetInnerHTML={{ __html: contentRight }}
+                ></div>
+
                 <AnchorLink to={btnlink} className="btn btn-small btn-red">
                   {btntext}
                 </AnchorLink>

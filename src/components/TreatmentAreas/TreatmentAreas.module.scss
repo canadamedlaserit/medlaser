@@ -8,13 +8,27 @@
   background-color: $black;
   color: $white;
 
-  .Container {
-    max-width: 1712px;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+    }
   }
 
-  h3 {
-    text-align: left;
-    margin-bottom: 50px;
+  .Container {
+    max-width: 1712px;
   }
 
   .TextSide {
@@ -33,10 +47,18 @@
     padding-left: 0px;
     padding-right: 0px;
 
-    h3 {
-      font-size: 24px;
-      line-height: 36px;
-      margin-bottom: 40px;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+        margin-bottom: 40px !important;
+      }
     }
 
     .TextSide {

@@ -5,17 +5,32 @@
   padding-top: 70px;
   padding-bottom: 0;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 35px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 80px !important;
+      line-height: 43px !important;
+      text-transform: none !important;
+      text-align: center !important;
+    }
+  }
+
   .Container {
     max-width: 1752px;
     padding-right: 35px;
     padding-left: 35px;
 
     .Row {
-      h2 {
-        font-size: 35px;
-        margin-bottom: 80px;
-      }
-
       .ServicesWrapper {
         display: flex;
         flex-wrap: wrap;
@@ -36,7 +51,7 @@
           padding: 10px;
         }
 
-        h4 {
+        .TitleService {
           position: absolute;
           top: 0;
           left: 0;
@@ -61,13 +76,20 @@
     padding-top: 120px;
     padding-bottom: 120px;
 
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 48px !important;
+      }
+    }
+
     .Container {
       .Row {
-        h2 {
-          font-size: 48px;
-          margin-bottom: 80px;
-        }
-
         .ServicesWrapper {
           // padding-top: 55px;
           padding-left: 15px;
@@ -94,14 +116,13 @@
             font-size: 16px !important;
           }
 
-          h4 {
+          .TitleService {
             position: relative;
             font-size: 24px;
             text-align: center;
             text-transform: capitalize;
             color: $black;
             display: block;
-
           }
         }
       }
@@ -110,46 +131,51 @@
 }
 
 @media (min-width: 900px) {
-  .Section h4 {
-    font-size: 18px;
+  .Section {
+    .TitleService {
+      font-size: 18px;
+    }
   }
 }
 @media (min-width: 1200px) {
-  .Section h4 {
-    font-size: 24px;
+  .Section {
+    .TitleService {
+      font-size: 24px;
+    }
   }
 }
 
 @media (max-width: 1599px) {
   .Section {
     padding-top: 70px;
-    // padding-bottom: 70px;
 
-    h2 {
-      font-size: 38px !important;
-      margin-bottom: 40px !important;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 38px !important;
+        margin-bottom: 40px !important;
+      }
     }
   }
 }
 
 @media (max-width: 1200px) {
   .Section {
-    h4 {
+    .TitleService {
       font-size: 18px !important;
+      line-height: 1.2;
     }
+
     .ServicesWrapper {
       column-gap: 1% !important;
     }
   }
 }
-
-// @media (max-width: 990px) {
-//   .Section {
-//     h4 {
-//       font-size: 14px !important;
-//     }
-//   }
-// }
 
 @media (max-width: 767px) {
   .Container {
@@ -159,11 +185,10 @@
     .Section {
       padding-bottom: 0 !important;
     }
-    
-    .ServicesWrapper {
-      h4 {
-    background-color: #00000044;
 
+    .ServicesWrapper {
+      .TitleService {
+        background-color: #00000044;
       }
     }
   }

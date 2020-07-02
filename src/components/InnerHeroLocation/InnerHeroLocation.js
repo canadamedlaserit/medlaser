@@ -41,7 +41,10 @@ class InnerHeroLocation extends Component {
                 ""
               )}
               <div className={styles.innerWrapper}>
-                <h1>{title}</h1>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
               </div>
               <div className={styles.Overlay}></div>
               <div className={styles.Hatch}></div>
@@ -50,7 +53,10 @@ class InnerHeroLocation extends Component {
 
           <div className={`row ${styles.RowBot}`}>
             <div className={`col-md-12 ${styles.TextCol}`}>
-              <h3 dangerouslySetInnerHTML={{ __html: subtitle }}></h3>
+              <div
+                className={styles.Subtitle}
+                dangerouslySetInnerHTML={{ __html: subtitle }}
+              ></div>
 
               <div
                 className={styles.Text}

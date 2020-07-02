@@ -4,17 +4,29 @@
   .RowTop {
     min-height: 529px;
 
+    .Title {
+      width: 100%;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-family: "Playfair Display", serif !important;
+        font-size: 64px !important;
+        line-height: 43px !important;
+        font-weight: 400 !important;
+        letter-spacing: 3.2px !important;
+        text-align: center !important;
+        text-transform: none !important;
+      }
+    }
+
     .ImgCol {
       padding: 0px;
       background-color: $black;
-
-      h1 {
-        font-size: 64px;
-        font-weight: 400;
-        letter-spacing: 3.2px;
-        text-align: center;
-        width: 100%;
-      }
 
       .Label {
         font-size: 70%;
@@ -39,12 +51,25 @@
     padding-top: 50px;
     padding-bottom: 50px;
 
-    h3 {
-      text-align: center;
-      margin-bottom: 44px;
-      text-transform: capitalize;
-      line-height: 54px;
+
+    .Subtitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-family: "Playfair Display", serif !important;
+        font-size: 32px !important;
+        line-height: 43px !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        text-transform: none !important;
+        margin-bottom: 44px !important;
+      }
     }
+
 
     .buttonsWrapper {
       display: flex;
@@ -131,8 +156,7 @@
   }
 }
 
-
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .halfImage {
     width: 50%;
   }
@@ -151,11 +175,22 @@
         padding: 0px;
         background-color: $black;
 
-        h1 {
-          font-size: 32px;
-          letter-spacing: 1.6px;
-          text-align: center;
+
+        .Title {
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p {
+            font-size: 32px !important;
+            letter-spacing: 1.6px !important;
+            text-align: center !important;
+          }
         }
+
+     
 
         &::before,
         &::after {
@@ -164,11 +199,22 @@
       }
     }
     .RowBot {
-      h3 {
-        font-size: 32px !important;
-        line-height: 43px !important;
-        text-align: center;
-        letter-spacing: 0;
+
+
+      .Subtitle {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+
+          font-size: 32px !important;
+          line-height: 43px !important;
+          text-align: center;
+          letter-spacing: 0;
+        }
       }
 
       .buttonsWrapper {
@@ -197,10 +243,10 @@
         opacity: 1;
 
         h3 {
-            font-size: 24px !important;
-            line-height: 36px !important;
-            text-align: center;
-            letter-spacing: 0; 
+          font-size: 24px !important;
+          line-height: 36px !important;
+          text-align: center;
+          letter-spacing: 0;
         }
       }
     }

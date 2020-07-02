@@ -5,6 +5,25 @@
   background: linear-gradient(90deg, $black 50%, $grey-mid 50%);
   overflow: hidden;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+    }
+  }
+
   ul {
     padding-left: 0;
     list-style: none;
@@ -43,7 +62,6 @@
     }
   }
 
-
   .Hatch {
     width: 100%;
     height: 56px;
@@ -69,7 +87,6 @@
     background-size: 12.73px 12.73px;
   }
 
-  
   .Hatch2 {
     display: none;
     bottom: auto;
@@ -85,11 +102,6 @@
     display: block;
     font-family: "Playfair Display", sans-serif;
   }
-
-  h3 {
-    text-align: left;
-    margin-bottom: 50px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -97,12 +109,33 @@
     position: relative;
     background: unset;
 
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+        margin-bottom: 40px !important;
+      }
+    }
+
     .MobileCenter {
       text-align: center !important;
 
-      h3 {
-      text-align: center !important;
-
+      .Title {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          text-align: center !important;
+        }
       }
     }
 
@@ -113,19 +146,12 @@
       display: block !important;
     }
 
-
     .RightSide,
     .LeftSide {
       padding-top: 80px;
       padding-bottom: 80px;
       padding-left: 15px !important;
       padding-right: 15px !important;
-    }
-
-    h3 {
-      font-size: 24px !important;
-      line-height: 36px !important;
-      margin-bottom: 40px;
     }
 
     ul {

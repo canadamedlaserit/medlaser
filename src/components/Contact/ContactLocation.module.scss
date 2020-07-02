@@ -8,14 +8,33 @@
   padding-bottom: 120px;
   color: $white;
 
-  h5 {
-    text-align: center;
-    font-size: 28px;
-    letter-spacing: 0px;
-    color: #ffffff;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-bottom: 30px;
+  .Localspecific {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: Roboto, sans-serif !important;
+      font-size: 28px !important;
+      text-align: center !important;
+      color: #ffffff;
+      margin-bottom: 30px !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      font-weight: 500 !important;
+      line-height: 1.2 !important;
+
+      a {
+        color: #ffffff !important;
+        transition: .3s;
+
+        &:hover {
+          color: #9C1A3B !important;
+        }
+      }
+    }
   }
 
   h2 {

@@ -7,7 +7,7 @@ const Areas = ({ areas }) => {
   return (
     <>
       {areas.map((area, index) => (
-        <div key={index} className={styles.Area}>
+        <li key={index} className={styles.Area}>
           {area.image ? (
             <Img
               alt={area.image.altText}
@@ -18,8 +18,8 @@ const Areas = ({ areas }) => {
             ""
           )}
 
-          <h5>{area.title}</h5>
-        </div>
+         {area.title}
+        </li>
       ))}
     </>
   )

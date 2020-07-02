@@ -64,10 +64,10 @@ const OurServicesSlider = ({ title, services }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
-              <h3
-                className={`content text ${styles.Content}`}
+              <div
+                className={`content text ${styles.Title}`}
                 dangerouslySetInnerHTML={{ __html: title }}
-              ></h3>
+              ></div>
             </div>
           </div>
 
@@ -87,10 +87,17 @@ const OurServicesSlider = ({ title, services }) => {
                     )}
                   </Link>
 
+                  <div className={styles.Overlay}></div>
+
                   <div className={styles.ContentWrapper}>
-                    <Link className={`${styles.OverflowLink}`} to={slide.link}>
-                      <h4>{slide.title}</h4>
-                    </Link>
+                    <h5>
+                      <Link
+                       
+                        to={slide.link}
+                      >
+                        {slide.title}
+                      </Link>
+                    </h5>
                   </div>
                 </div>
               ))}

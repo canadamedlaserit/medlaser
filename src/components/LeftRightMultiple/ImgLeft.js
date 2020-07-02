@@ -27,7 +27,14 @@ const ImgLeft = ({ data }) => {
 
       <div className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}>
         <div className={styles.TextSideWrapper}>
-          {title ? <h4>{title}</h4> : ""}
+          {title ? (
+            <div
+              className={styles.Subtitle}
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></div>
+          ) : (
+            ""
+          )}
 
           <div dangerouslySetInnerHTML={{ __html: content }}></div>
           {btntext ? (

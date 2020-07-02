@@ -1,11 +1,14 @@
 @import "../../styles/_variables";
 
 .Section {
-  h3 {
+
+  h2 {
     color: $white;
     max-width: 830px;
     margin: auto;
     margin-bottom: 50px;
+    font-size: 32px !important;
+    line-height: 43px;
   }
 
   .Inner {
@@ -30,9 +33,9 @@
 
 @media (max-width: 767px) {
   .Section {
-    h3 {
-      font-size: 22px;
-      line-height: 33px;
+    h2 {
+      font-size: 22px !important;
+      line-height: 33px !important;
     }
     .buttonsWrapper {
       a {

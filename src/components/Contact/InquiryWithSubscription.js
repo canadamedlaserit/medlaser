@@ -11,16 +11,21 @@ export const fragment = graphql`
 `
 
 const InquiryWithSubscription = () => {
-
-
   return (
     <section id="contact" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>
             <div className={styles.Inner}>
-              <h2>Make An Enquiry</h2>
-              <InquiryWithSubscriptionForm btntext='Enquire Now' />
+              <div className={styles.InnerTitles}>
+                <h2>Make An Inquiry</h2>
+                <p>
+                  To make an enquiry, please fill out the Enquiry Form below.
+                  For more information, please download our Franchise Prospectus
+                </p>
+              </div>
+
+              <InquiryWithSubscriptionForm btntext="Enquire Now" />
             </div>
 
             <div className={` ${styles.Overlay}`}></div>

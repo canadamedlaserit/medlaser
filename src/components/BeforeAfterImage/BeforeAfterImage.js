@@ -37,7 +37,7 @@ const BeforeAfterImage = ({ image }) => {
             )}
 
             <div className={styles.Inner}>
-              <h3>Real Results</h3>
+              <h2>Real Results</h2>
 
               <div className={styles.buttonsWrapper}>
                 <Link to="/before-after/" className="btn btn-red">

@@ -30,20 +30,21 @@ const TextFullWidth = ({
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
               {title ? (
-                <h2
+                <div
+                  className={styles.Title}
                   style={{ color: textcolor }}
                   dangerouslySetInnerHTML={{ __html: title }}
-                ></h2>
+                ></div>
               ) : (
                 ""
               )}
 
               {subtitle ? (
-                <h3
+                <div
+                  className={styles.Subtitle}
                   style={{ color: textcolor }}
                   dangerouslySetInnerHTML={{ __html: subtitle }}
-                  className={styles.Subtitle}
-                ></h3>
+                ></div>
               ) : (
                 ""
               )}

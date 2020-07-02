@@ -6,6 +6,39 @@
   padding-left: 28px;
   padding-right: 28px;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+
+      display: flex;
+      min-height: 97px;
+      justify-content: flex-start;
+      flex-direction: column;
+      padding-top: 40px;
+      color: $white;
+      z-index: 2;
+      position: relative;
+
+      em {
+        display: block;
+        font-weight: 400 !important;
+      }
+    }
+  }
+
+
+
   .Container {
     max-width: 1712px;
   }
@@ -22,7 +55,6 @@
   .InsideWrapper {
     position: relative;
     padding-top: 100%;
-    // min-height: 450px;
   }
 
   .Titles {
@@ -35,23 +67,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  h3 {
-    display: flex;
-    min-height: 97px;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding-top: 40px;
-    color: $white;
-    z-index: 2;
-    position: relative;
-
-    span {
-      display: block;
-      font-style: italic;
-      font-weight: 400;
-    }
   }
 
   .Overlay {
@@ -70,26 +85,38 @@
   }
 }
 
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
 
-@media(max-width: 767px) {
-    .Section {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        padding-left: 0px;
-        padding-right: 0px;
-
-        .Col {
-            padding: 0;
-        }
-
-
-        h3 {
-            font-size: 28px;
-            line-height: 37px;
-        }
-
-        .InsideWrapper {
-            padding-top: 60%;
-        }
+    .Col {
+      padding: 0;
     }
+
+    h3 {
+      font-size: 28px;
+      line-height: 37px;
+    }
+
+    
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-size: 28px !important;
+      line-height: 37px !important;
+    }
+  }
+
+    .InsideWrapper {
+      padding-top: 60%;
+    }
+  }
 }

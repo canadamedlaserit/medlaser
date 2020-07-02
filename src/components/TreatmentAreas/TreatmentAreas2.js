@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Areas from "./Areas"
-
 import styles from "./TreatmentAreas2.module.scss"
 
 export const fragment = graphql`
@@ -47,13 +46,25 @@ const TreatmentAreas2 = ({ title, areas, areas2 }) => {
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <div className={`col-md-12 ${styles.Col}`}>
+          <div className={`col-md-12 `}>
             <div className={styles.TextWrapper}>
-              <h3>{title}</h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
             </div>
           </div>
 
-          <div className={`col-md-6 ${styles.Col} ${styles.ListSide}`}>
+          <div className={`col-md-12`}>
+            <div className={styles.InnerWrapper}>
+              <ul>
+                <Areas areas={areas} />
+                <Areas areas={areas2} />
+              </ul>
+            </div>
+          </div>
+
+          {/* <div className={`col-md-6 ${styles.Col} ${styles.ListSide}`}>
             <div className={styles.InnerWrapper}>
               <Areas areas={areas} />
             </div>
@@ -63,7 +74,7 @@ const TreatmentAreas2 = ({ title, areas, areas2 }) => {
             <div className={styles.InnerWrapper}>
               <Areas areas={areas2} />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

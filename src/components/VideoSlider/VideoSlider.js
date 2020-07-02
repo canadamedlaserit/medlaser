@@ -26,8 +26,6 @@ class VideoSlider extends Component {
     getElement: null,
   }
 
-
-
   componentDidMount() {
     this.setState(() => {
       return {
@@ -96,11 +94,13 @@ class VideoSlider extends Component {
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Titles}`}>
-              <h3>{title}</h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
             </div>
             <div className={`col-md-12 video-swiper ${styles.SwiperWrapper}`}>
               <Swiper id="sample" {...params}>
-          
                 {slides.map((slide, index) => {
                   return (
                     <div key={index} className={styles.SwiperSlide}>
@@ -108,7 +108,12 @@ class VideoSlider extends Component {
                         {({ isVisible }) => {
                           return (
                             <div>
-                              <h5>{slide.title}</h5>
+                              <div
+                                className={styles.SlideTitle}
+                                dangerouslySetInnerHTML={{
+                                  __html: slide.title,
+                                }}
+                              ></div>
 
                               <div className={styles.InsideSlider}>
                                 <div className={styles.Inner}>

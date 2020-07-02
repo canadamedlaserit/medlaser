@@ -2,12 +2,27 @@
 
 .Section {
   padding-top: 110px;
-  h2 {
-    font-size: 42px;
-    line-height: 1.2;
 
-    span {
-      display: block;
+  .Subtitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 42px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      margin-bottom: 0.5rem;
+      line-height: 1.2 !important;
+      text-transform: none !important;
+
+      span {
+        display: block;
+      }
     }
   }
 
@@ -133,11 +148,15 @@
     }
 
     .Subtitle {
-      font-size: 28px !important;
-    }
-
-    h2 {
-      font-size: 35px;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 28px !important;
+      }
     }
 
     .TitlesWrapper {
@@ -156,17 +175,14 @@
     }
   }
 
-  
-.TwoColumnsSection {
+  .TwoColumnsSection {
+    .TwoColumnsFaqs {
+      max-width: 100%;
+      flex: 0 0 100%;
 
-
-  .TwoColumnsFaqs {
-    max-width: 100%;
-    flex: 0 0 100%;
-
-    .AccordionWrapper {
-      max-width: none;
+      .AccordionWrapper {
+        max-width: none;
+      }
     }
   }
-}
 }

@@ -8,13 +8,14 @@
   padding-bottom: 120px;
   color: $white;
 
+
+
   h2 {
     color: $white;
     font-size: 57px;
     text-transform: capitalize;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
-
 }
 
 @media (max-width: 1599px) {
@@ -38,11 +39,7 @@
     padding-bottom: 50px;
 
     h2 {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
-
-   
   }
-
-  
 }

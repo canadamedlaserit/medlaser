@@ -79,7 +79,10 @@ class CategoryTabs extends Component {
                 <Col className={`${styles.Left} smallerSide2`} md={5}>
                   <div className={styles.InsideWrapper}>
                     <div className={styles.TextWrapper}>
-                      <h3>{title}</h3>
+                      <div
+                        className={styles.Title}
+                        dangerouslySetInnerHTML={{ __html: title }}
+                      ></div>
 
                       <div
                         className="content"
@@ -162,7 +165,10 @@ class CategoryTabs extends Component {
               <div
                 className={`${styles.TextWrapper} ${styles.TextWrapperMobile}`}
               >
-                <h3>{title}</h3>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
 
                 <div
                   className="content"

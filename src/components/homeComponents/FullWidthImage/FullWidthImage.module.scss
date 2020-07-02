@@ -8,11 +8,24 @@
     padding-bottom: 105px;
   }
 
-  h2 {
-    font-size: 57px;
-    text-transform: capitalize;
-    color: $white;
-    margin-bottom: 60px;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 46px !important;
+      line-height: 54px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      margin-bottom: 60px !important;
+      text-transform: none !important;
+      color: $white;
+    }
   }
 
   p {
@@ -50,10 +63,20 @@
       padding-bottom: 54px;
     }
 
-    h2 {
-      font-size: 35px;
-      margin-bottom: 40px;
+
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 35px !important;
+        margin-bottom: 40px !important;
+      }
     }
+  
 
     p {
       font-size: 16px;
@@ -61,7 +84,7 @@
     }
 
     a {
-        height: 50px;
+      height: 50px;
     }
   }
 }

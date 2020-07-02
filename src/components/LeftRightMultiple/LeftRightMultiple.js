@@ -5,7 +5,6 @@ import ImgLeft from "./ImgLeft"
 import ImgRight from "./ImgRight"
 import styles from "./LeftRightMultiple.module.scss"
 
-
 export const fragment = graphql`
   fragment LeftRightMultipleSection on WPGraphQL_Page_Sectionfields_Sections_Leftrightmultiple {
     title
@@ -39,7 +38,6 @@ const LeftRightMultiple = ({
   backgroundcolor,
   textcolor,
 }) => {
-
   return (
     <section
       style={{ backgroundColor: backgroundcolor, color: textcolor }}
@@ -50,7 +48,10 @@ const LeftRightMultiple = ({
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Col}`}>
               <div className={styles.TextWrapper}>
-                <h3>{title}</h3>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
               </div>
             </div>
           </div>

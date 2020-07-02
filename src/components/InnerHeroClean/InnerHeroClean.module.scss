@@ -11,13 +11,24 @@
     min-height: 529px;
   }
 
-  h1 {
-    color: #ffffff;
-    // text-transform: capitalize;
-    font-size: 54px;
-    font-weight: 700;
-    text-align: center;
-    max-width: 730px;
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 54px !important;
+      line-height: 65px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      text-transform: none !important;
+      color: #ffffff;
+      max-width: 730px;
+    }
   }
 
   .Text {
@@ -62,17 +73,24 @@
 
 @media (max-width: 767px) {
   .Section {
+
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 35px !important;
+        letter-spacing: 1.6px !important;
+      }
+    }
+
     .Row {
       padding-top: 0px;
       min-height: 400px;
       padding-bottom: 30px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 35px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
     }
   }
   .SectionOther {

@@ -53,7 +53,11 @@ const EqualTextWithStrip = ({
             className={`col-md-6 ${styles.Col} ${styles.LeftSide}`}
           >
             <div className={styles.TextWrapper}>
-              <h3>{title1}</h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title1 }}
+              ></div>
+
               <div dangerouslySetInnerHTML={{ __html: content1 }}></div>
             </div>
           </div>
@@ -66,7 +70,11 @@ const EqualTextWithStrip = ({
             className={`col-md-6 ${styles.Col} ${styles.RightSide}`}
           >
             <div className={styles.TextWrapper}>
-              <h3>{title2}</h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title2 }}
+              ></div>
+
               <div dangerouslySetInnerHTML={{ __html: content2 }}></div>
             </div>
 

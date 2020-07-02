@@ -55,8 +55,19 @@ const Specials = ({ title, text, btntext, slides }) => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-4 ${styles.TextSide}`}>
-            <h2>{title}</h2>
-            <p>{text}</p>
+            <div
+              className={styles.Title}
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></div>
+            {text ? (
+              <div
+                className={styles.Text}
+                dangerouslySetInnerHTML={{ __html: text }}
+              ></div>
+            ) : (
+              ""
+            )}
+
             <Link
               className={`btn btn-small btn-white-transparent ${styles.Btn}`}
               to="/specials/"

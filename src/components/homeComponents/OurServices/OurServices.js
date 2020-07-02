@@ -35,26 +35,31 @@ const OurServices = ({ title, btntext, btnlink, services }) => {
       <div className={`container ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className="col-md-12">
-            <h2>{title}</h2>
+            <div
+              className={styles.Title}
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></div>
           </div>
           <div className={`col-md-12 ${styles.ServicesWrapper}`}>
-            {services.map((service, index) => (
-              <div className={styles.SingleService} key={index}>
-                <Link to={service.link}>
-                  {service.image ? (
-                    <Img
-                      className={styles.Gimg}
-                      alt={service.image.altText}
-                      fluid={service.image.imageFile.childImageSharp.fluid}
-                    />
-                  ) : (
-                    ""
-                  )}
+            {services
+              ? services.map((service, index) => (
+                  <div className={styles.SingleService} key={index}>
+                    <Link to={service.link}>
+                      {service.image ? (
+                        <Img
+                          className={styles.Gimg}
+                          alt={service.image.altText}
+                          fluid={service.image.imageFile.childImageSharp.fluid}
+                        />
+                      ) : (
+                        ""
+                      )}
 
-                  <h4>{service.title}</h4>
-                </Link>
-              </div>
-            ))}
+                      <h3 className={styles.TitleService}>{service.title}</h3>
+                    </Link>
+                  </div>
+                ))
+              : null}
             <Link
               className={`btn btn-small btn-black-transparent ${styles.Btn}`}
               to={btnlink}

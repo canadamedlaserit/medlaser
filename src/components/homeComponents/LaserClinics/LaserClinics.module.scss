@@ -5,6 +5,38 @@
   background-color: #161616;
   color: $white;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 46px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      text-transform: none !important;
+      line-height: 1.2 !important;
+      margin-bottom: 40px;
+      text-transform: capitalize;
+    }
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    padding-right: 14%;
+
+    li {
+      padding-bottom: 30px;
+      line-height: 24px;
+    }
+  }
+
   .Container {
     .Row {
       .TextSide {
@@ -16,13 +48,6 @@
           padding-right: 12%;
           padding-left: 35px;
           margin-left: auto;
-
-          h2 {
-            font-size: 70px;
-            margin-bottom: 40px;
-            text-align: left;
-            text-transform: capitalize;
-          }
 
           .ButtonsWrpper {
             display: flex;
@@ -48,46 +73,62 @@
       padding-right: 5% !important;
     }
 
-    h2 {
-      font-size: 50px !important;
+    ul {
+      margin-top: 45px;
+      margin-bottom: 30px;
+      padding-right: 15px;
     }
   }
 }
 
 @media (max-width: 767px) {
-  .Row {
-    flex-direction: column-reverse;
-  }
-  .TextSide {
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
-
-    .TextSideWrapper {
-      padding-right: 0 !important;
-      padding-left: 0 !important;
+  .Section {
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 35px !important;
+      }
     }
 
-    h2 {
-      font-size: 35px !important;
+    .Row {
+      flex-direction: column-reverse;
     }
-  }
+    .TextSide {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
 
-  .ImageSide {
-    min-height: 260px;
-  }
+      .TextSideWrapper {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
 
-  .ButtonsWrpper {
-    justify-content: center!important;
-    flex-direction: column;
-    align-items: center;
+      ul {
+        padding-right: 0px;
+      }
+    }
 
-    a {
-      max-width: 296px;
-      height: 50px;
-      margin: auto!important;
+    .ImageSide {
+      min-height: 260px;
+    }
 
-      &:first-child {
-        margin-bottom: 30px!important;
+    .ButtonsWrpper {
+      justify-content: center !important;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        max-width: 296px;
+        height: 50px;
+        margin: auto !important;
+
+        &:first-child {
+          margin-bottom: 30px !important;
+        }
       }
     }
   }

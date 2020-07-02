@@ -53,7 +53,11 @@ const BiggerLeftWithButtons = ({
         {maintitle ? (
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
-              <h2 style={{ color: textcolor }}>{maintitle}</h2>
+              <div
+                className={styles.MainTitle}
+                dangerouslySetInnerHTML={{ __html: maintitle }}
+                style={{ color: textcolor }}
+              ></div>
             </div>
           </div>
         ) : (
@@ -65,13 +69,25 @@ const BiggerLeftWithButtons = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              {title ? <h3 style={{ color: textcolor }}>{title}</h3> : ""}
+              {title ? (
+                <div
+                  className={styles.Title}
+                  style={{ color: textcolor }}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
+              ) : (
+                ""
+              )}
 
-              <div
-                style={{ color: textcolor }}
-                className="content text"
-                dangerouslySetInnerHTML={{ __html: content }}
-              ></div>
+              {content ? (
+                <div
+                  style={{ color: textcolor }}
+                  className="content text"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               <div className={styles.buttonsWrapper}>
                 {btntext1 ? (

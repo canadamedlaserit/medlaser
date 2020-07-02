@@ -7,7 +7,6 @@ import styles from "./Faqs.module.scss"
 
 export const fragment = graphql`
   fragment FaqsSection on WPGraphQL_Page_Sectionfields_Sections_Faqs {
-    title
     subtitle
     type
     image {
@@ -60,7 +59,7 @@ class Faqs extends Component {
   }
 
   render() {
-    const { title, subtitle, image, list, list2, type } = this.props
+    const { subtitle, image, list, list2, type } = this.props
 
     return (
       <section
@@ -72,7 +71,10 @@ class Faqs extends Component {
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
               <div className={styles.TitlesWrapper}>
-                <h2 className={styles.Subtitle}>{title}<span>{subtitle}</span></h2>
+                <div
+                  className={styles.Subtitle}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
+                ></div>
               </div>
             </div>
             <div
@@ -127,8 +129,6 @@ class Faqs extends Component {
                 </Accordion>
               </div>
             </div>
-
-          
 
             {type === "normal" ? (
               <div className={`col-md-5 smallerSide ${styles.ImageSide}`}>

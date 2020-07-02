@@ -67,9 +67,10 @@ const TwoSidesLinks = ({
 
             <div className={styles.InsideWrapper}>
               <div className={styles.Inside}>
-                <Link to={link1}>
-                  <h3>{title1}</h3>
-                </Link>
+                <h3>
+                  <Link to={link1}>{title1}</Link>
+                </h3>
+
                 <Link className={`transition ${styles.ReadMore}`} to={link1}>
                   {linktext1}
                 </Link>
@@ -91,9 +92,10 @@ const TwoSidesLinks = ({
 
             <div className={styles.InsideWrapper}>
               <div className={styles.Inside}>
-                <Link to={link2}>
-                  <h3>{title2}</h3>
-                </Link>
+                <h3>
+                  <Link to={link2}>{title2}</Link>
+                </h3>
+
                 <Link className={`transition ${styles.ReadMore}`} to={link2}>
                   {linktext2}
                 </Link>
@@ -101,42 +103,6 @@ const TwoSidesLinks = ({
             </div>
             <Link to={link2} className={styles.Overlay}></Link>
           </div>
-
-          {/* <BackgroundImage
-            className={`col-md-6 ${styles.Col}`}
-            fluid={fluidImage1}
-          >
-            <div className={styles.InsideWrapper}>
-              <div className={styles.Inside}>
-                <Link to={link1}>
-                  <h3>{title1}</h3>
-                </Link>
-                <Link className={`transition ${styles.ReadMore}`} to={link1}>
-                  {linktext1}
-                </Link>
-              </div>
-            </div>
-
-            <Link to={link1} className={styles.Overlay}></Link>
-          </BackgroundImage> */}
-
-          {/* <BackgroundImage
-            className={`col-md-6 ${styles.Col}`}
-            fluid={fluidImage2}
-          >
-            <div className={styles.InsideWrapper}>
-              <div className={styles.Inside}>
-                <Link to={link1}>
-                  <h3>{title2}</h3>
-                </Link>
-                <Link className={`transition ${styles.ReadMore}`} to={link2}>
-                  {linktext2}
-                </Link>
-              </div>
-            </div>
-
-            <Link to={link2} className={styles.Overlay}></Link>
-          </BackgroundImage> */}
         </div>
       </div>
     </section>
