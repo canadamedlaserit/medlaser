@@ -62,7 +62,7 @@ const BeforeAfterTabs = () => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row`}>
           <div className="col-md-12">
-            <h3>Before & After Laser Treatment</h3>
+            <h1>Before & After Laser Treatment</h1>
           </div>
           <div className={`col-md-12 ${styles.TabsCol}`}>
             <div className={styles.TabsWrap}>

@@ -90,7 +90,14 @@ class HalfImageRedBtn extends Component {
                 }}
                 className={styles.InnerWrapper}
               >
-                {texttitle ? <h3>{texttitle}</h3> : ""}
+                {texttitle ? (
+                  <div
+                    className={styles.TextTitle}
+                    dangerouslySetInnerHTML={{ __html: texttitle }}
+                  ></div>
+                ) : (
+                  ""
+                )}
 
                 {textcontent ? (
                   <div
@@ -129,7 +136,14 @@ class HalfImageRedBtn extends Component {
                 }}
                 className={styles.InnerWrapper}
               >
-                {imagetitle ? <h5>{imagetitle}</h5> : ""}
+                {imagetitle ? (
+                  <div
+                    className={styles.ImageTitle}
+                    dangerouslySetInnerHTML={{ __html: imagetitle }}
+                  ></div>
+                ) : (
+                  ""
+                )}
 
                 {imagecontent ? (
                   <div

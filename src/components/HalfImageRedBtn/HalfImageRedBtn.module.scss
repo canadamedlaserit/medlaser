@@ -4,6 +4,45 @@
   position: relative;
   overflow: hidden;
 
+  .TextTitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+    }
+  }
+
+  .ImageTitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 28px !important;
+      line-height: 42px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      margin-bottom: 50px !important;
+      text-transform: none !important;
+      color: #ffffff;
+    }
+  }
+
   .Col {
     position: relative;
     z-index: 2;
@@ -40,8 +79,6 @@
       padding-right: 6%;
       position: relative;
       z-index: 2;
-
- 
     }
   }
 
@@ -61,8 +98,6 @@
       padding-right: 25px;
       position: relative;
       z-index: 2;
-
- 
     }
   }
 
@@ -96,23 +131,6 @@
     bottom: auto;
     top: -28px;
     transform: none;
-  }
-
-  h3 {
-    text-align: left;
-    margin-bottom: 50px;
-  }
-
-  h5 {
-    font-size: 28px !important;
-    line-height: 42px;
-    font-family: "Playfair Display";
-    letter-spacing: 0px;
-    color: #ffffff;
-    opacity: 1;
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 700;
   }
 
   .ImageContent {
@@ -165,13 +183,30 @@
       display: none;
     }
 
-    h3 {
-      font-size: 24px !important;
-      line-height: 36px !important;
-      margin-bottom: 40px;
+    .TextTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+      }
+    }
 
-      text-align: left;
-      letter-spacing: 0px;
+    .ImageTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 20px !important;
+        line-height: 30px !important;
+      }
     }
 
     .TextSide {
@@ -192,13 +227,6 @@
         padding-right: 0;
         padding-left: 0;
       }
-    }
-
-    h5 {
-      font-size: 20px !important;
-      line-height: 30px !important;
-      text-align: center;
-      letter-spacing: 0px;
     }
 
     .ImageContent {

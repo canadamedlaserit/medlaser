@@ -38,7 +38,10 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
               ""
             )}
             <div className={styles.innerWrapper}>
-              <h1>{title}</h1>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
             </div>
             <div className={styles.Overlay}></div>
             <div
