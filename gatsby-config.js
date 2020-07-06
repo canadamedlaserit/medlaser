@@ -60,7 +60,7 @@ module.exports = {
         short_name: `CML`,
         description: "Canada Medlaser Clinics",
         start_url: `/`,
-        background_color: `#161616`,
+        background_color: `#ffffff`,
         theme_color: `#9c1a3b`,
         display: `standalone`,
       },
