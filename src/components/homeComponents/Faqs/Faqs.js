@@ -114,7 +114,7 @@ class Faqs extends Component {
                               />
                             </svg>
                           </div>
-                          {single.title}
+                          <h3>{single.title}</h3>
                         </Accordion.Toggle>
 
                         <Accordion.Collapse eventKey={index}>
@@ -180,7 +180,7 @@ class Faqs extends Component {
                                 />
                               </svg>
                             </div>
-                            {single.title}
+                            <h3>{single.title}</h3>
                           </Accordion.Toggle>
 
                           <Accordion.Collapse eventKey={index}>

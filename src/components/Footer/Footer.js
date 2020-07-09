@@ -32,7 +32,7 @@ class Footer extends Component {
                 const submenu = node.childItems.edges
                 return (
                   <div className={`col-md-3 ${styles.DesktopMenu}`} key={index}>
-                    <h3>{node.label}</h3>
+                    <h2>{node.label}</h2>
                     <ul>
                       {submenu.map(({ node }, index) => (
                         <li key={index}>
@@ -50,7 +50,7 @@ class Footer extends Component {
             <div className={styles.LocatiosWrapper}>
               <div className={styles.Locations}>
                 <div className="col-md-12">
-                  <h3 className={styles.Title}>{footerInfo.locationstitle}</h3>
+                  <h2 className={styles.Title}>{footerInfo.locationstitle}</h2>
                 </div>
                 {footerInfo.locations.map((single, index) => (
                   <div
@@ -64,7 +64,7 @@ class Footer extends Component {
 
             <div className={styles.SocialsWrapper}>
               <div className="col-md-12">
-                <h3 className={styles.Title}>{footerInfo.socialstitle}</h3>
+                <h2 className={styles.Title}>{footerInfo.socialstitle}</h2>
               </div>
 
               <div className={`col-md-12 ${styles.SocialsListWrapper}`}>

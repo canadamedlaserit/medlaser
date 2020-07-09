@@ -1,6 +1,6 @@
 .Section {
-  padding-top: 120px;
-  padding-bottom: 105px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   .Title {
     h1,
@@ -68,20 +68,20 @@
     }
   }
 
-  a {
-    text-decoration: underline;
-    font-size: 22px;
-    line-height: 35px;
-    letter-spacing: 0px;
-    // color: #e8e8e8 !important;
-    transition: 0.3s;
-    font-family: "Playfair Display", sans-serif;
-    font-weight: 400;
+  // a {
+  //   text-decoration: underline;
+  //   font-size: 22px;
+  //   line-height: 35px;
+  //   letter-spacing: 0px;
+  //   // color: #e8e8e8 !important;
+  //   transition: 0.3s;
+  //   font-family: "Playfair Display", sans-serif;
+  //   font-weight: 400;
 
-    &:hover {
-      color: #9c1a3b !important;
-    }
-  }
+  //   &:hover {
+  //     color: #9c1a3b !important;
+  //   }
+  // }
 }
 
 @media (max-width: 767px) {

@@ -15,11 +15,12 @@
     display: block;
   }
 
-  h3 {
-    font-size: 24px;
-    text-transform: initial;
+  h2 {
+    font-size: 24px !important;
+    text-transform: initial !important;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
+    line-height: 43px;
   }
 
   ul {
@@ -45,9 +46,9 @@
     margin-left: auto;
     margin-right: auto;
 
-    h3 {
-      font-size: 20px;
-      margin-bottom: 15px;
+    h2 {
+      font-size: 20px !important;
+      margin-bottom: 15px !important;
     }
 
     a {
@@ -186,9 +187,9 @@
     padding-right: 15px;
     padding-top: 0px !important;
 
-    h3 {
-      font-size: 18px;
-      font-weight: 400;
+    h2 {
+      font-size: 18px !important;
+      font-weight: 400 !important;
     }
   }
   .LocationsCol p {

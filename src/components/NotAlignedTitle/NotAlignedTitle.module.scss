@@ -6,11 +6,27 @@
   padding-top: 120px;
   padding-bottom: 120px;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      text-transform: none !important;
+    }
+  }
+
   .Container {
     max-width: 1712px;
   }
-
-
 
   .Row {
     padding-left: 30px;
@@ -28,13 +44,6 @@
       margin-bottom: 30px;
     }
   }
-
-  h3 {
-    text-align: left;
-    font-size: 32px;
-    line-height: 48px;
-    font-weight: 700;
-  }
 }
 
 @media (max-width: 767px) {
@@ -42,11 +51,22 @@
     padding-top: 80px;
     padding-bottom: 80px;
 
-    h3 {
-      font-size: 24px !important;
-      line-height: 36px;
-      letter-spacing: 0;
-      margin-bottom: 40px !important;
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 24px !important;
+        line-height: 36px !important;
+        margin-bottom: 40px !important;
+
+        br {
+          display: none;
+        }
+      }
     }
 
     .Text {

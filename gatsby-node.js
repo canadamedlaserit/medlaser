@@ -37,13 +37,13 @@ exports.createResolvers = async ({
   })
 }
 
-const createPosts = require("./create/createPosts")
-exports.createPagesStatefully = async (
-  { graphql, actions, reporter },
-  options
-) => {
-  await createPosts({ actions, graphql, reporter }, options)
-}
+// const createPosts = require("./create/createPosts")
+// exports.createPagesStatefully = async (
+//   { graphql, actions, reporter },
+//   options
+// ) => {
+//   await createPosts({ actions, graphql, reporter }, options)
+// }
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -175,7 +175,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  
+  /*
 
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
@@ -255,7 +255,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
 
-  
+ 
  
   // pages
   query.data.wpgraphql.pages.edges.forEach(edge => {
@@ -303,23 +303,29 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
+   */
+
   // debug only home pages
-  // query.data.wpgraphql.pages.edges.forEach(edge => {
-  //   if (
-  //     edge.node.uri === "/" ||
-  //     edge.node.uri === "laser-hair-removal/" ||
-  //     edge.node.uri === "laser-hair-removal-woman/" ||
-  //     edge.node.uri === "coolsculpting-toronto/" ||
-  //     edge.node.uri === "laser-hair-removal-men/"
-  //   ) {
-  //     createPage({
-  //       component: pageFilter,
-  //       path: edge.node.uri,
-  //       context: {
-  //         id: edge.node.id,
-  //       },
-  //     })
-  //   } else {
-  //   }
-  // })
+  query.data.wpgraphql.pages.edges.forEach(edge => {
+    if (
+      edge.node.uri === "/" ||
+      edge.node.uri === "laser-hair-removal/" ||
+      edge.node.uri === "laser-hair-removal-woman/" ||
+      edge.node.uri === "laser-hair-removal-men/" ||
+      edge.node.uri === "coolsculpting-toronto/" ||
+      edge.node.uri === "coolsculpting-body/" ||
+      edge.node.uri === "double-chin/" ||
+      edge.node.uri === "cosmetic-injections/" ||
+      edge.node.uri === "botox/" 
+    ) {
+      createPage({
+        component: pageFilter,
+        path: edge.node.uri,
+        context: {
+          id: edge.node.id,
+        },
+      })
+    } else {
+    }
+  })
 }

@@ -41,13 +41,16 @@ const LaserClinics = ({
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
-          <div className={`col-md-7 biggerSide ${styles.TextSide}`}>
+          <div className={`col-md-6 ${styles.TextSide}`}>
             <div className={styles.TextSideWrapper}>
               <div
                 className={styles.Title}
                 dangerouslySetInnerHTML={{ __html: title }}
               ></div>
-              <div dangerouslySetInnerHTML={{ __html: text }}></div>
+              <div
+                className={styles.Text}
+                dangerouslySetInnerHTML={{ __html: text }}
+              ></div>
 
               <div className={styles.ButtonsWrpper}>
                 {btntext1 ? (
@@ -71,7 +74,7 @@ const LaserClinics = ({
               </div>
             </div>
           </div>
-          <div className={`col-md-5 smallerSide ${styles.ImageSide}`}>
+          <div className={`col-md-6 ${styles.ImageSide}`}>
             {fluidImage ? (
               <Img
                 className="gatsby-image-background"

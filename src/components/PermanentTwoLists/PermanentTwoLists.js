@@ -34,7 +34,7 @@ const PermanentTwoLists = ({
           </div>
           <div className={`col-md-6  ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
-              <h3>{title1}</h3>
+              <div className={styles.Title} dangerouslySetInnerHTML={{__html: title1}}></div>
               <div
                 className={`content text ${styles.Content}`}
                 dangerouslySetInnerHTML={{ __html: listcontent1 }}
@@ -44,7 +44,8 @@ const PermanentTwoLists = ({
 
           <div className={`col-md-6  ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
-              <h3>{title2}</h3>
+              <div className={styles.Title} dangerouslySetInnerHTML={{__html: title2}}></div>
+
               <div
                 className={`content text ${styles.Content}`}
                 dangerouslySetInnerHTML={{ __html: listcontent2 }}

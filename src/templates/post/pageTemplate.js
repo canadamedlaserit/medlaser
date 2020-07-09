@@ -9,7 +9,6 @@ import OurServices from "../../components/homeComponents/OurServices/OurServices
 import OurServicesSlider from "../../components/OurServicesSlider/OurServicesSlider"
 import LaserClinics from "../../components/homeComponents/LaserClinics/LaserClinics"
 import VideoSection from "../../components/homeComponents/VideoSection/VideoSection"
-// import LookYounger from "../../components/homeComponents/LookYounger/LookYounger"
 import Faqs from "../../components/homeComponents/Faqs/Faqs"
 import FullWidthImage from "../../components/homeComponents/FullWidthImage/FullWidthImage"
 import FullWidthImageRedBtn from "../../components/FullWidthImageRedBtn/FullWidthImageRedBtn"
@@ -23,7 +22,7 @@ import InquiryWithSubscription from "../../components/Contact/InquiryWithSubscri
 import ContactLocation from "../../components/Contact/ContactLocation"
 import LocationMap from "../../components/LocationMap/LocationMap"
 import LocationsMapWithOptions from "../../components/LocationsMapWithOptions/LocationsMapWithOptions"
-import InnerHero from "../../components/InnerHero/InnerHero"
+import InnerHero from "../../components/InnerHero/InnerHero-new"
 import InnerHeroLocation from "../../components/InnerHeroLocation/InnerHeroLocation"
 import InnerHeroClean from "../../components/InnerHeroClean/InnerHeroClean"
 import InnerHeroStripFullWidth from "../../components/InnerHeroStripFullWidth/InnerHeroStripFullWidth"
@@ -77,9 +76,11 @@ const PageTempl = ({ data, location, pageContext }) => {
 
   return (
     <Layout location={location}>
-      <SEO data={data.wpgraphql.page} />
+       <SEO data={data.wpgraphql.page} /> 
 
-      {sections.map((section, index) => {
+
+    {console.log(pageContext)}
+       {sections.map((section, index) => {
         const typeName = section.__typename
 
         switch (typeName) {
@@ -100,9 +101,6 @@ const PageTempl = ({ data, location, pageContext }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo":
             return <VideoSection key={index} {...section} />
-
-          // case "WPGraphQL_Page_Sectionfields_Sections_Lookyounger":
-          //   return <LookYounger key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Faqs":
             return <Faqs key={index} {...section} />
@@ -290,7 +288,7 @@ const PageTempl = ({ data, location, pageContext }) => {
           default:
             return ""
         }
-      })}
+      })} 
     </Layout>
   )
 }
@@ -339,7 +337,6 @@ export const pageQuery = graphql`
             ...OurServicesSliderSection
             ...LaserClinicsSection
             ...VideoSection
-            # ...LookYoungerSection
             ...FaqsSection
             ...FullWidthImageSection
             ...FullWidthImageRedBtnSection

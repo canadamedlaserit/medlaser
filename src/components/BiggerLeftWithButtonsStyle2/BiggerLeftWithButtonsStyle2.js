@@ -41,7 +41,7 @@ const BiggerLeftWithButtonsStyle2 = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              {title ? <h3>{title}</h3> : ""}
+              {title ? <div className={styles.Title} dangerouslySetInnerHTML={{__html: title}}></div> : ""}
 
               <div
                 className="content text"

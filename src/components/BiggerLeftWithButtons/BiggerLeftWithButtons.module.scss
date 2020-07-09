@@ -1,5 +1,7 @@
 .Section {
   .MainTitle {
+    margin-top: 60px;
+    margin-bottom: 50px;
     h1,
     h2,
     h3,
@@ -8,14 +10,13 @@
     h6,
     p {
       font-family: "Playfair Display", serif !important;
-      font-size: 46px !important;
+      font-size: 42px !important;
       font-weight: 700 !important;
       letter-spacing: 0 !important;
       text-align: center !important;
       text-transform: none !important;
       line-height: 54px !important;
-      margin-top: 120px;
-      margin-bottom: 120px;
+
     }
   }
 
@@ -38,12 +39,12 @@
     }
   }
 
-  .ImageSide {
-    min-height: 600px;
-  }
+  // .ImageSide {
+  //   min-height: 600px;
+  // }
 
   .TextSide {
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 80px;
     display: flex;
     justify-content: center;
@@ -81,6 +82,8 @@
 @media (max-width: 767px) {
   .Section {
     .MainTitle {
+      margin-top: 40px;
+      margin-bottom: 40px;
       h1,
       h2,
       h3,
@@ -88,8 +91,7 @@
       h5,
       h6,
       p {
-        margin-top: 40px;
-        margin-bottom: 40px;
+  
         font-size: 35px !important;
         line-height: 1.4 !important;
       }

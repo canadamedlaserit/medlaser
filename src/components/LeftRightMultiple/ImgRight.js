@@ -20,7 +20,10 @@ const ImgRight = ({ data }) => {
           ) : (
             ""
           )}
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+          <div
+            className="text"
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></div>
 
           {btntext ? (
             <div className={styles.buttonsWrapper}>

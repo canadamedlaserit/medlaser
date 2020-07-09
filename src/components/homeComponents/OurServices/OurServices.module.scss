@@ -2,8 +2,8 @@
 
 // mobile - mostly, getting used to it
 .Section {
-  padding-top: 70px;
-  padding-bottom: 0;
+  padding-top: 50px;
+  padding-bottom: 0 ;
 
   .Title {
     h1,
@@ -11,17 +11,22 @@
     h3,
     h4,
     h5,
-    h6,
-    p {
+    h6 {
       font-family: "Playfair Display", serif !important;
       font-size: 35px !important;
       font-weight: 700 !important;
       letter-spacing: 0 !important;
       text-align: left !important;
-      margin-bottom: 80px !important;
+      margin-bottom: 50px !important;
       line-height: 43px !important;
       text-transform: none !important;
       text-align: center !important;
+    }
+
+    p {
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto 40px;
     }
   }
 
@@ -42,13 +47,26 @@
           width: 50%;
         }
 
-        .Btn {
+        .BtnWrapper {
+          display: flex;
+          justify-content: center;
+          flex-direction: column-reverse;
           width: 50%;
+        }
+
+        .Btn {
           text-align: center;
           font-size: 12px !important;
           max-width: 155px;
           height: 50px;
           padding: 10px;
+          margin: 10px auto;
+
+          h3 {
+            font-family: "Roboto", sans-serif;
+            font-size: inherit !important;
+            margin: 0;
+          }
         }
 
         .TitleService {
@@ -73,8 +91,8 @@
 // desktop
 @media screen and (min-width: 768px) {
   .Section {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 
     .Title {
       h1,
@@ -82,8 +100,7 @@
       h3,
       h4,
       h5,
-      h6,
-      p {
+      h6 {
         font-size: 48px !important;
       }
     }
@@ -104,21 +121,27 @@
             width: 100%;
           }
 
-          .Btn {
-            margin-top: 80px;
+          .BtnWrapper {
             grid-column: 1/6;
             grid-row: 2;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            width: 100%;
+          }
 
+          .Btn {
             max-width: 296px;
             height: 66px;
             text-align: center;
-            width: 100%;
+            // width: 100%;
             font-size: 16px !important;
+            margin: 80px 10px 0;
           }
 
           .TitleService {
             position: relative;
-            font-size: 24px;
+            font-size: 22px;
             text-align: center;
             text-transform: capitalize;
             color: $black;
@@ -148,6 +171,7 @@
 @media (max-width: 1599px) {
   .Section {
     padding-top: 70px;
+    padding-bottom: 70px;
 
     .Title {
       h1,
@@ -155,8 +179,7 @@
       h3,
       h4,
       h5,
-      h6,
-      p {
+      h6 {
         font-size: 38px !important;
         margin-bottom: 40px !important;
       }
@@ -174,10 +197,37 @@
     .ServicesWrapper {
       column-gap: 1% !important;
     }
+
+    .Container {
+      .Row {
+        .ServicesWrapper {
+          .Btn {
+            max-width: 226px;
+            height: 50px;
+            text-align: center;
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
   }
 }
 
 @media (max-width: 767px) {
+  .Section {
+    padding-bottom: 0 !important;
+    .Container {
+      .Row {
+        .ServicesWrapper {
+          .Btn {
+            max-width: 155px;
+            font-size: 12px !important;
+          }
+        }
+      }
+    }
+  }
+
   .Container {
     padding-right: 15px !important;
     padding-left: 15px !important;

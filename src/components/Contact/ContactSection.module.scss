@@ -4,15 +4,13 @@
 }
 .Section {
   background-color: $black;
-  padding-top: 155px;
-  padding-bottom: 120px;
+  padding-top: 120px;
+  padding-bottom: 40px;
   color: $white;
 
   .InnerTitles {
-
     h2 {
       margin-bottom: 50px;
-
     }
     p {
       text-align: center;
@@ -26,13 +24,11 @@
     text-transform: capitalize;
     margin-bottom: 100px;
   }
-
 }
 
 @media (max-width: 1599px) {
   .Section {
     padding-top: 105px;
-    padding-bottom: 80px;
 
     h2 {
       font-size: 42px;
@@ -47,14 +43,10 @@
 @media (max-width: 767px) {
   .Section {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 
     h2 {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
-
-   
   }
-
-  
 }

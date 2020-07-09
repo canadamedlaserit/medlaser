@@ -85,6 +85,11 @@ strong {
   font-weight: 600;
 }
 
+// off price mainly on inner banner.
+.off {
+  font-size: 30px;
+  font-weight: 700;
+}
 .hidden {
   display: none;
 }
@@ -815,7 +820,7 @@ main {
   p {
     a {
       color: $red;
-      text-decoration: underline;
+      // text-decoration: underline;
 
       &:hover {
         text-decoration: none;

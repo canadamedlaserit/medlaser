@@ -9,6 +9,8 @@ export const fragment = graphql`
     title
     btntext
     btnlink
+    btntext2
+    btnlink2
     services {
       ... on WPGraphQL_Page_Sectionfields_Sections_Ourservices_services {
         title
@@ -29,7 +31,14 @@ export const fragment = graphql`
   }
 `
 
-const OurServices = ({ title, btntext, btnlink, services }) => {
+const OurServices = ({
+  title,
+  btntext,
+  btnlink,
+  services,
+  btntext2,
+  btnlink2,
+}) => {
   return (
     <section className={styles.Section}>
       <div className={`container ${styles.Container}`}>
@@ -60,12 +69,21 @@ const OurServices = ({ title, btntext, btnlink, services }) => {
                   </div>
                 ))
               : null}
-            <Link
-              className={`btn btn-small btn-black-transparent ${styles.Btn}`}
-              to={btnlink}
-            >
-              {btntext}
-            </Link>
+            <div className={styles.BtnWrapper}>
+              <Link
+                className={`btn btn-small btn-red ${styles.Btn}`}
+                to={btnlink}
+              >
+                {btntext}
+              </Link>
+
+              <Link
+                className={`btn btn-small btn-black-transparent ${styles.Btn}`}
+                to={btnlink2}
+              >
+                <h3>{btntext2}</h3>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

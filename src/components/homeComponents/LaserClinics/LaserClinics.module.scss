@@ -20,10 +20,15 @@
       text-align: left !important;
       text-transform: none !important;
       line-height: 1.2 !important;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       text-transform: capitalize;
     }
   }
+
+  .Text {
+    margin-bottom: 50px;
+  }
+
 
   ul {
     padding-left: 20px;
@@ -56,6 +61,7 @@
             a {
               margin-right: 40px;
               margin-left: 0;
+              max-width: 300px;
             }
           }
         }

@@ -41,7 +41,7 @@ const BeforeAfterImage = ({ image }) => {
 
               <div className={styles.buttonsWrapper}>
                 <Link to="/before-after/" className="btn btn-red">
-                  Before & After
+                  Before and After
                 </Link>
               </div>
             </div>

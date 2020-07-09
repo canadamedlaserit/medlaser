@@ -21,7 +21,7 @@ const NotAlignedTitle = ({ title, content, type }) => {
               styles.Col
             }`}
           >
-            <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
+            <div className={styles.Title} dangerouslySetInnerHTML={{ __html: title }}></div>
           </div>
           <div
             className={`${type === "equal" ? " col-md-6" : "col-md-8"} ${

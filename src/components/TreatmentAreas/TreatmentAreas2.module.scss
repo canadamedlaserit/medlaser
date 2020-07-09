@@ -1,8 +1,8 @@
 @import "../../styles/_variables";
 
 .Section {
-  padding-top: 120px;
-  padding-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 50px;
   padding-left: 25px;
   padding-right: 25px;
   background-color: $black;
@@ -13,19 +13,22 @@
   }
 
   .Title {
+    margin-bottom: 100px !important;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+
     h1,
     h2,
     h3,
     h4,
     h5,
-    h6,
-    p {
+    h6 {
       font-family: "Playfair Display", serif !important;
       font-size: 32px !important;
       line-height: 43px !important;
       font-weight: 700 !important;
       letter-spacing: 0 !important;
-      margin-bottom: 110px !important;
       text-align: center !important;
       margin-top: 0px !important;
       text-transform: none !important;
@@ -36,13 +39,17 @@
     ul {
       padding-left: 10%;
       columns: 2;
+
+      li {
+        min-height: 102px;
+      }
     }
   }
 }
 
 @media (max-width: 767px) {
   .Section {
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 44px;
     padding-left: 0px;
     padding-right: 0px;
@@ -54,16 +61,16 @@
     }
 
     .Title {
+      margin-bottom: 40px !important;
+
       h1,
       h2,
       h3,
       h4,
       h5,
-      h6,
-      p {
+      h6 {
         font-size: 24px !important;
         line-height: 36px !important;
-        margin-bottom: 40px !important;
       }
     }
 
@@ -74,8 +81,11 @@
     .InnerWrapper {
       ul {
         padding-left: 0 !important;
-
         columns: 1;
+
+        li {
+          min-height: unset;
+        }
       }
     }
   }

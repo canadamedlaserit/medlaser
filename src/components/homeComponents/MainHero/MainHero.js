@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import Img from "gatsby-image"
 
@@ -12,7 +12,6 @@ export const fragment = graphql`
     separator
     subtitle
     btntext1
-    btntext2
     backgroundimage {
       altText
       sourceUrl
@@ -69,7 +68,6 @@ class MainHero extends Component {
       separator,
       subtitle,
       btntext1,
-      btntext2,
       backgroundimage,
       backgroundimagemobile,
     } = this.props
@@ -120,9 +118,9 @@ class MainHero extends Component {
                   <AnchorLink to="/#contact" className="btn btn-red">
                     {btntext1}
                   </AnchorLink>
-                  <Link to="/" className="btn btn-black-transparent">
+                  {/* <Link to="/" className="btn btn-black-transparent">
                     {btntext2}
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
