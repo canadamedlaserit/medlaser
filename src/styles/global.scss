@@ -90,6 +90,26 @@ strong {
   font-size: 30px;
   font-weight: 700;
 }
+
+// page-link is a class for wordpress side html.mostly used in textfullwidth component
+.inners-link {
+  text-decoration: underline;
+  font-size: 22px;
+  line-height: 35px;
+  letter-spacing: 0;
+  transition: 0.3s;
+  font-weight: 700;
+}
+
+a {
+  transition: 0.3s;
+  color: $red;
+
+  &:hover {
+    color: $red-dark;
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -494,14 +514,14 @@ main {
     padding-bottom: 40px;
   }
 
-  .swiper-button-prev {
-    background: #ffffff74 0% 0% no-repeat padding-box;
-    outline: none;
-  }
-  .swiper-button-next {
-    background: #ffffff74 0% 0% no-repeat padding-box;
-    outline: none;
-  }
+  // .swiper-button-prev {
+  //   background: #ffffff74 0% 0% no-repeat padding-box;
+  //   outline: none;
+  // }
+  // .swiper-button-next {
+  //   background: #ffffff74 0% 0% no-repeat padding-box;
+  //   outline: none;
+  // }
 
   svg {
     width: 17px;

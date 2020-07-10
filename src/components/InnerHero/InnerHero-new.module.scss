@@ -65,6 +65,14 @@
     text-align: left;
     margin-bottom: 40px;
 
+
+    h3 {
+      font-size: 24px !important;
+      line-height: 36px !important;
+      text-align: left !important;
+      margin-bottom: 10px;
+    }
+
     p {
       margin-bottom: 15px;
       text-align: left !important;
@@ -207,6 +215,7 @@
 
     .RowTop {
       height: unset;
+      max-height: unset;
 
       .ImgCol {
         height: 356px;
@@ -225,6 +234,12 @@
     .Text {
       color: $black;
       text-align: center !important;
+
+      h3 {
+        font-size: 20px !important;
+        line-height: 24px !important;
+        text-align: center !important;
+      }
 
       p {
         text-align: center !important;

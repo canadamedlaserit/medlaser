@@ -40,21 +40,9 @@ class Video extends Component {
           ref={this.ref}
           className={styles.ReactPlayer}
           playing={this.props.isVisible && this.state.playing ? true : false}
-          playIcon={
-            <img
-              alt="play-icon"
-              className={styles.Icon}
-              src={play}
-            />
-          }
+          playIcon={<img alt="play-icon" className={styles.Icon} src={play} />}
           url={videolink}
-          light={
-            imagelink
-              ? imagelink.sourceUrl
-              : videolink ? `https://img.youtube.com/vi/${this.youtube_parser(
-                  videolink
-                )}/hqdefault.jpg` : fallback
-          }
+          light={imagelink ? imagelink.sourceUrl : true}
           width="100%"
           height="100%"
           onPause={this.handlePause}

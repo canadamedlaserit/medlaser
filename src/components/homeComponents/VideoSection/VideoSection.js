@@ -11,6 +11,7 @@ export const fragment = graphql`
   fragment VideoSection on WPGraphQL_Page_Sectionfields_Sections_Fullsizevideo {
     title
     videolink
+    imageType
     image {
       sourceUrl
     }
@@ -30,21 +31,38 @@ class VideoSection extends React.Component {
     this.player = player
   }
 
-  // youtube_parser(url) {
-  //   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
-  //   var match = url.match(regExp)
-  //   return match && match[7].length === 11 ? match[7] : false
-  // }
+  youtube_parser(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+    var match = url.match(regExp)
+    return match && match[7].length === 11 ? match[7] : false
+  }
 
   render() {
-    const { title, videolink, image } = this.props
+    const { title, videolink, image, imageType } = this.props
+
+    const imageLink =
+      imageType === "fallback"
+        ? videoBg
+        : imageType === "uploaded" && image
+        ? image.sourceUrl
+        : imageType === "thumbnail"
+        ? `https://img.youtube.com/vi/${this.youtube_parser(
+            videolink
+          )}/hqdefault.jpg`
+        : imageType === "thumbnailMaxResolution"
+        ? `https://img.youtube.com/vi/${this.youtube_parser(
+            videolink
+          )}/maxresdefault.jpg`
+        : null
+
+  
 
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Col}`}>
-              {!this.state.started ? (
+              {!this.state.started && title ? (
                 <div
                   className={styles.Title}
                   dangerouslySetInnerHTML={{ __html: title }}
@@ -63,7 +81,8 @@ class VideoSection extends React.Component {
                     <img alt="play-icon" className={styles.Icon} src={play} />
                   }
                   url={videolink}
-                  light={image ? image.sourceUrl : videoBg}
+                  // light={image ? image.sourceUrl : videoBg}
+                  light={imageLink}
                   onReady={this.handleReady}
                   width="100%"
                   height="100%"

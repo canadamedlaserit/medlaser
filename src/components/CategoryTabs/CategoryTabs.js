@@ -79,15 +79,18 @@ class CategoryTabs extends Component {
                 <Col className={`${styles.Left} smallerSide2`} md={5}>
                   <div className={styles.InsideWrapper}>
                     <div className={styles.TextWrapper}>
-                      <div
-                        className={styles.Title}
-                        dangerouslySetInnerHTML={{ __html: title }}
-                      ></div>
-
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                      ></div>
+                      {title ? (
+                        <div
+                          className={styles.Title}
+                          dangerouslySetInnerHTML={{ __html: title }}
+                        ></div>
+                      ) : null}
+                      {content ? (
+                        <div
+                          className={`content ${styles.Content}`}
+                          dangerouslySetInnerHTML={{ __html: content }}
+                        ></div>
+                      ) : null}
                     </div>
 
                     <Nav
@@ -97,8 +100,10 @@ class CategoryTabs extends Component {
                       {list.map((item, index) => (
                         <Nav.Item key={index}>
                           <Nav.Link eventKey={index}>
-                            {item.title}
-
+                            <div
+                              className={styles.TabList__Link}
+                              dangerouslySetInnerHTML={{ __html: item.title }}
+                            ></div>
                             <svg
                               className="tabs-arrow"
                               xmlns="http://www.w3.org/2000/svg"
@@ -137,11 +142,18 @@ class CategoryTabs extends Component {
                           ""
                         )}
 
-                        <h3>{item.title}</h3>
-                        <div
-                          className="content"
-                          dangerouslySetInnerHTML={{ __html: item.content }}
-                        ></div>
+                        {title ? (
+                          <div
+                            className={styles.InnerTitle}
+                            dangerouslySetInnerHTML={{ __html: item.title }}
+                          ></div>
+                        ) : null}
+                        {content ? (
+                          <div
+                            className="content"
+                            dangerouslySetInnerHTML={{ __html: item.content }}
+                          ></div>
+                        ) : null}
                         {item.link ? (
                           <div className={styles.ButtonsWrapper}>
                             <Link
@@ -165,15 +177,18 @@ class CategoryTabs extends Component {
               <div
                 className={`${styles.TextWrapper} ${styles.TextWrapperMobile}`}
               >
-                <div
-                  className={styles.Title}
-                  dangerouslySetInnerHTML={{ __html: title }}
-                ></div>
-
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                ></div>
+                {title ? (
+                  <div
+                    className={styles.Title}
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  ></div>
+                ) : null}
+                {content ? (
+                  <div
+                    className={`content ${styles.Content}`}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                  ></div>
+                ) : null}
               </div>
               <Accordion
                 className="tabs-left-accordion"
@@ -195,7 +210,10 @@ class CategoryTabs extends Component {
                         as={Card.Header}
                         eventKey={index}
                       >
-                        <h3>{item.title}</h3>
+                        <div
+                          className={styles.InnerTitle}
+                          dangerouslySetInnerHTML={{ __html: item.title }}
+                        ></div>
 
                         <div className={styles.Arrow}>
                           <svg

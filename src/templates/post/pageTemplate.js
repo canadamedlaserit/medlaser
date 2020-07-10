@@ -78,8 +78,6 @@ const PageTempl = ({ data, location, pageContext }) => {
     <Layout location={location}>
        <SEO data={data.wpgraphql.page} /> 
 
-
-    {console.log(pageContext)}
        {sections.map((section, index) => {
         const typeName = section.__typename
 

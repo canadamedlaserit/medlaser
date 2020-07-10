@@ -34,7 +34,10 @@ const TextFullWidthListsButton = ({
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.TextSide} ${styles.Col}`}>
             <div className={styles.TextSideWrapper}>
-              <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
 
               <div
                 className={`content text ${styles.Content}`}

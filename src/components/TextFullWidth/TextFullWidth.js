@@ -49,14 +49,16 @@ const TextFullWidth = ({
                 ""
               )}
 
-              <div
-                style={{
-                  color: textcolor,
-                  marginTop: title && subtitle ? "60px" : "0px",
-                }}
-                className={`content text ${styles.Content}`}
-                dangerouslySetInnerHTML={{ __html: content }}
-              ></div>
+              {content ? (
+                <div
+                  style={{
+                    color: textcolor,
+                    marginTop: title && subtitle ? "60px" : "0px",
+                  }}
+                  className={`content text ${styles.Content}`}
+                  dangerouslySetInnerHTML={{ __html: content }}
+                ></div>
+              ) : null}
             </div>
           </div>
         </div>

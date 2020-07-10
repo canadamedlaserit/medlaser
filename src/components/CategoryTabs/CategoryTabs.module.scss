@@ -1,7 +1,6 @@
 @import "../../styles/_variables";
 
 .Section {
-
   .Title {
     h1,
     h2,
@@ -21,8 +20,28 @@
     }
   }
 
+  .InnerTitle {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      font-family: "Playfair Display", serif !important;
+      font-size: 28px !important;
+      line-height: 40px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: left !important;
+      margin-bottom: 50px !important;
+      margin-top: 50px !important;
+    }
+  }
 
-
+  .Content {
+    margin-bottom: 40px;
+  }
 
   ul {
     padding-left: 20px;
@@ -55,10 +74,7 @@
       padding-top: 100px;
       padding-bottom: 100px;
 
-      h3 {
-        text-align: left;
-        margin-bottom: 50px;
-      }
+ 
 
       .TextWrapper {
         max-width: 450px;
@@ -67,15 +83,11 @@
   }
 
   .TabList {
-    margin-top: 40px;
-
     a {
       background-color: $white !important;
-      color: $black;
-      text-align: left;
-      font-size: 22px;
-      line-height: 28px !important;
-      font-weight: 400;
+      color: $black !important;
+      text-align: left !important;
+
       letter-spacing: 0px;
       padding: 15px 40px 15px 20px;
       border-top: 2px solid #e8e8e8;
@@ -85,6 +97,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 22px !important;
+        line-height: 28px !important;
+        font-weight: 400 !important;
+        margin-bottom: 0px;
+      }
     }
 
     > div {
@@ -98,13 +123,6 @@
 
   .TabPane {
     padding: 50px;
-
-    h3 {
-      font-size: 28px;
-      text-align: left;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
   }
 
   .ButtonsWrapper {
@@ -132,14 +150,6 @@
     border-radius: 0;
     border: none;
     background-color: $white;
-
-    h3 {
-      font-size: 20px;
-      line-height: 26px;
-      text-align: left;
-      letter-spacing: 0px;
-      margin-bottom: 0px;
-    }
   }
 
   .Arrow {
@@ -193,7 +203,6 @@
 
 @media (max-width: 1200px) {
   .Section {
-
     .Title {
       h1,
       h2,
@@ -209,6 +218,19 @@
       }
     }
 
+    .InnerTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 23px !important;
+        margin-bottom: 40px !important;
+        margin-top: 40px !important;
+      }
+    }
 
     .TabList {
       a {
@@ -219,13 +241,6 @@
 
     .TabPane {
       padding: 50px 30px;
-
-      h3 {
-        font-size: 23px;
-        text-align: left;
-        margin-top: 40px;
-        margin-bottom: 40px;
-      }
     }
 
     .TextWrapper {
@@ -245,7 +260,27 @@
 @media (max-width: 767px) {
   .Section {
     .AccordionWrapper {
+      padding-top: 0px;
+    }
+    .TextWrapper {
       padding-top: 46px;
+    }
+
+    .InnerTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 20px !important;
+        line-height: 26px !important;
+        text-align: left !important;
+        letter-spacing: 0px !important;
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+      }
     }
   }
 }

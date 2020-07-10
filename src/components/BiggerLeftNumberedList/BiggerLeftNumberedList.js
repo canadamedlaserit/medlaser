@@ -53,7 +53,10 @@ const BiggerLeftNumberedList = ({
         {title ? (
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12`}>
-              <h3>{title}</h3>
+              <div
+                className={`${styles.Title} `}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
             </div>
           </div>
         ) : (
@@ -65,10 +68,17 @@ const BiggerLeftNumberedList = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              {subtitle ? <h5>{subtitle}</h5> : ""}
+              {subtitle ? (
+                <div
+                  className={`${styles.Subtitle} `}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               <div
-                className="content text"
+                className={`content text`}
                 dangerouslySetInnerHTML={{ __html: content }}
               ></div>
             </div>
