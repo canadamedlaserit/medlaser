@@ -85,6 +85,33 @@ strong {
   font-weight: 600;
 }
 
+// heading, quite bigger then regular banner paragraph. mainly on inner banner.
+.heading-medium {
+  line-height: 1.7 !important;
+  font-size: 28px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 40px !important;
+
+  @media (max-width: 767px) {
+    font-size: 24px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+//
+.heading-big {
+  line-height: 1.7 !important;
+  font-size: 46px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 40px !important;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 32px !important;
+    line-height: 1.4 !important;
+  }
+}
+
 // off price mainly on inner banner.
 .off {
   font-size: 30px;

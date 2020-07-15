@@ -1,0 +1,36 @@
+@import "../../styles/_variables";
+
+.Section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .Container {
+    max-width: 1400px;
+  }
+
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", serif !important;
+      font-size: 32px !important;
+      line-height: 43px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      text-transform: none !important;
+    }
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    .ImgWrapper {
+      margin-bottom: 20px;
+    }
+  }
+}

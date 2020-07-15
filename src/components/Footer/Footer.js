@@ -32,7 +32,7 @@ class Footer extends Component {
                 const submenu = node.childItems.edges
                 return (
                   <div className={`col-md-3 ${styles.DesktopMenu}`} key={index}>
-                    <h2>{node.label}</h2>
+                    {node.url ?(<h2><Link style={{color: '#ffffff'}} to={node.url}>{node.label}</Link></h2>) : (<h2>{node.label}</h2>)}
                     <ul>
                       {submenu.map(({ node }, index) => (
                         <li key={index}>

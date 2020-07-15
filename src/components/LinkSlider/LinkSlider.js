@@ -94,25 +94,30 @@ const LinkSlider = ({ slides }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 link-swiper ${styles.SwiperSide}`}>
             <Swiper {...params}>
-              {slidesData ? slidesData.map((slide, index) => (
-                <div className={styles.SwiperSlide} key={index}>
-                  {slide.image ? (
-                    <Img
-                      className={styles.Gimg}
-                      alt={slide.image.altText}
-                      fluid={slide.image.imageFile.childImageSharp.fluid}
-                    />
-                  ) : (
-                    ""
-                  )}
+              {slidesData
+                ? slidesData.map((slide, index) => (
+                    <div className={styles.SwiperSlide} key={index}>
+                      {slide.image ? (
+                        <Img
+                          className={styles.Gimg}
+                          alt={slide.image.altText}
+                          fluid={slide.image.imageFile.childImageSharp.fluid}
+                        />
+                      ) : (
+                        ""
+                      )}
 
-                  <div className={styles.ContentWrapper}>
-                    <Link className={`${styles.OverflowLink}`} to={slide.link}>
-                      <h2> {slide.title}</h2>
-                    </Link>
-                  </div>
-                </div>
-              )) : ''}
+                      <div className={styles.ContentWrapper}>
+                        <h2>{slide.title}</h2>
+
+                        <Link
+                          className={`${styles.OverflowLink}`}
+                          to={slide.link}
+                        ></Link>
+                      </div>
+                    </div>
+                  ))
+                : ""}
             </Swiper>
           </div>
         </div>

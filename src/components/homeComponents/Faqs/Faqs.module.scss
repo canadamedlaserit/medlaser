@@ -31,6 +31,11 @@
   }
 }
 
+.AccordionList {
+  list-style: none;
+  padding-left: 0;
+}
+
 .TwoColumnsSection {
   max-width: 1780px;
   margin: auto;
@@ -68,12 +73,20 @@
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
 
-    h3 {
-      font-weight: bold;
-      font-size: 24px;
-      text-align: left;
-      line-height: 1;
-      margin-bottom: 0;
+    .ToggleTitle {
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        font-family: "Playfair Display", serif !important;
+        font-weight: 700;
+        font-size: 24px;
+        text-align: left;
+        line-height: 1;
+        margin-bottom: 0;
+        text-transform: none;
+      }
     }
   }
 
@@ -130,7 +143,6 @@
   }
 
   .Section {
-   
     .Header {
       font-size: 22px !important;
       // padding-top: 12px;
@@ -189,9 +201,14 @@
       padding-top: 0.8rem;
       padding-bottom: 0.8rem;
 
-      h3 {
-        font-size: 18px !important;
-
+      .ToggleTitle {
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+          font-size: 18px !important;
+        }
       }
     }
   }

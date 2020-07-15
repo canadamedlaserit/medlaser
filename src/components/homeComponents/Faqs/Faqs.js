@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Accordion, Card } from "react-bootstrap"
 
+
 import styles from "./Faqs.module.scss"
 
 export const fragment = graphql`
@@ -84,48 +85,51 @@ class Faqs extends Component {
             >
               <div className={styles.AccordionWrapper}>
                 <Accordion defaultActiveKey={this.state.activeAccordion}>
-                  {list.map((single, index) => (
-                    <div className={styles.Question} key={index}>
-                      <Card className={styles.Card}>
-                        <Accordion.Toggle
-                          onClick={e => {
-                            this.handleAccordion(index)
-                          }}
-                          className={`${
-                            this.state.activeAccordion === index &&
-                            this.state.toggled === true
-                              ? `${styles.Active}`
-                              : ""
-                          } ${styles.Header}`}
-                          as={Card.Header}
-                          eventKey={index}
-                        >
-                          <div className={styles.Arrow}>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="8"
-                              height="18"
-                              viewBox="0 0 8 18"
-                            >
-                              <defs></defs>
-                              <path
-                                d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
-                                transform="translate(-128.003)"
-                              />
-                            </svg>
-                          </div>
-                          <h3>{single.title}</h3>
-                        </Accordion.Toggle>
+                  <ul className={styles.AccordionList}>
+                    {list.map((single, index) => (
+                      <li className={styles.Question} key={index}>
+                        <Card className={styles.Card}>
+                          <Accordion.Toggle
+                            onClick={e => {
+                              this.handleAccordion(index)
+                            }}
+                            className={`${
+                              this.state.activeAccordion === index &&
+                              this.state.toggled === true
+                                ? `${styles.Active}`
+                                : ""
+                            } ${styles.Header}`}
+                            as={Card.Header}
+                            eventKey={index}
+                          >
+                            <div className={styles.Arrow}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="8"
+                                height="18"
+                                viewBox="0 0 8 18"
+                              >
+                                <defs></defs>
+                                <path
+                                  d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
+                                  transform="translate(-128.003)"
+                                />
+                              </svg>
+                            </div>
+                            <div className={styles.ToggleTitle} dangerouslySetInnerHTML={{__html: single.title}}></div>
 
-                        <Accordion.Collapse eventKey={index}>
-                          <Card.Body
-                            className={styles.Body}
-                            dangerouslySetInnerHTML={{ __html: single.text }}
-                          ></Card.Body>
-                        </Accordion.Collapse>
-                      </Card>
-                    </div>
-                  ))}
+                          </Accordion.Toggle>
+
+                          <Accordion.Collapse eventKey={index}>
+                            <Card.Body
+                              className={styles.Body}
+                              dangerouslySetInnerHTML={{ __html: single.text }}
+                            ></Card.Body>
+                          </Accordion.Collapse>
+                        </Card>
+                      </li>
+                    ))}
+                  </ul>
                 </Accordion>
               </div>
             </div>
@@ -180,7 +184,7 @@ class Faqs extends Component {
                                 />
                               </svg>
                             </div>
-                            <h3>{single.title}</h3>
+                            <div className={styles.ToggleTitle} dangerouslySetInnerHTML={{__html: single.title}}></div>
                           </Accordion.Toggle>
 
                           <Accordion.Collapse eventKey={index}>

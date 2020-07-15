@@ -1,7 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import Img from "gatsby-image"
+import useResizer from "../resizer"
 
 import styles from "./InnerHero-new.module.scss"
 
@@ -28,121 +29,120 @@ export const fragment = graphql`
   }
 `
 
-class InnerHero extends Component {
-  render() {
-    const {
-      title,
-      subtitle,
-      text,
-      btntext1,
-      btntext2,
-      btnlink1,
-      btnlink2,
-      backgroundimage,
-    } = this.props
+const InnerHero = ({
+  title,
+  subtitle,
+  text,
+  btntext1,
+  btntext2,
+  btnlink1,
+  btnlink2,
+  backgroundimage,
+}) => {
+  const isMobile = useResizer() //returns Boolean based on window width-> resizer.js
 
-    return (
-      <section className={styles.Section}>
-        <div className={`container-fluid ${styles.Container}`}>
-          <div className={`row ${styles.RowTop}`}>
-            <div className={`col-md-6 ${styles.ImgCol}`}>
-              {backgroundimage ? (
-                <Img
-                  alt={backgroundimage.altText}
-                  className={`gatsby-image-background`}
-                  fluid={backgroundimage.imageFile.childImageSharp.fluid}
-                />
-              ) : (
-                ""
-              )}
+  console.log(isMobile)
 
+  return (
+    <section className={styles.Section}>
+      <div className={`container-fluid ${styles.Container}`}>
+        <div className={`row ${styles.RowTop}`}>
+          <div className={`col-md-6 ${styles.ImgCol}`}>
+            {backgroundimage ? (
+              <Img
+                alt={backgroundimage.altText}
+                className={`gatsby-image-background`}
+                fluid={backgroundimage.imageFile.childImageSharp.fluid}
+              />
+            ) : (
+              ""
+            )}
+
+            <div className={styles.Overlay}></div>
+
+            {isMobile ? <div className={`${styles.Hatch} `}></div> : null}
+
+            {isMobile ? (
               <div
                 className={`${styles.Title} ${styles.TitleMobile}`}
                 dangerouslySetInnerHTML={{ __html: title }}
               ></div>
+            ) : (
+              ""
+            )}
+          </div>
 
-              <div className={styles.Overlay}></div>
-
-              <div className={`${styles.Hatch} ${styles.HatchMobile}`}></div>
-            </div>
-
-            <div className={`col-md-6 ${styles.TextCol}`}>
-              <div className={styles.innerWrapper}>
-                <div style={{width: '100%'}}>
+          <div className={`col-md-6 ${styles.TextCol}`}>
+            <div className={styles.innerWrapper}>
+              <div style={{ width: "100%" }}>
+                {/* issue title rendering  */}
+                <div>
+                {!isMobile ? (
                   <div
                     className={`${styles.Title} ${styles.TitleDesktop}`}
                     dangerouslySetInnerHTML={{ __html: title }}
                   ></div>
-
-                  {text ? (
-                    <div
-                      className={styles.Text}
-                      dangerouslySetInnerHTML={{ __html: text }}
-                    ></div>
-                  ) : null}
-
-                  <div className={styles.ButtonsWrapper}>
-                    {btntext1 ? (
-                      <AnchorLink to={btnlink1} className="btn btn-mid btn-red">
-                        {btntext1}
-                      </AnchorLink>
-                    ) : null}
-
-                    {btntext2 ? (
-                      <AnchorLink
-                        to={btnlink2}
-                        className={`btn btn-mid btn-white-transparent ${styles.BtnBlackTransparent_Mobile}`}
-                      >
-                        {btntext2}
-                      </AnchorLink>
-                    ) : null}
-                  </div>
+                ) : null}
                 </div>
-              </div>
-            </div>
-            <div className={`${styles.Hatch} ${styles.HatchDesktop}`}></div>
-          </div>
-        </div>
+             
 
-        {/* {subtitle ? (
-            <div className={`row ${styles.RowBot}`}>
-              <div className={`col-md-12 ${styles.TextCol}`}>
-                <div
-                  className={styles.SubTitle}
-                  dangerouslySetInnerHTML={{ __html: subtitle }}
-                ></div>
-
-                {btntext1 ? (
-                  <>
-                    <div
-                      className={styles.TextItalic}
-                      dangerouslySetInnerHTML={{ __html: text }}
-                    ></div>
-                    <div className={styles.buttonsWrapper}>
-                      <AnchorLink to={btnlink1} className="btn btn-red">
-                        {btntext1}
-                      </AnchorLink>
-                      <AnchorLink
-                        to={btnlink2}
-                        className="btn btn-black-transparent"
-                      >
-                        {btntext2}
-                      </AnchorLink>
-                    </div>
-                  </>
-                ) : (
+                {text ? (
                   <div
                     className={styles.Text}
                     dangerouslySetInnerHTML={{ __html: text }}
                   ></div>
-                )}
+                ) : null}
+
+                <div className={styles.ButtonsWrapper}>
+                  {btntext1 ? (
+                    <AnchorLink to={btnlink1} className="btn btn-mid btn-red">
+                      {btntext1}
+                    </AnchorLink>
+                  ) : null}
+
+                  {btntext2 ? (
+                    <AnchorLink
+                      to={btnlink2}
+                      className={`btn btn-mid btn-white-transparent ${styles.BtnBlackTransparent_Mobile}`}
+                    >
+                      {btntext2}
+                    </AnchorLink>
+                  ) : null}
+                </div>
+
+              
               </div>
             </div>
-          ) : (
-            ""
-          )} */}
-      </section>
-    )
-  }
+          </div>
+
+          {!isMobile ? <div className={`${styles.Hatch} `}></div> : null}
+        </div>
+      </div>
+    </section>
+  )
 }
 export default InnerHero
+
+// constructor(props) {
+//   super(props)
+//   this.state = {
+//     currentSlide: 1,
+
+//     windowWidth: 0,
+//   }
+// }
+
+// componentDidMount() {
+//   this.updateWindowDimensions()
+//   window.addEventListener("resize", this.updateWindowDimensions)
+// }
+
+// updateWindowDimensions = () => {
+//   this.setState({
+//     windowWidth: window.innerWidth,
+//   })
+// }
+
+// componentWillUnmount() {
+//   window.removeEventListener("resize", this.updateWindowDimensions)
+// }

@@ -107,12 +107,6 @@ module.exports = {
               fontDisplay: "swap",
               strategy: "selfHosted", // 'base64' || 'cdn'
             },
-            // {
-            //   family: "Open Sans",
-            //   variants: ["400", "600", "800"],
-            //   fontDisplay: 'swap',
-            //   strategy: 'selfHosted'
-            // },
             {
               family: "Roboto",
               variants: ["400", "500", "700"],

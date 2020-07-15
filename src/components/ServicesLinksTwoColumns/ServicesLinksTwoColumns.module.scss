@@ -5,30 +5,23 @@
   background: linear-gradient(90deg, $black 50%, $grey-mid 50%);
   overflow: hidden;
 
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
   .Title {
     h1,
     h2,
-    h2 a,
     h3,
     h4,
     h5,
-    h6,
-    p {
+    h6 {
       font-family: "Playfair Display", serif !important;
       font-size: 32px !important;
       line-height: 43px !important;
       font-weight: 700 !important;
       letter-spacing: 0 !important;
-      // text-align: left !important;
+      text-align: left !important;
       margin-bottom: 50px !important;
       text-transform: none !important;
     }
+    margin-bottom: 20px;
   }
 
   ul {
@@ -69,38 +62,6 @@
     }
   }
 
-  .Hatch {
-    width: 100%;
-    height: 56px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-    margin: auto;
-    transform: rotate(90deg);
-    z-index: 3;
-    opacity: 0.44;
-    background-image: linear-gradient(
-      135deg,
-      #ffffff 5.56%,
-      transparent 5.56%,
-      transparent 50%,
-      #ffffff 50%,
-      #ffffff 55.56%,
-      transparent 55.56%,
-      transparent 100%
-    );
-    background-size: 12.73px 12.73px;
-  }
-
-  .Hatch2 {
-    display: none;
-    bottom: auto;
-    top: -28px;
-    transform: none;
-  }
-
   a {
     font-size: 22px;
     line-height: 35px;
@@ -110,6 +71,31 @@
     font-family: "Playfair Display", sans-serif;
     font-weight: 700;
   }
+
+  .ListContent {
+    display: grid;
+    grid-template-columns: 170px 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "image heading heading"
+      "image ph ph"
+      "image ph ph";
+      margin-bottom: 20px;
+
+    h5:first-child {
+      //   float: left;
+      grid-area: image;
+      margin-right: 20px;
+      display: block;
+    }
+
+    h5:nth-child(2) {
+      grid-area: heading;
+    }
+    p {
+      grid-area: ph;
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -117,20 +103,23 @@
     position: relative;
     background: unset;
 
-    a {
-      font-size: 20px;
-      line-height: 28px;
+    .ListContent {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        h5 {
+            margin-right: 0 !important;
+        }
     }
 
     .Title {
       h1,
       h2,
-      h2 a,
       h3,
       h4,
       h5,
-      h6,
-      p {
+      h6 {
         font-size: 24px !important;
         line-height: 36px !important;
         margin-bottom: 40px !important;
@@ -143,12 +132,10 @@
       .Title {
         h1,
         h2,
-        h2 a,
         h3,
         h4,
         h5,
-        h6,
-        p {
+        h6 {
           text-align: center !important;
         }
       }

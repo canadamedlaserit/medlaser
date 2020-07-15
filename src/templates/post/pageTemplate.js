@@ -70,15 +70,18 @@ import ThankYouHero from "../../components/ThankYouHero/ThankYouHero"
 import SpecialTXT from "../../components/SpecialTXT/SpecialTXT"
 import Newsletter from "../../components/Newsletter/Newsletter"
 import SpecialCard from "../../components/SpecialCard/SpecialCard"
+import FaqsTabs from "../../components/homeComponents/Faqs/FaqsTabs"
+import ServicesLinksTwoColumns from "../../components/ServicesLinksTwoColumns/ServicesLinksTwoColumns"
+import BeforeAfterMultipleImages from "../../components/BeforeAfterMultipleImages/BeforeAfterMultipleImages"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
     <Layout location={location}>
-       <SEO data={data.wpgraphql.page} /> 
+      <SEO data={data.wpgraphql.page} />
 
-       {sections.map((section, index) => {
+      {sections.map((section, index) => {
         const typeName = section.__typename
 
         switch (typeName) {
@@ -283,10 +286,19 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_SpecialCard":
             return <SpecialCard location={location} key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_Faqstabs":
+            return <FaqsTabs key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Serviceslinkstwocolumns":
+            return <ServicesLinksTwoColumns key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfterMultipleImages":
+            return <BeforeAfterMultipleImages key={index} {...section} />
+
           default:
             return ""
         }
-      })} 
+      })}
     </Layout>
   )
 }
@@ -396,6 +408,9 @@ export const pageQuery = graphql`
             ...SpecialTxtSection
             ...NewsletterSection
             ...SpecialCardSection
+            ...FaqsTabsSection
+            ...ServicesLinksTwoColumnsSection
+            ...BeforeAfterMultipleImagesSection
           }
         }
       }

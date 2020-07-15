@@ -142,13 +142,13 @@ class CategoryTabs extends Component {
                           ""
                         )}
 
-                        {title ? (
+                        {item.title ? (
                           <div
                             className={styles.InnerTitle}
                             dangerouslySetInnerHTML={{ __html: item.title }}
                           ></div>
                         ) : null}
-                        {content ? (
+                        {item.content ? (
                           <div
                             className="content"
                             dangerouslySetInnerHTML={{ __html: item.content }}
@@ -160,7 +160,7 @@ class CategoryTabs extends Component {
                               to={item.link}
                               className="btn btn-black-transparent"
                             >
-                              Learn More
+                              Read More
                             </Link>
                           </div>
                         ) : (
