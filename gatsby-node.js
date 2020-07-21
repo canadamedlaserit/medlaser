@@ -37,13 +37,13 @@ exports.createResolvers = async ({
   })
 }
 
-// const createPosts = require("./create/createPosts")
-// exports.createPagesStatefully = async (
-//   { graphql, actions, reporter },
-//   options
-// ) => {
-//   await createPosts({ actions, graphql, reporter }, options)
-// }
+const createPosts = require("./create/createPosts")
+exports.createPagesStatefully = async (
+  { graphql, actions, reporter },
+  options
+) => {
+  await createPosts({ actions, graphql, reporter }, options)
+}
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -126,6 +126,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   featuredImage {
                     sourceUrl
                     altText
+                    imageFile {
+                      childImageSharp {
+                        fluid(maxHeight: 500, maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                          tracedSVG
+                          aspectRatio
+                          src
+                          srcSet
+                          sizes
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -165,6 +176,17 @@ module.exports.createPages = async ({ graphql, actions }) => {
                   featuredImage {
                     sourceUrl
                     altText
+                    imageFile {
+                      childImageSharp {
+                        fluid(maxHeight: 500, maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                          tracedSVG
+                          aspectRatio
+                          src
+                          srcSet
+                          sizes
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -175,8 +197,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  /*
-
+ 
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -302,51 +323,69 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   })
-*/
-   
+
 
   // debug only home pages
-  query.data.wpgraphql.pages.edges.forEach(edge => {
-    if (
-      edge.node.uri === "/" ||
-      edge.node.uri === "laser-hair-removal/" ||
-      edge.node.uri === "laser-hair-removal-woman/" ||
-      edge.node.uri === "laser-hair-removal-men/" ||
-      edge.node.uri === "coolsculpting-toronto/" ||
-      edge.node.uri === "coolsculpting-body/" ||
-      edge.node.uri === "double-chin/" ||
-      edge.node.uri === "cosmetic-injections/" ||
-      edge.node.uri === "botox/" ||
-      edge.node.uri === "dysport/" ||
-      edge.node.uri === "wrinkle-reduction/" ||
-      edge.node.uri === "dermal-fillers/" ||
-      edge.node.uri === "lip-injections-toronto/" ||
-      edge.node.uri === "dark-circles/" ||
-      edge.node.uri === "face-sculpting/" ||
-      edge.node.uri === "more-treatments/" ||
-      edge.node.uri === "hair-growth/" ||
-      edge.node.uri === "nail-fungus-treatment/" ||
-      edge.node.uri === "anti-aging/" ||
-      edge.node.uri === "microblading/" ||
-      edge.node.uri === "permanent-makeup/" ||
-      edge.node.uri === "skin-procedures/" ||
-      edge.node.uri === "skin-concerns/" ||
-      edge.node.uri === "skin-treatments/" ||
-      edge.node.uri === "acne-treatment/" ||
-      edge.node.uri === "acne-scar-removal/" ||
-      edge.node.uri === "enlarged-pores/" ||
-      edge.node.uri === "fine-lines-and-wrinkles/" ||
-      edge.node.uri === "cellulite-treatment-toronto/" ||
-      edge.node.uri === "laser-vein-removal/" 
-    ) {
-      createPage({
-        component: pageFilter,
-        path: edge.node.uri,
-        context: {
-          id: edge.node.id,
-        },
-      })
-    } else {
-    }
-  })
+  // query.data.wpgraphql.pages.edges.forEach(edge => {
+  //   if (
+  //     edge.node.uri === "/" ||
+  //     edge.node.uri === "laser-hair-removal/" ||
+  //     edge.node.uri === "laser-hair-removal-woman/" ||
+  //     edge.node.uri === "laser-hair-removal-men/" ||
+  //     edge.node.uri === "coolsculpting-toronto/" ||
+  //     edge.node.uri === "coolsculpting-body/" ||
+  //     edge.node.uri === "double-chin/" ||
+  //     edge.node.uri === "cosmetic-injections/" ||
+  //     edge.node.uri === "botox/" ||
+  //     edge.node.uri === "dysport/" ||
+  //     edge.node.uri === "wrinkle-reduction/" ||
+  //     edge.node.uri === "dermal-fillers/" ||
+  //     edge.node.uri === "lip-injections-toronto/" ||
+  //     edge.node.uri === "dark-circles/" ||
+  //     edge.node.uri === "face-sculpting/" ||
+  //     edge.node.uri === "more-treatments/" ||
+  //     edge.node.uri === "hair-growth/" ||
+  //     edge.node.uri === "nail-fungus-treatment/" ||
+  //     edge.node.uri === "anti-aging/" ||
+  //     edge.node.uri === "microblading/" ||
+  //     edge.node.uri === "permanent-makeup/" ||
+  //     edge.node.uri === "skin-procedures/" ||
+  //     edge.node.uri === "skin-concerns/" ||
+  //     edge.node.uri === "skin-treatments/" ||
+  //     edge.node.uri === "acne-treatment/" ||
+  //     edge.node.uri === "acne-scar-removal/" ||
+  //     edge.node.uri === "enlarged-pores/" ||
+  //     edge.node.uri === "fine-lines-and-wrinkles/" ||
+  //     edge.node.uri === "cellulite-treatment-toronto/" ||
+  //     edge.node.uri === "laser-vein-removal/" ||
+  //     edge.node.uri === "melasma/" ||
+  //     edge.node.uri === "pigmentation/" ||
+  //     edge.node.uri === "redness-and-rosacea/" ||
+  //     edge.node.uri === "dry-skin/" ||
+  //     edge.node.uri === "microneedling/" ||
+  //     edge.node.uri === "chemical-peel-treatment/" ||
+  //     edge.node.uri === "laser-skin-tightening/" ||
+  //     edge.node.uri === "skin-rejuvenation/" ||
+  //     edge.node.uri === "prp-face-lift/" ||
+  //     edge.node.uri === "aquapure-facial/" ||
+  //     edge.node.uri === "microdermabrasion-toronto/" ||
+  //     edge.node.uri === "laser-skin-treatments/" ||
+  //     edge.node.uri === "about-cml/" ||
+  //     edge.node.uri === "our-team/" ||
+  //     edge.node.uri === "community/" ||
+  //     edge.node.uri === "before-after/" ||
+  //     edge.node.uri === "franchise/" ||
+  //     edge.node.uri === "contact-us/" ||
+  //     edge.node.uri === "specials/"
+  //   ) {
+  //     createPage({
+  //       component: pageFilter,
+  //       path: edge.node.uri,
+  //       context: {
+  //         id: edge.node.id,
+  //       },
+  //     })
+  //   } else {
+  //   }
+  // })
 }

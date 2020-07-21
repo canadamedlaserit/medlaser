@@ -4,8 +4,10 @@
   padding-top: 100px;
   padding-bottom: 120px;
 
-  h3 {
+  h2 {
     margin-bottom: 60px;
+    font-size: 32px !important;
+    line-height: 40px;
   }
 
   .TabsCol {
@@ -64,15 +66,19 @@
       margin-left: 0;
     }
 
-    h3 {
+    .STitle {
       letter-spacing: 0px;
       color: #ffffff;
       text-transform: capitalize;
       text-align: left;
       margin-bottom: 40px;
+      font-size: 32px;
+      line-height: 40px;
+      font-family: "Playfair Display", sans-serif;
+      font-weight: 700;
     }
 
-    h4 {
+    .CategoryName {
       font-size: 18px;
       font-family: "Open Sans", sans-serif;
       text-align: left;
@@ -169,12 +175,12 @@
       .TextSide {
         padding: 35px;
 
-        h3 {
+        .STitle {
           font-size: 22px;
           margin-bottom: 15px;
         }
 
-        h4 {
+        .CategoryName {
           font-size: 18px;
           margin-bottom: 10px;
         }
@@ -214,13 +220,13 @@
       .TextSide {
         padding: 18px;
 
-        h3 {
+        .STitle {
           font-size: 20px;
           margin-bottom: 15px;
           line-height: 1.2;
         }
 
-        h4 {
+        .CategoryName {
           font-size: 16px;
           margin-bottom: 10px;
         }
@@ -261,7 +267,7 @@
 
 @media (max-width: 767px) {
   .Section {
-    padding-top: 80px;
+    padding-top: 0;
     padding-bottom: 80px;
 
     .Tabs {
@@ -302,7 +308,7 @@
         align-items: center;
       }
 
-      h3 {
+      .STitle {
         font-size: 24px;
         letter-spacing: 0px;
         text-transform: capitalize;
@@ -310,7 +316,7 @@
         margin-bottom: 30px !important;
       }
 
-      h4 {
+      .CategoryName {
         font-size: 12px !important;
         line-height: 1.2;
         margin-bottom: 20px !important;

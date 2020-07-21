@@ -172,11 +172,8 @@ class HalfImageRedBtn extends Component {
                   ""
                 )}
               </div>
-              {imagecontent || imagecontentlight ? (
                 <div className={` ${styles.Overlay}`}></div>
-              ) : (
-                ""
-              )}
+            
               <div className={`${styles.Hatch2} ${styles.Hatch}`}></div>
             </div>
           </Row>

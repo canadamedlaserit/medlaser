@@ -39,7 +39,7 @@ const CategoryPageHero = ({ pageName, image, slug }) => {
             )}
 
             <div className={styles.innerWrapper}>
-            <div>{slug ? slug : "category"}</div>
+            <div>Category</div>
               <h1>{pageName}</h1>
             </div>
             <div className={styles.Overlay}></div>

@@ -46,12 +46,12 @@ const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
             <div className={styles.Overlay}></div>
             <div
               className={`${
-                hidestripondevice & (hidestripondevice === "desktop")
+                hidestripondevice === "desktop"
                   ? styles.HideDesktop
                   : hidestripondevice === "mobile"
                   ? styles.HideMobile
                   : ""
-              } ${styles.Hatch}`}
+              }${styles.Hatch}`}
             ></div>
           </div>
         </div>

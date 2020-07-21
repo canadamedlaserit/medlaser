@@ -47,7 +47,7 @@ const Post = ({ pageContext, location, data }) => {
               </div>
             </div>
 
-            <h1> {title} </h1>
+            <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
           </div>
 
           <div className={styles.Overlay}></div>

@@ -18,7 +18,10 @@ const EqualWithBlackHeader = ({ title, leftcontent, rightcontent }) => {
         <div className={`row ${styles.Row} `}>
           <div className={`col-md-12 ${styles.Col} ${styles.Header}`}>
             <div className={styles.TextWrapper}>
-              <h3>{title}</h3>
+              <div
+                className={styles.Title}
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></div>
             </div>
           </div>
 

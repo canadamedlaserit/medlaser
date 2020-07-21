@@ -2,13 +2,13 @@
   padding-top: 78px;
   padding-bottom: 50px;
 
-  h3 {
+  h1 {
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 0px;
     color: #000000;
     text-transform: capitalize;
-    margin-bottom: 69px;
+    margin-bottom: 35px;
   }
 
   .buttonsWrapper {
@@ -24,7 +24,7 @@
 
 @media (max-width: 767px) {
   .Section {
-    h3 {
+    h1 {
       font-size: 24px;
       line-height: 36px;
       text-align: center;

@@ -20,7 +20,7 @@ const InquireButtonsBlock = ({ title, btntext1, btntext2, link1, link2 }) => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row`}>
           <div className="col-md-12">
-            <h3>{title}</h3>
+            <h1>{title}</h1>
 
             <div className={styles.buttonsWrapper}>
               <AnchorLink to={link1} className="btn btn-red">

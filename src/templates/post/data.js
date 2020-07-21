@@ -10,7 +10,14 @@ const PostTemplateFragment = `
     featuredImage {
       sourceUrl
       altText
-    }
+      imageFile {
+          childImageSharp {
+              fluid(maxHeight: 490, maxWidth: 600, quality: 90, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+              }
+          }
+      }
+  }
     categories {
       nodes {
         name
@@ -31,8 +38,6 @@ const PostTemplateFragment = `
     }
   }
 `
-
-
 
 const BlogPreviewFragment = `
   fragment BlogPreviewFragment on WPGraphQL_Post {
@@ -56,8 +61,14 @@ const BlogPreviewFragment = `
     featuredImage {
       sourceUrl
       altText
-      srcSet(size: MEDIUM)
-    }
+      imageFile {
+          childImageSharp {
+              fluid(maxHeight: 490, maxWidth: 600, quality: 90, cropFocus: CENTER) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+              }
+          }
+      }
+  }
     author {
       name
       slug

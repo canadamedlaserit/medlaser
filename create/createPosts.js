@@ -2,6 +2,7 @@ const {
     PostTemplateFragment,
     BlogPreviewFragment,
   } = require("../src/templates/post/data.js")
+const { FluidImageFragment } = require("../src/templates/fragments")
   
   const { blogURI } = require("../globals")
   
@@ -13,7 +14,7 @@ const {
       # Here we make use of the imported fragments which are referenced above
       ${PostTemplateFragment}
       ${BlogPreviewFragment}
-  
+      ${FluidImageFragment}
       query GET_POSTS($first:Int $after:String) {
           wpgraphql {
               posts(

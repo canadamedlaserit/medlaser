@@ -7,13 +7,11 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import styles from "./OurSpecialsTabs.module.scss"
 
-
 export const fragment = graphql`
   fragment OurSpecialsTabsSection on WPGraphQL_Page_Sectionfields_Sections_Beforeaftertabs {
     fieldGroupName
   }
 `
-
 
 const OurSpecialsTabs = () => {
   const data = useStaticQuery(graphql`
@@ -66,7 +64,7 @@ const OurSpecialsTabs = () => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row`}>
           <div className="col-md-12">
-            <h3>Our Specials</h3>
+            <h2>Our Specials</h2>
           </div>
           <div className={`col-md-12 ${styles.TabsCol}`}>
             <div className={styles.TabsWrap}>
@@ -114,10 +112,12 @@ const OurSpecialsTabs = () => {
                                 <div className={styles.TextSide}>
                                   <div className={styles.TextSideWrapper}>
                                     <div className={styles.TextWrapper}>
-                                      <h4>
+                                      <p className={styles.CategoryName}>
                                         {special.specialsFields.categoryName}
-                                      </h4>
-                                      <h3>{special.specialsFields.title}</h3>
+                                      </p>
+                                      <p className={styles.STitle}>
+                                        {special.specialsFields.title}
+                                      </p>
                                       <div
                                         className={styles.Text}
                                         dangerouslySetInnerHTML={{
@@ -135,13 +135,14 @@ const OurSpecialsTabs = () => {
                                       </AnchorLink>
                                     </div>
                                   </div>
-
-                                  <div
-                                    dangerouslySetInnerHTML={{
-                                      __html: special.specialsFields.price,
-                                    }}
-                                    className={styles.Circle}
-                                  ></div>
+                                  {special.specialsFields.price ? (
+                                    <div
+                                      dangerouslySetInnerHTML={{
+                                        __html: special.specialsFields.price,
+                                      }}
+                                      className={styles.Circle}
+                                    ></div>
+                                  ) : null}
                                 </div>
                               </div>
                             )

@@ -31,6 +31,7 @@
         display: block;
         color: #000000;
         transition: 0.3s;
+        max-width: fit-content;
 
         &:hover {
           color: $red;

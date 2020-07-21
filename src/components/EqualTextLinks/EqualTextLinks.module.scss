@@ -6,20 +6,20 @@
 
   .Col {
     transition: 0.3s;
-
-    &:hover {
-      background-color: $grey-mid;
-
-      a {
-        color: $red;
-      }
-    }
+    padding: 0;
 
     a {
-      color: $black;
+      color: #ffffff;
       display: block;
       padding-top: 100px;
       padding-bottom: 100px;
+      position: relative;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0);
+      }
     }
   }
 

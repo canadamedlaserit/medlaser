@@ -92,7 +92,7 @@ const ClinicsSlider = ({ title, content, slides }) => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className="col-md-12">
-            <h3>{title}</h3>
+            <h2>{title}</h2>
 
             <div
               className={styles.Content}
@@ -119,7 +119,7 @@ const ClinicsSlider = ({ title, content, slides }) => {
                   </div>
 
                   <div className={styles.ContentWrapper}>
-                    <h4>{slide.title}</h4>
+                    <p className={styles.SlideTitle}>{slide.title}</p>
                   </div>
                 </div>
               ))}

@@ -41,22 +41,29 @@ const BiggerLeftWithButtonsStyle2 = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-              {title ? <div className={styles.Title} dangerouslySetInnerHTML={{__html: title}}></div> : ""}
+              {title ? (
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
+              ) : (
+                ""
+              )}
 
               <div
                 className="content text"
                 dangerouslySetInnerHTML={{ __html: content }}
               ></div>
 
-              <div className={styles.buttonsWrapper}>
-                {btntext ? (
+              {btntext ? (
+                <div className={styles.buttonsWrapper}>
                   <a href={btnlink} className="btn btn-mid btn-red">
                     {btntext}
                   </a>
-                ) : (
-                  ""
-                )}
-              </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
 
@@ -73,7 +80,6 @@ const BiggerLeftWithButtonsStyle2 = ({
               ""
             )}
           </div>
-
         </div>
       </div>
     </section>

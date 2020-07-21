@@ -20,7 +20,7 @@ const Injury = () => {
           <div className={`col-md-12 ${styles.Col}`}>
             <div className={styles.Inner}>
               <h2>Make An Enquiry</h2>
-              <InjuryForm btntext='book now' />
+              <InjuryForm btntext='SEND YOUR MESSAGE' />
             </div>
 
             <div className={` ${styles.Overlay}`}></div>

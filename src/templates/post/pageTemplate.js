@@ -73,6 +73,7 @@ import SpecialCard from "../../components/SpecialCard/SpecialCard"
 import FaqsTabs from "../../components/homeComponents/Faqs/FaqsTabs"
 import ServicesLinksTwoColumns from "../../components/ServicesLinksTwoColumns/ServicesLinksTwoColumns"
 import BeforeAfterMultipleImages from "../../components/BeforeAfterMultipleImages/BeforeAfterMultipleImages"
+import FranchiseBlogBlock from "../../components/FranchiseBlogBlock/FranchiseBlogBlock"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -295,6 +296,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_BeforeAfterMultipleImages":
             return <BeforeAfterMultipleImages key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_FranchiseBlogBlock":
+            return <FranchiseBlogBlock key={index} {...section} />
+
           default:
             return ""
         }
@@ -411,6 +415,9 @@ export const pageQuery = graphql`
             ...FaqsTabsSection
             ...ServicesLinksTwoColumnsSection
             ...BeforeAfterMultipleImagesSection
+            ... on WPGraphQL_Page_Sectionfields_Sections_FranchiseBlogBlock {
+              fieldGroupName
+            }
           }
         }
       }

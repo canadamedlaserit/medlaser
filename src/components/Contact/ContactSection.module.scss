@@ -8,6 +8,21 @@
   padding-bottom: 40px;
   color: $white;
 
+  .Title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: $white;
+      font-size: 42px !important;
+      margin-bottom: 100px;
+      line-height: 1.4;
+    }
+  }
+
   .InnerTitles {
     h2 {
       margin-bottom: 50px;
@@ -16,12 +31,6 @@
       text-align: center;
       padding-bottom: 50px;
     }
-  }
-
-  h2 {
-    color: $white;
-    font-size: 57px;
-    margin-bottom: 100px;
   }
 }
 
@@ -43,6 +52,20 @@
   .Section {
     padding-top: 50px;
     padding-bottom: 25px;
+
+
+    .Title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 32px !important;
+        margin-bottom: 30px;
+      }
+    }
 
     h2 {
       margin-bottom: 30px;

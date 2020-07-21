@@ -40,7 +40,14 @@ const Contact = ({ backgroundColor, title, buttonText }) => {
         <div className={`row`}>
           <div className={`col-md-12 ${styles.Col}`}>
             <div className={styles.Inner}>
-              <h2>{title ? title : titleDef}</h2>
+              {title ? (
+                <div className={styles.Title} dangerouslySetInnerHTML={{ __html: title }}></div>
+              ) : (
+                <div className={styles.Title}>
+                  <h2>{titleDef}</h2>
+                </div>
+              )}
+
               <ConactForm btntext={buttonText ? buttonText : btntextDef} />
             </div>
 

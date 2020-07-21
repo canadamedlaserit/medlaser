@@ -24,7 +24,7 @@ const FourColumnsBlock = ({ title, columns }) => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className="col-md-12">
-            <h3 dangerouslySetInnerHTML={{ __html: title }}></h3>
+            <div dangerouslySetInnerHTML={{ __html: title }}></div>
           </div>
         </div>
 
