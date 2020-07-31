@@ -38,7 +38,7 @@ const ThankYouHero = ({ title, image, subtitle }) => {
               ""
             )}
             <div className={styles.innerWrapper}>
-              {title ? <h1>{title}</h1> : ""}
+              {title ? <h2>{title}</h2> : ""}
               {subtitle ? <p>{subtitle}</p> : ""}
             </div>
             <div className={styles.Overlay}></div>

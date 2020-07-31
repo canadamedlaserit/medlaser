@@ -44,7 +44,7 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.Heading}`}>
             <div className={styles.TextSideWrapper}>
-              <h3>{teamcategory}</h3>
+              <h2 dangerouslySetInnerHTML={{ __html: teamcategory }}></h2>
             </div>
           </div>
         </div>
@@ -82,18 +82,20 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
                     ""
                   )}
 
-                  <p
-                    className={styles.Description}
-                    dangerouslySetInnerHTML={{
-                      __html: member.teamMembersDescription.description,
-                    }}
-                  ></p>
+                  {member.teamMembersDescription.description ? (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: member.teamMembersDescription.description,
+                      }}
+                      className={styles.Description}
+                    ></div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               ))
             : null}
         </div>
-
-        <div className="ad"></div>
       </div>
     </section>
   )

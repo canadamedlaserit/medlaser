@@ -1,0 +1,23 @@
+.Section {
+  padding-bottom: 60px;
+
+  .Row {
+    justify-content: center;
+  }
+
+  .Wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #9C1A3B;
+    }
+  }
+}

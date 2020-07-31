@@ -5,7 +5,7 @@
 .Section {
   background-color: $black;
   padding-top: 70px;
-  padding-bottom: 120px;
+  padding-bottom: 40px;
   color: $white;
 
   .Localspecific {
@@ -63,7 +63,7 @@
 @media (max-width: 767px) {
   .Section {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     margin-top: 30px;
 
     h2 {

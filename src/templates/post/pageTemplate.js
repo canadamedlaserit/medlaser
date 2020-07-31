@@ -74,6 +74,7 @@ import FaqsTabs from "../../components/homeComponents/Faqs/FaqsTabs"
 import ServicesLinksTwoColumns from "../../components/ServicesLinksTwoColumns/ServicesLinksTwoColumns"
 import BeforeAfterMultipleImages from "../../components/BeforeAfterMultipleImages/BeforeAfterMultipleImages"
 import FranchiseBlogBlock from "../../components/FranchiseBlogBlock/FranchiseBlogBlock"
+import MoreTreatments from '../../components/MoreTreatments/MoreTreatments'
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -299,6 +300,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_FranchiseBlogBlock":
             return <FranchiseBlogBlock key={index} {...section} />
 
+            case "WPGraphQL_Page_Sectionfields_Sections_Moretreatments":
+              return <MoreTreatments key={index} {...section} />
+
           default:
             return ""
         }
@@ -418,6 +422,7 @@ export const pageQuery = graphql`
             ... on WPGraphQL_Page_Sectionfields_Sections_FranchiseBlogBlock {
               fieldGroupName
             }
+            ...MoreTreatmentsSection
           }
         }
       }

@@ -41,8 +41,6 @@ const InnerHero = ({
 }) => {
   const isMobile = useResizer() //returns Boolean based on window width-> resizer.js
 
-  console.log(isMobile)
-
   return (
     <section className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
@@ -122,27 +120,3 @@ const InnerHero = ({
   )
 }
 export default InnerHero
-
-// constructor(props) {
-//   super(props)
-//   this.state = {
-//     currentSlide: 1,
-
-//     windowWidth: 0,
-//   }
-// }
-
-// componentDidMount() {
-//   this.updateWindowDimensions()
-//   window.addEventListener("resize", this.updateWindowDimensions)
-// }
-
-// updateWindowDimensions = () => {
-//   this.setState({
-//     windowWidth: window.innerWidth,
-//   })
-// }
-
-// componentWillUnmount() {
-//   window.removeEventListener("resize", this.updateWindowDimensions)
-// }

@@ -128,7 +128,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     altText
                     imageFile {
                       childImageSharp {
-                        fluid(maxHeight: 500, maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                        fluid(
+                          maxHeight: 500
+                          maxWidth: 800
+                          quality: 90
+                          cropFocus: CENTER
+                        ) {
                           tracedSVG
                           aspectRatio
                           src
@@ -178,7 +183,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
                     altText
                     imageFile {
                       childImageSharp {
-                        fluid(maxHeight: 500, maxWidth: 800, quality: 90, cropFocus: CENTER) {
+                        fluid(
+                          maxHeight: 500
+                          maxWidth: 800
+                          quality: 90
+                          cropFocus: CENTER
+                        ) {
                           tracedSVG
                           aspectRatio
                           src
@@ -197,7 +207,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
- 
+  
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -324,6 +334,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
+  
 
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {
@@ -376,7 +387,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //     edge.node.uri === "before-after/" ||
   //     edge.node.uri === "franchise/" ||
   //     edge.node.uri === "contact-us/" ||
-  //     edge.node.uri === "specials/"
+  //     edge.node.uri === "location/" ||
+  //     edge.node.uri === "specials/" ||
+  //     edge.node.uri === "location/vaughan/" ||
+  //     edge.node.uri === "location/mississauga/" ||
+  //     edge.node.uri === "location/toronto/" ||
+  //     edge.node.uri === "location/newmarket/" ||
+  //     edge.node.uri === "location/thornhill/" ||
+  //     edge.node.uri === "location/maple/" ||
+  //     edge.node.uri === "technology/"
   //   ) {
   //     createPage({
   //       component: pageFilter,

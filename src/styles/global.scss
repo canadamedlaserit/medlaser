@@ -128,6 +128,13 @@ strong {
   font-weight: 700;
 }
 
+// more treatments page links read more btn
+.more-t-btn {
+  max-width: 200px !important;
+  height: 44px !important;
+  font-size: 14px !important;
+}
+
 a {
   transition: 0.3s;
   color: $red;
@@ -864,6 +871,15 @@ main {
 
 // red link in text
 .text {
+  h3 {
+    font-size: 22px;
+    margin-bottom: 10px !important;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   p {
     a {
       color: $red;
@@ -894,7 +910,7 @@ main {
 // specials tabs
 .specials-tabs {
   .active {
-    font-weight: 700 !important;
+    // font-weight: 700 !important;
     border-color: $red !important;
   }
 }

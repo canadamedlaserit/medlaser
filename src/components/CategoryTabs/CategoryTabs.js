@@ -12,6 +12,7 @@ export const fragment = graphql`
     content
     list {
       ... on WPGraphQL_Page_Sectionfields_Sections_Categorytabs_list {
+        tabName
         title
         content
         link
@@ -100,10 +101,9 @@ class CategoryTabs extends Component {
                       {list.map((item, index) => (
                         <Nav.Item key={index}>
                           <Nav.Link eventKey={index}>
-                            <div
-                              className={styles.TabList__Link}
-                              dangerouslySetInnerHTML={{ __html: item.title }}
-                            ></div>
+                            <div className={styles.TabList__Link}>
+                              {item.tabName}
+                            </div>
                             <svg
                               className="tabs-arrow"
                               xmlns="http://www.w3.org/2000/svg"
@@ -155,14 +155,14 @@ class CategoryTabs extends Component {
                           ></div>
                         ) : null}
                         {item.link ? (
-                          <div className={styles.ButtonsWrapper}>
+                          <p className={styles.ButtonsWrapper}>
                             <Link
                               to={item.link}
                               className="btn btn-black-transparent"
                             >
                               Read More
                             </Link>
-                          </div>
+                          </p>
                         ) : (
                           ""
                         )}
@@ -215,6 +215,10 @@ class CategoryTabs extends Component {
                           dangerouslySetInnerHTML={{ __html: item.title }}
                         ></div>
 
+                        {/* <div className={styles.InnerTitle}>
+                          {item.tabName}
+                        </div> */}
+
                         <div className={styles.Arrow}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -245,11 +249,11 @@ class CategoryTabs extends Component {
                             dangerouslySetInnerHTML={{ __html: item.content }}
                           ></div>
                           {item.link ? (
-                            <div className={styles.ButtonsWrapper}>
+                            <p className={styles.ButtonsWrapper}>
                               <Link to={item.link} className={styles.Link}>
                                 Read More
                               </Link>
-                            </div>
+                            </p>
                           ) : (
                             ""
                           )}
