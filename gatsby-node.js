@@ -37,13 +37,13 @@ exports.createResolvers = async ({
   })
 }
 
-const createPosts = require("./create/createPosts")
-exports.createPagesStatefully = async (
-  { graphql, actions, reporter },
-  options
-) => {
-  await createPosts({ actions, graphql, reporter }, options)
-}
+// const createPosts = require("./create/createPosts")
+// exports.createPagesStatefully = async (
+//   { graphql, actions, reporter },
+//   options
+// ) => {
+//   await createPosts({ actions, graphql, reporter }, options)
+// }
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -207,6 +207,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  /*
   
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
@@ -286,7 +287,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
 
- 
+ */
  
   // pages
   query.data.wpgraphql.pages.edges.forEach(edge => {

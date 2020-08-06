@@ -34,7 +34,7 @@ const Contact = ({ backgroundColor, title, buttonText }) => {
     <section
       id="contact"
       className={styles.Section}
-      style={{ backgroundColor: backgroundColor ? backgroundColor : "#000000" }}
+      style={{ backgroundColor: backgroundColor ? backgroundColor : "#161616" }}
     >
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>

@@ -7,7 +7,6 @@ import styles from "./TextAndThreeImages.module.scss"
 
 export const fragment = graphql`
   fragment TextAndThreeImagesSection on WPGraphQL_Page_Sectionfields_Sections_Textandthreeimages {
-    title
     content
     backgroundcolor
     textcolor
@@ -49,7 +48,6 @@ export const fragment = graphql`
 `
 
 const TextAndThreeImages = ({
-  title,
   content,
   backgroundcolor,
   textcolor,
@@ -81,7 +79,6 @@ const TextAndThreeImages = ({
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12  `}>
             <div className={styles.TextWrapper}>
-              <h3 style={{ color: textcolor }}>{title}</h3>
               <div
                 style={{ color: textcolor }}
                 dangerouslySetInnerHTML={{ __html: content }}

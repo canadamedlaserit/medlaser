@@ -39,7 +39,7 @@ const FourColumnsBlock = ({ title, columns }) => {
                 }}
                 className={styles.Icon}
               ></div>
-              <h5>{column.title}</h5>
+              <h4>{column.title}</h4>
               <div dangerouslySetInnerHTML={{ __html: column.text }}></div>
             </div>
           ))}

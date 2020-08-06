@@ -40,7 +40,8 @@ const FranchiseBlogBlock = () => {
   const [itemsToShow, setItemsToShow] = React.useState(itemsPerShow)
   const [showMoreItems, setShowMoreItems] = React.useState(true)
 
-  const showMore = _ => {
+  const showMore = e => {
+    e.preventDefault()
     posts.length > itemsToShow
       ? setItemsToShow(itemsToShow + itemsPerShow)
       : setShowMoreItems(false)
@@ -83,9 +84,9 @@ const FranchiseBlogBlock = () => {
         {posts.length > itemsToShow && showMoreItems ? (
           <div className={`row ${styles.Row}`}>
             <div className={`col-md-12 ${styles.Btn}`}>
-              <button onClick={showMore} className="btn btn-black-transparent">
+              <a href="#" onClick={showMore} className="btn btn-black-transparent">
                 Load more
-              </button>
+              </a>
             </div>
           </div>
         ) : null}

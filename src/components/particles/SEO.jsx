@@ -103,8 +103,11 @@ import { useStaticQuery, graphql } from "gatsby"
 const SEO = ({ data, article }) => {
   const { title, metaDesc } = data.seo
 
+  let newtitle = title.replace('&amp;', '&')
+
   const { date, modified } = data
   const pageTitle = data.title
+
   const featuredImage = data.featuredImage
     ? data.featuredImage.sourceUrl
     : false
@@ -124,7 +127,7 @@ const SEO = ({ data, article }) => {
   } = site.siteMetadata
 
   const seo = {
-    title: title || defaultTitle,
+    title: newtitle || defaultTitle,
     description: metaDesc,
     image: featuredImage || `${siteUrl}${defaultImage}`,
     url: `${siteUrl}${pathname}`,

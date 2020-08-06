@@ -241,7 +241,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 }`}
                 onChange={this.handleChange("firstName")}
                 type="text"
-                placeholder="First Name"
+                placeholder="First Name*"
                 ref="firstName"
               />
               <p className={styles.ErrorMessage}>
@@ -258,7 +258,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 }`}
                 onChange={this.handleChange("lastName")}
                 type="text"
-                placeholder="Last Name"
+                placeholder="Last Name*"
                 ref="lastName"
               />
               <p className={styles.ErrorMessage}>
@@ -267,22 +267,6 @@ export class InquiryWithSubscriptionForm extends Component {
             </Form.Group>
           </div>
 
-          <div className={styles.FormColumn}>
-            <Form.Group className={styles.Form___group}>
-              <Form.Control
-                className={`${styles.Form___formControl} ${
-                  this.state.formErrors.phone ? styles.ErrorField : ""
-                }`}
-                onChange={this.handleChange("phone")}
-                type="tel"
-                placeholder="Phone"
-                ref="phone"
-              />
-              <p className={styles.ErrorMessage}>
-                {this.state.formErrors.phone}
-              </p>
-            </Form.Group>
-          </div>
 
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
@@ -301,6 +285,25 @@ export class InquiryWithSubscriptionForm extends Component {
             </Form.Group>
           </div>
 
+
+          <div className={styles.FormColumn}>
+            <Form.Group className={styles.Form___group}>
+              <Form.Control
+                className={`${styles.Form___formControl} ${
+                  this.state.formErrors.phone ? styles.ErrorField : ""
+                }`}
+                onChange={this.handleChange("phone")}
+                type="tel"
+                placeholder="Mobile Number*"
+                ref="phone"
+              />
+              <p className={styles.ErrorMessage}>
+                {this.state.formErrors.phone}
+              </p>
+            </Form.Group>
+          </div>
+
+     
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -309,7 +312,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 }`}
                 onChange={this.handleChange("opportunity")}
                 type="text"
-                placeholder="How did you hear about the opportunity"
+                placeholder="How did you hear about the opportunity?*"
                 ref="opportunity"
               />
               <p className={styles.ErrorMessage}>
@@ -326,7 +329,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 }`}
                 onChange={this.handleChange("postal")}
                 type="text"
-                placeholder="Postal Code"
+                placeholder="Postal Code*"
                 ref="postal"
               />
               <p className={styles.ErrorMessage}>
@@ -347,7 +350,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 ref="timeFrame"
               >
                 <option disabled value="DEFAULT">
-                  Time Frame
+                  Your Time Frame
                 </option>
                 <option>0 Months</option>
                 <option>3 Months</option>
@@ -369,7 +372,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 }`}
                 onChange={this.handleChange("message")}
                 as="textarea"
-                placeholder="Comments"
+                placeholder="Comments*"
                 rows="5"
                 ref="message"
               />

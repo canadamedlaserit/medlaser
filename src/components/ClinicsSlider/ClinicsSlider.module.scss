@@ -1,7 +1,7 @@
 @import "../../styles/_variables";
 
 .Section {
-  background-color: $black;
+  background-color: #161616;
   padding-top: 120px;
   padding-bottom: 50px;
   position: relative;
@@ -25,6 +25,8 @@
   .ClinicsSliderRow {
     padding-left: 20px;
     padding-right: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .Container {

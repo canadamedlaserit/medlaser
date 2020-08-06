@@ -44,7 +44,7 @@ const SpecialCard = ({image, text, subtitle, location}) => {
               <div className={styles.TextSide}>
                 <div className={styles.TextSideWrapper}>
                   <div className={styles.TextWrapper}>
-                    <h4>{subtitle}</h4>
+                    <p className={styles.Subt}>{subtitle}</p>
                     <div
                       className={styles.Text}
                       dangerouslySetInnerHTML={{

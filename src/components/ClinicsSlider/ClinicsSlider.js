@@ -47,7 +47,7 @@ const ClinicsSlider = ({ title, content, slides }) => {
         slidesPerView: 2,
       },
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 2,
       },
     },
     renderPrevButton: () => (

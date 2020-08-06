@@ -5,8 +5,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://medlaser.netlify.app`,
-    title: `Canada MedLaser Clinics`,
-    description: `Laser clinics in Toronto offers laser hair removal, Brazilian and permanent facial hair removal, Botox injections, CoolSculpting and lip augmentation.`,
+    title: ``,
+    description: ``,
     author: `@Medlaser`,
     image: `/icons/icon.png`,
     siteName: "Toronto Laser Clinics",

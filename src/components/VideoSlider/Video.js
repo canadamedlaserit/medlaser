@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import ReactPlayer from "react-player"
 import play from "../../images/play-icon.png"
-import fallback from "../../images/fallback.svg"
+// import fallback from "../../images/fallback.svg"
 
 import styles from "./Video.module.scss"
 

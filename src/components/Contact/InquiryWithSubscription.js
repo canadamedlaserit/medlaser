@@ -18,7 +18,7 @@ const InquiryWithSubscription = () => {
           <div className={`col-md-12 ${styles.Col}`}>
             <div className={styles.Inner}>
               <div className={styles.InnerTitles}>
-                <h2>Make An Inquiry</h2>
+                <h2>MAKE AN INQUIRY</h2>
                 <p>
                   To make an enquiry, please fill out the Enquiry Form below.
                   For more information, please download our Franchise Prospectus
