@@ -38,7 +38,7 @@ const PostEntry = ({ post }) => {
         <h2 style={{ marginBottom: "5px" }}>
           <Link
             dangerouslySetInnerHTML={{ __html: title }}
-            to={`/${uri}/`}
+            to={`/${uri}`}
           ></Link>
         </h2>
 
@@ -53,6 +53,9 @@ const PostEntry = ({ post }) => {
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
       </article>
+      <Link className={styles.ReadMore} to={`/${uri}`}>
+        Read More
+      </Link>
     </div>
   )
 }

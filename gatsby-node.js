@@ -37,16 +37,44 @@ exports.createResolvers = async ({
   })
 }
 
-// const createPosts = require("./create/createPosts")
-// exports.createPagesStatefully = async (
-//   { graphql, actions, reporter },
-//   options
-// ) => {
-//   await createPosts({ actions, graphql, reporter }, options)
-// }
+const createPosts = require("./create/createPosts")
+exports.createPagesStatefully = async (
+  { graphql, actions, reporter },
+  options
+) => {
+  await createPosts({ actions, graphql, reporter }, options)
+}
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
+
+  const { createRedirect } = actions;
+
+  // redirects start
+  createRedirect({
+    fromPath: "https://medlaser.netlify.app/hair-transplant-toronto/", 
+    toPath: "https://medlaser.netlify.app/2018/09/20/hair-transplant-toronto/", 
+    isPermanent: true, 
+    force: true
+  });
+
+  createRedirect({
+    fromPath: "https://medlaser.netlify.app/stretch-marks/", 
+    toPath: "https://medlaser.netlify.app/2017/04/18/stretch-marks-removal/", 
+    isPermanent: true, 
+    force: true
+  });
+
+  createRedirect({
+    fromPath: "https://medlaser.netlify.app/botox-dysport/", 
+    toPath: "https://medlaser.netlify.app/botox/", 
+    isPermanent: true, 
+    force: true
+  });
+  // redirects end
+
+
+
   const { createPage } = actions
   const blogCategoryFilter = path.resolve("src/templates/post/category.js")
   const blogTagFilter = path.resolve("src/templates/post/tag.js")
@@ -207,8 +235,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  /*
-  
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -216,7 +242,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const cat = edge.node
 
     let blogPostsCount = edge.node.posts.nodes.length
-    let blogPostsPerPaginatedPage = 5
+    let blogPostsPerPaginatedPage = 10
     let paginatedPagesCount = Math.ceil(
       blogPostsCount / blogPostsPerPaginatedPage
     )
@@ -263,7 +289,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-
   //members
   query.data.wpgraphql.teams.edges.forEach(edge => {
     let path = edge.node.slug + "/"
@@ -286,9 +311,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-
- */
- 
   // pages
   query.data.wpgraphql.pages.edges.forEach(edge => {
     // console.log(edge.node.uri)
@@ -334,8 +356,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   })
-
-  
 
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {

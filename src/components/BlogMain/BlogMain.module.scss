@@ -5,12 +5,19 @@
   padding-bottom: 70px;
 }
 
+.ReadMore {
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
 .Container {
   max-width: 1250px;
 }
 
 .FormWrapper {
-  background-color: #000000;
+  background-color: #161616;
   padding: 30px 20px 0px 20px;
   margin-bottom: 20px;
 
@@ -69,7 +76,9 @@
   column-gap: 30px;
   grid-template-columns: 2fr 2fr 1.45fr;
   grid-template-areas:
-    "header header header"
+    // "header header header"
+    ". .  sidebar"
+    ". .  sidebar"
     ". .  sidebar"
     ". .  sidebar";
 
@@ -79,48 +88,51 @@
     box-shadow: 0px 10px 20px #00000019;
     margin-top: 30px;
 
+    display: flex;
+    flex-direction: column;
+
   
 
-    @media (min-width: 768px) {
-      &:first-child {
-        grid-area: header;
-        width: 100%;
-        display: flex;
+    // @media (min-width: 768px) {
+    //   &:first-child {
+    //     grid-area: header;
+    //     width: 100%;
+    //     display: flex;
 
-        header {
-          width: 45%;
+    //     header {
+    //       width: 45%;
 
-          img {
-            min-height: 437px;
-            height: 100%;
-          }
-        }
+    //       img {
+    //         min-height: 437px;
+    //         height: 100%;
+    //       }
+    //     }
 
-        article {
-          width: 55%;
-          padding-left: 5%;
-          padding-top: 55px;
+    //     article {
+    //       width: 55%;
+    //       padding-left: 5%;
+    //       padding-top: 55px;
 
-          h2 {
-            font-size: 28px !important;
-            line-height: 30px !important;
-            margin-bottom: 32px !important;
-            text-align: left;
-            a {
-              color: inherit;
-            }
-          }
+    //       h2 {
+    //         font-size: 28px !important;
+    //         line-height: 30px !important;
+    //         margin-bottom: 32px !important;
+    //         text-align: left;
+    //         a {
+    //           color: inherit;
+    //         }
+    //       }
 
-          .Excerpt {
-            font-size: 18px;
-          }
+    //       .Excerpt {
+    //         font-size: 18px;
+    //       }
 
-          .Author {
-            font-size: 18px;
-          }
-        }
-      }
-    }
+    //       .Author {
+    //         font-size: 18px;
+    //       }
+    //     }
+    //   }
+    // }
 
     header {
       img {
@@ -137,7 +149,8 @@
       padding-top: 28px;
       padding-left: 15px;
       padding-right: 15px;
-      padding-bottom: 35px;
+      padding-bottom: 15px;
+      height: 100%;
 
       h2 {
         text-align: left;
@@ -153,13 +166,6 @@
         }
       }
 
-      // h2 {
-      //   font-size: 28px !important;
-      //   line-height: 30px !important;
-      //   margin-bottom: 32px !important;
-      //   text-align: left;
-      
-      // }
 
       .Term {
         font-size: 14px;
@@ -219,7 +225,7 @@
   margin-top: 30px;
 
   .CatWrapper {
-    background-color: $black !important;
+    background-color: #161616 !important;
     box-shadow: 0px 10px 20px #00000019;
     padding: 40px 20px 20px 40px;
 
@@ -281,7 +287,7 @@
     width: 100%;
     margin: 0;
     transform: translate3d(0px, 66px, 0px) !important;
-    background-color: $black;
+    background-color: #161616;
     border: none !important;
 
     a {
@@ -296,7 +302,7 @@
 
   button {
     position: relative;
-    background-color: $black !important;
+    background-color: #161616 !important;
     margin-top: 10px;
     width: 100%;
     margin-left: 0;

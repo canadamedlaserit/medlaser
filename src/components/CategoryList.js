@@ -74,7 +74,7 @@ const CategoryList = ({ showOnDevice, maxHeight }) => {
           <div className={styles.CatWrapper}>
             <h3>Categories</h3>
 
-            <ul style={{maxHeight: maxHeight ? maxHeight : '686px'}}>
+            <ul style={{maxHeight: maxHeight ? maxHeight : 'unset'}}>
               <li>
                 <Link to={`/knowledge-base`}>All</Link>
               </li>

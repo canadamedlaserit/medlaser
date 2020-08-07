@@ -47,7 +47,7 @@ const { FluidImageFragment } = require("../src/templates/fragments")
 const allPosts = []
 const blogPages = [];
 let pageNumber = 0;
-const itemsPerPage = 5;
+const itemsPerPage = 10;
 
 
 /**
