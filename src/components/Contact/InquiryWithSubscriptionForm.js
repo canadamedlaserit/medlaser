@@ -61,7 +61,6 @@ export class InquiryWithSubscriptionForm extends Component {
     this.refs.postal.value = ""
     this.refs.opportunity.value = ""
     this.refs.message.value = ""
-    this.refs.message.check = ""
   }
 
   handleChange = input => event => {
@@ -204,6 +203,8 @@ export class InquiryWithSubscriptionForm extends Component {
 
   render() {
     const { btntext } = this.props
+
+    console.log(this.state)
 
     return (
       <div className={styles.FormWrapper}>
@@ -389,7 +390,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 className={styles.Checkbox}
                 type="checkbox"
                 label="Subscribe me to receive great offers and updates from Canada MedLaser Clinics"
-                name="Subscribe"
+                name="check"
               />
             </Form.Group>
           </div>
