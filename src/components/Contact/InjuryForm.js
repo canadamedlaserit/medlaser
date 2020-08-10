@@ -202,6 +202,7 @@ export class InjuryForm extends Component {
                 type="text"
                 placeholder="First Name"
                 ref="firstName"
+                name="firstName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.firstName}
@@ -219,6 +220,7 @@ export class InjuryForm extends Component {
                 type="text"
                 placeholder="Last Name"
                 ref="lastName"
+                name="lastName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.lastName}
@@ -236,6 +238,7 @@ export class InjuryForm extends Component {
                 type="email"
                 placeholder="Email"
                 ref="email"
+                name="email"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.email}
@@ -253,6 +256,7 @@ export class InjuryForm extends Component {
                 type="tel"
                 placeholder="Phone"
                 ref="phone"
+                name="phone"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.phone}
@@ -270,6 +274,7 @@ export class InjuryForm extends Component {
                 defaultValue={"DEFAULT"}
                 as="select"
                 ref="queryType"
+                name="queryType"
               >
                 <option disabled value="DEFAULT">
                   Query Type
@@ -295,6 +300,7 @@ export class InjuryForm extends Component {
                 placeholder="Your Message"
                 rows="5"
                 ref="message"
+                name="message"
               />
 
               <p className={styles.ErrorMessage}>

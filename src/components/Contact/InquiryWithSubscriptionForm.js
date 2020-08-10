@@ -238,6 +238,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="text"
                 placeholder="First Name*"
                 ref="firstName"
+                name="firstName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.firstName}
@@ -255,6 +256,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="text"
                 placeholder="Last Name*"
                 ref="lastName"
+                name="lastName"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.lastName}
@@ -272,6 +274,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="email"
                 placeholder="Email"
                 ref="email"
+                name="email"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.email}
@@ -289,6 +292,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="tel"
                 placeholder="Mobile Number*"
                 ref="phone"
+                name="phone"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.phone}
@@ -306,6 +310,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="text"
                 placeholder="How did you hear about the opportunity?*"
                 ref="opportunity"
+                name="opportunity"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.opportunity}
@@ -323,6 +328,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 type="text"
                 placeholder="Postal Code*"
                 ref="postal"
+                name="postal"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.postal}
@@ -340,6 +346,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 defaultValue={"DEFAULT"}
                 as="select"
                 ref="timeFrame"
+                name="timeFrame"
               >
                 <option disabled value="DEFAULT">
                   Your Time Frame
@@ -367,6 +374,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 placeholder="Comments*"
                 rows="5"
                 ref="message"
+                name="message"
               />
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.message}
@@ -381,6 +389,7 @@ export class InquiryWithSubscriptionForm extends Component {
                 className={styles.Checkbox}
                 type="checkbox"
                 label="Subscribe me to receive great offers and updates from Canada MedLaser Clinics"
+                name="Subscribe"
               />
             </Form.Group>
           </div>
