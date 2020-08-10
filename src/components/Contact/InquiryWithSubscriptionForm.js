@@ -204,7 +204,7 @@ export class InquiryWithSubscriptionForm extends Component {
   render() {
     const { btntext } = this.props
 
-    console.log(this.state)
+    // console.log(this.state)
 
     return (
       <div className={styles.FormWrapper}>

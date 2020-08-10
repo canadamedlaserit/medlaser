@@ -60,7 +60,11 @@ class ReviewsSlider extends Component {
                       key={review.author_name}
                     >
                       <div className={styles.SwiperSlideInside}>
-                        <div className={styles.ReviewText}>{review.text}</div>
+                        <div className={styles.ReviewText}>
+                          {review.text.length > 552
+                            ? review.text.substring(0, 552) + '...'
+                            : review.text}
+                        </div>
                         <div className={styles.ReviewRaiting}>
                           <div>Google</div>
                           <StarRatings
