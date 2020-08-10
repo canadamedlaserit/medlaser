@@ -6,6 +6,8 @@
   .Col {
     padding: 25px 40px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     .Inner {
       padding: 20px 40px 20px 20px;

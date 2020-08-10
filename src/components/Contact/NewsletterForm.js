@@ -72,20 +72,14 @@ export class NewsletterForm extends Component {
     e.preventDefault()
 
     if (this.state.formValid) {
-      console.log("form valid")
-
-      const data = {
-        email: this.state.email,
-      }
-
       this.reset()
 
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "newsletter",
-          ...data,
+          "form-name": "Medlaser NEW LEAD - Newsletter",
+          ...this.state,
         }),
       })
         .then(() =>
@@ -95,9 +89,9 @@ export class NewsletterForm extends Component {
         )
         .catch(error => alert(error))
     } else {
-      console.log("form invalid")
+      // console.log("form invalid")
       this.validateField("email", this.state.email)
-      console.log(this.state.formErrors)
+      // console.log(this.state.formErrors)
     }
   }
 
@@ -107,14 +101,24 @@ export class NewsletterForm extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="newsletter"
+          name="Medlaser NEW LEAD - Newsletter"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input type="hidden" name="form-name" value="newsletter" />
+          <input
+            type="hidden"
+            name="form-name"
+            value="Medlaser NEW LEAD - Newsletter"
+          />
+
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
 
           <div
             className={`${styles.FormColumn} ${

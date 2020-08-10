@@ -144,15 +144,6 @@ export class InjuryForm extends Component {
     e.preventDefault()
 
     if (this.state.formValid) {
-      // const data = {
-      //   firstName: this.state.firstName,
-      //   lastName: this.state.lastName,
-      //   phone: this.state.phone,
-      //   email: this.state.email,
-      //   queryType: this.state.queryType,
-      //   messageArea: this.state.message,
-      // }
-
       this.reset()
 
       const form = e.target
@@ -160,7 +151,7 @@ export class InjuryForm extends Component {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "EnquiryContactPage",
+          "form-name": "Medlaser NEW LEAD - Contact Us",
           ...this.state,
         }),
       })
@@ -182,7 +173,7 @@ export class InjuryForm extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="EnquiryContactPage"
+          name="Medlaser NEW LEAD - Contact Us"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -190,7 +181,17 @@ export class InjuryForm extends Component {
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input type="hidden" name="form-name" value="EnquiryContactPage" />
+          <input
+            type="hidden"
+            name="form-name"
+            value="Medlaser NEW LEAD - Contact Us"
+          />
+
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -229,23 +230,6 @@ export class InjuryForm extends Component {
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
-                  this.state.formErrors.phone ? styles.ErrorField : ""
-                }`}
-                onChange={this.handleChange("phone")}
-                type="tel"
-                placeholder="Phone"
-                ref="phone"
-              />
-              <p className={styles.ErrorMessage}>
-                {this.state.formErrors.phone}
-              </p>
-            </Form.Group>
-          </div>
-
-          <div className={styles.FormColumn}>
-            <Form.Group className={styles.Form___group}>
-              <Form.Control
-                className={`${styles.Form___formControl} ${
                   this.state.formErrors.email ? styles.ErrorField : ""
                 }`}
                 onChange={this.handleChange("email")}
@@ -260,6 +244,23 @@ export class InjuryForm extends Component {
           </div>
 
           <div className={styles.FormColumn}>
+            <Form.Group className={styles.Form___group}>
+              <Form.Control
+                className={`${styles.Form___formControl} ${
+                  this.state.formErrors.phone ? styles.ErrorField : ""
+                }`}
+                onChange={this.handleChange("phone")}
+                type="tel"
+                placeholder="Phone"
+                ref="phone"
+              />
+              <p className={styles.ErrorMessage}>
+                {this.state.formErrors.phone}
+              </p>
+            </Form.Group>
+          </div>
+
+          <div className={`${styles.FormColumn} ${styles.QueryTypeColumn}`}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
@@ -291,7 +292,7 @@ export class InjuryForm extends Component {
                 className={styles.Form___formControl}
                 onChange={this.handleChange("message")}
                 as="textarea"
-                placeholder="Message"
+                placeholder="Your Message"
                 rows="5"
                 ref="message"
               />

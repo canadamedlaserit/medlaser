@@ -46,9 +46,11 @@ const EqualTextLinks = ({ title1, link1, title2, link2, image1, image2 }) => {
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-6 ${styles.Col}`}>
-            <Link className={styles.Link} to={link1}>
-              <h3>{title1}</h3>
-            </Link>
+            <h3>
+              <Link className={styles.Link} to={link1}>
+                {title1}
+              </Link>
+            </h3>
 
             {image1 ? (
               <Img
@@ -61,9 +63,11 @@ const EqualTextLinks = ({ title1, link1, title2, link2, image1, image2 }) => {
             )}
           </div>
           <div className={`col-md-6 ${styles.Col}`}>
-            <Link className={styles.Link} to={link2}>
-              <h3>{title2}</h3>
-            </Link>
+            <h3>
+              <Link className={styles.Link} to={link2}>
+                {title2}
+              </Link>
+            </h3>
 
             {image2 ? (
               <Img

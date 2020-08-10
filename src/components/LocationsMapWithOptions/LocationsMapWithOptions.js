@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import LocationsBlock from "../LocationsBlock/LocationsBlock"
+import Info from "./Info"
 import Map from "../GoogleMap/Map"
 import MapL from "../GoogleMap/MapL"
 
@@ -13,6 +13,9 @@ export const fragment = graphql`
     showlocationboxesabove
     specificlocation
     location
+    locationInfoList {
+      info
+    }
   }
 `
 
@@ -22,6 +25,7 @@ const LocationsMapWithOptions = ({
   content,
   specificlocation,
   location,
+  locationInfoList
 }) => {
   const data = useStaticQuery(graphql`
     query locQuery2 {
@@ -70,7 +74,7 @@ const LocationsMapWithOptions = ({
 
       {showlocationboxesabove === "yes" ? (
         <div className={styles.BoxesWrapper}>
-          <LocationsBlock />
+          <Info info={locationInfoList} />
         </div>
       ) : (
         ""

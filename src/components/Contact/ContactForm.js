@@ -1,10 +1,7 @@
 import React, { Component } from "react"
 import { Form, Button } from "react-bootstrap"
-// import querystring from "query-string"
-// import axios from "axios"
 import { navigate } from "gatsby-link"
 import styles from "./Form.module.scss"
-// import { wpUrl } from "../../../globals"
 
 const initialState = {
   firstName: "",
@@ -104,14 +101,12 @@ export class ContactForm extends Component {
           ? ""
           : "Select Desired Treatment"
 
-        console.log(value)
         break
 
       case "location":
         locationValid = value.length >= 1
         fieldValidationErrors.location = locationValid ? "" : "Select Location"
 
-        console.log(value)
         break
 
       default:
@@ -148,17 +143,6 @@ export class ContactForm extends Component {
     e.preventDefault()
 
     if (this.state.formValid) {
-      console.log("form valid")
-
-      // const data = {
-      //   firstName: this.state.firstName,
-      //   lastName: this.state.lastName,
-      //   phone: this.state.phone,
-      //   email: this.state.email,
-      //   desiredTreatment: this.state.desiredTreatment,
-      //   location: this.state.location,
-      // }
-
       this.reset()
 
       const form = e.target
@@ -166,14 +150,14 @@ export class ContactForm extends Component {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "contact",
+          "form-name": "Medlaser NEW LEAD - Main Form",
           ...this.state,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))
         .catch(error => alert(error))
     } else {
-      console.log("form invalid")
+      // console.log("form invalid")
 
       this.validateField("firstName", this.state.firstName)
       this.validateField("lastName", this.state.lastName)
@@ -182,7 +166,7 @@ export class ContactForm extends Component {
       this.validateField("desiredTreatment", this.state.desiredTreatment)
       this.validateField("location", this.state.location)
 
-      console.log(this.state.formErrors)
+      // console.log(this.state.formErrors)
     }
   }
 
@@ -192,7 +176,7 @@ export class ContactForm extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="contact"
+          name="Medlaser NEW LEAD - Main Form"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -200,7 +184,17 @@ export class ContactForm extends Component {
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="hidden"
+            name="form-name"
+            value="Medlaser NEW LEAD - Main Form"
+          />
+
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
 
           <div
             className={`${styles.FormColumn} ${
@@ -254,16 +248,16 @@ export class ContactForm extends Component {
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
-                  this.state.formErrors.phone ? styles.ErrorField : ""
+                  this.state.formErrors.email ? styles.ErrorField : ""
                 }`}
-                onChange={this.handleChange("phone")}
-                type="tel"
-                placeholder="Phone"
-                ref="phone"
-                name="phone"
+                onChange={this.handleChange("email")}
+                type="email"
+                placeholder="Email"
+                ref="email"
+                name="email"
               />
               <p className={styles.ErrorMessage}>
-                {this.state.formErrors.phone}
+                {this.state.formErrors.email}
               </p>
             </Form.Group>
           </div>
@@ -276,16 +270,16 @@ export class ContactForm extends Component {
             <Form.Group className={styles.Form___group}>
               <Form.Control
                 className={`${styles.Form___formControl} ${
-                  this.state.formErrors.email ? styles.ErrorField : ""
+                  this.state.formErrors.phone ? styles.ErrorField : ""
                 }`}
-                onChange={this.handleChange("email")}
-                type="email"
-                placeholder="Email"
-                ref="email"
-                name="email"
+                onChange={this.handleChange("phone")}
+                type="tel"
+                placeholder="Phone"
+                ref="phone"
+                name="phone"
               />
               <p className={styles.ErrorMessage}>
-                {this.state.formErrors.email}
+                {this.state.formErrors.phone}
               </p>
             </Form.Group>
           </div>

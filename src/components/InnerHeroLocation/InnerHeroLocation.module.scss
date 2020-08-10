@@ -2,18 +2,13 @@
 
 .Section {
   .RowTop {
-    min-height: 529px;
+    min-height: 700px;
 
     .Title {
       width: 100%;
 
       h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
+      h2 {
         font-family: "Playfair Display", serif !important;
         font-size: 64px !important;
         line-height: 43px !important;
@@ -51,7 +46,6 @@
     padding-top: 50px;
     padding-bottom: 50px;
 
-
     .Subtitle {
       h1,
       h2,
@@ -69,7 +63,6 @@
         margin-bottom: 44px !important;
       }
     }
-
 
     .buttonsWrapper {
       display: flex;
@@ -97,6 +90,33 @@
     justify-content: flex-end;
     color: #ffffff;
     z-index: 3;
+  }
+
+  .innerWrapper2 {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 70px;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: 52%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #ffffff;
+    z-index: 3;
+
+    .Title h1 {
+      font-size: 42px !important;
+      text-align: left !important;
+      line-height: 1.4 !important;
+      margin-bottom: 40px;
+    }
+
+    a {
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 
   .Overlay {
@@ -175,22 +195,14 @@
         padding: 0px;
         background-color: $black;
 
-
         .Title {
           h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6,
-          p {
+          h2 {
             font-size: 32px !important;
             letter-spacing: 1.6px !important;
             text-align: center !important;
           }
         }
-
-     
 
         &::before,
         &::after {
@@ -199,8 +211,6 @@
       }
     }
     .RowBot {
-
-
       .Subtitle {
         h1,
         h2,
@@ -209,7 +219,6 @@
         h5,
         h6,
         p {
-
           font-size: 32px !important;
           line-height: 43px !important;
           text-align: center;
@@ -255,6 +264,22 @@
       padding-bottom: 0px;
       align-items: center;
       justify-content: center;
+    }
+
+    .innerWrapper2 {
+      padding-bottom: 50px;
+      padding-top: 100px;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+
+      a {
+        margin-left: auto;
+      }
     }
 
     .Label {

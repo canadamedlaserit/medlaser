@@ -4,6 +4,10 @@
   display: flex;
   flex-wrap: wrap;
 
+  .QueryTypeColumn {
+    width: 100%;
+  }
+
   &___group {
     margin-bottom: 2rem;
     position: relative;

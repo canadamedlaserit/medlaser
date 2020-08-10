@@ -7,6 +7,7 @@ import styles from "./InnerHeroLocation.module.scss"
 export const fragment = graphql`
   fragment InnerHeroLocationSection on WPGraphQL_Page_Sectionfields_Sections_Innerherolocation {
     title
+    titlePosition
     subtitle
     text
     backgroundimage {
@@ -25,7 +26,7 @@ export const fragment = graphql`
 
 class InnerHeroLocation extends Component {
   render() {
-    const { title, subtitle, text, backgroundimage } = this.props
+    const { title, subtitle, text, backgroundimage, titlePosition } = this.props
     return (
       <section className={styles.Section}>
         <div className={`container-fluid ${styles.Container}`}>
@@ -40,12 +41,23 @@ class InnerHeroLocation extends Component {
               ) : (
                 ""
               )}
-              <div className={styles.innerWrapper}>
-                <div
-                  className={styles.Title}
-                  dangerouslySetInnerHTML={{ __html: title }}
-                ></div>
-              </div>
+
+              {titlePosition === "right" ? (
+                <div className={styles.innerWrapper2}>
+                  <div
+                    className={styles.Title}
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  ></div>
+                </div>
+              ) : (
+                <div className={styles.innerWrapper}>
+                  <div
+                    className={styles.Title}
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  ></div>
+                </div>
+              )}
+
               <div className={styles.Overlay}></div>
               <div className={styles.Hatch}></div>
             </div>

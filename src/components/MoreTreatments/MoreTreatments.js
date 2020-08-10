@@ -12,7 +12,6 @@ export const fragment = graphql`
 `
 
 const MoreTreatments = ({ treatments }) => {
-  console.log(treatments)
   return (
     <section className={styles.Section}>
       <div className={`container`}>
