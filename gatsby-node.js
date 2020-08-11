@@ -52,22 +52,22 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   // redirects start
   createRedirect({
-    fromPath: "https://medlaser.netlify.app/hair-transplant-toronto/", 
-    toPath: "https://medlaser.netlify.app/2018/09/20/hair-transplant-toronto/", 
+    fromPath: "https://canadamedlaser.ca/hair-transplant-toronto/", 
+    toPath: "https://canadamedlaser.ca/2018/09/20/hair-transplant-toronto/", 
     isPermanent: true, 
     force: true
   });
 
   createRedirect({
-    fromPath: "https://medlaser.netlify.app/stretch-marks/", 
-    toPath: "https://medlaser.netlify.app/2017/04/18/stretch-marks-removal/", 
+    fromPath: "https://canadamedlaser.ca/stretch-marks/", 
+    toPath: "https://canadamedlaser.ca/2017/04/18/stretch-marks-removal/", 
     isPermanent: true, 
     force: true
   });
 
   createRedirect({
-    fromPath: "https://medlaser.netlify.app/botox-dysport/", 
-    toPath: "https://medlaser.netlify.app/botox/", 
+    fromPath: "https://canadamedlaser.ca/botox-dysport/", 
+    toPath: "https://canadamedlaser.ca/botox/", 
     isPermanent: true, 
     force: true
   });
@@ -319,9 +319,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
       edge.node.uri === "globalsections/" ||
       edge.node.uri === "headerfooterinfo/" ||
       edge.node.uri === "link-slider-global/" ||
-      edge.node.uri === "knowledge-base/"
+      edge.node.uri === "knowledge-base/" ||
+      edge.node.uri === "/"
     ) {
-      // console.log('skip: ' + edge.node.uri)
+      console.log('skip: ' + edge.node.uri)
     } else {
       createPage({
         component: pageFilter,

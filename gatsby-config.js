@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://medlaser.netlify.app`,
+    siteUrl: `https://canadamedlaser.ca`,
     title: ``,
     description: ``,
     author: `@Medlaser`,
