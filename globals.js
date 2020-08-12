@@ -1,6 +1,6 @@
 const Globals = {
     blogURI: 'knowledge-base',
-    wpUrl: "https://canadamed.2marketing.ca",
+    wpUrl: "https://api.canadamedlaser.ca",
     excludeCategory: [
         'main-team',
         'results',

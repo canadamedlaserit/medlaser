@@ -83,8 +83,8 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: `https://canadamed.2marketing.ca/graphql`,
-        refetchInterval: 30
+        url: `https://api.canadamedlaser.ca/graphql`,
+        refetchInterval: 30,
       },
     },
     {
@@ -92,7 +92,7 @@ module.exports = {
       options: {
         typeName: "WordPress",
         fieldName: "wordPress",
-        url: "https://canadamed.2marketing.ca/graphql",
+        url: "https://api.canadamedlaser.ca/graphql",
         // refetchInterval: 60
       },
     },
@@ -126,5 +126,24 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: "gatsby-source-gravityforms",
+    //   options: {
+    //     // Base URL needs to include protocol (http/https)
+    //     baseUrl: "https://canadamedlaser.netlify.app",
+    //     // Gravity Forms API
+    //     api: {
+    //       key: "ck_8125033727a6803778dfff63a5fdab3b89930124",
+    //       secret: "cs_e63bc0a71326921598e20c99cba87199393da95c",
+    //     },
+    //   },
+    // },
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: "GTM-TL3DCFZ",
+    //     includeInDevelopment: false,
+    //   },
+    // },
   ],
 }

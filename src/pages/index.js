@@ -15,7 +15,7 @@ import FaqsTabs from "../components/homeComponents/Faqs/FaqsTabs"
 import Contact from "../components/Contact/Contact"
 import LocationMap from "../components/LocationMap/LocationMap"
 
-const PageTempl = ({ data, location, pageContext }) => {
+const Home = ({ data, location }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
 
   return (
@@ -67,7 +67,7 @@ const PageTempl = ({ data, location, pageContext }) => {
   )
 }
 
-export default PageTempl
+export default Home
 
 export const pageQuery = graphql`
   query {

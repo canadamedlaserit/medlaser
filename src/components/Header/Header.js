@@ -111,9 +111,9 @@ class Header extends Component {
                   </Link>
                 </div>
                 <div className={styles.CartWrapper}>
-                  <Link
+                  <a
                     className={`${styles.CartLink}`}
-                    to={headerInfo.cartlink}
+                    href={headerInfo.cartlink}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +138,7 @@ class Header extends Component {
                         />
                       </g>
                     </svg>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
