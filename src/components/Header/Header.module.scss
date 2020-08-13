@@ -382,7 +382,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .headerTopLine {
     a {
       font-size: 12px !important;
@@ -393,12 +393,16 @@
 
   .ButtonWrapper {
     .Btn {
-      min-width: 134px !important;
+      min-width: 99px !important;
     }
   }
 
   .NavCollapse a {
     font-size: 18px !important;
+  }
+
+  .headerTopLine .CartWrapper a {
+    padding-left: 12px !important;
   }
 }
 

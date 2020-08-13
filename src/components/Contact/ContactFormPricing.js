@@ -150,7 +150,7 @@ export class ContactFormPricing extends Component {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "Medlaser NEW LEAD - Request Pricing Form",
+          "form-name": "Medlaser NEW LEAD pricing",
           ...this.state,
         }),
       })
@@ -176,25 +176,24 @@ export class ContactFormPricing extends Component {
     return (
       <div className={styles.FormWrapper}>
         <Form
-          name="Medlaser NEW LEAD - Request Pricing Form"
+          name="Medlaser NEW LEAD pricing"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="https://shop.canadamedlaser.ca/"
+          action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
-          <input
-            type="hidden"
-            name="form-name"
-            value="Medlaser NEW LEAD - Request Pricing Form"
-          />
-
           <p className="hidden">
             <label>
               Don’t fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
+          <input
+            type="hidden"
+            name="form-name"
+            value="Medlaser NEW LEAD pricing"
+          />
 
           <div
             className={`${styles.FormColumn} ${
