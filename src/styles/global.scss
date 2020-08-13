@@ -1114,3 +1114,10 @@ main {
 .swiper-button-prev.swiper-button-disabled {
   pointer-events: auto;
 }
+
+
+@media(max-width: 767px) {
+  .siq_bR {
+    bottom: 65px !important;
+  }
+}

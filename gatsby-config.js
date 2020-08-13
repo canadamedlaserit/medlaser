@@ -141,5 +141,6 @@ module.exports = {
         minimum: 0.4,
       },
     },
+    'gatsby-plugin-robots-txt',
   ],
 }

@@ -32,7 +32,15 @@ class Footer extends Component {
                 const submenu = node.childItems.edges
                 return (
                   <div className={`col-md-3 ${styles.DesktopMenu}`} key={index}>
-                    {node.url ?(<h2><Link style={{color: '#ffffff'}} to={node.url}>{node.label}</Link></h2>) : (<h2>{node.label}</h2>)}
+                    {node.url ? (
+                      <h2>
+                        <Link style={{ color: "#ffffff" }} to={node.url}>
+                          {node.label}
+                        </Link>
+                      </h2>
+                    ) : (
+                      <h2>{node.label}</h2>
+                    )}
                     <ul>
                       {submenu.map(({ node }, index) => (
                         <li key={index}>
@@ -43,7 +51,7 @@ class Footer extends Component {
                   </div>
                 )
               } else {
-                return('')
+                return ""
               }
             })}
 
@@ -75,7 +83,9 @@ class Footer extends Component {
                     href={single.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                  >socials link</a>
+                  >
+                    socials link
+                  </a>
                 ))}
               </div>
             </div>
