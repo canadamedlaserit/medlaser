@@ -32,7 +32,6 @@ const Contact = ({ backgroundColor, title, buttonText, formSettings }) => {
 
   const titleDef = data.wpgraphql.page.contactFields.title
   const btntextDef = data.wpgraphql.page.contactFields.btntext
-  console.log(formSettings)
   return (
     <section
       id="contact"
