@@ -36,8 +36,12 @@ const encode = data => {
     .join("&")
 }
 
+const isBrowser = typeof window !== `undefined`;
+
 export class ContactFormPricing extends Component {
   state = initialState
+
+  
 
   reset() {
     // reseting state
@@ -154,7 +158,7 @@ export class ContactFormPricing extends Component {
           ...this.state,
         }),
       })
-        .then(() => navigate(form.getAttribute("action")))
+        .then(() => isBrowser ? window.location.href="https://shop.canadamedlaser.ca/" :navigate(form.getAttribute("action")) )
         .catch(error => alert(error))
     } else {
       // console.log("form invalid")
