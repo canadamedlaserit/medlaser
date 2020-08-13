@@ -65,7 +65,6 @@ module.exports = {
         display: `standalone`,
       },
     },
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
@@ -133,5 +132,6 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
