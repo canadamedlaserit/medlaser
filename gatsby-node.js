@@ -357,7 +357,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
-
+  
 
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {
