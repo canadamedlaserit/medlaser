@@ -71,6 +71,59 @@ module.exports.createPages = async ({ graphql, actions }) => {
     force: true,
   })
 
+  createRedirect({
+    fromPath: "https://canadamedlaser.ca/microneedling-vs-home-dermaroller/",
+    toPath:
+      "https://canadamedlaser.ca/2017/05/15/microneedling-vs-home-dermaroller/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/2019/01/13/botox-injection-prices-in-canada/",
+    toPath:
+      "https://canadamedlaser.ca/2019/01/13/botox-injection-prices-in-toronto/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/2018/11/28/coolsculpting-prices-in-canada/",
+    toPath:
+      "https://canadamedlaser.ca/2018/11/28/coolsculpting-prices-in-toronto/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/2019/04/11/skin-pigmentation：cost-procedure-benefits-and-potential-risks/",
+    toPath:
+      "https://canadamedlaser.ca/2019/04/11/skin-pigmentation-cost-procedure-benefits-and-potential-risks/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/2018/09/26/microdermabrasion-for-acne-and-scarring/",
+    toPath:
+      "https://canadamedlaser.ca/2019/06/05/what-are-the-treatments-for-acne-scars/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/locations/vancouver/cosmetic-injections/",
+    toPath:
+      "https://canadamedlaser.ca/location/mississauga/cosmetic-injections/",
+    isPermanent: true,
+    force: true,
+  })
+
   // redirects end
 
   const { createPage } = actions
@@ -233,7 +286,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -357,8 +409,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
-  
-
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {
   //   if (
@@ -430,5 +480,5 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //   } else {
   //   }
   // })
-
+  
 }
