@@ -85,7 +85,6 @@ strong {
   font-weight: 600;
 }
 
-
 //wp class
 .tile-address {
   display: block;
@@ -1115,9 +1114,21 @@ main {
   pointer-events: auto;
 }
 
-
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .siq_bR {
     bottom: 65px !important;
   }
+}
+
+.instagram-media {
+  background: white;
+  max-width: 540px;
+  width: calc(100% - 2px);
+  border-radius: 3px;
+  border: 1px solid rgb(219, 219, 219);
+  box-shadow: none;
+  display: block;
+  margin: 0px 0px 12px;
+  min-width: 326px;
+  padding: 0px;
 }
