@@ -233,6 +233,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
     const slug = edge.node.slug
@@ -356,6 +357,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   })
 
+
+
   // debug only home pages
   // query.data.wpgraphql.pages.edges.forEach(edge => {
   //   if (
@@ -427,5 +430,5 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //   } else {
   //   }
   // })
-  
+
 }

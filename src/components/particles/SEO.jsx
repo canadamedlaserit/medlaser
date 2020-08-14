@@ -169,6 +169,7 @@ const SEO = ({ data, article }) => {
   return (
     <Helmet title={seo.title}>
       <html lang={siteLanguage} />
+      <meta name="title" content={seo.title} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <link rel="canonical" href={seo.url} />
