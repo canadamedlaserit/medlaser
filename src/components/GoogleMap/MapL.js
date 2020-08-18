@@ -84,12 +84,12 @@ const mapStyle = [
   },
 ]
 const positions = {
-  toronto: { lat: 43.6532, lng: -79.3832, index: 0 }, // 0 Toronto
-  vaughan: { lat: 43.8563, lng: -79.5085, index: 1 }, // 1 Vaughan
-  mississauga: { lat: 43.589, lng: -79.6441, index: 2 }, // 2 Mississauga
-  newmarket: { lat: 44.0592, lng: -79.4613, index: 3 }, // 3 Newmarket
-  thornhill: { lat: 43.8143, lng: -79.424, index: 4 }, // 4 Thornhill
-  maple: { lat: 43.8518, lng: -79.5273, index: 5 }, // 5 Maple
+  toronto: { lat: 43.638709, lng: -79.385837, index: 0 }, // 0 Toronto
+  vaughan: { lat: 43.796319, lng: -79.517114, index: 1 }, // 1 Vaughan
+  mississauga: { lat: 43.518207, lng: -79.622481, index: 2 }, // 2 Mississauga
+  newmarket: { lat: 44.035323, lng: -79.472319, index: 3 }, // 3 Newmarket
+  thornhill: { lat: 43.79609, lng: -79.433903, index: 4 }, // 4 Thornhill
+  maple: { lat: 43.859584, lng: -79.488931, index: 5 }, // 5 Maple
 }
 
 export class MapContainerL extends Component {
@@ -104,28 +104,6 @@ export class MapContainerL extends Component {
     })
   }
 
-  // onMarkerClick = (props, marker, e) => {
-  //   // console.log("marker clickied")
-
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       function(position) {
-  //         var pos = {
-  //           lat: position.coords.latitude,
-  //           lng: position.coords.longitude,
-  //         }
-
-  //         // console.log(pos)
-  //       },
-  //       function() {
-  //         console.log("some error")
-  //       }
-  //     )
-  //   } else {
-  //     console.log("some error")
-  //   }
-  // }
-
   render() {
     const { locations, markeractive, location } = this.props
     let currentIndex = 0
@@ -133,11 +111,6 @@ export class MapContainerL extends Component {
     if (positions.hasOwnProperty(location)) {
       currentIndex = positions[location].index
     }
-
-    // const triangleCoords = [
-    //   { lat: 43.6532, lng: -79.3832 },
-    //   { lat: 44.0592, lng: -79.4613 },
-    // ]
 
     return (
       <div>
@@ -168,7 +141,6 @@ export class MapContainerL extends Component {
                 scaledSize: new window.google.maps.Size(25, 42),
               }}
             />
-  
           </Map>
         </div>
 

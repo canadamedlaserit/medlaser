@@ -83,13 +83,23 @@ const mapStyle = [
     ],
   },
 ]
+// const positions = [
+//   { lat: 43.6532, lng: -79.3832 }, // 0 Toronto
+//   { lat: 43.8563, lng: -79.5085 }, // 1 Vaughan
+//   { lat: 43.589, lng: -79.6441 }, // 2 Mississauga
+//   { lat: 44.0592, lng: -79.4613 }, //3 Newmarket
+//   { lat: 43.8143, lng: -79.424 }, //4 Thornhill
+//   { lat: 43.8518, lng: -79.5273 }, // 5 Maple
+// ]
+
+
 const positions = [
-  { lat: 43.6532, lng: -79.3832 }, // 0 Toronto
-  { lat: 43.8563, lng: -79.5085 }, // 1 Vaughan
-  { lat: 43.589, lng: -79.6441 }, // 2 Mississauga
-  { lat: 44.0592, lng: -79.4613 }, //3 Newmarket
-  { lat: 43.8143, lng: -79.424 }, //4 Thornhill
-  { lat: 43.8518, lng: -79.5273 }, // 5 Maple
+  { lat: 43.638709, lng: -79.385837 }, // 0 Toronto new
+  { lat: 43.796319, lng: -79.517114 }, // 1 Vaughan new
+  { lat: 43.518207, lng: -79.622481 }, // 2 Mississauga new
+  { lat: 44.035323, lng: -79.472319 }, //3 Newmarket new
+  { lat: 43.796090, lng: -79.433903 }, //4 Thornhill new
+  { lat: 43.859584, lng: -79.488931}, // 5 Maple new
 ]
 
 export class MapContainer extends Component {

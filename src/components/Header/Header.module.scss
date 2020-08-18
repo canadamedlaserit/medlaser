@@ -24,9 +24,8 @@
   .NavCollapse {
     justify-content: flex-end;
 
-
-
-    .InnerLink, .InnerLink2 {
+    .InnerLink,
+    .InnerLink2 {
       &:hover {
         color: $red !important;
       }
@@ -36,7 +35,6 @@
       .Dropdown a {
         // color: $white !important;
         color: #000000 !important;
-        
       }
       .MainLink {
         > a {
@@ -378,11 +376,10 @@
   .NavCollapse a {
     font-size: 20px !important;
     line-height: 27px !important;
-
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1380px) {
   .headerTopLine {
     a {
       font-size: 12px !important;
@@ -403,6 +400,12 @@
 
   .headerTopLine .CartWrapper a {
     padding-left: 12px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .headerTopLine .CartWrapper {
+    display: none;
   }
 }
 
