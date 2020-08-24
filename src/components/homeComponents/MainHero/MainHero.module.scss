@@ -1,7 +1,9 @@
 @import "../../../styles/_variables";
 
 .MainHero {
-  height: calc(100vh - 67px);
+  height: calc(100vh - 53px);
+  background-color: #161616;
+  color: #ffffff;
 
   .Title {
     text-align: center !important;

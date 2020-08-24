@@ -48,6 +48,8 @@ const InnerHero = ({
           <div className={`col-md-6 ${styles.ImgCol}`}>
             {backgroundimage ? (
               <Img
+                loading="eager"
+                fadeIn={false}
                 alt={backgroundimage.altText}
                 className={`gatsby-image-background`}
                 fluid={backgroundimage.imageFile.childImageSharp.fluid}
@@ -75,14 +77,13 @@ const InnerHero = ({
               <div style={{ width: "100%" }}>
                 {/* issue title rendering  */}
                 <div>
-                {!isMobile ? (
-                  <div
-                    className={`${styles.Title} ${styles.TitleDesktop}`}
-                    dangerouslySetInnerHTML={{ __html: title }}
-                  ></div>
-                ) : null}
+                  {!isMobile ? (
+                    <div
+                      className={`${styles.Title} ${styles.TitleDesktop}`}
+                      dangerouslySetInnerHTML={{ __html: title }}
+                    ></div>
+                  ) : null}
                 </div>
-             
 
                 {text ? (
                   <div
@@ -107,8 +108,6 @@ const InnerHero = ({
                     </AnchorLink>
                   ) : null}
                 </div>
-
-              
               </div>
             </div>
           </div>
