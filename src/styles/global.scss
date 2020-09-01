@@ -1155,9 +1155,6 @@ main {
   p {
     margin-bottom: 0;
     font-size: 16px;
-    @media (max-width: 767px) {
-      font-size: 11px;
-    }
   }
 
   .container {
@@ -1166,15 +1163,25 @@ main {
   }
 }
 
-
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .promobar {
+    p {
+      font-size: 12px;
+    }
     .col-md-12 {
       padding: 0 8px;
     }
 
     a {
       font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 345px) {
+  .promobar {
+    p {
+      font-size: 11px;
     }
   }
 }
