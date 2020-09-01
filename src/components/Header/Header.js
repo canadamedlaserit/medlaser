@@ -8,7 +8,6 @@ import {
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
 
-
 import CustomNav from "./CustomNav"
 import styles from "./Header.module.scss"
 
@@ -81,6 +80,21 @@ class Header extends Component {
           expand="lg"
           className={`${styles.Navbar}`}
         >
+          {headerInfo.promoTopLine ? (
+            <div className="promobar">
+              <div className="container">
+                <div className="row ">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: headerInfo.promoTopLine,
+                    }}
+                    className="col-md-12"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
           <div className={styles.headerTopLine}>
             <div className={`container ${styles.container}`}>
               <CustomNav data={topMenu} />
@@ -170,7 +184,7 @@ class Header extends Component {
               <CustomNav
                 isMobile={this.state.windowWidth > 991 ? false : true}
                 data={this.state.windowWidth > 991 ? mainMenu : mainMenuMobile}
-                menuimages={data.wpgraphql.page.headerFooterInfo.menuimages} 
+                menuimages={data.wpgraphql.page.headerFooterInfo.menuimages}
               />
             </Navbar.Collapse>
           </div>

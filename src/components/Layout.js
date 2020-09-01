@@ -46,6 +46,7 @@ const Layout = ({ children, location }) => {
         }
         page(id: "headerfooterinfo", idType: URI) {
           headerFooterInfo {
+            promoTopLine
             phone
             phoneurl
             btntext

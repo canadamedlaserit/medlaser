@@ -1132,3 +1132,27 @@ main {
   min-width: 326px;
   padding: 0px;
 }
+
+// promobar
+.promobar {
+  width: 100%;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 0;
+  text-transform: capitalize;
+
+  @media (max-width: 767px) {
+    font-size: 10px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .container {
+    max-width: 100%;
+    justify-content: center;
+  }
+}
