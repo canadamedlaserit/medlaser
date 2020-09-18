@@ -14,7 +14,7 @@ export const fragment = graphql`
           altText
           imageFile {
             childImageSharp {
-              fluid(quality: 100, maxWidth: 740) {
+              fluid(quality: 100, maxWidth: 840) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -38,7 +38,6 @@ const BeforeAfterMultipleImages = ({ title, images }) => {
               ></div>
             ) : null}
           </div>
-          {console.log(images.length)}
 
           {images && images.length >= 2 ? (
             images.map((item, index) => (

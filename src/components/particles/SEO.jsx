@@ -111,7 +111,7 @@ const SEO = ({ data, article }) => {
     address: [
       {
         "@type": "PostalAddress",
-        streetAddress: "249 Queen's Quay W. #113",
+        streetAddress: "249 Queen's Quay W.",
         addressLocality: "Toronto",
         addressRegion: "Ontario",
         addressCountry: "Canada",
