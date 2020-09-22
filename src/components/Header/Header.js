@@ -202,6 +202,10 @@ class Header extends Component {
           </div>
         </Navbar>
         <div className={styles.FloatingMenu}>
+          <div>
+            <a href="/assessment">ASSESSMENT</a>
+          </div>
+
           {headerInfo.floatingmenu.map((item, index) => (
             <div key={index}>
               <a href={item.btnlink}>{item.btntext}</a>
