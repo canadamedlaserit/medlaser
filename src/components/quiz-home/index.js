@@ -59,7 +59,7 @@ export default function HomeQuiz() {
               }}
             >
               <h1 className="textCFont">Skin Assessment</h1>
-              <Link to="/test">
+              <Link>
                 <Button disabled className="testButton">
                   <span className="buttonFont">Coming Soon</span>
                 </Button>
