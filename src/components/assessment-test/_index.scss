@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display%7CMontserrat%7CRaleway");
+#assessment-test-section {
+  margin-top: 9%;
+  @media (max-width: 767px) {
+    margin-top: 26%;
+  }
+
+  .container {
+    max-width: 1280;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background: #fafafa;
+  }
+
+  h1 {
+    font-family: "Playfair Display";
+    font-size: 42px;
+    line-height: 56px;
+    color: #000000;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    font-family: "Montserrat";
+    color: #000000;
+    margin-top: 8%;
+  }
+
+  .btn-section {
+    margin-top: 8%;
+    button {
+      width: 268px;
+      height: 60px;
+      font-family: "Playfair Display";
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 0.9px;
+      color: #ffffff;
+      border-radius: 0;
+      border: none;
+      margin-right: 10px;
+      background: #3b4856 0% 0% no-repeat padding-box;
+
+      @media (max-width: 992px) {
+        margin-top: 20px;
+      }
+
+      @media (min-width: 992px) and (max-width: 1200px) {
+        width: 200px;
+      }
+
+      &:hover {
+        background-color: #6babe1;
+        border: none;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
