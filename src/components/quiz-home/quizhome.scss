@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display%7CMontserrat%7CRaleway");
+
+#assessment-section {
+  @media (max-width: 767px) {
+    margin-bottom: 30vh;
+  }
+}
+.headerTitle {
+  font-family: "normal normal bold 46px/65px Playfair Display";
+  letter-spacing: 0px;
+  font-size: 46px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.headerdesc {
+  font-family: "normal normal normal 20px/30px Open Sans";
+  letter-spacing: 0px;
+  font-size: 20px;
+  margin-top: 5vh;
+  color: #ffffff;
+}
+
+.headerWrap {
+  margin-top: 10vh;
+  @media (max-width: 767px) {
+    margin-top: 0px;
+  }
+}
+
+.textCFont {
+  font-family: "normal normal bold 36px/65px Playfair Display";
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.buttonFont {
+  font-family: "normal normal 600 16px/22px Open Sans";
+  letter-spacing: 0.96px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.bottomWrap {
+  background-color: grey;
+  padding-top: 15vh;
+}
+.testButton {
+  width: 252px;
+  height: 60px;
+  margin-top: 5vh;
+  background-color: #9c1a3b;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: #800726;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: #800726;
+  }
+  &:focus {
+    background-color: #800726;
+  }
+}
