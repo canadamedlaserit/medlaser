@@ -85,6 +85,25 @@ strong {
   font-weight: 600;
 }
 
+// wp class star list
+.star-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    display: flex;
+    padding-bottom: 30px;
+    &:before {
+      content: "";
+      background: url(../images/favorites.png);
+      width: 25px;
+      height: 25px;
+      display: flex;
+      margin-right: 20px;
+    }
+  }
+}
+
 //wp class
 .tile-address {
   display: block;
