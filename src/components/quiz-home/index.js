@@ -41,7 +41,7 @@ export default function HomeQuiz() {
               }}
             >
               <h1 className="textCFont">Laser Hair Removal Assessment</h1>
-              <Link to="/test">
+              <Link to="/laser-hair-removal-assessment">
                 <Button className="testButton">
                   <span className="buttonFont">Lets gets started</span>
                 </Button>
