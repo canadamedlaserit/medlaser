@@ -202,6 +202,7 @@ export class CustomNav extends Component {
                                         this.props.isMobile !== true
                                       }
                                     >
+
                                       {submenu.map(({ node }) => (
                                         <Link
                                           key={node.id}
@@ -226,6 +227,7 @@ export class CustomNav extends Component {
                                     >
                                       {node.label}
                                     </Link>
+
                                     {submenu.map(({ node }) => (
                                       <Link
                                         key={node.id}
@@ -235,6 +237,7 @@ export class CustomNav extends Component {
                                         {node.label}
                                       </Link>
                                     ))}
+
                                   </div>
                                 )
                               }
@@ -252,6 +255,7 @@ export class CustomNav extends Component {
                               )
                             }
                           })}
+
                         </div>
                       </div>
                     </Dropdown.Menu>
@@ -270,7 +274,6 @@ export class CustomNav extends Component {
                 )
               }
             })}
-            <Link to="/assessment">Assessment</Link>
           </div>
         </Nav>
       </>
