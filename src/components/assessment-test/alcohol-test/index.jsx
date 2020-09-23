@@ -122,24 +122,6 @@ const AlcoholTest = () => {
           <div style={{ paddingTop: "19vh", backgroundColor: "black" }}>
             <Row className="headerTest py-4">
               <Col>
-                {/* {currentStep === 1 ? (
-                        // <Link to="/assessment-test">
-                        <Button
-                          className="cancel-btn"
-                          onClick={() => {
-                            window.location.reload()
-                          }}
-                        >
-                          cancel
-                        </Button>
-                      ) : (
-                        // </Link>
-                        <Button className="back-btn" onClick={handlePrev}>
-                          <i className="fa fa-long-arrow-left" />
-                          &nbsp;&nbsp; Back
-                        </Button>
-                      )} */}
-
                 {currentStep === 1 ? (
                   <Link to="/assessment">
                     <img
@@ -173,7 +155,9 @@ const AlcoholTest = () => {
                 </span>
               </Col>
               <Col style={{ textAlign: "end" }}>
-                <a style={{ textDecoration: "underline" }}>Need help?</a>
+                <a href="/contact-us/" style={{ textDecoration: "underline" }}>
+                  Need help?
+                </a>
               </Col>
             </Row>
           </div>

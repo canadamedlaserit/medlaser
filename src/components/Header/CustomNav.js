@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Nav, Dropdown } from "react-bootstrap"
+import { Nav, Dropdown, Button } from "react-bootstrap"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
@@ -270,6 +270,7 @@ export class CustomNav extends Component {
                 )
               }
             })}
+            <Link to="/assessment">Assessment</Link>
           </div>
         </Nav>
       </>
