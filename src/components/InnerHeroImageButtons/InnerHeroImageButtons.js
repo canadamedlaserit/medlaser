@@ -46,7 +46,7 @@ const InnerHeroImageButtons = ({ title, buttons, coverImage }) => {
           ) : (
             ""
           )}
-          <div className={`${styles.innerWrapper} col`}>
+          <div className={`${styles.innerWrapper} col-md-12`}>
             <div
               className={styles.Title}
               dangerouslySetInnerHTML={{ __html: title }}

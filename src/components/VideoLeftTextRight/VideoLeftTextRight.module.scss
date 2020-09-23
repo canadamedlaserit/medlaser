@@ -1,0 +1,86 @@
+.Section {
+  background-color: #161616;
+  padding-top: 90px;
+  padding-bottom: 90px;
+
+  .Container {
+    max-width: 1752px;
+  }
+
+  h2 {
+    //   font-family:'normal normal bold 42px/98px Playfair Display'
+    font-size: 42px !important;
+    line-height: 98px;
+    margin-bottom: 45px;
+    text-align: left !important;
+  }
+
+  .Text {
+    color: white;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .VideoWrapper {
+    margin-right: 60px;
+    height: 100%;
+  }
+
+  .Buttons {
+    margin-top: 40px;
+    a {
+      margin-left: 0;
+      max-width: 207px;
+    }
+  }
+
+  @media (max-width: 1599px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    .VideoWrapper {
+      margin-right: 20px;
+    }
+
+    h2 {
+      font-size: 36px;
+      line-height: 60px;
+      margin-bottom: 35px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .VideoWrapper {
+      margin-right: 0;
+      min-height: 260px;
+    }
+
+    h2 {
+      font-size: 36px !important;
+      line-height: 42px !important;
+      margin-top: 40px;
+      text-transform: capitalize;
+    }
+
+    .Text {
+      font-size: 14px !important;
+      line-height: 19px !important;
+    }
+
+    .Buttons {
+      a {
+        max-width: 296px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .PlayIcon {
+      width: 63px;
+    }
+  }
+}

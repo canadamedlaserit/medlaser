@@ -286,7 +286,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  /*
+
 
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
@@ -364,7 +364,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  */
+  
 
   // pages
   query.data.wpgraphql.pages.edges.forEach(edge => {

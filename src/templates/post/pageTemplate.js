@@ -76,6 +76,7 @@ import BeforeAfterMultipleImages from "../../components/BeforeAfterMultipleImage
 import FranchiseBlogBlock from "../../components/FranchiseBlogBlock/FranchiseBlogBlock"
 import MoreTreatments from "../../components/MoreTreatments/MoreTreatments"
 import InnerHeroImageButtons from "../../components/InnerHeroImageButtons/InnerHeroImageButtons"
+import VideoLeftTextRight from "../../components/VideoLeftTextRight/VideoLeftTextRight"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -307,6 +308,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_InnerHeroImageButtons":
             return <InnerHeroImageButtons key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_VideoLeftTextRight":
+            return <VideoLeftTextRight key={index} {...section} />
+
           default:
             return ""
         }
@@ -428,6 +432,7 @@ export const pageQuery = graphql`
             }
             ...MoreTreatmentsSection
             ...InnerHeroImageButtons
+            ...VideoLeftTextRight
           }
         }
       }
