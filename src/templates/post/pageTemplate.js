@@ -77,6 +77,7 @@ import FranchiseBlogBlock from "../../components/FranchiseBlogBlock/FranchiseBlo
 import MoreTreatments from "../../components/MoreTreatments/MoreTreatments"
 import InnerHeroImageButtons from "../../components/InnerHeroImageButtons/InnerHeroImageButtons"
 import VideoLeftTextRight from "../../components/VideoLeftTextRight/VideoLeftTextRight"
+import MembershipServices from "../../components/MembershipServices/MembershipServices"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -311,6 +312,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_VideoLeftTextRight":
             return <VideoLeftTextRight key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_MembershipServices":
+            return <MembershipServices key={index} {...section} />
+
           default:
             return ""
         }
@@ -433,6 +437,7 @@ export const pageQuery = graphql`
             ...MoreTreatmentsSection
             ...InnerHeroImageButtons
             ...VideoLeftTextRight
+            ...MembershipServices
           }
         }
       }
