@@ -3,7 +3,7 @@ import React from "react"
 // import Header from "../components/header"
 // import Layout from "../components/layout"
 // import SEO from "../components/seo"
-import AlcoholTest from "../components/assessment-test/alcohol-test"
+import AlcoholTest from "../components/assessment-test/laser-hair-removal"
 import Layout from "../components/Layout"
 
 const AlcoholTestPage = props => {

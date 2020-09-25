@@ -11,6 +11,9 @@
   font-size: 46px;
   color: #ffffff;
   text-transform: capitalize;
+  @media (max-width: 767px) {
+    font-size: 36px;
+  }
 }
 
 .headerdesc {
@@ -19,6 +22,9 @@
   font-size: 20px;
   margin-top: 5vh;
   color: #ffffff;
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
 }
 
 .headerWrap {
