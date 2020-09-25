@@ -1,6 +1,8 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
+import Swiper from "react-id-swiper"
 
 import styles from "./MembershipServices.module.scss"
 
@@ -31,6 +33,22 @@ export const fragment = graphql`
 `
 
 const MembershipServices = ({ title, plans }) => {
+  const params = {
+    slidesPerView: 1,
+    initialSlide: 1,
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    spaceBetween: 10,
+  }
+
   return (
     <>
       <section className={`${styles.Section} ${styles.Section1}`}>
@@ -49,7 +67,9 @@ const MembershipServices = ({ title, plans }) => {
         </Container>
       </section>
 
-      <section className={`${styles.Section} ${styles.Section2}`}>
+      <section
+        className={`${styles.Section} ${styles.Section2} ${styles.Desktop}`}
+      >
         <Container className={styles.Container}>
           <Row className={styles.Bot}>
             {plans.map((plan, i) => (
@@ -65,18 +85,72 @@ const MembershipServices = ({ title, plans }) => {
                     </div>
                     <div>
                       <h3 dangerouslySetInnerHTML={{ __html: plan.title }}></h3>
-                      <p
-                        dangerouslySetInnerHTML={{ __html: plan.price }}
-                      ></p>
+                      <p>
+                        {plan.price} <span>/month</span>
+                      </p>
                     </div>
                   </div>
 
-                  <div className={styles.List} dangerouslySetInnerHTML={{__html: plan.list}}></div>
+                  <div
+                    className={styles.List}
+                    dangerouslySetInnerHTML={{ __html: plan.list }}
+                  ></div>
+
+                  <div className={styles.Buttons}>
+                    <Link to={plan.button.url} className="btn btn-red">
+                      {plan.button.label}
+                    </Link>
+                  </div>
                 </div>
               </Col>
             ))}
           </Row>
         </Container>
+      </section>
+
+      <section
+        className={`${styles.Section} ${styles.Section2} ${styles.Tablet}`}
+      >
+        <div className={`${styles.Swiper} membership-swiper`}>
+          <Swiper className={styles.SwiperSlider} {...params}>
+            {plans.map((plan, index) => (
+              <div className={styles.SwiperSlide} key={index}>
+                <div className={styles.PlanCol}>
+                  <div className={styles.Plan}>
+                    <div className={styles.Header}>
+                      <div>
+                        <Img
+                          className={styles.Image}
+                          alt={plan.image.altText}
+                          fluid={plan.image.imageFile.childImageSharp.fluid}
+                        />
+                      </div>
+                      <div>
+                        <h3
+                          dangerouslySetInnerHTML={{ __html: plan.title }}
+                        ></h3>
+                        <p>
+                          {plan.price} <span>/month</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className={styles.List}
+                      dangerouslySetInnerHTML={{ __html: plan.list }}
+                    ></div>
+
+                    <div className={styles.Buttons2}>
+                      <Link to={plan.button.url} className="btn btn-red">
+                        {plan.button.label}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Swiper>
+        </div>
       </section>
     </>
   )

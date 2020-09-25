@@ -1,0 +1,25 @@
+.Section {
+  padding-top: 150px;
+  padding-bottom: 140px;
+
+  .Container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    h2 {
+        font-size: 28px !important;
+      }
+  }
+}

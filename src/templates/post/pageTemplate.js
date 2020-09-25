@@ -78,6 +78,8 @@ import MoreTreatments from "../../components/MoreTreatments/MoreTreatments"
 import InnerHeroImageButtons from "../../components/InnerHeroImageButtons/InnerHeroImageButtons"
 import VideoLeftTextRight from "../../components/VideoLeftTextRight/VideoLeftTextRight"
 import MembershipServices from "../../components/MembershipServices/MembershipServices"
+import TextFullWidth2 from '../../components/TextFullWidth2/TextFullWidth2'
+import DarkSectionButton from '../../components/DarkSectionButton/DarkSectionButton'
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -315,6 +317,14 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_MembershipServices":
             return <MembershipServices key={index} {...section} />
 
+            case "WPGraphQL_Page_Sectionfields_Sections_TextFullWidth2":
+              return <TextFullWidth2 key={index} {...section} />
+
+              
+            case "WPGraphQL_Page_Sectionfields_Sections_DarkSectionButton":
+              return <DarkSectionButton key={index} {...section} />
+            
+              
           default:
             return ""
         }
@@ -438,6 +448,8 @@ export const pageQuery = graphql`
             ...InnerHeroImageButtons
             ...VideoLeftTextRight
             ...MembershipServices
+            ...TextFullWidth2
+            ...DarkSectionButton
           }
         }
       }

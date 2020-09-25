@@ -100,7 +100,96 @@ strong {
       height: 25px;
       display: flex;
       margin-right: 20px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
+  }
+}
+
+.economy-ul {
+  list-style: none;
+
+  li {
+    display: flex;
+    padding-bottom: 30px;
+    position: relative;
+    padding-left: 60px;
+
+    &:before {
+      content: "";
+      background: url(../images/favorites-green.png);
+      width: 29px;
+      height: 29px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.business-ul {
+  list-style: none;
+
+  li {
+    display: flex;
+    padding-bottom: 30px;
+    position: relative;
+    padding-left: 60px;
+
+    &:before {
+      content: "";
+      background: url(../images/favorites-blue.png);
+      width: 29px;
+      height: 29px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.first-class-ul {
+  list-style: none;
+
+  li {
+    display: flex;
+    padding-bottom: 30px;
+    position: relative;
+    padding-left: 60px;
+
+    &:before {
+      content: "";
+      background: url(../images/favorites-blue.png);
+      width: 29px;
+      height: 29px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.disabled-list {
+  color: #717171 !important;
+
+  &:before {
+    background: url(../images/favorites-disabled.png) !important;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
@@ -1003,6 +1092,26 @@ main {
     border-color: $red !important;
   }
 }
+//
+
+// membership swiper start
+.membership-swiper {
+  padding-top: 100px;
+
+  .swiper-container {
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .swiper-slide {
+    transition: 0.3s !important;
+  }
+
+  .swiper-slide-active {
+    margin-top: -66px;
+  }
+}
+
+// membership swiper end
 
 @media (min-width: 768px) {
   .special-swiper {
