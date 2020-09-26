@@ -11,16 +11,15 @@
     // margin-top: 26%;
   }
 
-  .header-gap{
+  .header-gap {
     padding-top: 14vh;
-     background-color: black;    
-      @media (max-width: 768px) {
+    background-color: black;
+    @media (max-width: 768px) {
       padding-top: 6vh;
-      }
-    
+    }
   }
   .headerTest {
-//    height: 10vh;
+    //    height: 10vh;
     color: #fff;
     background-color: #000000;
     display: flex;
@@ -32,7 +31,7 @@
   .alcohol-test-wrapper {
     //    max-width: 1280;
     @media (max-width: 767px) {
-    padding-bottom: 4%;
+      padding-bottom: 4%;
     }
     //    background: #fafafa;
   }
@@ -53,6 +52,9 @@
     font-weight: 700;
     margin-top: 5px;
     background-color: #000000;
+    @media (max-width: 767px) {
+      font-size: 26px;
+    }
   }
   .alcohol-test-heading {
     font: "normal normal 600 16px/22px Open Sans";
@@ -140,10 +142,10 @@
     border: 2px solid #9c1a3b;
     width: 100%;
     border-radius: 0px;
-//    margin: auto;
+    //    margin: auto;
     @media (max-width: 992px) {
       width: 400px;
-//      margin-left: 15px;
+      //      margin-left: 15px;
     }
 
     @media (max-width: 767px) {
