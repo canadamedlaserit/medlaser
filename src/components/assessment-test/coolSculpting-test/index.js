@@ -131,7 +131,7 @@ const CSTest = () => {
     </div>
   ) : (
     <section id="alcohol-test-section">
-      <Container fluid>
+           <div style={{ paddingTop: "19vh", backgroundColor: "black" }}>
         <Row className="headerTest py-4">
           <Col>
             {/* {currentStep === 1 ? (
@@ -185,7 +185,7 @@ const CSTest = () => {
             <a style={{ textDecoration: "underline" }}>Need help?</a>
           </Col>
         </Row>
-      </Container>
+      </div>
       <Container className="alcohol-test-wrapper" fluid>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ isSubmitting, values, setFieldValue }) => (
