@@ -86,14 +86,15 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               />
               <label htmlFor="option4">One or more of the above methods</label>
             </li>
-            <li>
+<li style={{ display: "flex" }}>
+             <input type="radio"/>
               <Button className="next-btn  py-3" onClick={handleNext}>
                 Next &nbsp; &nbsp;
               </Button>
             </li>
           </ul>
         </Col>
-      </Row>
+
     </>
   )
 }

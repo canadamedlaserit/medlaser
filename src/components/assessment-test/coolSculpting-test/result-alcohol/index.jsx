@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Loader from "./loader"
 import "./_index.scss"
+import { Link } from "gatsby"
 
 const ResultAlcohol = ({ payload, result }) => {
   console.log(payload, "payload end ")
@@ -10,7 +11,7 @@ const ResultAlcohol = ({ payload, result }) => {
   const [answer, setanswer] = useState(null)
   useEffect(() => {
     {
-      setTimeout(function () {
+      setTimeout(function() {
         if (
           result.includes("green") &&
           !result.includes("yellow") &&
@@ -19,13 +20,14 @@ const ResultAlcohol = ({ payload, result }) => {
           setanswer(
             "We hate to be the bearer of bad news, butunfortunately it looks like you’re not a candidate!  Well, better to find out sooner than later.  But wait, don’t leave us yet!  Take our next quiz to see what other treatments may be suited for you!”“To schedule your complimentary consultation, <a>click here now</a>"
           )
-        } 
-         else if (
+        } else if (
           result.includes("green") &&
           !result.includes("yellow") &&
           !result.includes("red")
         ) {
-          setanswer("Congratulations!  Based on the answers you have submitted, you are a candidate for the CoolSculpting treatmen")
+          setanswer(
+            "Congratulations!  Based on the answers you have submitted, you are a candidate for the CoolSculpting treatmen"
+          )
         } else {
           setanswer("Sorry! You didn't answer any questions ")
         }
@@ -43,12 +45,9 @@ const ResultAlcohol = ({ payload, result }) => {
               please….{" "}
             </h2>
             {answer ? <p>{answer}</p> : <Loader />}{" "}
-            <Button
-              className="contact-btn"
-              onClick={() => window.location.reload()}
-            >
-              Home
-            </Button>
+            <Link to="/assessment">
+              <button className="contact-btn">Home</button>
+            </Link>
           </Col>
         </Row>
       </Container>

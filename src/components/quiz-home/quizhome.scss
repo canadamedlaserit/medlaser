@@ -5,6 +5,14 @@
     margin-bottom: 30vh;
   }
 }
+.headerBackground{
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.4);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  background-position: center;
+}
 .headerTitle {
   font-family: "normal normal bold 46px/65px Playfair Display";
   letter-spacing: 0px;

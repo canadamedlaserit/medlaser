@@ -52,7 +52,6 @@ const CSTest = () => {
   }
 
   const handleSubmit = async payload => {
-
     const emailHtml = `
     <p><strong>Name:</strong> ${payload.name}</p>
     <p><strong>Email:</strong> ${payload.email}</p>
@@ -131,7 +130,7 @@ const CSTest = () => {
     </div>
   ) : (
     <section id="alcohol-test-section">
-           <div style={{ paddingTop: "19vh", backgroundColor: "black" }}>
+      <div className="header-gap">
         <Row className="headerTest py-4">
           <Col>
             {/* {currentStep === 1 ? (
@@ -153,7 +152,7 @@ const CSTest = () => {
                       )} */}
 
             {currentStep === 1 ? (
-              <Link to="/">
+              <Link to="/assessment">
                 <img
                   src={LeftArrowHeader}
                   alt="Back arrow"
@@ -290,7 +289,11 @@ const CSTest = () => {
                       )} */}
 
                 <Row className="flex justify-content-center">
-                  <Col lg={4} md={10} style={{ textAlign: "center" }}>
+                  <Col
+                    lg={4}
+                    md={10}
+                    style={{ textAlign: "center", paddingBottom: "5vh" }}
+                  >
                     {currentStep === 8 && (
                       <Button
                         className="next-btn"

@@ -81,14 +81,15 @@ const Step2 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               />
               <label htmlFor="option4">Every 2 months</label>
             </li>
-            <li>
+<li style={{ display: "flex" }}>
+             <input type="radio"/>
               <Button className="next-btn  py-3" onClick={handleNext}>
                 Next &nbsp; &nbsp;
               </Button>
             </li>
           </ul>
         </Col>
-      </Row>
+
     </>
   )
 }

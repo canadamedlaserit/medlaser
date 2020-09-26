@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Loader from "./loader"
 import "./_index.scss"
+import { Link } from "gatsby"
 
 const ResultAlcohol = ({ payload, result }) => {
   console.log(payload, "payload end ")
@@ -19,8 +20,7 @@ const ResultAlcohol = ({ payload, result }) => {
       const teal = result.includes("teal")
       const dark_green = result.includes("dark green")
 
-      setTimeout(function () {
-
+      setTimeout(function() {
         if (
           yellow &&
           baby_blue &&
@@ -49,8 +49,7 @@ const ResultAlcohol = ({ payload, result }) => {
           setanswer(
             "We hate to be the bearer of bad news, but unfortunately it looks like you’re not a candidate!  Well, better to find out sooner than later.  But wait, don’t leave us yet!  Take our next quiz to see what other treatments may be suited for you!”“To schedule your complimentary consultation, click here now"
           )
-        } 
-        else if (
+        } else if (
           yellow &&
           !baby_blue &&
           !purple &&
@@ -61,9 +60,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A microneedling or fractional laser treatment package, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "A microneedling or fractional laser treatment package, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           baby_blue &&
           !purple &&
@@ -74,9 +74,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("Botox and Filler / fractional / Microneedling, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "Botox and Filler / fractional / Microneedling, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           !baby_blue &&
           purple &&
@@ -87,9 +88,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A chemical peel / microneedling / fractional laser skin resurfacing treatment package, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "A chemical peel / microneedling / fractional laser skin resurfacing treatment package, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           !baby_blue &&
           !purple &&
@@ -100,9 +102,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A chemical peel or Aquapure facial package, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "A chemical peel or Aquapure facial package, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           !baby_blue &&
           !purple &&
@@ -113,9 +116,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A microneedling treatment package or botox, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "A microneedling treatment package or botox, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           !baby_blue &&
           !purple &&
@@ -126,9 +130,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A Radiofrequency skin tightening treatment package or cosmetic injections, plus an at-home skincare routine")
-        } 
-        else if (
+          setanswer(
+            "A Radiofrequency skin tightening treatment package or cosmetic injections, plus an at-home skincare routine"
+          )
+        } else if (
           !yellow &&
           !baby_blue &&
           !purple &&
@@ -139,9 +144,10 @@ const ResultAlcohol = ({ payload, result }) => {
           green &&
           !red
         ) {
-          setanswer("A combination of chemical peels and microneedlingor fractional laser treatments, plus an at-home skincare routine")
-        } 
-        else {
+          setanswer(
+            "A combination of chemical peels and microneedlingor fractional laser treatments, plus an at-home skincare routine"
+          )
+        } else {
           setanswer("Sorry!  treatments may not be suited for you ")
         }
       }, 2000)
@@ -160,12 +166,9 @@ const ResultAlcohol = ({ payload, result }) => {
               please….{" "}
             </h2>
             {answer ? <p>{answer}</p> : <Loader />}{" "}
-            <Button
-              className="contact-btn"
-              onClick={() => window.location.reload()}
-            >
-              Home
-            </Button>
+            <Link to="/assessment">
+              <button className="contact-btn">Home</button>
+            </Link>
           </Col>
         </Row>
       </Container>
