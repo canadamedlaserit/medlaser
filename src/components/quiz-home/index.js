@@ -63,14 +63,9 @@ export default function HomeQuiz() {
             {tests.map(data => (
               <Col
                 md={6}
-                className="text-center bottomWrap"
+                className="text-center bottomWrap headerBackground"
                 style={{
                   backgroundImage: data.image,
-                  backgroundBlendMode: "overlay",
-                  backgroundColor: "rgba(0,0,0,0.4)",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  height: "60vh",
                 }}
               >
                 <h1 className="textCFont">{data.name}</h1>

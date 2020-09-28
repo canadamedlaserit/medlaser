@@ -22,7 +22,7 @@ const Step8 = () => {
         </Col>
       </div>
       <Row className="flex justify-content-center">
-        <Col lg={4} md={10} style={{ textAlign: "center" }}>
+        <Col lg={4} md={10} style={{ textAlign: "center", padding: "0em 2em" }}>
           <Row className="mt-5">
             <Col md={12}>
               <Field

@@ -119,7 +119,7 @@ const AlcoholTest = () => {
         </div>
       ) : (
         <section id="alcohol-test-section">
-          <div style={{ paddingTop: "19vh", backgroundColor: "black" }}>
+          <div  >
             <Row className="headerTest py-4">
               <Col>
                 {currentStep === 1 ? (

@@ -127,7 +127,7 @@ const LhrTest1 = () => {
     </div>
   ) : (
     <section id="alcohol-test-section">
-      <Container fluid>
+      <div className="header-gap">
         <Row className="headerTest py-4">
           <Col>
             {/* {currentStep === 1 ? (
@@ -149,7 +149,7 @@ const LhrTest1 = () => {
                       )} */}
 
             {currentStep === 1 ? (
-              <Link to="/">
+              <Link to="/assessment">
                 <img
                   src={LeftArrowHeader}
                   alt="Back arrow"
@@ -181,7 +181,7 @@ const LhrTest1 = () => {
             <a style={{ textDecoration: "underline" }}>Need help?</a>
           </Col>
         </Row>
-      </Container>
+      </div>
       <Container className="alcohol-test-wrapper" fluid>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           {({ isSubmitting, values, setFieldValue }) => (
@@ -278,7 +278,11 @@ const LhrTest1 = () => {
                       )} */}
 
                 <Row className="flex justify-content-center">
-                  <Col lg={4} md={10} style={{ textAlign: "center" }}>
+                  <Col
+                    lg={4}
+                    md={10}
+                    style={{ textAlign: "center", paddingBottom: "5vh" }}
+                  >
                     {currentStep === 7 && (
                       <Button
                         className="next-btn"

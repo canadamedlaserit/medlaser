@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Loader from "./loader"
 import "./_index.scss"
+import { Link } from "gatsby"
 
 const ResultAlcohol = ({ payload, result }) => {
   console.log(payload, "payload end ")
@@ -15,7 +16,7 @@ const ResultAlcohol = ({ payload, result }) => {
       const red = result.includes("red")
       const baby_blue = result.includes("baby blue")
 
-      setTimeout(function () {
+      setTimeout(function() {
         if (green && yellow && baby_blue && red) {
           setanswer(
             "We hate to be the bearer of bad news, but unfortunately it looks like you’re not a candidate!  Well, better to find out sooner than later.  But wait, don’t leave us yet!  Take our next quiz to see what other treatments may be suited for you! at-home skincare routine"
@@ -55,12 +56,9 @@ const ResultAlcohol = ({ payload, result }) => {
               please….{" "}
             </h2>
             {answer ? <p>{answer}</p> : <Loader />}{" "}
-            <Button
-              className="contact-btn"
-              onClick={() => window.location.reload()}
-            >
-              Home
-            </Button>
+            <Link to="/assessment">
+              <button className="contact-btn">Home</button>
+            </Link>
           </Col>
         </Row>
       </Container>

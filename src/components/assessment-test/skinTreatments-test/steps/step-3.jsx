@@ -17,8 +17,12 @@ const Step3 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
           <h1>Would you consider your skin concern to be genetic?</h1>
         </Col>
       </div>
-      <Row className="flex justify-content-center">
-        <Col lg={5} md={10} style={{ textAlign: "center" }}>
+            <Col
+        md={10}
+        lg={4}
+        className="flex justify-content-center text-center"
+        style={{ margin: "auto", padding:"2em" }}
+      >
           <ul className="radio-btn">
             <li>
               <input
@@ -50,14 +54,15 @@ const Step3 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               />
               <label htmlFor="option2">No</label>
             </li>
-            <li>
+<li style={{ display: "flex" }}>
+             <input type="radio"/>
               <Button className="next-btn  py-3" onClick={handleNext}>
                 Next &nbsp; &nbsp;
               </Button>
             </li>
           </ul>
         </Col>
-      </Row>
+
     </>
   )
 }

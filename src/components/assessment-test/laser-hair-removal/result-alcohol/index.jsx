@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Loader from "./loader"
 import "./_index.scss"
+//router
+import { Link } from "gatsby"
 
 const ResultAlcohol = ({ payload, result }) => {
   console.log(payload, "payload end ")
@@ -9,7 +11,7 @@ const ResultAlcohol = ({ payload, result }) => {
   const [answer, setanswer] = useState(null)
   useEffect(() => {
     {
-      setTimeout(function () {
+      setTimeout(function() {
         if (
           result.includes("green") &&
           result.includes("yellow") &&
@@ -49,12 +51,9 @@ const ResultAlcohol = ({ payload, result }) => {
               please….{" "}
             </h2>
             {answer ? <p>{answer}</p> : <Loader />}{" "}
-            <Button
-              className="contact-btn"
-              onClick={() => window.location.reload()}
-            >
-              Home
-            </Button>
+            <Link to="/assessment">
+              <button className="contact-btn">Home</button>
+            </Link>
           </Col>
         </Row>
       </Container>
