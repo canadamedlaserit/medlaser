@@ -1,7 +1,8 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import Img from "gatsby-image"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
+
 import Swiper from "react-id-swiper"
 
 import styles from "./MembershipServices.module.scss"
@@ -59,11 +60,7 @@ const MembershipServices = ({ title, plans }) => {
               dangerouslySetInnerHTML={{ __html: title }}
             ></div>
           </Row>
-          {/* <Row className={styles.Bot}>
-          {plans.map((plan, i) => (
-            <Col>{i}</Col>
-          ))}
-        </Row> */}
+         
         </Container>
       </section>
 
@@ -73,7 +70,7 @@ const MembershipServices = ({ title, plans }) => {
         <Container className={styles.Container}>
           <Row className={styles.Bot}>
             {plans.map((plan, i) => (
-              <Col className={styles.PlanCol}>
+              <Col key={i} className={styles.PlanCol}>
                 <div className={styles.Plan}>
                   <div className={styles.Header}>
                     <div>
