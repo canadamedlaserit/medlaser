@@ -108,7 +108,11 @@ class Testimonials extends Component {
             <div
               className={`col-md-12 before-after-swiper ${styles.SwiperWrapper}`}
             >
-              <Swiper id="sample" {...params}>
+              <Swiper
+                id="sample"
+                {...params}
+                styles={{ position: "relative", paddingBottom: "0px" }}
+              >
                 {slides.map((slide, index) => (
                   <div className={styles.SwiperSlide} key={index}>
                     <VisibilitySensor containment={containmentDOMRect}>
