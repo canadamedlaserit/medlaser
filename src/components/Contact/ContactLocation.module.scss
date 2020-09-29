@@ -28,10 +28,10 @@
 
       a {
         color: #ffffff !important;
-        transition: .3s;
+        transition: 0.3s;
 
         &:hover {
-          color: #9C1A3B !important;
+          color: #9c1a3b !important;
         }
       }
     }
@@ -47,7 +47,7 @@
 
 @media (max-width: 1599px) {
   .Section {
-    padding-top: 105px;
+    padding-top: 80px;
     padding-bottom: 80px;
 
     h2 {
