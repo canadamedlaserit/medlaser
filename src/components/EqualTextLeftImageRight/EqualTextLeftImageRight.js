@@ -46,7 +46,7 @@ class EqualTextLeftImageRight extends Component {
                 ></div>
 
                 <div
-                  style={{ color: textcolor }}
+                  style={{ color: textcolor, marginTop: "-1rem" }}
                   className="content"
                   dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
