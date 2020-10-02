@@ -13,7 +13,7 @@ export const fragment = graphql`
   }
 `
 
-const ContactLocation = ({ title, btntext, localspecific }) => {
+const ContactLocation = ({ title, btntext, localspecific, location }) => {
   return (
     <section id="contact" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
@@ -28,7 +28,7 @@ const ContactLocation = ({ title, btntext, localspecific }) => {
 
               <h2>{title}</h2>
 
-              <ConactForm btntext={btntext} />
+              <ConactForm pathname={location.pathname} btntext={btntext} />
             </div>
 
             <div className={` ${styles.Overlay}`}></div>
