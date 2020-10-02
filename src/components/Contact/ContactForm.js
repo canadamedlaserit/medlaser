@@ -42,8 +42,8 @@ export class ContactForm extends Component {
       let loc = ""
 
       loc = this.props.pathname
-      loc = loc.replaceAll("location", "")
-      loc = loc.replaceAll("/", "")
+      loc = loc.replace("location", "")
+      loc = loc.replace(/\//g,'')
       initialState.location = loc
     }
   }
@@ -156,6 +156,7 @@ export class ContactForm extends Component {
     if (this.state.formValid) {
       this.reset()
 
+
       const form = e.target
       fetch("/", {
         method: "POST",
@@ -188,8 +189,10 @@ export class ContactForm extends Component {
 
     if (pathname) {
       loc = pathname
-      loc = loc.replaceAll("location", "")
-      loc = loc.replaceAll("/", "")
+      loc = loc.replace("location", "")
+      // loc = loc.replace('/', "")
+      loc = loc.replace(/\//g,'')
+
     }
 
     return (
