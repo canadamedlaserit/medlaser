@@ -37,6 +37,17 @@ const encode = data => {
 }
 
 export class ContactForm extends Component {
+  componentDidMount() {
+    if (this.props.pathname) {
+      let loc = ""
+
+      loc = this.props.pathname
+      loc = loc.replaceAll("location", "")
+      loc = loc.replaceAll("/", "")
+      initialState.location = loc
+    }
+  }
+
   state = initialState
 
   reset() {
@@ -171,7 +182,15 @@ export class ContactForm extends Component {
   }
 
   render() {
-    const { btntext, column } = this.props
+    const { btntext, column, pathname } = this.props
+
+    let loc = ""
+
+    if (pathname) {
+      loc = pathname
+      loc = loc.replaceAll("location", "")
+      loc = loc.replaceAll("/", "")
+    }
 
     return (
       <div className={styles.FormWrapper}>
@@ -329,26 +348,43 @@ export class ContactForm extends Component {
             }`}
           >
             <Form.Group className={styles.Form___group}>
-              <Form.Control
-                className={`${styles.Form___formControl} ${
-                  this.state.formErrors.location ? styles.ErrorField : ""
-                }`}
-                onChange={this.handleChange("location")}
-                defaultValue={"DEFAULT"}
-                as="select"
-                ref="location"
-                name="location"
-              >
-                <option disabled value="DEFAULT">
-                  Location
-                </option>
-                <option>Vaughan</option>
-                <option>Mississauga</option>
-                <option>Toronto</option>
-                <option>Newmarket</option>
-                <option>Thornhill</option>
-                <option>Maple</option>
-              </Form.Control>
+              {loc !== "" ? (
+                <Form.Control
+                  className={`${styles.Form___formControl} ${
+                    this.state.formErrors.location ? styles.ErrorField : ""
+                  }`}
+                  onChange={this.handleChange("location")}
+                  as="select"
+                  ref="location"
+                  name="location"
+                >
+                  <option disabled value="DEFAULT">
+                    Location
+                  </option>
+                  <option>{loc}</option>
+                </Form.Control>
+              ) : (
+                <Form.Control
+                  className={`${styles.Form___formControl} ${
+                    this.state.formErrors.location ? styles.ErrorField : ""
+                  }`}
+                  onChange={this.handleChange("location")}
+                  defaultValue={"DEFAULT"}
+                  as="select"
+                  ref="location"
+                  name="location"
+                >
+                  <option disabled value="DEFAULT">
+                    Location
+                  </option>
+                  <option>Vaughan</option>
+                  <option>Mississauga</option>
+                  <option>Toronto</option>
+                  <option>Newmarket</option>
+                  <option>Thornhill</option>
+                  <option>Maple</option>
+                </Form.Control>
+              )}
               <p className={styles.ErrorMessage}>
                 {this.state.formErrors.location}
               </p>
