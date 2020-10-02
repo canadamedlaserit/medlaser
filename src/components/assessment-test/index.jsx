@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import "./_index.scss"
 
-
 const AssessmentTest = () => {
   //   const data = useStaticQuery(graphql`
   //     {
