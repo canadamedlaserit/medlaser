@@ -142,7 +142,7 @@ const PageTempl = ({ data, location, pageContext }) => {
             return <InquiryWithSubscription key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Contactlocation":
-            return <ContactLocation key={index} {...section} />
+            return <ContactLocation location={location} key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
             return <LocationMap key={index} {...section} />

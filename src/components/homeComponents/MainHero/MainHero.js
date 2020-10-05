@@ -28,7 +28,7 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 375) {
+          fluid(quality: 100, maxWidth: 450) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
