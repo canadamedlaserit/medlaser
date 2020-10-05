@@ -102,9 +102,11 @@ class Header extends Component {
                 className={`btn btn-red ${styles.Btn}`}
                 style={{
                   borderLeft: "1px solid black",
-                  width: "14%",
+                  width: "auto",
                   marginTop: "5px",
                   marginBottom: "5px",
+                  marginRight: "30px",
+                  height: "53px",
                 }}
               >
                 Are You A Candidate?
