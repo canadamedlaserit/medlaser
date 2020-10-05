@@ -50,7 +50,8 @@ const LHRTest = () => {
 
   const handleSubmit = async payload => {
     const emailHtml = `
-    <p><strong>Name:</strong> ${payload.name}</p>
+    <p><strong>First Name:</strong> ${payload.firstName}</p>
+    <p><strong>Last Name:</strong> ${payload.lastName}</p>
     <p><strong>Email:</strong> ${payload.email}</p>
     <p><strong>Phone:</strong> ${payload.phone}</p>
     <table>

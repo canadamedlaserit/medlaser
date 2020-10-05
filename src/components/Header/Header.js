@@ -97,6 +97,19 @@ class Header extends Component {
           {/* <div></div> */}
           <div className={styles.headerTopLine}>
             <div className={`container ${styles.container}`}>
+              <Link
+                to={"/assessment"}
+                className={`btn btn-red ${styles.Btn}`}
+                style={{
+                  borderLeft: "1px solid black",
+                  width: "14%",
+                  marginTop: "5px",
+                  marginBottom: "5px",
+                }}
+              >
+                Are You A Candidate?
+              </Link>
+
               <CustomNav data={topMenu} />
               <div className={styles.RightSide}>
                 <div className={styles.PhoneWrapper}>
@@ -126,7 +139,7 @@ class Header extends Component {
                   >
                     {headerInfo.btntext}
                   </Link>
-                  <Link
+                  {/* <Link
                     to={"/assessment"}
                     className={`btn btn-red ${styles.Btn}`}
                     style={{
@@ -134,7 +147,7 @@ class Header extends Component {
                     }}
                   >
                     Assessment
-                  </Link>
+                  </Link> */}
                 </div>
                 <div className={styles.CartWrapper}>
                   <a

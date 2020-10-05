@@ -26,10 +26,21 @@ const Step8 = () => {
           <Row className="mt-5">
             <Col md={12}>
               <Field
-                name="name"
+                name="firstName"
                 type="text"
                 className="form-control mb-4 alcohol-test-field"
-                placeholder="Full Name"
+                placeholder="First Name"
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <Field
+                name="lastName"
+                type="text"
+                className="form-control mb-4 alcohol-test-field"
+                placeholder="Last Name"
                 required
               />
             </Col>
