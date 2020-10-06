@@ -385,7 +385,7 @@
     a {
       font-size: 12px !important;
       line-height: 20px !important;
-      padding: 16px 7px !important;
+      padding: 16px 15px !important;
     }
   }
 
@@ -401,6 +401,15 @@
 
   .headerTopLine .CartWrapper a {
     padding-left: 12px !important;
+  }
+}
+@media (max-width: 1224px) {
+  .headerTopLine {
+    a {
+      font-size: 12px !important;
+      line-height: 20px !important;
+      padding: 16px 7px !important;
+    }
   }
 }
 
