@@ -43,7 +43,7 @@ export class ContactForm extends Component {
 
       loc = this.props.pathname
       loc = loc.replace("location", "")
-      loc = loc.replace(/\//g,'')
+      loc = loc.replace(/\//g, "")
       initialState.location = loc
     }
   }
@@ -116,7 +116,7 @@ export class ContactForm extends Component {
 
       case "location":
         locationValid = value.length >= 1
-        fieldValidationErrors.location = locationValid ? "" : "Select Location"
+        fieldValidationErrors.location = locationValid ? "" : "Enter Location"
 
         break
 
@@ -156,7 +156,6 @@ export class ContactForm extends Component {
     if (this.state.formValid) {
       this.reset()
 
-
       const form = e.target
       fetch("/", {
         method: "POST",
@@ -191,8 +190,7 @@ export class ContactForm extends Component {
       loc = pathname
       loc = loc.replace("location", "")
       // loc = loc.replace('/', "")
-      loc = loc.replace(/\//g,'')
-
+      loc = loc.replace(/\//g, "")
     }
 
     return (
@@ -357,14 +355,16 @@ export class ContactForm extends Component {
                     this.state.formErrors.location ? styles.ErrorField : ""
                   }`}
                   onChange={this.handleChange("location")}
-                  as="select"
+                  // as="select"
+                  defaultValue={loc}
                   ref="location"
                   name="location"
+                  placeholder="City Name"
                 >
-                  <option disabled value="DEFAULT">
+                  {/* <option disabled value="DEFAULT">
                     Location
                   </option>
-                  <option>{loc}</option>
+                  <option>{loc}</option> */}
                 </Form.Control>
               ) : (
                 <Form.Control
@@ -372,12 +372,13 @@ export class ContactForm extends Component {
                     this.state.formErrors.location ? styles.ErrorField : ""
                   }`}
                   onChange={this.handleChange("location")}
-                  defaultValue={"DEFAULT"}
-                  as="select"
+                  //                  defaultValue={"DEFAULT"}
+                  //                  as="select"
+                  placeholder="City Name"
                   ref="location"
                   name="location"
                 >
-                  <option disabled value="DEFAULT">
+                  {/* <option disabled value="DEFAULT">
                     Location
                   </option>
                   <option>Vaughan</option>
@@ -385,7 +386,7 @@ export class ContactForm extends Component {
                   <option>Toronto</option>
                   <option>Newmarket</option>
                   <option>Thornhill</option>
-                  <option>Maple</option>
+                  <option>Maple</option> */}
                 </Form.Control>
               )}
               <p className={styles.ErrorMessage}>
