@@ -372,13 +372,13 @@ export class ContactForm extends Component {
                     this.state.formErrors.location ? styles.ErrorField : ""
                   }`}
                   onChange={this.handleChange("location")}
-                  //                  defaultValue={"DEFAULT"}
-                  //                  as="select"
+                  defaultValue={"DEFAULT"}
+                  as="select"
                   placeholder="City Name"
                   ref="location"
                   name="location"
                 >
-                  {/* <option disabled value="DEFAULT">
+                  <option disabled value="DEFAULT">
                     Location
                   </option>
                   <option>Vaughan</option>
@@ -386,7 +386,7 @@ export class ContactForm extends Component {
                   <option>Toronto</option>
                   <option>Newmarket</option>
                   <option>Thornhill</option>
-                  <option>Maple</option> */}
+                  <option>Maple</option>
                 </Form.Control>
               )}
               <p className={styles.ErrorMessage}>
