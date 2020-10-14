@@ -356,7 +356,7 @@ export class ContactForm extends Component {
                   }`}
                   onChange={this.handleChange("location")}
                   // as="select"
-                  defaultValue={loc}
+                  value={loc}
                   ref="location"
                   name="location"
                   placeholder="City Name"
