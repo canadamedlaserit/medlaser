@@ -356,7 +356,7 @@ export class ContactForm extends Component {
                   }`}
                   onChange={this.handleChange("location")}
                   // as="select"
-                  value={loc}
+                  value={loc.charAt(0).toUpperCase() + loc.slice(1)}
                   ref="location"
                   name="location"
                   placeholder="City Name"
