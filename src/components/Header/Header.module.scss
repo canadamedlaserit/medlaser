@@ -286,6 +286,46 @@
     display: none;
   }
 }
+.FloatingMenuTop {
+  // position: fixed;
+  //  top: 10vh;
+  z-index: 999999;
+  right: 0;
+  left: 0;
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  > div {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    border-right: solid 1px $white;
+    height: 100%;
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  a {
+    font-size: 12px;
+    line-height: 17px;
+    color: $white;
+    letter-spacing: 0.72px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
 
 @media (min-width: 992px) {
   .OverflowFix {

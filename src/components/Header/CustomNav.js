@@ -57,13 +57,11 @@ export class CustomNav extends Component {
                         as={Link}
                       >
                         <span className={styles.LinkWrapper}></span>
-
                         {node.label}
                       </Dropdown.Toggle>
                     ) : (
                       <Dropdown.Toggle className={`nav-link ${styles.Default}`}>
                         <span className={styles.LinkWrapper}></span>
-
                         {node.label}
                       </Dropdown.Toggle>
                     )}
@@ -167,7 +165,6 @@ export class CustomNav extends Component {
                                       <span
                                         className={styles.LinkWrapper}
                                       ></span>
-
                                       {node.label}
                                     </Dropdown.Toggle>
 
@@ -202,7 +199,6 @@ export class CustomNav extends Component {
                                         this.props.isMobile !== true
                                       }
                                     >
-
                                       {submenu.map(({ node }) => (
                                         <Link
                                           key={node.id}
@@ -237,7 +233,6 @@ export class CustomNav extends Component {
                                         {node.label}
                                       </Link>
                                     ))}
-
                                   </div>
                                 )
                               }
@@ -255,14 +250,17 @@ export class CustomNav extends Component {
                               )
                             }
                           })}
-
                         </div>
                       </div>
                     </Dropdown.Menu>
                   </Dropdown>
                 )
               } else {
-                return (
+                return node.url === "/assessment" ? (
+                  <Link key={node.id} to={node.url}>
+                    <button className="btn btn-red mb-4">{node.label}</button>
+                  </Link>
+                ) : (
                   <Link
                     key={node.id}
                     className={`${styles.MainLink} nav-link`}
