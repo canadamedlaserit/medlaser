@@ -256,12 +256,11 @@ export class CustomNav extends Component {
                   </Dropdown>
                 )
               } else {
-                return (
-                  // node.url === "/assessment" ? (
-                  //   <Link key={node.id} to={node.url}>
-                  //     <button className="btn btn-red">{node.label}</button>
-                  //   </Link>
-                  // ) : (
+                return node.url === "/assessment" ? (
+                  <Link key={node.id} to={node.url}>
+                    <button className="btn btn-red">{node.label}</button>
+                  </Link>
+                ) : (
                   <Link
                     key={node.id}
                     className={`${styles.MainLink} nav-link`}
