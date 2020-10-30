@@ -258,7 +258,7 @@ export class CustomNav extends Component {
               } else {
                 return node.url === "/assessment" ? (
                   <Link key={node.id} to={node.url}>
-                    <button className="btn btn-red mb-4">{node.label}</button>
+                    <button className="btn btn-red">{node.label}</button>
                   </Link>
                 ) : (
                   <Link
