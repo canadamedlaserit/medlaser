@@ -1,32 +1,25 @@
 import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
+import { Col, Button, Container } from "react-bootstrap"
+import { Link } from "gatsby"
 
 const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#000000",
-
-          padding: "3em",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Col lg={6} md={10} className="text-align-center">
+      <div className="questionDiv">
+        <Col lg={5} md={10} className="text-align-center">
           <h1>
             Let’s get started! Tell us about your current method of hair
             removal. How do you normally remove your hair?
           </h1>
         </Col>
       </div>
-            <Col
-        md={10}
-        lg={4}
-        className="flex justify-content-center text-center"
-        style={{ margin: "auto", padding:"2em" }}
-      >
+      <Container fluid>
+        <Col
+          md={10}
+          lg={4}
+          className="flex justify-content-center text-center"
+          style={{ margin: "auto" }}
+        >
           <ul className="radio-btn">
             <li>
               <input
@@ -91,14 +84,21 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               <label htmlFor="option4">One or more of the above methods</label>
             </li>
             <li style={{ display: "flex" }}>
-              <input type="radio" />
-              <Button className="next-btn  py-3" onClick={handleNext}>
-                Next &nbsp; &nbsp;
+              {/* <input type="radio" /> */}
+
+              <Button className="next-btn ml-2 py-3">
+                <Link to="/assessment" style={{ color: "#fff" }}>
+                  cancel
+                </Link>
+              </Button>
+
+              <Button className="next-btn ml-2  py-3" onClick={handleNext}>
+                Next
               </Button>
             </li>
           </ul>
         </Col>
-
+      </Container>
     </>
   )
 }

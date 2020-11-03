@@ -1,29 +1,27 @@
 import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
+import { Col, Button, Container } from "react-bootstrap"
 
-const Step4 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
+const Step4 = ({
+  values,
+  setFieldValue,
+  handleNext,
+  handlePrev,
+  hanldleAnswers,
+}) => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#000000",
-          
-          padding: "3em",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>How did you enjoy the treatment and results?</h1>
         </Col>
       </div>
-            <Col
-        md={10}
-        lg={4}
-        className="flex justify-content-center text-center"
-        style={{ margin: "auto", padding:"2em" }}
-      >
+      <Container fluid>
+        <Col
+          md={10}
+          lg={4}
+          className="flex justify-content-center text-center"
+          style={{ margin: "auto", padding: "2em" }}
+        >
           <ul className="radio-btn">
             <li>
               <input
@@ -81,15 +79,18 @@ const Step4 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
                 I told you, I’ve never had treatments before!
               </label>
             </li>
-<li style={{ display: "flex" }}>
-             <input type="radio"/>
-              <Button className="next-btn  py-3" onClick={handleNext}>
-                Next &nbsp; &nbsp;
+            <li style={{ display: "flex" }}>
+              <input type="radio" />
+              <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
+                Back
+              </Button>
+              <Button className="next-btn ml-2 py-3" onClick={handleNext}>
+                Next
               </Button>
             </li>
           </ul>
         </Col>
-
+      </Container>
     </>
   )
 }

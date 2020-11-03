@@ -1,8 +1,5 @@
 import React, { useState } from "react"
 
-//router
-import { Link } from "gatsby"
-
 //components
 import { Formik, Form } from "formik"
 import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
@@ -20,7 +17,7 @@ import Step8 from "./steps/step-8"
 import ResultAlcohol from "./result-alcohol"
 
 //assets
-import { LeftArrowHeader } from "./assets"
+// import { LeftArrowHeader } from "./assets"
 
 //styles
 import "./_index.scss"
@@ -136,7 +133,7 @@ const LhrTest1 = () => {
     <section id="alcohol-test-section">
       <div className="header-gap">
         <Row className="headerTest py-4">
-          <Col>
+          {/* <Col>
             {currentStep === 1 ? (
               <Link to="/assessment">
                 <img
@@ -160,15 +157,15 @@ const LhrTest1 = () => {
                 />
               </button>
             )}
-          </Col>
+          </Col> */}
           <Col className="text-center my-3">
-            <span className="alcohol-test-heading" style={{ color: "#fff" }}>
+            <h1 className="alcohol-test-heading">
               Skin Treatments – What Treatment is Best Suited for my Skin?
-            </span>
+            </h1>
           </Col>
-          <Col style={{ textAlign: "end" }}>
+          {/* <Col style={{ textAlign: "end" }}>
             <a style={{ textDecoration: "underline" }}>Need help?</a>
-          </Col>
+          </Col> */}
         </Row>
       </div>
       <Container className="alcohol-test-wrapper" fluid>
@@ -205,6 +202,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -213,6 +211,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -221,6 +220,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -229,6 +229,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -237,6 +238,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -245,6 +247,7 @@ const LhrTest1 = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}

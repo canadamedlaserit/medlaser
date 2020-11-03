@@ -1,8 +1,5 @@
 import React, { useState } from "react"
 
-//router
-import { Link } from "gatsby"
-
 //components
 import { Formik, Form } from "formik"
 import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
@@ -133,8 +130,8 @@ const CSTest = () => {
     <section id="alcohol-test-section">
       <div className="header-gap">
         <Row className="headerTest py-4">
-          <Col>
-            {/* {currentStep === 1 ? (
+          {/* <Col> */}
+          {/* {currentStep === 1 ? (
                         // <Link to="/assessment-test">
                         <Button
                           className="cancel-btn"
@@ -152,7 +149,7 @@ const CSTest = () => {
                         </Button>
                       )} */}
 
-            {currentStep === 1 ? (
+          {/* {currentStep === 1 ? (
               <Link to="/assessment">
                 <img
                   src={LeftArrowHeader}
@@ -174,16 +171,16 @@ const CSTest = () => {
                   }}
                 />
               </button>
-            )}
-          </Col>
+            )} */}
+          {/* </Col> */}
           <Col className="text-center my-3">
-            <span className="alcohol-test-heading" style={{ color: "#fff" }}>
+            <h1 className="alcohol-test-heading">
               CoolSculpting – Am I a candidate?
-            </span>
+            </h1>
           </Col>
-          <Col style={{ textAlign: "end" }}>
+          {/* <Col style={{ textAlign: "end" }}>
             <a style={{ textDecoration: "underline" }}>Need help?</a>
-          </Col>
+          </Col> */}
         </Row>
       </div>
       <Container className="alcohol-test-wrapper" fluid>
@@ -220,6 +217,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -228,6 +226,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -236,6 +235,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -244,6 +244,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -252,6 +253,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -260,6 +262,7 @@ const CSTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}

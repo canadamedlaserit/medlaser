@@ -5,17 +5,9 @@ import { Field } from "formik"
 const Step7 = () => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#000000",
-          padding: "3em",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="questionDiv">
         <Col lg={6} md={10} className="text-align-center">
-          <h1>
+          <h1 style={{ margin: "0px" }}>
             Please fill all the following fields so we will contact you once we
             receive the assessment test.
           </h1>

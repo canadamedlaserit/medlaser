@@ -133,15 +133,6 @@ class Header extends Component {
                   >
                     {headerInfo.btntext}
                   </Link>
-                  {/* <Link
-                    to={"/assessment"}
-                    className={`btn btn-red ${styles.Btn}`}
-                    style={{
-                      borderLeft: "1px solid black",
-                    }}
-                  >
-                    Assessment
-                  </Link> */}
                 </div>
 
                 <div className={styles.CartWrapper}>
@@ -208,12 +199,12 @@ class Header extends Component {
               />
             </Navbar.Collapse>
           </div>
-          {/* <div className={styles.FloatingMenuTop}>
+        </Navbar>
+        {/* <div className={styles.FloatingMenuTop}>
           <div style={{ width: "100%" }}>
               <a href={"/assessment"}>Are You A Candidate?</a>
             </div>
           </div> */}
-        </Navbar>
 
         <div className={styles.FloatingMenu}>
           {headerInfo.floatingmenu.map((item, index) => (

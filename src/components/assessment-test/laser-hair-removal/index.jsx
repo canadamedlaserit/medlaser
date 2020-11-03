@@ -1,8 +1,5 @@
 import React, { useState } from "react"
 
-//router
-import { Link } from "gatsby"
-
 //components
 import { Formik, Form } from "formik"
 import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
@@ -18,7 +15,7 @@ import Step7 from "./steps/step-7"
 import ResultAlcohol from "./result-alcohol"
 
 //assets
-import { LeftArrowHeader } from "./assets"
+// import { LeftArrowHeader } from "./assets"
 
 //styles
 import "./_index.scss"
@@ -126,8 +123,9 @@ const LHRTest = () => {
   ) : (
     <section id="alcohol-test-section">
       <div className="header-gap">
-        <Row className="headerTest py-4">
-          <Col>
+        <Container>
+          <Row className="headerTest py-4">
+            {/* <Col>
             {currentStep === 1 ? (
               <Link to="/assessment">
                 <img
@@ -151,16 +149,17 @@ const LHRTest = () => {
                 />
               </button>
             )}
-          </Col>
-          <Col className="text-center my-3">
-            <span className="alcohol-test-heading" style={{ color: "#fff" }}>
-              Laser Hair Removal Assessment
-            </span>
-          </Col>
-          <Col style={{ textAlign: "end" }}>
+          </Col> */}
+            <Col className="text-center my-3">
+              <h1 className="alcohol-test-heading">
+                Laser Hair Removal Assessment
+              </h1>
+            </Col>
+            {/* <Col style={{ textAlign: "end" }}>
             <a style={{ textDecoration: "underline" }}>Need help?</a>
-          </Col>
-        </Row>
+          </Col> */}
+          </Row>
+        </Container>
       </div>
       <Container className="alcohol-test-wrapper" fluid>
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -196,6 +195,7 @@ const LHRTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -204,6 +204,7 @@ const LHRTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -212,6 +213,7 @@ const LHRTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -220,6 +222,7 @@ const LHRTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -228,6 +231,7 @@ const LHRTest = () => {
                     values={values}
                     setFieldValue={setFieldValue}
                     handleNext={handleNext}
+                    handlePrev={handlePrev}
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
@@ -237,25 +241,27 @@ const LHRTest = () => {
                 {/* </Row> */}
 
                 {/* Contron Buttons */}
-                {/* <Row> */}
-                {/* <Col lg={5} md={10} className="btn-section"> */}
-                {/* {currentStep === 1 ? (
-                        // <Link to="/assessment-test">
-                        <Button
-                          className="cancel-btn"
-                          onClick={() => {
-                            window.location.reload()
-                          }}
-                        >
-                          cancel
-                        </Button>
-                      ) : (
-                        // </Link>
-                        <Button className="back-btn" onClick={handlePrev}>
-                          <i className="fa fa-long-arrow-left" />
-                          &nbsp;&nbsp; Back
-                        </Button>
-                      )} */}
+                {/* <Row>
+                  <Col lg={5} md={10} className="btn-section">
+                    {currentStep === 1 ? (
+                      // <Link to="/assessment-test">
+                      <Button
+                        className="cancel-btn"
+                        onClick={() => {
+                          window.location.reload()
+                        }}
+                      >
+                        cancel
+                      </Button>
+                    ) : (
+                      // </Link>
+                      <Button className="back-btn" onClick={handlePrev}>
+                        <i className="fa fa-long-arrow-left" />
+                        &nbsp;&nbsp; Back
+                      </Button>
+                    )}
+                  </Col>
+                </Row> */}
                 <Row className="flex justify-content-center">
                   <Col
                     lg={4}

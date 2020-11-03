@@ -5,15 +5,7 @@ import { Field } from "formik"
 const Step8 = () => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#000000",
-          padding: "3em",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="questionDiv">
         <Col lg={6} md={10} className="text-align-center">
           <h1>
             Please fill all the following fields so we will contact you once we
