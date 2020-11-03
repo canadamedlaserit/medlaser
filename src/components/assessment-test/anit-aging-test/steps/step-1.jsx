@@ -96,11 +96,13 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               </label>
             </li>
             <li style={{ display: "flex" }}>
-              <Button className="next-btn ml-2 py-3">
-                <Link to="/assessment" style={{ color: "#fff" }}>
-                  cancel
-                </Link>
-              </Button>
+              <Link
+                className="next-btn ml-2 py-3"
+                to="/assessment"
+                style={{ color: "#fff" }}
+              >
+                cancel
+              </Link>
 
               <Button className="next-btn ml-2  py-3" onClick={handleNext}>
                 Next
