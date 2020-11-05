@@ -15,8 +15,7 @@ const imageData = [
       "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Daily_Hive_logo.png/880px-Daily_Hive_logo.png",
   },
   {
-    src:
-      "https://www.albawaba.com/sites/default/files/im/pr_new/Forbes__1446463886.jpg?width=1200&enable=upscale",
+    src: "https://assets.stickpng.com/images/5847e9aacef1014c0b5e4828.png",
   },
   {
     src:
