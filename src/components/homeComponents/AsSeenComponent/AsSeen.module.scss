@@ -1,0 +1,55 @@
+.Section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  // margin-bottom: 40px;
+  //  margin-top: 80px;
+  color: black;
+  background-color: white;
+
+  .Container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+
+  .Buttons {
+    margin-top: 40px;
+
+    a {
+      min-width: 375px;
+      background: white;
+      color: black;
+      border: solid 1px white;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-bottom: 0;
+    margin-top: 0;
+    h2 {
+      font-size: 28px !important;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .Buttons {
+      margin-top: 40px;
+
+      a {
+        min-width: unset;
+        font-size: 14px;
+        height: 50px;
+      }
+    }
+  }
+}
