@@ -1,9 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
 
+import logo1 from "../../../images/daily-hive.png"
+import logo2 from "../../../images/forbes.png"
+import logo3 from "../../../images/narcity.png"
+import logo4 from "../../../images/z105.png"
 import styles from "./AsSeen.module.scss"
-
 export const fragment = graphql`
   fragment AsSeenSection on WPGraphQL_Page_Sectionfields_Sections_Asseen {
     fieldGroupName
@@ -11,18 +13,16 @@ export const fragment = graphql`
 `
 const imageData = [
   {
-    src:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Daily_Hive_logo.png/880px-Daily_Hive_logo.png",
+    src: logo1,
   },
   {
-    src: "https://assets.stickpng.com/images/5847e9aacef1014c0b5e4828.png",
+    src: logo2,
   },
   {
-    src:
-      "https://www.narcity.com/u/2019/08/26/6a2fb12ec1104d722904ab989c127f2d.png",
+    src: logo3,
   },
   {
-    src: `https://i.iheart.com/v3/re/assets.brands/5e533b49f83738ebdb6df70c?ops=gravity("center"),maxcontain(150,52),quality(80)`,
+    src: logo4,
   },
 ]
 const AsSeen = () => {
@@ -35,23 +35,14 @@ const AsSeen = () => {
               className={styles.TextSideWrapper}
               style={{ textAlign: "center" }}
             >
-              {/* {text ? (
-                <div
-                  className={styles.Text}
-                  dangerouslySetInnerHTML={{ __html: text }}
-                ></div>
-              ) : (
-                ""
-              )} */}
               {imageData.map(data => (
                 <img
                   src={data.src}
                   className="px-4"
-                  //                  width="164"
                   height="40"
-                  alt="logo"
+                  alt="as-seen-logo"
                 />
-              ))}{" "}
+              ))}
             </div>
           </div>
         </div>
@@ -59,5 +50,4 @@ const AsSeen = () => {
     </section>
   )
 }
-
 export default AsSeen
