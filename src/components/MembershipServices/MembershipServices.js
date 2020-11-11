@@ -52,7 +52,10 @@ const MembershipServices = ({ title, plans }) => {
 
   return (
     <>
-      <section className={`${styles.Section} ${styles.Section1}`}>
+      <section
+        id="membership-plan"
+        className={`${styles.Section} ${styles.Section1}`}
+      >
         <Container className={styles.Container}>
           <Row className={styles.Top}>
             <div
@@ -60,7 +63,6 @@ const MembershipServices = ({ title, plans }) => {
               dangerouslySetInnerHTML={{ __html: title }}
             ></div>
           </Row>
-         
         </Container>
       </section>
 
