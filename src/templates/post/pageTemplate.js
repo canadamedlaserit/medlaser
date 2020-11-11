@@ -7,6 +7,7 @@ import MainHero from "../../components/homeComponents/MainHero/MainHero"
 import Specials from "../../components/homeComponents/Specials/Specials"
 import OurServices from "../../components/homeComponents/OurServices/OurServices"
 import AsSeen from "../../components/homeComponents/AsSeenComponent/AsSeen"
+import AcuityScheduling from "../../components/homeComponents/AcuityScheduling/AcuityScheduling"
 import OurServicesSlider from "../../components/OurServicesSlider/OurServicesSlider"
 import LaserClinics from "../../components/homeComponents/LaserClinics/LaserClinics"
 import VideoSection from "../../components/homeComponents/VideoSection/VideoSection"
@@ -102,6 +103,9 @@ const PageTempl = ({ data, location, pageContext }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Asseen":
             return <AsSeen key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Acuityscheduling":
+            return <AcuityScheduling key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Ourservices":
             return <OurServices key={index} {...section} />
@@ -382,6 +386,7 @@ export const pageQuery = graphql`
             ...MainHeroSection
             ...SpecialsSection
             ...AsSeenSection
+            ...AcuitySchedulingSection
             ...ServicesSection
             ...OurServicesSliderSection
             ...LaserClinicsSection

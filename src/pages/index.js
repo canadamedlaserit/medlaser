@@ -6,6 +6,7 @@ import SEO from "../components/particles/SEO"
 import MainHero from "../components/homeComponents/MainHero/MainHero"
 import Specials from "../components/homeComponents/Specials/Specials"
 import Asseen from "../components/homeComponents/AsSeenComponent/AsSeen"
+import AcuityScheduling from "../components/homeComponents/AcuityScheduling/AcuityScheduling"
 import OurServices from "../components/homeComponents/OurServices/OurServices"
 import VideoSection from "../components/homeComponents/VideoSection/VideoSection"
 import Reviews from "../components/homeComponents/Reviews/Reviews"
@@ -35,6 +36,9 @@ const Home = ({ data, location }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Asseen":
             return <Asseen key={index} {...section} />
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Acuityscheduling":
+            return <AcuityScheduling key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Ourservices":
             return <OurServices key={index} {...section} />
@@ -111,6 +115,7 @@ export const pageQuery = graphql`
           sections {
             ...MainHeroSection
             ...AsSeenSection
+            ...AcuitySchedulingSection
             ...SpecialsSection
             ...ServicesSection
             ...VideoSection
