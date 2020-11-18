@@ -49,7 +49,7 @@ export class CustomNav extends Component {
         <Nav className={`globalNavCollapse ${styles.NavCollapseNew}`}>
           <div className={styles.OverflowFix}>
             {data.map(({ node }) => {
-              if (node.label === "Locations" && !this.props.isMobile) {
+              if (node.label === "Locations") {
                 return (
                   <Dropdown
                     id="collasible-nav-dropdown"
@@ -106,8 +106,6 @@ export class CustomNav extends Component {
               }
               if (node.childItems.edges.length !== 0) {
                 const submenu = node.childItems.edges
-                console.log(submenu, "submenu")
-                console.log(node, "node111")
                 return (
                   <Dropdown
                     key={node.id}
@@ -201,9 +199,6 @@ export class CustomNav extends Component {
                           </div>
                         ) : (
                           ""
-                          // <div className="menu-image-wrapper">
-                          //   <h1>hello2</h1>
-                          // </div>
                         )}
 
                         <div
@@ -274,7 +269,7 @@ export class CustomNav extends Component {
                                           className={`${styles.InnerLink} nav-link`}
                                           to={node.url}
                                         >
-                                          dd{node.label}
+                                          {node.label}
                                         </Link>
                                       ))}
                                     </Dropdown.Menu>
@@ -299,7 +294,9 @@ export class CustomNav extends Component {
                                         className={`${styles.InnerLink} nav-link`}
                                         to={node.url}
                                       >
-                                        {node.label}
+                                        <span style={{ color: "#000" }}>
+                                          {node.label}
+                                        </span>
                                       </Link>
                                     ))}
                                   </div>
@@ -308,16 +305,15 @@ export class CustomNav extends Component {
 
                               // INSIDE
                             } else {
-                              if (node.url.includes("location"))
-                                return (
-                                  <Link
-                                    key={node.id}
-                                    className={`${styles.InnerLink} nav-link`}
-                                    to={node.url}
-                                  >
-                                    {node.label}
-                                  </Link>
-                                )
+                              return (
+                                <Link
+                                  key={node.id}
+                                  className={`${styles.InnerLink} nav-link`}
+                                  to={node.url}
+                                >
+                                  {node.label}
+                                </Link>
+                              )
                             }
                           })}
                         </div>
