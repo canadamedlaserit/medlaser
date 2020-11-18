@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Nav, Dropdown, Button } from "react-bootstrap"
+import { Nav, Dropdown, Row, Col } from "react-bootstrap"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
@@ -8,7 +8,7 @@ import styles from "./Header.module.scss"
 export class CustomNav extends Component {
   constructor(props) {
     super(props)
-    this.state = { isOpen: false, activeDropdown: 0 }
+    this.state = { isOpen: false, activeDropdown: 0, locationOpen: false }
   }
 
   handleOpen = id => {
@@ -19,6 +19,13 @@ export class CustomNav extends Component {
   handleClose = () => {
     this.setState({ isOpen: false })
     this.setState({ activeDropdown: 0 })
+  }
+  handlelocationOpen = id => {
+    this.setState({ locationOpen: true })
+  }
+
+  handlelocationClose = () => {
+    this.setState({ locationOpen: false })
   }
 
   render() {
@@ -36,13 +43,64 @@ export class CustomNav extends Component {
     // console.log(data)
 
     // console.log(menuimages)
+
     return (
       <>
         <Nav className={`globalNavCollapse ${styles.NavCollapseNew}`}>
           <div className={styles.OverflowFix}>
             {data.map(({ node }) => {
+              if (node.label === "Locations") {
+                console.log(node, "milgayi")
+                return (
+                  <Dropdown
+                    id="collasible-nav-dropdown"
+                    show={this.state.locationOpen}
+                    onMouseEnter={this.handlelocationOpen}
+                    onMouseLeave={this.handlelocationClose}
+                    className={`${styles.MainLink}`}
+                    style={{ marginTop: "6px" }}
+                  >
+                    <Dropdown.Toggle as={Link}>
+                      <span className={styles.LinkWrapper}> </span>
+                      <span style={{ marginTop: "10px" }}>{node.label}</span>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Row style={{ width: "100vw", padding: "1rem" }}>
+                        {node.childItems.edges.map(data => (
+                          <Col md={2} className={styles.locationDropdown}>
+                            <Dropdown.Item
+                              style={{
+                                borderLeft: "1px solid #9C1A3B",
+                                backgroundColor: "#ddd",
+                                width: "fit-content",
+                              }}
+                            >
+                              <span style={{ color: "#000" }}>
+                                {data.node.label.slice(0, 2).toUpperCase()}{" "}
+                              </span>
+                            </Dropdown.Item>
+                            <ul
+                              style={{
+                                listStyle: "none",
+                                padding: "0px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              {data.node.childItems.edges.map(data => (
+                                <li>{data.node.label}</li>
+                              ))}{" "}
+                            </ul>
+                          </Col>
+                        ))}
+                      </Row>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                )
+              }
               if (node.childItems.edges.length !== 0) {
                 const submenu = node.childItems.edges
+                console.log(submenu, "submenu")
+                console.log(node, "node111")
                 return (
                   <Dropdown
                     key={node.id}
@@ -50,6 +108,7 @@ export class CustomNav extends Component {
                     onMouseLeave={this.handleClose}
                     className={`${styles.MainLink}`}
                   >
+                    {/* dropdown link in main */}
                     {node.url ? (
                       <Dropdown.Toggle
                         className={`nav-link`}
@@ -105,6 +164,7 @@ export class CustomNav extends Component {
                             {/* {console.log(node.label + " -- ")} */}
                             {/* {console.log(menuimages[0])} */}
 
+                            {node.label === "Toronto" && <h1>hello</h1>}
                             {menuimages
                               ? menuimages.map((index, item) => {
                                   if (index.menuName === node.label) {
@@ -135,6 +195,9 @@ export class CustomNav extends Component {
                           </div>
                         ) : (
                           ""
+                          // <div className="menu-image-wrapper">
+                          //   <h1>hello2</h1>
+                          // </div>
                         )}
 
                         <div
@@ -145,7 +208,7 @@ export class CustomNav extends Component {
                           {submenu.map(({ node }) => {
                             if (node.childItems.edges.length !== 0) {
                               const submenu = node.childItems.edges
-
+                              //                              console.log(submenu, "submenu2")
                               // INSIDE
 
                               // showing nested dropdown-type style menu on mobile / on desktop  -> else
@@ -205,7 +268,7 @@ export class CustomNav extends Component {
                                           className={`${styles.InnerLink} nav-link`}
                                           to={node.url}
                                         >
-                                          {node.label}
+                                          dd{node.label}
                                         </Link>
                                       ))}
                                     </Dropdown.Menu>
@@ -239,6 +302,9 @@ export class CustomNav extends Component {
 
                               // INSIDE
                             } else {
+                              if (node.url.includes("location"))
+                                console.log(node, "1133node")
+
                               return (
                                 <Link
                                   key={node.id}

@@ -355,7 +355,7 @@
     }
 
     .SubmenuWrapper {
-      width: 55%;
+      width: 100%;
 
       padding-left: 4%;
 
@@ -553,5 +553,13 @@
         line-height: 27px !important;
       }
     }
+  }
+}
+
+.locationDropdown {
+  width: 100vw;
+  padding: 1rem;
+  &:not(:last-child) {
+    border-right: 1px solid rgb(221, 221, 221);
   }
 }
