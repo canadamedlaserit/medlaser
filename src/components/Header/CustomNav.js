@@ -50,7 +50,6 @@ export class CustomNav extends Component {
           <div className={styles.OverflowFix}>
             {data.map(({ node }) => {
               if (node.label === "Locations") {
-                console.log(node, "milgayi")
                 return (
                   <Dropdown
                     id="collasible-nav-dropdown"
@@ -87,7 +86,13 @@ export class CustomNav extends Component {
                               }}
                             >
                               {data.node.childItems.edges.map(data => (
-                                <li>{data.node.label}</li>
+                                <li>
+                                  <Link to={data.node.url}>
+                                    <span style={{ color: "black" }}>
+                                      {data.node.label}
+                                    </span>
+                                  </Link>
+                                </li>
                               ))}{" "}
                             </ul>
                           </Col>
@@ -164,7 +169,6 @@ export class CustomNav extends Component {
                             {/* {console.log(node.label + " -- ")} */}
                             {/* {console.log(menuimages[0])} */}
 
-                            {node.label === "Toronto" && <h1>hello</h1>}
                             {menuimages
                               ? menuimages.map((index, item) => {
                                   if (index.menuName === node.label) {
@@ -303,17 +307,15 @@ export class CustomNav extends Component {
                               // INSIDE
                             } else {
                               if (node.url.includes("location"))
-                                console.log(node, "1133node")
-
-                              return (
-                                <Link
-                                  key={node.id}
-                                  className={`${styles.InnerLink} nav-link`}
-                                  to={node.url}
-                                >
-                                  {node.label}
-                                </Link>
-                              )
+                                return (
+                                  <Link
+                                    key={node.id}
+                                    className={`${styles.InnerLink} nav-link`}
+                                    to={node.url}
+                                  >
+                                    {node.label}
+                                  </Link>
+                                )
                             }
                           })}
                         </div>
