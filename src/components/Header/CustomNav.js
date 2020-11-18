@@ -75,7 +75,7 @@ export class CustomNav extends Component {
                               }}
                             >
                               <span style={{ color: "#000" }}>
-                                {data.node.label.slice(0, 2).toUpperCase()}{" "}
+                                {data.node.label}{" "} //.slice(0, 2).toUpperCase()
                               </span>
                             </Dropdown.Item>
                             <ul
