@@ -49,7 +49,7 @@ export class CustomNav extends Component {
         <Nav className={`globalNavCollapse ${styles.NavCollapseNew}`}>
           <div className={styles.OverflowFix}>
             {data.map(({ node }) => {
-              if (node.label === "Locations") {
+              if (node.label === "Locations" && !this.props.isMobile) {
                 return (
                   <Dropdown
                     id="collasible-nav-dropdown"
