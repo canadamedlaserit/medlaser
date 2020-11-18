@@ -74,9 +74,11 @@ export class CustomNav extends Component {
                                 width: "fit-content",
                               }}
                             >
-                              <span style={{ color: "#000" }}>
-                                {data.node.label.slice(0, 2).toUpperCase()}{" "}
-                              </span>
+                              <Link to={data.node.url}>
+                                <span style={{ color: "black" }}>
+                                  {data.node.label.slice(0, 2).toUpperCase()}
+                                </span>
+                              </Link>
                             </Dropdown.Item>
                             <ul
                               style={{
