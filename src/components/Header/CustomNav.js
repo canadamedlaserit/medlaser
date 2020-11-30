@@ -57,9 +57,11 @@ export class CustomNav extends Component {
                     onMouseEnter={this.handlelocationOpen}
                     onMouseLeave={this.handlelocationClose}
                     //                    className={`${styles.MainLink}`}
-                    style={{ marginTop: "1vh" }}
                   >
-                    <Dropdown.Toggle as={Link}>
+                    <Dropdown.Toggle
+                      as={Link}
+                      className={`${styles.MainLink} nav-link`}
+                    >
                       <span className={styles.LinkWrapper}> </span>
                       {node.label}
                     </Dropdown.Toggle>
