@@ -125,8 +125,8 @@ const LHRTest = () => {
     </div>
   ) : (
     <section id="alcohol-test-section">
-      <div className="header-gap">
-        <Row className="headerTest py-4">
+      <div className="header-gap" style={{ backgroundColor: "#000000" }}>
+        <Row className="headerTest py-4" style={{ backgroundColor: "#000000" }}>
           <Col>
             {currentStep === 1 ? (
               <Link to="/assessment">
