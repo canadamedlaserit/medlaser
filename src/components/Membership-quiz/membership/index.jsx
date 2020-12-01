@@ -182,7 +182,7 @@ const LHRTest = () => {
                 style={{ flexDirection: "column" }}
               >
                 {/* <Col className="text-center"> */}
-                {/* <div className="index">{currentStep} of 6</div> */}
+                <div className="index text-center">{currentStep} of 4</div>
                 {currentStep === 1 && (
                   <Step1
                     values={values}
