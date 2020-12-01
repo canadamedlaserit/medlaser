@@ -2,6 +2,8 @@
 
 #alcohol-test-section {
   // margin-top: 9%;
+  background-color: #fafafa;
+  padding-bottom: 5vh;
 
   @media (max-width: 768px) {
     // margin-top: 15%;
@@ -12,7 +14,7 @@
   }
 
   .header-gap {
-    padding-top: 80px;
+    padding-top: 10vh;
     @media (max-width: 768px) {
       padding-top: 0px;
     }
@@ -26,6 +28,7 @@
     align-items: center;
     align-content: center;
     padding: 0px 2em;
+    background: #fff;
   }
   .alcohol-test-wrapper {
     //    max-width: 1280;
@@ -82,7 +85,7 @@
     }
 
     li {
-      display: flex;
+      //      display: flex;
       margin-top: 0px;
     }
 
@@ -131,6 +134,17 @@
   .Checked + label {
     background: #3b4856;
     color: white;
+  }
+
+  &.submit-btn {
+    color: #ffffff;
+    background: #3b4856;
+
+    &:hover {
+      background-color: #6babe1;
+      color: #ffffff;
+      border: none;
+    }
   }
 
   .next-btn {

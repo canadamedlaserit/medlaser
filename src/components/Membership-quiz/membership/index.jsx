@@ -125,9 +125,9 @@ const LHRTest = () => {
     </div>
   ) : (
     <section id="alcohol-test-section">
-      <div className="header-gap" style={{ backgroundColor: "#000000" }}>
-        <Row className="headerTest py-4" style={{ backgroundColor: "#000000" }}>
-          <Col>
+      <div className="header-gap">
+        <Row className="headerTest py-4">
+          {/* <Col>
             {currentStep === 1 ? (
               <Link to="/assessment">
                 <img
@@ -151,15 +151,15 @@ const LHRTest = () => {
                 />
               </button>
             )}
-          </Col>
+          </Col> */}
           <Col className="text-center my-3">
-            <span className="alcohol-test-heading" style={{ color: "#fff" }}>
-              Membership Quiz
-            </span>
+            <span className="alcohol-test-heading">Membership Quiz</span>
           </Col>
-          <Col style={{ textAlign: "end" }}>
-            <a style={{ textDecoration: "underline" }}>Need help?</a>
-          </Col>
+          {/* <Col style={{ textAlign: "end" }}>
+            <a style={{ textDecoration: "underline", color: "white" }}>
+              Need help?
+            </a>
+          </Col> */}
         </Row>
       </div>
       <Container className="alcohol-test-wrapper" fluid>
@@ -195,6 +195,7 @@ const LHRTest = () => {
                   <Step2
                     values={values}
                     setFieldValue={setFieldValue}
+                    handlePrev={handlePrev}
                     handleNext={handleNext}
                     hanldleAnswers={hanldleAnswers}
                   />
@@ -204,6 +205,7 @@ const LHRTest = () => {
                     values={values}
                     selected={values.question2}
                     setFieldValue={setFieldValue}
+                    handlePrev={handlePrev}
                     handleNext={handleNext}
                     hanldleAnswers={hanldleAnswers}
                   />

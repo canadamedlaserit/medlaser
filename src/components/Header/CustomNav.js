@@ -49,89 +49,6 @@ export class CustomNav extends Component {
         <Nav className={`globalNavCollapse ${styles.NavCollapseNew}`}>
           <div className={styles.OverflowFix}>
             {data.map(({ node }) => {
-              if (node.label === "Locations") {
-                return (
-                  <Dropdown
-                    id="collasible-nav-dropdown"
-                    show={this.state.locationOpen}
-                    onMouseEnter={this.handlelocationOpen}
-                    onMouseLeave={this.handlelocationClose}
-                    //                    className={`${styles.MainLink}`}
-                  >
-                    <Dropdown.Toggle
-                      as={Link}
-                      className={`${styles.MainLink} nav-link`}
-                    >
-                      <span className={styles.LinkWrapper}> </span>
-                      {node.label}
-                    </Dropdown.Toggle>
-                    {this.props.isMobile === true ? (
-                      <Dropdown.Toggle
-                        className={`dropdown-arrow ${styles.lil}`}
-                        aria-label="Mobile Arrow"
-                      >
-                        <svg
-                          className="firstArrow"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="8"
-                          height="18"
-                          viewBox="0 0 8 18"
-                        >
-                          <defs></defs>
-                          <path
-                            d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
-                            transform="translate(-128.003)"
-                          />
-                        </svg>
-                      </Dropdown.Toggle>
-                    ) : (
-                      ""
-                    )}
-
-                    <Dropdown.Menu>
-                      <Row style={{ width: "100vw", padding: "1rem" }}>
-                        {node.childItems.edges.map(data => (
-                          <Col md={2} className={styles.locationDropdown}>
-                            <Dropdown.Item
-                              style={{
-                                borderLeft: "1px solid #9C1A3B",
-                                backgroundColor: "#ddd",
-                                width: "fit-content",
-                              }}
-                            >
-                              <Link to={data.node.url}>
-                                <span style={{ color: "black" }}>
-                                  {data.node.label.toUpperCase()}
-                                </span>
-                              </Link>
-                            </Dropdown.Item>
-                            <ul
-                              style={{
-                                listStyle: "none",
-                                padding: "0px",
-                                paddingTop: "10px",
-                              }}
-                            >
-                              {data.node.childItems.edges.map(data => (
-                                <li>
-                                  <Link
-                                    to={data.node.url}
-                                    className={`${styles.InnerLink} nav-link`}
-                                  >
-                                    <span style={{ color: "black" }}>
-                                      {data.node.label}
-                                    </span>
-                                  </Link>
-                                </li>
-                              ))}{" "}
-                            </ul>
-                          </Col>
-                        ))}
-                      </Row>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                )
-              }
               if (node.childItems.edges.length !== 0) {
                 const submenu = node.childItems.edges
                 return (
@@ -374,3 +291,88 @@ export class CustomNav extends Component {
 }
 
 export default CustomNav
+
+//nested dropdown
+// if (node.label === "Locations") {
+//   return (
+//     <Dropdown
+//       id="collasible-nav-dropdown"
+//       show={this.state.locationOpen}
+//       onMouseEnter={this.handlelocationOpen}
+//       onMouseLeave={this.handlelocationClose}
+//       //                    className={`${styles.MainLink}`}
+//     >
+//       <Dropdown.Toggle
+//         as={Link}
+//         className={`${styles.MainLink} nav-link`}
+//       >
+//         <span className={styles.LinkWrapper}> </span>
+//         {node.label}
+//       </Dropdown.Toggle>
+//       {this.props.isMobile === true ? (
+//         <Dropdown.Toggle
+//           className={`dropdown-arrow ${styles.lil}`}
+//           aria-label="Mobile Arrow"
+//         >
+//           <svg
+//             className="firstArrow"
+//             xmlns="http://www.w3.org/2000/svg"
+//             width="8"
+//             height="18"
+//             viewBox="0 0 8 18"
+//           >
+//             <defs></defs>
+//             <path
+//               d="M135.91,8.741,128.577.116A.308.308,0,0,0,128.105.1a.41.41,0,0,0-.01.53L135.208,9l-7.113,8.366a.41.41,0,0,0,.01.53.308.308,0,0,0,.471-.012l7.334-8.625A.41.41,0,0,0,135.91,8.741Z"
+//               transform="translate(-128.003)"
+//             />
+//           </svg>
+//         </Dropdown.Toggle>
+//       ) : (
+//         ""
+//       )}
+
+//       <Dropdown.Menu>
+//         <Row style={{ width: "100vw", padding: "1rem" }}>
+//           {node.childItems.edges.map(data => (
+//             <Col md={2} className={styles.locationDropdown}>
+//               <Dropdown.Item
+//                 style={{
+//                   borderLeft: "1px solid #9C1A3B",
+//                   backgroundColor: "#ddd",
+//                   width: "fit-content",
+//                 }}
+//               >
+//                 <Link to={data.node.url}>
+//                   <span style={{ color: "black" }}>
+//                     {data.node.label.toUpperCase()}
+//                   </span>
+//                 </Link>
+//               </Dropdown.Item>
+//               <ul
+//                 style={{
+//                   listStyle: "none",
+//                   padding: "0px",
+//                   paddingTop: "10px",
+//                 }}
+//               >
+//                 {data.node.childItems.edges.map(data => (
+//                   <li>
+//                     <Link
+//                       to={data.node.url}
+//                       className={`${styles.InnerLink} nav-link`}
+//                     >
+//                       <span style={{ color: "black" }}>
+//                         {data.node.label}
+//                       </span>
+//                     </Link>
+//                   </li>
+//                 ))}{" "}
+//               </ul>
+//             </Col>
+//           ))}
+//         </Row>
+//       </Dropdown.Menu>
+//     </Dropdown>
+//   )
+// }

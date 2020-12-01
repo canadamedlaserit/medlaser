@@ -1,77 +1,71 @@
 import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
+import { Row, Col, Button, Container } from "react-bootstrap"
 
 const Step3 = ({
   values,
   setFieldValue,
   handleNext,
   hanldleAnswers,
+  handlePrev,
   selected,
 }) => {
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#000000",
-
-          padding: "3em",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Col lg={5} md={10} className="text-align-center">
+      <div className="questionDiv">
+        <Col className="text-align-center">
           <h1>
-            {/* What colour is your hair in the area you are hoping to have treated? */}
+            {/* Let’s get started! Tell us about your current method of hair
+            removal. How do you normally remove your hair? */}
           </h1>
         </Col>
       </div>
-      <Col
-        md={10}
-        lg={4}
-        className="flex justify-content-center text-center"
-        style={{ margin: "auto", padding: "2em" }}
-      >
-        <ul className="radio-btn">
-          <li>
-            <h1 style={{ backgroundColor: "initial", color: "#000" }}>
-              Promotion detail
-            </h1>
-          </li>
-          <li className="my-4 py-4">
-            {(() => {
-              switch (selected) {
-                case promoData[0].heading:
-                  return <CardComponent data={promoData[0]} />
-                case promoData[1].heading:
-                  return (
-                    // <a
-                    //   href="https://shop.canadamedlaser.ca/checkout/?add-to-cart=1135"
-                    //   target="_blank"
-                    //   class="vc_single_image-wrapper   vc_box_border_grey"
-                    // >
-                    //   <img
-                    //     width="480"
-                    //     height="480"
-                    //     src="https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle.png"
-                    //     class="vc_single_image-img attachment-full"
-                    //     alt=""
-                    //     loading="lazy"
-                    //     srcset="https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle.png 480w, https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle-300x300.png 300w, https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle-150x150.png 150w"
-                    //     sizes="(max-width: 480px) 100vw, 480px"
-                    //   />
-                    // </a>
-                    <CardComponent data={promoData[1]} />
-                  )
-                case promoData[2].heading:
-                  return <CardComponent data={promoData[2]} />
+      <Container fluid>
+        <Col
+          md={10}
+          lg={5}
+          className="flex justify-content-center text-center"
+          style={{ margin: "auto", padding: "2em" }}
+        >
+          <ul className="radio-btn">
+            <li>
+              <h1 style={{ backgroundColor: "initial", color: "#000" }}>
+                Promotion detail
+              </h1>
+            </li>
+            <li className="my-4 py-4">
+              {(() => {
+                switch (selected) {
+                  case promoData[0].heading:
+                    return <CardComponent data={promoData[0]} />
+                  case promoData[1].heading:
+                    return (
+                      // <a
+                      //   href="https://shop.canadamedlaser.ca/checkout/?add-to-cart=1135"
+                      //   target="_blank"
+                      //   class="vc_single_image-wrapper   vc_box_border_grey"
+                      // >
+                      //   <img
+                      //     width="480"
+                      //     height="480"
+                      //     src="https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle.png"
+                      //     class="vc_single_image-img attachment-full"
+                      //     alt=""
+                      //     loading="lazy"
+                      //     srcset="https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle.png 480w, https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle-300x300.png 300w, https://shop.canadamedlaser.ca/wp-content/uploads/2020/10/skin-resurfacing-bundle-150x150.png 150w"
+                      //     sizes="(max-width: 480px) 100vw, 480px"
+                      //   />
+                      // </a>
+                      <CardComponent data={promoData[1]} />
+                    )
+                  case promoData[2].heading:
+                    return <CardComponent data={promoData[2]} />
 
-                default:
-                  break
-              }
-            })()}
-          </li>
-          {/* <li>
+                  default:
+                    break
+                }
+              })()}
+            </li>
+            {/* <li>
               <input
                 type="radio"
                 id="option1"
@@ -131,14 +125,18 @@ const Step3 = ({
               />
               <label htmlFor="option4">Dark blonde</label>
             </li> */}
-          <li style={{ display: "flex" }}>
-            <input type="radio" />
-            <Button className="next-btn  py-3" onClick={handleNext}>
-              Next &nbsp; &nbsp;
-            </Button>
-          </li>
-        </ul>
-      </Col>
+            <li style={{ display: "flex" }}>
+              <Button className="next-btn  py-3" onClick={handlePrev}>
+                back &nbsp; &nbsp;
+              </Button>
+              <input type="radio" />
+              <Button className="next-btn  py-3" onClick={handleNext}>
+                Next &nbsp; &nbsp;
+              </Button>
+            </li>
+          </ul>
+        </Col>
+      </Container>
     </>
   )
 }
@@ -148,7 +146,6 @@ export default Step3
 const CardComponent = ({ data }) => (
   <div
     style={{
-      width: "480px",
       height: "480px",
       backgroundImage: `url(${data.img})`,
       backgroundSize: "cover",
