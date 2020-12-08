@@ -5,6 +5,7 @@ import logo1 from "../../../images/daily-hive.png"
 import logo2 from "../../../images/forbes.png"
 import logo3 from "../../../images/narcity.png"
 import logo4 from "../../../images/z105.png"
+import logo5 from "../../../images/toronto-star.png"
 import styles from "./AsSeen.module.scss"
 export const fragment = graphql`
   fragment AsSeenSection on WPGraphQL_Page_Sectionfields_Sections_Asseen {
@@ -23,6 +24,9 @@ const imageData = [
   },
   {
     src: logo4,
+  },
+  {
+    src: logo5,
   },
 ]
 const AsSeen = () => {
