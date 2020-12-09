@@ -28,8 +28,15 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
               </h1>
             </li>
             <li style={{ display: "flex" }} className="mt-5">
-              <Link className="next-btn  py-3" to="/">
-                back &nbsp; &nbsp;
+              <Link
+                style={{
+                  color: "#fff",
+                  width: "100%",
+                  marginTop: "3%",
+                }}
+                to="/"
+              >
+                <Button className="next-btn  py-3">back &nbsp; &nbsp;</Button>
               </Link>
               <input type="radio" />
               <Button className="next-btn  py-3" onClick={handleNext}>

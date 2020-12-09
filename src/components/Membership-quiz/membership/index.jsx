@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 //components
 import { Formik, Form } from "formik"
 import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
+import Stepper from "react-stepper-horizontal"
 
 //custom components
 import Step1 from "./steps/step-1"
@@ -18,7 +19,10 @@ import Step7 from "./steps/step-7"
 import ResultAlcohol from "./result-alcohol"
 
 //assets
+import CmlNewLogo from "../../../images/cml-new-logo.png"
 import { LeftArrowHeader } from "./assets"
+import MQuiz1 from "../../../images/MQuiz1.png"
+import MQuiz2 from "../../../images/MQuiz2.png"
 
 //styles
 import "./_index.scss"
@@ -35,7 +39,9 @@ const initialValues = {
   phone: "",
 }
 
-const LHRTest = () => {
+const MQuizImage = [MQuiz1, MQuiz2]
+
+const CMLQUIZ = () => {
   // const alcoholTest = { title: "" }
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [progress, setProgress] = useState(20)
@@ -102,7 +108,7 @@ const LHRTest = () => {
   }
 
   const handleNext = () => {
-    if (currentStep >= 4) {
+    if (currentStep >= 2) {
       console.log("Max Number is reached")
     } else {
       setProgress(progress + 15)
@@ -124,94 +130,101 @@ const LHRTest = () => {
       <ResultAlcohol payload={payloadend} result={colorArray} />
     </div>
   ) : (
-    <section id="alcohol-test-section">
-      <div className="header-gap">
-        <Row className="headerTest py-4">
-          {/* <Col>
-            {currentStep === 1 ? (
-              <Link to="/assessment">
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </Link>
-            ) : (
-              <button className="buttonWrap" onClick={handlePrev}>
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </button>
-            )}
-          </Col> */}
-          <Col className="text-center my-3">
+    <section
+      id="alcohol-test-section"
+      style={{ backgroundColor: "#ffffff", paddingBottom: "0px" }}
+    >
+      <div className="header-gap background-black">
+        <Container>
+          <Row className="headerTest py-4 background-black">
+            {/* <Col className="text-center my-3">
             <span className="alcohol-test-heading">Membership Quiz</span>
-          </Col>
-          {/* <Col style={{ textAlign: "end" }}>
-            <a style={{ textDecoration: "underline", color: "white" }}>
-              Need help?
-            </a>
           </Col> */}
-        </Row>
-      </div>
-      <Container className="alcohol-test-wrapper" fluid>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {({ isSubmitting, values, setFieldValue }) => (
-            <Form>
-              {/* Progressbar */}
+
+            {/* <Col className="text-center my-3 d-flex justify-content-center">
+              <div>
+                <p className="WizrdsSteps">1</p>
+                Choose Promotion
+              </div>
+              <hr className="hrStyles" />
+              <div>
+                <p className="WizrdsSteps">1</p>
+                Checkout
+              </div>
+            </Col> */}
+            {/* <Col>
               <Row>
-                <Col md={12} className="px-0">
-                  <ProgressBar
-                    now={progress}
-                    variant="mybarVariant"
-                    className="progressbar-sec"
-                  />
-                </Col>
+                <img src={CmlNewLogo} />
               </Row>
-              {/* Questions Wrapper */}
-              <Row
-                className="justify-content-center"
-                style={{ flexDirection: "column" }}
-              >
-                {/* <Col className="text-center"> */}
-                <div className="index text-center">{currentStep} of 4</div>
-                {currentStep === 1 && (
-                  <Step1
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 2 && (
-                  <Step2
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handlePrev={handlePrev}
-                    handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 3 && (
-                  <Step3
-                    values={values}
-                    selected={values.question2}
-                    setFieldValue={setFieldValue}
-                    handlePrev={handlePrev}
-                    handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep >= 4 && <Step7 />}
-                {/* {currentStep === 5 && (
+              <Row> */}
+            <Col md={6}>
+              <Stepper
+                steps={[{ title: "Choose Promotion" }, { title: "Checkout" }]}
+                activeStep={currentStep - 1}
+                // defaultColor="#FFFFFF"
+                activeColor="white"
+                completeColor="#ddd"
+                activeTitleColor="white"
+                completeTitleColor="white"
+                circleFontColor="#000"
+              />
+            </Col>
+            {/* </Row>
+            </Col> */}
+          </Row>
+        </Container>
+      </div>
+
+      <Container className="alcohol-test-wrapper" fluid>
+        <Row>
+          <Col
+            md={5}
+            style={{
+              backgroundImage: `url(${MQuizImage[currentStep - 1]})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "50% 50%",
+            }}
+          ></Col>
+          <Col md={7}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+              {({ isSubmitting, values, setFieldValue }) => (
+                <Form>
+                  <Row
+                    className="justify-content-center"
+                    style={{ flexDirection: "column" }}
+                  >
+                    {/* <Col className="text-center"> */}
+                    {/* <div className="index text-center">{currentStep} of 4</div> */}
+                    {/* {currentStep === 1 && (
+                      <Step1
+                        values={values}
+                        setFieldValue={setFieldValue}
+                        handleNext={handleNext}
+                        hanldleAnswers={hanldleAnswers}
+                      />
+                    )} */}
+                    {currentStep === 1 && (
+                      <Step2
+                        values={values}
+                        setFieldValue={setFieldValue}
+                        handlePrev={handlePrev}
+                        handleNext={handleNext}
+                        hanldleAnswers={hanldleAnswers}
+                      />
+                    )}
+                    {/* {currentStep === 3 && (
+                      <Step3
+                        values={values}
+                        selected={values.question2}
+                        setFieldValue={setFieldValue}
+                        handlePrev={handlePrev}
+                        handleNext={handleNext}
+                        hanldleAnswers={hanldleAnswers}
+                      />
+                    )} */}
+                    {currentStep >= 2 && <Step7 />}
+                    {/* {currentStep === 5 && (
                   <Step5
                     values={values}
                     setFieldValue={setFieldValue}
@@ -229,13 +242,13 @@ const LHRTest = () => {
                 )}
 
                 {currentStep >= 7 && <Step7 />} */}
-                {/* </Col> */}
-                {/* </Row> */}
+                    {/* </Col> */}
+                    {/* </Row> */}
 
-                {/* Contron Buttons */}
-                {/* <Row> */}
-                {/* <Col lg={5} md={10} className="btn-section"> */}
-                {/* {currentStep === 1 ? (
+                    {/* Contron Buttons */}
+                    {/* <Row> */}
+                    {/* <Col lg={5} md={10} className="btn-section"> */}
+                    {/* {currentStep === 1 ? (
                         // <Link to="/assessment-test">
                         <Button
                           className="cancel-btn"
@@ -252,31 +265,33 @@ const LHRTest = () => {
                           &nbsp;&nbsp; Back
                         </Button>
                       )} */}
-                <Row className="flex justify-content-center">
-                  <Col
-                    lg={4}
-                    md={10}
-                    style={{ textAlign: "center", paddingBottom: "5vh" }}
-                  >
-                    {currentStep === 4 && (
-                      <Button
-                        className="next-btn"
-                        type="submit"
-                        disabled={isSubmitting}
+
+                    {/* <Row className="flex justify-content-center">
+                      <Col
+                        lg={4}
+                        md={10}
+                        style={{ textAlign: "center", paddingBottom: "5vh" }}
                       >
-                        {isSubmitting ? "Submitting" : "Submit"}
-                        {/* <i className="fa fa-long-arrow-right" /> */}
-                      </Button>
-                    )}
-                  </Col>
-                </Row>
-              </Row>
-            </Form>
-          )}
-        </Formik>
+                        {currentStep === 4 && (
+                          <Button
+                            className="next-btn"
+                            type="submit"
+                            disabled={isSubmitting}
+                          >
+                            {isSubmitting ? "Submitting" : "Submit"}
+                          </Button>
+                        )}
+                      </Col>
+                    </Row> */}
+                  </Row>
+                </Form>
+              )}
+            </Formik>
+          </Col>
+        </Row>
       </Container>
     </section>
   )
 }
 
-export default LHRTest
+export default CMLQUIZ
