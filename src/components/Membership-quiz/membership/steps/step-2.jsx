@@ -34,7 +34,7 @@ const Step2 = ({
           className="flex justify-content-center text-center"
           style={{ margin: "auto" }}
         >
-          <ul className="radio-btn">
+          <ul className="radio-btn MembershipRadio">
             <li>
               <h1
                 style={{
@@ -153,7 +153,7 @@ const Step2 = ({
 
 export default Step2
 
-function MyVerticallyCenteredModal(props) {
+const MyVerticallyCenteredModal = props => {
   const params = {
     slidesPerView: 1,
     pagination: {
