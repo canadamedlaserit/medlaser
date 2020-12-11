@@ -23,14 +23,17 @@
 
 .MembershipModel {
   padding: 25px;
-  //  max-width: 80vw;
-  .modal-lg {
-    max-width: 80vw;
+  max-width: 80vw;
+  .modal-title {
+    text-align: left;
+    margin: 40px 0px;
+    background-color: initial;
+    color: rgb(0, 0, 0);
+    font: bold 36px / 48px "Playfair Display";
   }
-
   .grid2 {
     padding: 10px 40px;
-    padding-right: 0px;
+    //    padding-right: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,5 +51,13 @@
   .swiper-button-prev,
   .swiper-button-next {
     background-color: #ffffff;
+  }
+
+  .MembershipRadio {
+    li {
+      label {
+        font-size: 16px !important;
+      }
+    }
   }
 }

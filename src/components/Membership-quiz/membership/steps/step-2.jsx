@@ -1,6 +1,9 @@
 import React from "react"
-import { Row, Col, Button, Container, Modal } from "react-bootstrap"
+import { Row, Col, Button, Container } from "react-bootstrap"
 import Swiper from "react-id-swiper"
+import "react-responsive-modal/styles.css"
+import { Modal } from "react-responsive-modal"
+
 //assets
 import membershipModelImage from "../../../../images/membershipModelImage.png"
 import modalVideo from "../../../../images/modalVideo.png"
@@ -141,9 +144,9 @@ const Step2 = ({
         </Col>
       </Container>
       <MyVerticallyCenteredModal
-        show={modalShow}
+        open={modalShow}
         handleNext={handleNext}
-        onHide={() => setModalShow(false)}
+        onClose={() => setModalShow(false)}
       />
 
       {/* </Row> */}
@@ -178,25 +181,21 @@ const MyVerticallyCenteredModal = props => {
   return (
     <Modal
       {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      className="MembershipModel"
+      center
+      // size="lg"
+      // aria-labelledby="contained-modal-title-vcenter"
+      // centered
+      classNames={{
+        modal: "MembershipModel",
+      }}
+      // className="MembershipModel"
     >
-      <Modal.Header closeButton style={{ borderBottom: "none" }}>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <h1
-            style={{
-              backgroundColor: "initial",
-              color: "#000",
-              font: "normal normal bold 36px/48px Playfair Display",
-            }}
-          >
-            LHR: 50% OFF + Additional 5% OFF
-          </h1>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <div closeButton style={{ borderBottom: "none" }}>
+        <div id="contained-modal-title-vcenter">
+          <h1 className="modal-title">LHR: 50% OFF + Additional 5% OFF</h1>
+        </div>
+      </div>
+      <div>
         <Row>
           <Col md={6}>
             <Swiper {...params}>
@@ -214,7 +213,7 @@ const MyVerticallyCenteredModal = props => {
               ))}
             </Swiper>
           </Col>
-          <Col md={5} className="grid2">
+          <Col md={6} className="grid2">
             <div>
               <p style={{ font: "normal normal normal 15px/20px Open Sans" }}>
                 Our Laser Hair Removal treatments are here with a BIG DISCOUNT!
@@ -250,7 +249,7 @@ const MyVerticallyCenteredModal = props => {
             </div>
           </Col>
         </Row>
-      </Modal.Body>
+      </div>
       {/* <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer> */}
