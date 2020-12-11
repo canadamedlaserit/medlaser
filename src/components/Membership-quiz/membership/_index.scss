@@ -13,6 +13,13 @@
   background: #000000 !important;
   color: #ffffff !important;
 }
+.buttonReposive {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }
+}
 
 .hrStyles {
   width: 20vw;
@@ -52,12 +59,25 @@
   .swiper-button-next {
     background-color: #ffffff;
   }
-
-  .MembershipRadio {
-    li {
-      label {
-        font-size: 16px !important;
-      }
+}
+.MembershipRadio {
+  li {
+    label {
+      font-size: 16px !important;
     }
+  }
+}
+
+.contButton {
+  width: 100%;
+  max-width: none;
+  @media (max-width: 768px) {
+    max-width: 300px;
+  }
+}
+
+.subButton {
+  @media (max-width: 768px) {
+    margin-top: 2vh;
   }
 }

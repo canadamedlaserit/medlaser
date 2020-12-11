@@ -101,7 +101,7 @@ const Step7 = () => {
               <Row>
                 <Col md={12}>
                   <Button
-                    className="next-btn"
+                    className="next-btn subButton"
                     style={{ width: "100%", maxWidth: "none" }}
                   >
                     Submit &nbsp; &nbsp;

@@ -18,6 +18,7 @@
   background: rgba(0, 0, 0, 0.5) 0% 0% no-repeat padding-box;
   transition: $globalTransition;
   flex-direction: column;
+  z-index: 999;
 
   .NavbarBrand {
     width: 100%;

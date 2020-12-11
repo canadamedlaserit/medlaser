@@ -111,30 +111,10 @@ const Step2 = ({
               />
               <label htmlFor="option3">CoolSculpting: Flat 40% OFF</label>
             </li>
-            {/* <li>
-            <input
-              type="radio"
-              id="option4"
-              name="question2"
-              value="Every 2 months"
-              checked={values.question2 === "Every 2 months"}
-              onChange={() => {
-                setFieldValue("question2", "Every 2 months")
-                hanldleAnswers("green")
-                handleNext()
-              }}
-            />
-            <label htmlFor="option4">Every 2 months</label>
-          </li> */}
-            <li style={{ display: "flex" }}>
-              {/* <input type="radio" /> */}
-              {/* <Button className="next-btn  py-3" onClick={handlePrev}>
-                back &nbsp; &nbsp;
-              </Button>
-              <input type="radio" /> */}
+            <li className="buttonReposive">
+              <input type="radio" />
               <Button
-                className="next-btn  py-3"
-                style={{ width: "100%", maxWidth: "none" }}
+                className="next-btn  py-3 buton contButton"
                 onClick={handleNext}
               >
                 Continue &nbsp; &nbsp;
