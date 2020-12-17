@@ -101,7 +101,7 @@ class Header extends Component {
                 to={"/assessment"}
                 className={`btn btn-red ${styles.Btn} ${styles.AYCButton}`}
               >
-                Are You A Candidate?
+                TAKE THE QUIZ
               </Link>
 
               <CustomNav data={topMenu} />
