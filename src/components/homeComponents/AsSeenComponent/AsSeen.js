@@ -71,7 +71,7 @@ const AsSeen = props => {
   return (
     <section className={styles.Section}>
       <div className={`container ${styles.Container}}`}>
-        <h1>AS SEEN IN</h1>
+        <h2>AS SEEN IN</h2>
         <div className={`row ${styles.Row} mt-5`}>
           <div
             className={`col-md-12 ${styles.TextSide} ${styles.Col}`}
