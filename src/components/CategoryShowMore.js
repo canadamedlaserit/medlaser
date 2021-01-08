@@ -7,11 +7,18 @@ import styles from "../components/BlogMain/BlogMain.module.scss"
 const CategoryList = ({ data, type }) => {
   const [rowsToDisplay, setRowsToDisplay] = useState(12)
   const [loadMore, setLoadMore] = useState(false)
+  const [hideList, setHideList] = useState(false)
 
   const showMore = () => {
     let listLength = data.wpgraphql.categories.edges.length
     setRowsToDisplay(listLength)
     setLoadMore(true)
+    setHideList(!hideList)
+  }
+  const hideRowList = () => {
+    setRowsToDisplay(12)
+    setLoadMore(!loadMore)
+    setHideList(!hideList)
   }
 
   return (
@@ -49,7 +56,20 @@ const CategoryList = ({ data, type }) => {
         : ""}
 
       <div>
-        {!loadMore ? <button className={styles.ShowMore} onClick={showMore}>Show more</button> : ""}
+        {!loadMore ? (
+          <button className={styles.ShowMore} onClick={showMore}>
+            Show more
+          </button>
+        ) : (
+          ""
+        )}
+        {hideList ? (
+          <button className={styles.ShowMore} onClick={hideRowList}>
+            Hide
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </>
   )
