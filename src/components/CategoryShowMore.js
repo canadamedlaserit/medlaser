@@ -5,27 +5,27 @@ import { Dropdown } from "react-bootstrap"
 import styles from "../components/BlogMain/BlogMain.module.scss"
 
 const CategoryList = ({ data, type }) => {
-  const [rowsToDisplay, setRowsToDisplay] = useState(12)
-  const [loadMore, setLoadMore] = useState(false)
-  const [hideList, setHideList] = useState(false)
+  // const [rowsToDisplay, setRowsToDisplay] = useState(12)
+  // const [loadMore, setLoadMore] = useState(false)
+  // const [hideList, setHideList] = useState(false)
 
-  const showMore = () => {
-    let listLength = data.wpgraphql.categories.edges.length
-    setRowsToDisplay(listLength)
-    setLoadMore(true)
-    setHideList(!hideList)
-  }
-  const hideRowList = () => {
-    setRowsToDisplay(12)
-    setLoadMore(!loadMore)
-    setHideList(!hideList)
-  }
+  // const showMore = () => {
+  //   let listLength = data.wpgraphql.categories.edges.length
+  //   setRowsToDisplay(listLength)
+  //   setLoadMore(true)
+  //   setHideList(!hideList)
+  // }
+  // const hideRowList = () => {
+  //   setRowsToDisplay(12)
+  //   setLoadMore(!loadMore)
+  //   setHideList(!hideList)
+  // }
 
   return (
     <>
       {type === "desktop"
         ? data.wpgraphql.categories.edges
-            .slice(0, rowsToDisplay)
+            //.slice(0, rowsToDisplay)
             .map(({ node }, index) => {
               if (node.posts.edges.length) {
                 return (
@@ -39,7 +39,7 @@ const CategoryList = ({ data, type }) => {
 
       {type === "mobile"
         ? data.wpgraphql.categories.edges
-            .slice(0, rowsToDisplay)
+            //  .slice(0, rowsToDisplay)
             .map(({ node }, index) => {
               if (node.posts.edges.length) {
                 return (
@@ -55,7 +55,7 @@ const CategoryList = ({ data, type }) => {
             })
         : ""}
 
-      <div>
+      {/*  <div>
         {!loadMore ? (
           <button className={styles.ShowMore} onClick={showMore}>
             Show more
@@ -70,7 +70,7 @@ const CategoryList = ({ data, type }) => {
         ) : (
           ""
         )}
-      </div>
+        </div>*/}
     </>
   )
 }
