@@ -247,6 +247,30 @@
     }
   }
 }
+.ShopNowLink_wrapper {
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    //bottom: 0;
+    z-index: 999999;
+    right: 0;
+    left: 0;
+    background-color: $red;
+    display: flex;
+    align-items: center;
+    height: 4.5%;
+    justify-content: center;
+    a {
+      font-size: 12px;
+      line-height: 17px;
+      color: $white;
+      letter-spacing: 0.72px;
+      font-weight: 600;
+    }
+  }
+}
 
 // floating menu start
 .FloatingMenu {
@@ -480,6 +504,9 @@
 
   .Navbar {
     background: #161616;
+    @media (max-width: 600px) {
+      top: 4.5%;
+    }
   }
 
   .NavCollapse {
