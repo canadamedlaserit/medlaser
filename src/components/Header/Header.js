@@ -74,6 +74,9 @@ class Header extends Component {
 
     return (
       <header>
+        <div className={`${styles.ShopNowLink_wrapper}`}>
+          <Link to="https://shop.canadamedlaser.ca/">Visit Our Shop Now</Link>
+        </div>
         <Navbar
           id="mainNav"
           fixed="top"
