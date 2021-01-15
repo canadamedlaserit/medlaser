@@ -57,6 +57,10 @@ const AsSeen = props => {
     //   nextEl: ".swiper-button-next",
     //   prevEl: ".swiper-button-prev",
     // },
+     autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
     spaceBetween: 20,
     breakpoints: {
       // when window width is >= 1200px
