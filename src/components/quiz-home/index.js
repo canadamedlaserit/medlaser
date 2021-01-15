@@ -51,7 +51,7 @@ export default function HomeQuiz() {
               className="text-center"
               style={{ marginTop: "10vh" }}
             >
-              <h1 className="headerTitle">Self Assessment Test</h1>
+              <h1 className="headerTitle">Take the Quiz</h1>
               <p className="headerdesc">
                 Canada MedLaser is all about giving the best services to all our
                 clients. We want to hear from you, so that we can serve you
