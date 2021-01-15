@@ -26,7 +26,7 @@ const ResultAlcohol = ({ payload, result }) => {
           !result.includes("red")
         ) {
           setanswer(
-            "Congratulations!  Based on the answers you have submitted, you are a candidate for the CoolSculpting treatmen"
+            "Congratulations!  Based on the answers you have submitted, you are a candidate for the CoolSculpting treatment"
           )
         } else {
           setanswer("Sorry! You didn't answer any questions ")
