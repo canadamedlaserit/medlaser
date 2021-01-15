@@ -28,16 +28,16 @@ const Step5 = ({
                 type="radio"
                 id="option1"
                 name="question5"
-                value="ASAP.  HALP!"
-                checked={values.question5 === "ASAP.  HALP!"}
+                value="ASAP.  HELP!"
+                checked={values.question5 === "ASAP.  HELP!"}
                 onChange={() => {
-                  setFieldValue("question5", "ASAP.  HALP!")
+                  setFieldValue("question5", "ASAP.  HELP!")
                   hanldleAnswers("green")
 
                   handleNext()
                 }}
               />
-              <label htmlFor="option1">ASAP. HALP!</label>
+              <label htmlFor="option1">ASAP. HELP!</label>
             </li>
             <li>
               <input
