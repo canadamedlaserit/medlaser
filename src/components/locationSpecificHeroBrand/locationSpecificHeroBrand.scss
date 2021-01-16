@@ -1,0 +1,77 @@
+@import "../../styles/_variables";
+
+#LocationHeroBrand {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .brandWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .disc {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: normal;
+    padding: 21px 2rem 41px;
+  }
+
+  .btnHeroWrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .RightSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .PhoneWrapper {
+      a {
+        padding-right: 70px !important;
+      }
+      svg {
+        width: 23px;
+        height: 23px;
+        margin-right: 14px;
+      }
+      .PhoneSvg {
+        fill: #fff;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 0px;
+      }
+    }
+  }
+  .callBtn {
+    width: 196px;
+    background-color: #000000;
+    border: #000000;
+    height: 60px;
+    //margin: 0px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #ffffff;
+    margin-left: 1rem;
+  }
+  .promoBtn {
+    width: 173px;
+    background-color: $red;
+    border: $red;
+    height: 60px;
+    //margin: 0px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #ffffff;
+  }
+  .titleWrapper {
+    font-family: "Playfair Display", serif !important;
+    font-size: 64px;
+    line-height: 96px;
+    font-weight: normal;
+    letter-spacing: 3.2px;
+    text-align: center;
+    text-transform: none;
+  }
+}
