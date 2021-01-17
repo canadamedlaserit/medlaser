@@ -1,10 +1,16 @@
 import React from "react"
 import { Row, Col, Button, Container } from "react-bootstrap"
 import { Field } from "formik"
-
-const Step7 = () => {
+const Step7 = ({ locationComponent }) => {
   return (
-    <section style={{ backgroundColor: "#ffffff", padding: "90px 0px" }}>
+    <section
+      style={
+        locationComponent === "locationPromoStyles"
+          ? { backgroundColor: "#161616", padding: "90px 0px" }
+          : { backgroundColor: "#ffffff", padding: "90px 0px" }
+      }
+      // style={{ backgroundColor: "#ffffff", padding: "90px 0px" }}
+    >
       <Container fluid>
         <Col
           className="flex justify-content-center text-center"
@@ -13,14 +19,25 @@ const Step7 = () => {
           <div className="questionDiv">
             <Col lg={6} md={10} className="text-align-center">
               <h1
-                style={{
-                  backgroundColor: "initial",
-                  color: "#000",
-                  font: "normal normal bold 36px/48px Playfair Display",
-                  margin: 0,
-                }}
+                style={
+                  locationComponent === "locationPromoStyles"
+                    ? {
+                        backgroundColor: "initial",
+                        color: "#fff",
+                        font: "normal normal bold 36px/48px Playfair Display",
+                        margin: 0,
+                        textAlign: "center",
+                      }
+                    : {
+                        backgroundColor: "initial",
+                        color: "#000",
+                        font: "normal normal bold 36px/48px Playfair Display",
+                        margin: 0,
+                      }
+                }
+                //style={}
               >
-                Checkout{" "}
+                Checkout
               </h1>
             </Col>
           </div>
@@ -42,6 +59,14 @@ const Step7 = () => {
                     className="form-control mb-3 alcohol-test-field"
                     placeholder="Full Name"
                     required
+                    style={
+                      locationComponent === "locationPromoStyles"
+                        ? {
+                            backgroundColor: "initial",
+                            color: "#fff",
+                          }
+                        : ""
+                    }
                   />
                 </Col>
               </Row>
@@ -64,6 +89,14 @@ const Step7 = () => {
                     className="form-control mb-3 alcohol-test-field"
                     placeholder="Email"
                     required
+                    style={
+                      locationComponent === "locationPromoStyles"
+                        ? {
+                            backgroundColor: "initial",
+                            color: "#fff",
+                          }
+                        : ""
+                    }
                   />
                 </Col>
               </Row>
@@ -75,6 +108,14 @@ const Step7 = () => {
                     className="form-control mb-3 alcohol-test-field"
                     placeholder="Phone "
                     required
+                    style={
+                      locationComponent === "locationPromoStyles"
+                        ? {
+                            backgroundColor: "initial",
+                            color: "#fff",
+                          }
+                        : ""
+                    }
                   />
                 </Col>
               </Row>
@@ -86,6 +127,14 @@ const Step7 = () => {
                     className="form-control mb-3 alcohol-test-field"
                     placeholder="Date"
                     required
+                    style={
+                      locationComponent === "locationPromoStyles"
+                        ? {
+                            backgroundColor: "initial",
+                            color: "#fff",
+                          }
+                        : ""
+                    }
                   />
                 </Col>
                 <Col md={6}>
@@ -95,6 +144,14 @@ const Step7 = () => {
                     className="form-control  alcohol-test-field"
                     placeholder="Time"
                     required
+                    style={
+                      locationComponent === "locationPromoStyles"
+                        ? {
+                            backgroundColor: "initial",
+                            color: "#fff",
+                          }
+                        : ""
+                    }
                   />
                 </Col>
               </Row>
@@ -115,5 +172,4 @@ const Step7 = () => {
     </section>
   )
 }
-
 export default Step7

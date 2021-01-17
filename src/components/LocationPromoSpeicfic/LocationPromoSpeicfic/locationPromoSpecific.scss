@@ -1,0 +1,42 @@
+@import "../../styles/_variables";
+
+#locationSpecific_topBar {
+  background-color: #e8e8e8;
+  margin: 0%;
+  padding: 1.75% 5.85%;
+  .topBarMenu_wrapper {
+    display: flex;
+  }
+  .topMenuBar_BrandWrapper {
+    margin-right: 5rem;
+    background-color: $red;
+    padding: 1rem;
+    width: 217px;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    color: #ffff !important;
+    font-family: "Playfair Display", serif !important;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .topMenuBar_Nav_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    a {
+      color: black !important;
+      font-size: 20px;
+      line-height: 54px;
+      font-family: "Playfair Display", serif !important;
+      font-weight: bold;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+  }
+}
+#locationSpecific_PromoSection {
+  padding: 10.75% 0px 9.5%;
+  color: #ffffff;
+  background-color: #161616;
+}

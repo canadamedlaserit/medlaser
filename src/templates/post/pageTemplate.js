@@ -84,6 +84,7 @@ import TextFullWidth2 from "../../components/TextFullWidth2/TextFullWidth2"
 import DarkSectionButton from "../../components/DarkSectionButton/DarkSectionButton"
 import Testimonials from "../../components/Testimonials/Testimonials"
 import LocationSpecificHeroBrand from "../../components/locationSpecificHeroBrand/LocationSpecificHeroBrand"
+import LocationPromoSpecific from "../../components/LocationPromoSpeicfic/LocationPromoSpecific"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -341,6 +342,9 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand":
             return <LocationSpecificHeroBrand key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo":
+            return <LocationPromoSpecific key={index} {...section} />
+
           default:
             return ""
         }
@@ -350,8 +354,7 @@ const PageTempl = ({ data, location, pageContext }) => {
 }
 
 export default PageTempl
-/*  case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand":
-            return <LocationSpecificHeroBrand key={index} {...section} /> */
+
 export const pageQuery = graphql`
   query($id: ID!) {
     wpgraphql {
@@ -471,6 +474,7 @@ export const pageQuery = graphql`
             ...DarkSectionButton
             ...Testimonials
             ...Locationspecificherobrand
+            ...Locationspecificpromo
           }
         }
       }

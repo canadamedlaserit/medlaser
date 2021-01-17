@@ -1,13 +1,10 @@
 import React, { useState } from "react"
-
 //router
 import { Link } from "gatsby"
-
 //components
 import { Formik, Form } from "formik"
 import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
 import Stepper from "react-stepper-horizontal"
-
 //custom components
 import Step1 from "./steps/step-1"
 import Step2 from "./steps/step-2"
@@ -17,16 +14,13 @@ import Step5 from "./steps/step-5"
 import Step6 from "./steps/step-6"
 import Step7 from "./steps/step-7"
 import ResultAlcohol from "./result-alcohol"
-
 //assets
 import CmlNewLogo from "../../../images/cml-new-logo.png"
 import { LeftArrowHeader } from "./assets"
 import MQuiz1 from "../../../images/MQuiz1.png"
 import MQuiz2 from "../../../images/MQuiz2.png"
-
 //styles
 import "./_index.scss"
-
 const initialValues = {
   question1: "",
   question2: "",
@@ -38,10 +32,8 @@ const initialValues = {
   email: "",
   phone: "",
 }
-
 const MQuizImage = [MQuiz1, MQuiz2]
-
-const CMLQUIZ = () => {
+const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
   // const alcoholTest = { title: "" }
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [progress, setProgress] = useState(20)
@@ -53,7 +45,6 @@ const CMLQUIZ = () => {
     temp.push(value)
     setcolorArray([...temp])
   }
-
   const handleSubmit = async payload => {
     const emailHtml = `
     <p><strong>First Name:</strong> ${payload.firstName}</p>
@@ -62,7 +53,7 @@ const CMLQUIZ = () => {
     <p><strong>Phone:</strong> ${payload.phone}</p>
     <table>
       <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Let’s get started! Tell us about your current method of hair removal.How do you normally remove your hair?</td>
+        <td style="border: 1px solid #dddddd; padding: 10px;">Let's get started! Tell us about your current method of hair removal.How do you normally remove your hair?</td>
         <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
       </tr>
       <tr>
@@ -88,25 +79,12 @@ const CMLQUIZ = () => {
         </td>
         <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
       </tr>
-     
     </table>
     `
-
-    // try {
-    //   const response = await axios.post("/.netlify/functions/send-email", {
-    //     emailHtml,
-    //     subject,
-    //   })
     setFormSubmitted(true)
-
-    // console.log("Request Response", response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
     setpayload(payload)
     console.log("Payload", payload)
   }
-
   const handleNext = () => {
     if (currentStep >= 2) {
       console.log("Max Number is reached")
@@ -115,7 +93,6 @@ const CMLQUIZ = () => {
       setCurrentStep(currentStep + 1)
     }
   }
-
   const handlePrev = () => {
     if (currentStep <= 1) {
       console.log("Min Number is reached")
@@ -124,7 +101,6 @@ const CMLQUIZ = () => {
       setCurrentStep(currentStep - 1)
     }
   }
-
   return formSubmitted ? (
     <div>
       <ResultAlcohol payload={payloadend} result={colorArray} />
@@ -132,15 +108,24 @@ const CMLQUIZ = () => {
   ) : (
     <section
       id="alcohol-test-section"
-      style={{ backgroundColor: "#ffffff", paddingBottom: "0px" }}
+      style={{
+        backgroundColor: "#ffffff",
+        paddingBottom: "0px",
+        width: "100%",
+      }}
     >
-      <div className="header-gap background-black">
+      <div
+        className={
+          ComponentFor === "locationSection"
+            ? "locationSection"
+            : "header-gap background-black"
+        }
+      >
         <Container>
           <Row className="headerTest py-4 background-black">
             {/* <Col className="text-center my-3">
             <span className="alcohol-test-heading">Membership Quiz</span>
           </Col> */}
-
             {/* <Col className="text-center my-3 d-flex justify-content-center">
               <div>
                 <p className="WizrdsSteps">1</p>
@@ -174,9 +159,17 @@ const CMLQUIZ = () => {
           </Row>
         </Container>
       </div>
-
       <Container className="alcohol-test-wrapper" fluid>
-        <Row>
+        <Row
+          style={
+            locationComponent === "locationPromoStyles"
+              ? {
+                  backgroundColor: "#161616",
+                  //  color: "#fff",
+                }
+              : ""
+          }
+        >
           <Col
             md={5}
             style={{
@@ -211,6 +204,7 @@ const CMLQUIZ = () => {
                         handlePrev={handlePrev}
                         handleNext={handleNext}
                         hanldleAnswers={hanldleAnswers}
+                        locationComponent={locationComponent}
                       />
                     )}
                     {/* {currentStep === 3 && (
@@ -223,7 +217,9 @@ const CMLQUIZ = () => {
                         hanldleAnswers={hanldleAnswers}
                       />
                     )} */}
-                    {currentStep >= 2 && <Step7 />}
+                    {currentStep >= 2 && (
+                      <Step7 locationComponent={locationComponent} />
+                    )}
                     {/* {currentStep === 5 && (
                   <Step5
                     values={values}
@@ -240,11 +236,9 @@ const CMLQUIZ = () => {
                     hanldleAnswers={hanldleAnswers}
                   />
                 )}
-
                 {currentStep >= 7 && <Step7 />} */}
                     {/* </Col> */}
                     {/* </Row> */}
-
                     {/* Contron Buttons */}
                     {/* <Row> */}
                     {/* <Col lg={5} md={10} className="btn-section"> */}
@@ -265,7 +259,6 @@ const CMLQUIZ = () => {
                           &nbsp;&nbsp; Back
                         </Button>
                       )} */}
-
                     {/* <Row className="flex justify-content-center">
                       <Col
                         lg={4}
@@ -293,5 +286,4 @@ const CMLQUIZ = () => {
     </section>
   )
 }
-
 export default CMLQUIZ

@@ -3,7 +3,6 @@ import { Row, Col, Button, Container } from "react-bootstrap"
 import Swiper from "react-id-swiper"
 import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
-
 //assets
 import membershipModelImage from "../../../../images/membershipModelImage.png"
 import modalVideo from "../../../../images/modalVideo.png"
@@ -15,20 +14,23 @@ const slides = [
     image: membershipModelImage,
   },
 ]
-
 const Step2 = ({
   values,
   setFieldValue,
   handleNext,
   hanldleAnswers,
   handlePrev,
+  locationComponent,
 }) => {
   const [modalShow, setModalShow] = React.useState(false)
-
   return (
     <section
       className="d-flex justify-content-center align-items-center"
-      style={{ backgroundColor: "#ffffff" }}
+      style={
+        locationComponent === "locationPromoStyles"
+          ? { backgroundColor: "#161616" }
+          : { backgroundColor: "#ffffff" }
+      }
     >
       <Container fluid>
         <Col
@@ -40,21 +42,29 @@ const Step2 = ({
           <ul className="radio-btn MembershipRadio">
             <li>
               <h1
-                style={{
-                  backgroundColor: "initial",
-                  color: "#000",
-                  font: "normal normal bold 36px/48px Playfair Display",
-                  margin: 0,
-                }}
+                style={
+                  locationComponent === "locationPromoStyles"
+                    ? {
+                        backgroundColor: "initial",
+                        color: "#fff",
+                        textAlign: "center",
+                        font: "normal normal bold 36px/48px Playfair Display",
+                        margin: 0,
+                      }
+                    : {
+                        backgroundColor: "initial",
+                        color: "#000",
+                        font: "normal normal bold 36px/48px Playfair Display",
+                        margin: 0,
+                      }
+                }
               >
                 Choose your promotion
               </h1>
             </li>
-
             <li style={{ marginTop: "60px", fontWeight: "bold" }}>
               Promotion List
             </li>
-
             <li>
               <input
                 type="radio"
@@ -71,7 +81,19 @@ const Step2 = ({
                 //   handleNext()
                 // }}
               />
-              <label htmlFor="option1">LHR: 50% OFF + Additional 5% OFF</label>
+              <label
+                htmlFor="option1"
+                style={
+                  locationComponent === "locationPromoStyles"
+                    ? {
+                        backgroundColor: "initial",
+                        color: "#fff",
+                      }
+                    : ""
+                }
+              >
+                LHR: 50% OFF + Additional 5% OFF
+              </label>
             </li>
             <li>
               <input
@@ -92,7 +114,17 @@ const Step2 = ({
                   handleNext()
                 }}
               />
-              <label htmlFor="option2">
+              <label
+                htmlFor="option2"
+                style={
+                  locationComponent === "locationPromoStyles"
+                    ? {
+                        backgroundColor: "initial",
+                        color: "#fff",
+                      }
+                    : ""
+                }
+              >
                 Botox: Buy first 10 units for $59 (New clients only)
               </label>
             </li>
@@ -109,7 +141,19 @@ const Step2 = ({
                   handleNext()
                 }}
               />
-              <label htmlFor="option3">CoolSculpting: Flat 40% OFF</label>
+              <label
+                htmlFor="option3"
+                style={
+                  locationComponent === "locationPromoStyles"
+                    ? {
+                        backgroundColor: "initial",
+                        color: "#fff",
+                      }
+                    : ""
+                }
+              >
+                CoolSculpting: Flat 40% OFF
+              </label>
             </li>
             <li className="buttonReposive">
               <input type="radio" />
@@ -128,14 +172,11 @@ const Step2 = ({
         handleNext={handleNext}
         onClose={() => setModalShow(false)}
       />
-
       {/* </Row> */}
     </section>
   )
 }
-
 export default Step2
-
 const MyVerticallyCenteredModal = props => {
   const params = {
     slidesPerView: 1,
@@ -151,13 +192,11 @@ const MyVerticallyCenteredModal = props => {
     spaceBetween: 20,
     breakpoints: {
       // when window width is >= 1200px
-
       768: {
         slidesPerView: "auto",
       },
     },
   }
-
   return (
     <Modal
       {...props}
@@ -197,7 +236,7 @@ const MyVerticallyCenteredModal = props => {
             <div>
               <p style={{ font: "normal normal normal 15px/20px Open Sans" }}>
                 Our Laser Hair Removal treatments are here with a BIG DISCOUNT!
-                That’s 50% off with any laser hair removal treatment. Plus you
+                That's 50% off with any laser hair removal treatment. Plus you
                 get to enjoy an additional 5% off if you contact us now. Hurry,
                 this promo is for limited slots only!
               </p>
