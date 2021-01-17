@@ -87,7 +87,7 @@ import LocationSpecificHeroBrand from "../../components/locationSpecificHeroBran
 import LocationPromoSpecific from "../../components/LocationPromoSpeicfic/LocationPromoSpecific"
 
 const PageTempl = ({ data, location, pageContext }) => {
-  const sections = data.wpgraphql.page.sectionFields.sections
+ // const sections = data.wpgraphql.page.sectionFields.sections
   console.log("my own Section", sections)
   return (
     <Layout location={location}>
