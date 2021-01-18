@@ -1,5 +1,5 @@
 import React from "react"
-import MembershipQuiz from "../components/Membership-quiz/membership"
+import MembershipQuiz from "../components/MembershipQuiz/membership"
 import Layout from "../components/Layout"
 const MembershipQuizPage = props => {
   console.log(props)

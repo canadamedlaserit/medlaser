@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import "./locationPromoSpecific.scss"
-import CMLQUIZ from "./../Membership-quiz/membership/index"
+import CMLQUIZ from "../MembershipQuiz/membership/index"
 /**/
 export const fragment = graphql`
   fragment Locationspecificpromo on WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo {
