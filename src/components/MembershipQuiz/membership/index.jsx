@@ -167,7 +167,7 @@ const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
                   backgroundColor: "#161616",
                   //  color: "#fff",
                 }
-              : ""
+              : {}
           }
         >
           <Col

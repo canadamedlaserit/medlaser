@@ -65,7 +65,7 @@ const Step7 = ({ locationComponent }) => {
                             backgroundColor: "initial",
                             color: "#fff",
                           }
-                        : ""
+                        : {}
                     }
                   />
                 </Col>
@@ -95,7 +95,7 @@ const Step7 = ({ locationComponent }) => {
                             backgroundColor: "initial",
                             color: "#fff",
                           }
-                        : ""
+                        : {}
                     }
                   />
                 </Col>
@@ -114,7 +114,7 @@ const Step7 = ({ locationComponent }) => {
                             backgroundColor: "initial",
                             color: "#fff",
                           }
-                        : ""
+                        : {}
                     }
                   />
                 </Col>
@@ -133,7 +133,7 @@ const Step7 = ({ locationComponent }) => {
                             backgroundColor: "initial",
                             color: "#fff",
                           }
-                        : ""
+                        : {}
                     }
                   />
                 </Col>
@@ -150,7 +150,7 @@ const Step7 = ({ locationComponent }) => {
                             backgroundColor: "initial",
                             color: "#fff",
                           }
-                        : ""
+                        : {}
                     }
                   />
                 </Col>

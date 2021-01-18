@@ -89,7 +89,7 @@ const Step2 = ({
                         backgroundColor: "initial",
                         color: "#fff",
                       }
-                    : ""
+                    : {}
                 }
               >
                 LHR: 50% OFF + Additional 5% OFF
@@ -122,7 +122,7 @@ const Step2 = ({
                         backgroundColor: "initial",
                         color: "#fff",
                       }
-                    : ""
+                    : {}
                 }
               >
                 Botox: Buy first 10 units for $59 (New clients only)
@@ -149,7 +149,7 @@ const Step2 = ({
                         backgroundColor: "initial",
                         color: "#fff",
                       }
-                    : ""
+                    : {}
                 }
               >
                 CoolSculpting: Flat 40% OFF
