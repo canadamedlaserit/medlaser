@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Accordion, Card } from "react-bootstrap"
 
-
 import styles from "./Faqs.module.scss"
 
 export const fragment = graphql`
@@ -116,8 +115,10 @@ class Faqs extends Component {
                                 />
                               </svg>
                             </div>
-                            <div className={styles.ToggleTitle} dangerouslySetInnerHTML={{__html: single.title}}></div>
-
+                            <div
+                              className={styles.ToggleTitle}
+                              dangerouslySetInnerHTML={{ __html: single.title }}
+                            ></div>
                           </Accordion.Toggle>
 
                           <Accordion.Collapse eventKey={index}>
@@ -184,7 +185,10 @@ class Faqs extends Component {
                                 />
                               </svg>
                             </div>
-                            <div className={styles.ToggleTitle} dangerouslySetInnerHTML={{__html: single.title}}></div>
+                            <div
+                              className={styles.ToggleTitle}
+                              dangerouslySetInnerHTML={{ __html: single.title }}
+                            ></div>
                           </Accordion.Toggle>
 
                           <Accordion.Collapse eventKey={index}>

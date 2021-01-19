@@ -343,10 +343,8 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand":
             return <LocationSpecificHeroBrand key={index} {...section} />
 
-            {
-              /* case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo":
-            return <LocationPromoSpecific key={index} {...section} />*/
-            }
+          case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo":
+            return <LocationPromoSpecific key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Bookinglocationspecific":
             return <BookingComponentLocation key={index} {...section} />
@@ -480,7 +478,7 @@ export const pageQuery = graphql`
             ...DarkSectionButton
             ...Testimonials
             ...Locationspecificherobrand
-
+            ...Locationspecificpromo
             ...Bookinglocationspecific
           }
         }
@@ -488,4 +486,4 @@ export const pageQuery = graphql`
     }
   }
 `
-/*...Locationspecificpromo*/
+/**/

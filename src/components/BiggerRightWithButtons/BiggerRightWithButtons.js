@@ -53,6 +53,7 @@ const BiggerRightWithButtons = ({
                 alt={image.altText}
                 className="gatsby-image-background"
                 fluid={fluidImage}
+                style={{ objectFit: "none" }}
               />
             ) : (
               ""
@@ -63,7 +64,6 @@ const BiggerRightWithButtons = ({
             className={`col-md-7 biggerSide2 ${styles.TextSide} ${styles.Col}`}
           >
             <div className={styles.TextSideWrapper}>
-
               {title ? (
                 <div
                   className={styles.Title}
