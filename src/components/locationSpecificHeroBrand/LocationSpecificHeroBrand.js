@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import "./locationSpecificHeroBrand.scss"
 import { Col } from "react-bootstrap"
 import { Button } from "react-bootstrap"
+//icon
 
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {

@@ -85,6 +85,7 @@ import DarkSectionButton from "../../components/DarkSectionButton/DarkSectionBut
 import Testimonials from "../../components/Testimonials/Testimonials"
 import LocationSpecificHeroBrand from "../../components/locationSpecificHeroBrand/LocationSpecificHeroBrand"
 import LocationPromoSpecific from "../../components/LocationPromoSpeicfic/LocationPromoSpecific"
+import BookingComponentLocation from "./../../components/locationSpecificBookingSec/BookingComponent_Location"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
@@ -342,8 +343,13 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand":
             return <LocationSpecificHeroBrand key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo":
-            return <LocationPromoSpecific key={index} {...section} />
+            {
+              /* case "WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo":
+            return <LocationPromoSpecific key={index} {...section} />*/
+            }
+
+          case "WPGraphQL_Page_Sectionfields_Sections_Bookinglocationspecific":
+            return <BookingComponentLocation key={index} {...section} />
 
           default:
             return ""
@@ -474,10 +480,12 @@ export const pageQuery = graphql`
             ...DarkSectionButton
             ...Testimonials
             ...Locationspecificherobrand
-            ...Locationspecificpromo
+
+            ...Bookinglocationspecific
           }
         }
       }
     }
   }
 `
+/*...Locationspecificpromo*/

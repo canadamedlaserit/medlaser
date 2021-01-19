@@ -2,12 +2,15 @@ import { Link } from "gatsby"
 import React from "react"
 import "./locationPromoSpecific.scss"
 import CMLQUIZ from "../MembershipQuiz/membership/index"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { NavLink } from "react-bootstrap"
 /**/
-export const fragment = graphql`
-  fragment Locationspecificpromo on WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo {
-    fieldGroupName
-  }
-`
+
+// export const fragment = graphql`
+//   fragment Locationspecificpromo on WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo {
+//     fieldGroupName
+//   }
+// `
 const LocationPromoSpecific = () => {
   const TopBarMenu = [
     { name: "About Us", url: "#AboutUs" },
@@ -18,15 +21,15 @@ const LocationPromoSpecific = () => {
     { name: "Book now", url: "#BookNow" },
   ]
   return (
-    <>
+    <div>
       <section id="locationSpecific_topBar">
         <div className="topBarMenu_wrapper">
           <div className="topMenuBar_BrandWrapper">
-            <Link>Promotion</Link>
+            <NavLink href="#locationSpecific_PromoSection">Promotion</NavLink>
           </div>
           <div className="topMenuBar_Nav_wrapper">
             {TopBarMenu.map(data => (
-              <Link>{data.name}</Link>
+              <NavLink>{data.name}</NavLink>
             ))}
           </div>
         </div>
@@ -37,8 +40,7 @@ const LocationPromoSpecific = () => {
           locationComponent="locationPromoStyles"
         />
       </section>
-    </>
+    </div>
   )
 }
-
 export default LocationPromoSpecific

@@ -1,0 +1,29 @@
+#BookingSection_location {
+  .header_wrapper {
+    background-color: #e8e8e8;
+    padding: 1.25rem 0rem;
+    position: relative;
+    h1 {
+      font-family: Playfair Display, Bold;
+      text-transform: capitalize;
+    }
+  }
+  .header_wrapper:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 98%;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 22px solid #e8e8e8;
+    border-bottom: 13px solid transparent;
+    transform: rotate(90deg);
+  }
+}
+#BookingForm_location {
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
