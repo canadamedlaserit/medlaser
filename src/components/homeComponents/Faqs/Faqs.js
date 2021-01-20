@@ -63,6 +63,7 @@ class Faqs extends Component {
 
     return (
       <section
+        id="faq"
         className={`${styles.Section} ${
           type === "two-columns" ? `${styles.TwoColumnsSection}` : ""
         }`}

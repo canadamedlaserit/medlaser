@@ -39,7 +39,7 @@ export const fragment = graphql`
 const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
   // console.log(teammembers)
   return (
-    <section className={styles.Section}>
+    <section id="ourTeam" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.Heading}`}>

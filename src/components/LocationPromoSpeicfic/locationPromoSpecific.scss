@@ -4,13 +4,20 @@
   background-color: #e8e8e8;
   margin: 0%;
   padding: 1.75% 5.85%;
+  @media (max-width: 600px) {
+    padding: 5.75% 5.85%;
+  }
+
   .topBarMenu_wrapper {
     display: flex;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .topMenuBar_BrandWrapper {
     margin-right: 5rem;
-    background-color: $red;
-    padding: 1rem;
+
     width: 217px;
     justify-content: center;
     display: flex;
@@ -19,9 +26,18 @@
     font-family: "Playfair Display", serif !important;
     font-weight: bold;
     cursor: pointer;
+    @media (max-width: 600px) {
+      margin-right: 0rem;
+    }
 
     a {
+      background-color: $red;
       color: #ffff;
+      width: 217px;
+      justify-content: center;
+      display: flex;
+      font-size: 20px;
+      padding: 1rem;
     }
   }
   .topMenuBar_Nav_wrapper {
@@ -36,6 +52,10 @@
       font-weight: bold;
       text-transform: capitalize;
       cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

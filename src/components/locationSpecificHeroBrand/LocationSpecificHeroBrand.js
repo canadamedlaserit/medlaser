@@ -8,7 +8,9 @@ import { Button } from "react-bootstrap"
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {
     btnCall
+    btnCallLink
     btnPromo
+    btnPromoLink
     description
     title
   }

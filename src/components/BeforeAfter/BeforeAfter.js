@@ -82,7 +82,7 @@ const BeforeAfter = ({ title, subtitle, btntext, btnlink, slides }) => {
   }
 
   return (
-    <section className={styles.Section}>
+    <section id="before&After" className={styles.Section}>
       <div className={`container-fluid ${styles.Container}`}>
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.Titles}`}>

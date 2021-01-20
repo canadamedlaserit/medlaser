@@ -13,11 +13,11 @@ export const fragment = graphql`
 `
 const LocationPromoSpecific = () => {
   const TopBarMenu = [
-    { name: "About Us", url: "#AboutUs" },
-    { name: "Our Treatments", url: "#OurTreatments" },
-    { name: "our team", url: "#Ourteam" },
-    { name: "Before & After", url: "#Before&After" },
-    { name: "FAQ", url: "#FAQ" },
+    { name: "About Us", url: "#aboutUs" },
+    { name: "Our Treatments", url: "#LocationOurTreatment" },
+    { name: "our team", url: "#ourTeam" },
+    { name: "Before & After", url: "#before&After" },
+    { name: "FAQ", url: "#faq" },
     { name: "Book now", url: "#BookingSection_location" },
   ]
   return (

@@ -86,10 +86,11 @@ import Testimonials from "../../components/Testimonials/Testimonials"
 import LocationSpecificHeroBrand from "../../components/locationSpecificHeroBrand/LocationSpecificHeroBrand"
 import LocationPromoSpecific from "../../components/LocationPromoSpeicfic/LocationPromoSpecific"
 import BookingComponentLocation from "./../../components/locationSpecificBookingSec/BookingComponent_Location"
+import LocationOurTreatment from "../../components/LocationSpecific_OurTreatments/LocationOurTreatment"
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
-  // console.log("my own Section", sections)
+  console.log("my own Section", sections)
   return (
     <Layout location={location}>
       <SEO data={data.wpgraphql.page} />
@@ -348,6 +349,8 @@ const PageTempl = ({ data, location, pageContext }) => {
 
           case "WPGraphQL_Page_Sectionfields_Sections_Bookinglocationspecific":
             return <BookingComponentLocation key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_OurtreatmentsLocation":
+            return <LocationOurTreatment key={index} {...section} />
 
           default:
             return ""
@@ -480,6 +483,7 @@ export const pageQuery = graphql`
             ...Locationspecificherobrand
             ...Locationspecificpromo
             ...Bookinglocationspecific
+            ...OurtreatmentsLocation
           }
         }
       }

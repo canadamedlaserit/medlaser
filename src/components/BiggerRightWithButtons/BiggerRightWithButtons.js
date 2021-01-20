@@ -42,6 +42,7 @@ const BiggerRightWithButtons = ({
     <section
       style={{ backgroundColor: backgroundcolor }}
       className={styles.Section}
+      id="aboutUs"
     >
       <div className={`container-fluid `}>
         <div className={`row ${styles.Row}`}>
