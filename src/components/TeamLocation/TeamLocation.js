@@ -44,7 +44,11 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
         <div className={`row ${styles.Row}`}>
           <div className={`col-md-12 ${styles.Heading}`}>
             <div className={styles.TextSideWrapper}>
-              <h2 dangerouslySetInnerHTML={{ __html: teamcategory }}></h2>
+              <h2
+              //dangerouslySetInnerHTML={{ __html: teamcategory }}
+              >
+                Meet Our Team
+              </h2>
             </div>
           </div>
         </div>

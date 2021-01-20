@@ -5,7 +5,6 @@ import GalleryComponent from "./GalleryComponent"
 
 import styles from "./BeforeAfterTabs.module.scss"
 
-
 export const fragment = graphql`
   fragment BeforeAfterTabsSection on WPGraphQL_Page_Sectionfields_Sections_Beforeaftertabs {
     fieldGroupName
@@ -53,7 +52,6 @@ const BeforeAfterTabs = () => {
     }
   `)
 
-
   const results = data.wpgraphql.results.nodes
   const categories = data.wpgraphql.categories.edges
 
@@ -85,7 +83,6 @@ const BeforeAfterTabs = () => {
                           category={category}
                           results={results}
                         />
-
                       </Tab>
                     ))
                   : ""}
