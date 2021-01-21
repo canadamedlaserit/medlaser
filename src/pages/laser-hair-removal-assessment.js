@@ -3,7 +3,7 @@ import AlcoholTest from "../components/assessment-test/laser-hair-removal"
 import Layout from "../components/Layout"
 
 const AlcoholTestPage = props => {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       <Layout>

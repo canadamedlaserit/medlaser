@@ -95,7 +95,7 @@ const LHRTest = () => {
     //   console.log(error)
     // }
     setpayload(payload)
-    console.log("Payload", payload)
+    // console.log("Payload", payload)
   }
 
   const handleNext = () => {

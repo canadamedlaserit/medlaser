@@ -5,8 +5,8 @@ import Loader from "./loader"
 import "./_index.scss"
 
 const ResultAlcohol = ({ payload, result }) => {
-  console.log(payload, "payload end ")
-  console.log(result, "result end ")
+  // console.log(payload, "payload end ")
+  // console.log(result, "result end ")
   const [answer, setanswer] = useState(null)
   useEffect(() => {
     {

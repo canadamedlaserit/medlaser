@@ -4,7 +4,7 @@ import AlcoholTest from "../components/assessment-test/anit-aging-test"
 import Layout from "../components/Layout"
 
 const AlcoholTestPage = props => {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       <Layout>

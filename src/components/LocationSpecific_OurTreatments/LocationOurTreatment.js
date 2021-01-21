@@ -31,7 +31,7 @@ export const fragment = graphql`
     }
   }
 `
-
+/**/
 const LocationOurTreatment = props => {
   const [key, setKey] = useState("Laser_Hair_Removal")
   return (

@@ -71,7 +71,7 @@ const AsSeen = props => {
     },
   }
 
-  console.log(props, "AsSeenSection")
+  // console.log(props, "AsSeenSection")
   return (
     <section className={styles.Section}>
       <div className={`container ${styles.Container}}`}>

@@ -21,7 +21,7 @@ exports.handler = async (event, context, callback) => {
     html: emailHtml,
   }
 
-  console.log("Message Body ==>", msg)
+  // console.log("Message Body ==>", msg)
 
   try {
     await sgMail.send(msg)

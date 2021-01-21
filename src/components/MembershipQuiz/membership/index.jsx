@@ -83,7 +83,7 @@ const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
     `
     setFormSubmitted(true)
     setpayload(payload)
-    console.log("Payload", payload)
+    // console.log("Payload", payload)
   }
   const handleNext = () => {
     if (currentStep >= 2) {

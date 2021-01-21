@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import styles from "./LocationsMapWithOptions.module.scss"
 
 const Info = ({ info }) => {
-  console.log(info)
+  // console.log(info)
   return (
     <div className={`container ${styles.ContainerInfo}`}>
       <div className={`row ${styles.Row}`}>

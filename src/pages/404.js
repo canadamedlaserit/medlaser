@@ -18,7 +18,7 @@ const NotFound = ({ location }) => {
     }
   `)
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <Layout location={location}>

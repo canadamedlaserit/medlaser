@@ -11,7 +11,7 @@ const CategoryList = ({ data, type }) => {
 
   const showMore = () => {
     let listLength = data.wpgraphql.categories.edges.length
-    console.log("list", listLength)
+    // console.log("list", listLength)
     setRowsToDisplay(listLength)
     setLoadMore(true)
     setHideList(!hideList)

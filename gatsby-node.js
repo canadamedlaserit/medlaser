@@ -382,7 +382,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       edge.node.uri === "knowledge-base/" ||
       edge.node.uri === "/"
     ) {
-      console.log("skip: " + edge.node.uri)
+      // console.log("skip: " + edge.node.uri)
     } else {
       createPage({
         component: pageFilter,
