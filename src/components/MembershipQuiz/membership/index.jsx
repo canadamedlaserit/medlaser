@@ -165,6 +165,7 @@ const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
             locationComponent === "locationPromoStyles"
               ? {
                   backgroundColor: "#161616",
+
                   //  color: "#fff",
                 }
               : {}

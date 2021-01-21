@@ -44,8 +44,8 @@ const BiggerRightWithButtons = ({
       className={styles.Section}
       id="aboutUs"
     >
-      <div className={`container-fluid `}>
-        <div className={`row ${styles.Row}`}>
+      <div className={`container-fluid ${styles.myContainer} `}>
+        <div className={`row ${styles.Row} ${styles.myRow}`}>
           <div
             className={`col-md-5 smallerSide2 ${styles.ImageSide} ${styles.Col}`}
           >
