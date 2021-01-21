@@ -16,10 +16,12 @@ const MemberMain = ({ data }) => {
               <div>
                 {data ? (
                   <div className={styles.Entry}>
-                    <Img
-                      className={styles.Image}
-                      fluid={data.image.imageFile.childImageSharp.fluid}
-                    />
+                    {data.image && (
+                      <Img
+                        className={styles.Image}
+                        fluid={data.image.imageFile.childImageSharp.fluid}
+                      />
+                    )}
                     <h3>{data.name}</h3>
                     <div
                       dangerouslySetInnerHTML={{ __html: data.description }}
