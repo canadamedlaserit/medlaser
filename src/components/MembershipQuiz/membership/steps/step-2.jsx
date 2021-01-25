@@ -6,6 +6,8 @@ import { Modal } from "react-responsive-modal"
 //assets
 import membershipModelImage from "../../../../images/membershipModelImage.png"
 import modalVideo from "../../../../images/modalVideo.png"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+
 const slides = [
   {
     image: membershipModelImage,
@@ -74,27 +76,60 @@ const Step2 = ({
                 checked={
                   values.question2 === "LHR: 50% OFF + Additional 5% OFF"
                 }
-                onChange={() => setModalShow(true)}
+                onChange={() =>
+                  locationComponent === "locationPromoStyles"
+                    ? null
+                    : setModalShow(true)
+                }
                 // onChange={() => {
                 //   setFieldValue("question2", "LHR: 50% OFF + Additional 5% OFF")
                 //   //                hanldleAnswers("green")
                 //   handleNext()
                 // }}
+                // style={
+                //   locationComponent === "locationPromoStyles"
+                //     ? {
+                //         display: "none",
+                //       }
+                //     : {}
+                // }
               />
-              <label
-                htmlFor="option1"
-                style={
-                  locationComponent === "locationPromoStyles"
-                    ? {
-                        backgroundColor: "initial",
-                        color: "#fff",
-                      }
-                    : {}
-                }
-              >
-                LHR: 50% OFF + Additional 5% OFF
-              </label>
+              {locationComponent === "locationPromoStyles" ? (
+                <AnchorLink
+                  // style={{
+                  //   fontFamily: "Montserrat",
+                  //   fontSize: "18px",
+                  //   lineHeight: "55px",
+                  //   letterSpacing: "0.9px",
+                  //   border: "solid #bebebe 1px",
+                  //   color: "#fff",
+                  //   borderRadius: "0",
+                  //   cursor: "pointer",
+                  //   display: "flex",
+                  //   justifyContent: "center",
+                  // }}
+                  className="LHRStyles"
+                  to="https://shop.canadamedlaser.ca/#heading_0001"
+                >
+                  LHR: 50% OFF + Additional 5% OFF
+                </AnchorLink>
+              ) : (
+                <label
+                  htmlFor="option1"
+                  style={
+                    locationComponent === "locationPromoStyles"
+                      ? {
+                          backgroundColor: "initial",
+                          color: "#fff",
+                        }
+                      : {}
+                  }
+                >
+                  LHR: 50% OFF + Additional 5% OFF
+                </label>
+              )}
             </li>
+
             <li>
               <input
                 type="radio"
@@ -105,28 +140,42 @@ const Step2 = ({
                   values.question2 ===
                   "Botox: Buy first 10 units for $59 (New clients only)"
                 }
-                onChange={() => {
-                  setFieldValue(
-                    "question2",
-                    "Botox: Buy first 10 units for $59 (New clients only)"
-                  )
-                  // hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label
-                htmlFor="option2"
-                style={
+                onChange={
                   locationComponent === "locationPromoStyles"
-                    ? {
-                        backgroundColor: "initial",
-                        color: "#fff",
+                    ? null
+                    : () => {
+                        setFieldValue(
+                          "question2",
+                          "Botox: Buy first 10 units for $59 (New clients only)"
+                        )
+                        // hanldleAnswers("green")
+                        handleNext()
                       }
-                    : {}
                 }
-              >
-                Botox: Buy first 10 units for $59 (New clients only)
-              </label>
+              />
+
+              {locationComponent === "locationPromoStyles" ? (
+                <AnchorLink
+                  className="LHRStyles"
+                  to="https://shop.canadamedlaser.ca/#heading_0010"
+                >
+                  Botox: Buy first 10 units for $59 (New clients only)
+                </AnchorLink>
+              ) : (
+                <label
+                  htmlFor="option2"
+                  style={
+                    locationComponent === "locationPromoStyles"
+                      ? {
+                          backgroundColor: "initial",
+                          color: "#fff",
+                        }
+                      : {}
+                  }
+                >
+                  Botox: Buy first 10 units for $59 (New clients only)
+                </label>
+              )}
             </li>
             <li>
               <input
@@ -141,25 +190,38 @@ const Step2 = ({
                   handleNext()
                 }}
               />
-              <label
-                htmlFor="option3"
-                style={
-                  locationComponent === "locationPromoStyles"
-                    ? {
-                        backgroundColor: "initial",
-                        color: "#fff",
-                      }
-                    : {}
-                }
-              >
-                CoolSculpting: Flat 40% OFF
-              </label>
+              {locationComponent === "locationPromoStyles" ? (
+                <AnchorLink
+                  className="LHRStyles"
+                  to="https://shop.canadamedlaser.ca/#heading_0100"
+                >
+                  CoolSculpting: Flat 40% OFF
+                </AnchorLink>
+              ) : (
+                <label
+                  htmlFor="option3"
+                  style={
+                    locationComponent === "locationPromoStyles"
+                      ? {
+                          backgroundColor: "initial",
+                          color: "#fff",
+                        }
+                      : {}
+                  }
+                >
+                  CoolSculpting: Flat 40% OFF
+                </label>
+              )}
             </li>
             <li className="buttonReposive">
               <input type="radio" />
               <Button
                 className="next-btn  py-3 buton contButton"
-                onClick={handleNext}
+                onClick={() =>
+                  locationComponent === "locationPromoStyles"
+                    ? setModalShow(true)
+                    : handleNext
+                }
               >
                 Continue &nbsp; &nbsp;
               </Button>

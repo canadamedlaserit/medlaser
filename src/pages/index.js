@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/particles/SEO"
-
 import MainHero from "../components/homeComponents/MainHero/MainHero"
 import Specials from "../components/homeComponents/Specials/Specials"
 import Asseen from "../components/homeComponents/AsSeenComponent/AsSeen"
