@@ -5,9 +5,9 @@
     margin-bottom: 30vh;
   }
 }
-.headerBackground{
+.headerBackground {
   background-blend-mode: overlay;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   background-repeat: no-repeat;
   background-size: cover;
   height: 60vh;
@@ -19,8 +19,10 @@
   font-size: 46px;
   color: #ffffff;
   text-transform: capitalize;
+  margin-bottom: 3rem;
   @media (max-width: 767px) {
     font-size: 36px;
+    margin-bottom: 1rem;
   }
 }
 

@@ -43,7 +43,7 @@ const LocationSpecificHeroBrand = ({
               className="Btn_rowWrapper"
               style={{ marginLeft: "0px", marginRight: "0px" }}
             >
-              <Col lg={5}>
+              <Col lg={5} sm={12}>
                 <AnchorLink className="PhoneWrapper callBtn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ const LocationSpecificHeroBrand = ({
                   {btnCall}
                 </AnchorLink>
               </Col>
-              <Col lg={{ offset: 2, span: 5 }}>
+              <Col lg={{ offset: 2, span: 5 }} sm={12}>
                 <AnchorLink className="promoBtn " to={btnPromoLink}>
                   {btnPromo}
                 </AnchorLink>

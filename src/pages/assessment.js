@@ -7,10 +7,7 @@ const AlcoholTestPage = ({ data }) => {
   return (
     <>
       <Layout>
-        {/* <QuizHome />*/}
-        <div style={{ marginTop: "20rem" }}>
-          <BookingComponentLocation />
-        </div>
+        <QuizHome />
       </Layout>
     </>
   )

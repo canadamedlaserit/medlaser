@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   @media (max-width: 600px) {
-    min-height: 428px;
+    min-height: 80vh;
   }
   .brandWrapper {
     display: flex;
@@ -24,6 +24,9 @@
     font-weight: normal;
     padding: 0px 6rem 0px;
     //    padding: 21px 2rem 41px;
+    @media (max-width: 600px) {
+      padding: 0px 2rem 0px;
+    }
   }
   .Btn_rowWrapper {
     height: 60px;
@@ -31,6 +34,9 @@
     justify-content: space-around;
     margin-left: 0px;
     margin-right: 0px;
+    @media (max-width: 500px) {
+      row-gap: 1rem;
+    }
 
     .col-lg-5 {
       padding: 0px;
@@ -45,6 +51,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
     .PhoneWrapper {
       a {
         padding-right: 70px !important;
@@ -83,6 +90,9 @@
     @media (min-width: 1600px) {
       padding: 1rem 4rem;
     }
+    @media (max-width: 600px) {
+      padding: 1rem 5rem;
+    }
     svg {
       width: 23px;
       height: 23px;
@@ -104,6 +114,9 @@
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    @media (max-width: 600px) {
+      padding: 1rem 5rem;
+    }
   }
   .titleWrapper {
     font-family: "Playfair Display", serif !important;

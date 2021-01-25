@@ -8,6 +8,7 @@ import antiAging from "../../images/anti-aging.jpg"
 import coolSculpting from "../../images/coolsculpting.jpg"
 import laserHairRemoval from "../../images/laser-hair-removal.jpg"
 import skinTreatment from "../../images/skin-treatment.jpg"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const tests = [
   {
@@ -52,6 +53,9 @@ export default function HomeQuiz() {
               style={{ marginTop: "10vh" }}
             >
               <h1 className="headerTitle">Take the Quiz</h1>
+              <AnchorLink to="/more-treatments/" className="btn btn-red">
+                browse all treatments
+              </AnchorLink>
               <p className="headerdesc">
                 Canada MedLaser is all about giving the best services to all our
                 clients. We want to hear from you, so that we can serve you

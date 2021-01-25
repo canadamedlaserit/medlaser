@@ -2,7 +2,7 @@ import React from "react"
 import "./BookingComponent_location.scss"
 //import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory"
 import { Row } from "react-bootstrap"
-
+import { navigate } from "gatsby-link"
 import { Field, Form, Formik, FormikProps } from "formik"
 import { Col, Button } from "react-bootstrap"
 
@@ -15,6 +15,42 @@ export const fragment = graphql`
 const MyInput = ({ field, form, ...props }) => {
   return <input {...field} {...props} />
 }
+// const encode = data => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&")
+// }
+
+// const handleSubmit = e => {
+//   //e.preventDefault()
+
+//   if (this.state.formValid) {
+//     // this.reset()
+
+//     const form = e.target
+//     fetch("/", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//       body: encode({
+//         "form-name": "Medlaser NEW LEAD - Main Form",
+//         // ...this.state,
+//       }),
+//     })
+//       .then(() => navigate(form.getAttribute("action")))
+//       .catch(error => alert(error))
+//   } else {
+//     // console.log("form invalid")
+
+//     this.validateField("firstName", this.state.firstName)
+//     this.validateField("lastName", this.state.lastName)
+//     this.validateField("email", this.state.email)
+//     this.validateField("phone", this.state.phone)
+//     this.validateField("desiredTreatment", this.state.desiredTreatment)
+//     this.validateField("location", this.state.location)
+
+//     // console.log(this.state.formErrors)
+//   }
+// }
 
 const BookingComponentLocation = () => {
   return (
@@ -40,6 +76,12 @@ const BookingComponentLocation = () => {
                   actions.setSubmitting(false)
                 }, 1000)
               }}
+              // name="Medlaser NEW LEAD - Main Form"
+              // method="post"
+              // data-netlify="true"
+              // data-netlify-honeypot="bot-field"
+              // action="/thank-you/"
+              // onSubmit={handleSubmit}
             >
               <Form className="FormStep1Wrapper">
                 <Col lg={4}>
