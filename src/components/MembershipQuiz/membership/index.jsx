@@ -17,7 +17,7 @@ import ResultAlcohol from "./result-alcohol"
 //assets
 import CmlNewLogo from "../../../images/cml-new-logo.png"
 import { LeftArrowHeader } from "./assets"
-import MQuiz1 from "../../../images/MQuiz1.png"
+import MQuiz1 from "../../../images/MQuiz1.jpg"
 import MQuiz2 from "../../../images/MQuiz2.png"
 //styles
 import "./_index.scss"
