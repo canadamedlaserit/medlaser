@@ -20,6 +20,13 @@
     flex-direction: row;
   }
 }
+
+.MobileResponsiveBtnInput {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
 .rightKeyArrowSVG {
   fill: #fff;
   // margin-left: 1rem;
@@ -92,7 +99,15 @@
     max-width: 300px;
   }
 }
-
+.MobileResponsiveBtn {
+  width: 100%;
+  max-width: none;
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    max-width: 100%;
+    width: 100% !important;
+  }
+}
 .subButton {
   @media (max-width: 768px) {
     margin-top: 2vh;

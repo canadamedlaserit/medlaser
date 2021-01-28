@@ -214,9 +214,20 @@ const Step2 = ({
               )}
             </li>
             <li className="buttonReposive">
-              <input type="radio" />
+              <input
+                className={
+                  locationComponent === "locationPromoStyles"
+                    ? "MobileResponsiveBtnInput"
+                    : null
+                }
+                type="radio"
+              />
               <Button
-                className="next-btn  py-3 buton contButton"
+                className={
+                  locationComponent === "locationPromoStyles"
+                    ? "next-btn  py-3 buton MobileResponsiveBtn"
+                    : "next-btn  py-3 buton contButton"
+                }
                 onClick={() =>
                   locationComponent === "locationPromoStyles"
                     ? setModalShow(true)

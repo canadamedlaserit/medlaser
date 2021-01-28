@@ -28,7 +28,7 @@ const LocationSpecificHeroBrand = ({
   return (
     <section id="LocationHeroBrand">
       <div className="brandWrapper">
-        <Col lg={5} className="mainWrapper">
+        <Col lg={5} md={9} sm={12} className="mainWrapper">
           <div
             className="titleWrapper"
             dangerouslySetInnerHTML={{ __html: title }}
@@ -43,7 +43,7 @@ const LocationSpecificHeroBrand = ({
               className="Btn_rowWrapper"
               style={{ marginLeft: "0px", marginRight: "0px" }}
             >
-              <Col lg={5} sm={12}>
+              <Col lg={5} md={5} sm={12}>
                 <AnchorLink className="PhoneWrapper callBtn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,11 @@ const LocationSpecificHeroBrand = ({
                   {btnCall}
                 </AnchorLink>
               </Col>
-              <Col lg={{ offset: 2, span: 5 }} sm={12}>
+              <Col
+                lg={{ offset: 2, span: 5 }}
+                md={{ offset: 2, span: 5 }}
+                sm={12}
+              >
                 <AnchorLink className="promoBtn " to={btnPromoLink}>
                   {btnPromo}
                 </AnchorLink>

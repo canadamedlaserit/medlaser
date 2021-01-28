@@ -10,7 +10,7 @@
 
   .topBarMenu_wrapper {
     display: flex;
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
     }
@@ -26,7 +26,7 @@
     font-family: "Playfair Display", serif !important;
     font-weight: bold;
     cursor: pointer;
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       margin-right: 0rem;
     }
 
