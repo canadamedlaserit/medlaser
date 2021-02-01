@@ -143,6 +143,7 @@ class Faqs extends Component {
                     alt={image.altText}
                     className="gatsby-image-background"
                     fluid={image ? image.imageFile.childImageSharp.fluid : null}
+                    style={{ objectFit: "fill" }}
                   />
                 ) : (
                   ""
