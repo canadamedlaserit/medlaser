@@ -175,7 +175,7 @@ const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
             md={5}
             style={{
               backgroundImage: `url(${MQuizImage[currentStep - 1]})`,
-              backgroundSize: "cover",
+              backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "50% 50%",
             }}

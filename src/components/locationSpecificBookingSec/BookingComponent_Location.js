@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./BookingComponent_location.scss"
 //import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory"
 import { Row } from "react-bootstrap"
-// import { navigate } from "gatsby-link"
+import { navigate } from "gatsby-link"
 import { Field, Form, Formik, FormikProps } from "formik"
 import { Col, Button } from "react-bootstrap"
 
@@ -60,8 +60,19 @@ const BookingComponentLocation = () => {
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&")
   }
+  const reset = () => {
+    // reseting state
+    setDate("")
+    setTime("")
+    setFirstName("")
+    setLastName("")
+    setPhoneNo("")
+    setEmail("")
+  }
   const handleSubmit = event => {
     // event.preventDefault()
+    reset()
+    const form = event.target
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -75,14 +86,28 @@ const BookingComponentLocation = () => {
         email,
       }),
     })
-      .then(() => {
-        //navigate("#contact-form")
-        console.log("form submitted")
-        //setFormSuccess(true)
-      })
+      .then(
+        () => navigate(form.getAttribute("action")),
+        console.log("form-submitted")
+      )
+      // .then(resp => {
+      //   console.log("abd", resp)
+      //   navigate("#LocationOurTreatment")
+      //   //setFormSuccess(true)
+      // })
       .catch(error => alert(error))
     //console.log("form-submtte")
+    console.log(
+      "form submitted",
+      date,
+      time,
+      firstName,
+      lastName,
+      phoneNo,
+      email
+    )
   }
+
   // const handleChange = input => event => {
   //   const value = event.target.value
 
