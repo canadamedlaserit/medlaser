@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import "./BookingComponent_location.scss"
 //import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory"
 import { Row } from "react-bootstrap"
-import { navigate } from "gatsby-link"
+// import { navigate } from "gatsby-link"
 import { Field, Form, Formik, FormikProps } from "formik"
 import { Col, Button } from "react-bootstrap"
 
@@ -15,11 +15,6 @@ export const fragment = graphql`
 const MyInput = ({ field, form, ...props }) => {
   return <input {...field} {...props} />
 }
-// const encode = data => {
-//   return Object.keys(data)
-//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-//     .join("&")
-// }
 
 // const handleSubmit = e => {
 //   //e.preventDefault()
@@ -53,6 +48,48 @@ const MyInput = ({ field, form, ...props }) => {
 // }
 
 const BookingComponentLocation = () => {
+  const [date, setDate] = useState("")
+  const [time, setTime] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [phoneNo, setPhoneNo] = useState("")
+  const [email, setEmail] = useState("")
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+  const handleSubmit = event => {
+    // event.preventDefault()
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "CML contact location form",
+        date,
+        time,
+        firstName,
+        lastName,
+        phoneNo,
+        email,
+      }),
+    })
+      .then(() => {
+        //navigate("#contact-form")
+        console.log("form submitted")
+        //setFormSuccess(true)
+      })
+      .catch(error => alert(error))
+    //console.log("form-submtte")
+  }
+  // const handleChange = input => event => {
+  //   const value = event.target.value
+
+  //   // this.setState({ [input]: value }, () => {
+  //   //   this.validateField(input, value)
+  //   // })
+  // }
   return (
     <>
       <section id="BookingSection_location">
@@ -76,12 +113,12 @@ const BookingComponentLocation = () => {
                   actions.setSubmitting(false)
                 }, 1000)
               }}
-              // name="Medlaser NEW LEAD - Main Form"
-              // method="post"
-              // data-netlify="true"
-              // data-netlify-honeypot="bot-field"
-              // action="/thank-you/"
-              // onSubmit={handleSubmit}
+              name="CML contact location form"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/thank-you/"
+              onSubmit={handleSubmit}
             >
               <Form className="FormStep1Wrapper">
                 <Col lg={4}>
@@ -91,7 +128,9 @@ const BookingComponentLocation = () => {
                     <Field
                       name="date"
                       type="date"
+                      value={date}
                       className="form-control mb-3 alcohol-test-field"
+                      onChange={e => setDate(e.target.value)}
                       placeholder="choose Date"
                       required
                     />
@@ -101,6 +140,8 @@ const BookingComponentLocation = () => {
                       type="time"
                       className="form-control alcohol-test-field"
                       placeholder="Time"
+                      value={time}
+                      onChange={e => setTime(e.target.value)}
                       required
                     />
                   </div>
@@ -114,6 +155,8 @@ const BookingComponentLocation = () => {
                       type="text"
                       className="form-control mb-3 alcohol-test-field"
                       placeholder="First Name"
+                      value={firstName}
+                      onChange={e => setFirstName(e.target.value)}
                       required
                     />
 
@@ -122,6 +165,8 @@ const BookingComponentLocation = () => {
                       type="text"
                       className="form-control mb-3 alcohol-test-field"
                       placeholder="Last Name"
+                      value={lastName}
+                      onChange={e => setLastName(e.target.value)}
                       required
                     />
                   </div>
@@ -131,6 +176,8 @@ const BookingComponentLocation = () => {
                       type="number"
                       className="form-control mb-3 alcohol-test-field"
                       placeholder="Phone"
+                      value={phoneNo}
+                      onChange={e => setPhoneNo(e.target.value)}
                       required
                     />
 
@@ -139,6 +186,8 @@ const BookingComponentLocation = () => {
                       name="email"
                       className="form-control mb-3 alcohol-test-field"
                       placeholder="Email"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                       required
                     />
                   </div>
