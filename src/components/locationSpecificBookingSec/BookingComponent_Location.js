@@ -77,7 +77,7 @@ const BookingComponentLocation = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": "CML contact location form",
+        "form-name": "Medlaser NEW LEAD - Contact location",
         date,
         time,
         firstName,
@@ -138,7 +138,7 @@ const BookingComponentLocation = () => {
                   actions.setSubmitting(false)
                 }, 1000)
               }}
-              name="CML contact location form"
+              name="Medlaser NEW LEAD - Contact location"
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
