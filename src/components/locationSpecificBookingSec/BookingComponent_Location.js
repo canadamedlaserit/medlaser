@@ -86,10 +86,7 @@ const BookingComponentLocation = () => {
         email,
       }),
     })
-      .then(
-        () => navigate(form.getAttribute("action")),
-        console.log("form-submitted")
-      )
+      .then(() => console.log("form-submitted"))
       // .then(resp => {
       //   console.log("abd", resp)
       //   navigate("#LocationOurTreatment")
@@ -126,25 +123,31 @@ const BookingComponentLocation = () => {
         <Row className="LocationBookingWrapper">
           <Col lg={12}>
             <Formik
-              initialValues={{
-                email: "",
-                firstName: "",
-                lastName: "",
-                phone: "",
-              }}
-              onSubmit={(values, actions) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2))
-                  actions.setSubmitting(false)
-                }, 1000)
-              }}
+              // initialValues={{
+              //   email: "",
+              //   firstName: "",
+              //   lastName: "",
+              //   phone: "",
+              // }}
+              // onSubmit={(values, actions) => {
+              //   setTimeout(() => {
+              //     alert(JSON.stringify(values, null, 2))
+              //     actions.setSubmitting(false)
+              //   }, 1000)
+              // }}
               name="Medlaser NEW LEAD - Contact location"
-              method="post"
+              // method="post"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              action="/thank-you/"
+              //data-netlify-honeypot="bot-field"
+              //  action="/thank-you/"
               onSubmit={handleSubmit}
             >
+              <input
+                type="hidden"
+                name="form-name"
+                value="Medlaser NEW LEAD - Contact location"
+              />
+
               <Form className="FormStep1Wrapper">
                 <Col lg={4}>
                   <p className="para">Step 1 of 2</p>
