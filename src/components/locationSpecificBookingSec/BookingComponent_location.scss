@@ -1,3 +1,5 @@
+@import "../../styles/_variables";
+
 #BookingSection_location {
   .header_wrapper {
     background-color: #e8e8e8;
@@ -26,7 +28,15 @@
     margin-left: 0px;
     margin-right: 0px;
   }
-
+  .ErrorMessage {
+    //margin: 0;
+    // position: absolute;
+    //top: -15px;
+    color: $red !important;
+    // right: 0;
+    font-size: 15px;
+    text-align: left;
+  }
   .FormStep1Wrapper {
     display: flex;
     flex-direction: column;
@@ -84,10 +94,17 @@
       flex-direction: column;
       align-items: center;
     }
+    .form-group {
+      width: 40%;
+      margin-bottom: 1rem;
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
     .form-control {
       border: none;
       border-bottom: 1px solid #e8e8e8;
-      width: 45%;
+      width: 100%;
       height: 55px;
       border-radius: 0px;
       @media (max-width: 600px) {

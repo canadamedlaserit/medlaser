@@ -243,8 +243,10 @@
 // }
 
 import React, { Component } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Row, Col, Form, Button } from "react-bootstrap"
 import { navigate } from "gatsby-link"
+import "./BookingComponent_location.scss"
+
 //import styles from "../Contact/ContactForm/Form.module.scss"
 
 export const fragment = graphql`
@@ -259,15 +261,17 @@ const initialState = {
   lastName: "",
   email: "",
   phone: "",
-  desiredTreatment: "",
-  location: "",
+  date: "",
+  time: "",
+  // desiredTreatment: "",
+  // location: "",
 
   firstNameValid: false,
   lastNameValid: false,
   emailValid: false,
   phoneValid: false,
-  desiredTreatmentValid: false,
-  locationValid: false,
+  // desiredTreatmentValid: false,
+  // locationValid: false,
   formValid: false,
   emailSent: false,
 
@@ -276,8 +280,8 @@ const initialState = {
     lastName: "",
     email: "",
     phone: "",
-    desiredTreatment: "",
-    location: "",
+    // desiredTreatment: "",
+    // location: "",
   },
 }
 
@@ -295,7 +299,7 @@ export class BookingComponentLocation extends Component {
       loc = this.props.pathname
       loc = loc.replace("location", "")
       loc = loc.replace(/\//g, "")
-      initialState.location = loc
+      // initialState.location = loc
     }
   }
 
@@ -310,8 +314,10 @@ export class BookingComponentLocation extends Component {
     this.refs.lastName.value = ""
     this.refs.email.value = ""
     this.refs.phone.value = ""
-    this.refs.desiredTreatment.value = "DEFAULT"
-    this.refs.location.value = "DEFAULT"
+    this.refs.date.value = ""
+    this.refs.time.value = ""
+    // this.refs.desiredTreatment.value = "DEFAULT"
+    // this.refs.location.value = "DEFAULT"
   }
 
   handleChange = input => event => {
@@ -329,8 +335,8 @@ export class BookingComponentLocation extends Component {
     let lastNameValid = this.state.lastNameValid
     let emailValid = this.state.emailValid
     let phoneValid = this.state.phoneValid
-    let desiredTreatmentValid = this.state.desiredTreatmentValid
-    let locationValid = this.state.locationValid
+    // let desiredTreatmentValid = this.state.desiredTreatmentValid
+    // let locationValid = this.state.locationValid
 
     switch (fieldName) {
       case "firstName":
@@ -357,19 +363,19 @@ export class BookingComponentLocation extends Component {
         fieldValidationErrors.phone = phoneValid ? "" : "Phone is invalid"
         break
 
-      case "desiredTreatment":
-        desiredTreatmentValid = value.length >= 1
-        fieldValidationErrors.desiredTreatment = desiredTreatmentValid
-          ? ""
-          : "Select Desired Treatment"
+      // case "desiredTreatment":
+      //   desiredTreatmentValid = value.length >= 1
+      //   fieldValidationErrors.desiredTreatment = desiredTreatmentValid
+      //     ? ""
+      //     : "Select Desired Treatment"
 
-        break
+      //   break
 
-      case "location":
-        locationValid = value.length >= 1
-        fieldValidationErrors.location = locationValid ? "" : "Enter Location"
+      // case "location":
+      //   locationValid = value.length >= 1
+      //   fieldValidationErrors.location = locationValid ? "" : "Enter Location"
 
-        break
+      //   break
 
       default:
         break
@@ -382,8 +388,8 @@ export class BookingComponentLocation extends Component {
         lastNameValid: lastNameValid,
         emailValid: emailValid,
         phoneValid: phoneValid,
-        desiredTreatmentValid: desiredTreatmentValid,
-        locationValid: locationValid,
+        // desiredTreatmentValid: desiredTreatmentValid,
+        // locationValid: locationValid,
       },
       this.validateForm
     )
@@ -395,9 +401,9 @@ export class BookingComponentLocation extends Component {
         this.state.firstNameValid &&
         this.state.lastNameValid &&
         this.state.emailValid &&
-        this.state.phoneValid &&
-        this.state.desiredTreatmentValid &&
-        this.state.locationValid,
+        this.state.phoneValid,
+      // this.state.desiredTreatmentValid &&
+      // this.state.locationValid,
     })
   }
 
@@ -418,7 +424,17 @@ export class BookingComponentLocation extends Component {
       })
         .then(
           () => navigate(form.getAttribute("action")),
-          console.log("form-submitted")
+          console.log(
+            "form-submitted",
+            this.state.firstName,
+            this.state.lastName,
+            this.state.email,
+            this.state.phone,
+            this.state.date,
+            this.state.time
+            // this.state.desiredTreatment,
+            // this.state.location
+          )
         )
         .catch(error => alert(error))
     } else {
@@ -428,8 +444,8 @@ export class BookingComponentLocation extends Component {
       this.validateField("lastName", this.state.lastName)
       this.validateField("email", this.state.email)
       this.validateField("phone", this.state.phone)
-      this.validateField("desiredTreatment", this.state.desiredTreatment)
-      this.validateField("location", this.state.location)
+      // this.validateField("desiredTreatment", this.state.desiredTreatment)
+      // this.validateField("location", this.state.location)
 
       // console.log(this.state.formErrors)
     }
@@ -448,276 +464,160 @@ export class BookingComponentLocation extends Component {
     }
 
     return (
-      <div>
-        <Form
-          name="Medlaser NEW LEAD - Contact Form"
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          action="/thank-you/"
-          onSubmit={this.handleSubmit}
-          //className={styles.Form}
-        >
-          <input
-            type="hidden"
-            name="form-name"
-            value="Medlaser NEW LEAD - Contact Form"
-          />
-
-          <p className="hidden">
-            <label>
-              Don’t fill this out if you're human: <input name="bot-field" />
-            </label>
-          </p>
-
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            //className={styles.Form___group}
-            >
-              <Form.Control
-                // className={`${styles.Form___formControl} ${
-                //   this.state.formErrors.firstName ? styles.ErrorField : ""
-                // }`}
-                onChange={this.handleChange("firstName")}
-                type="text"
-                placeholder="First Name"
-                ref="firstName"
-                name="firstName"
-              />
-              <p
-              //className={styles.ErrorMessage}
-              >
-                {this.state.formErrors.firstName}
-              </p>
-            </Form.Group>
+      <>
+        <section id="BookingSection_location">
+          <div className="header_wrapper">
+            <h1>Book your free consultation</h1>
           </div>
-
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            // className={styles.Form___group}
-            >
-              <Form.Control
-                // className={`${styles.Form___formControl} ${
-                //   this.state.formErrors.lastName ? styles.ErrorField : ""
-                // }`}
-                onChange={this.handleChange("lastName")}
-                type="text"
-                placeholder="Last Name"
-                ref="lastName"
-                name="lastName"
-              />
-              <p
-              //className={styles.ErrorMessage}
+        </section>
+        <section id="BookingForm_location">
+          <Row className="LocationBookingWrapper">
+            <Col lg={12}>
+              <Form
+                name="Medlaser NEW LEAD - Contact Form"
+                method="post"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                action="/thank-you/"
+                onSubmit={this.handleSubmit}
+                className="FormStep1Wrapper "
               >
-                {this.state.formErrors.lastName}
-              </p>
-            </Form.Group>
-          </div>
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value="Medlaser NEW LEAD - Contact Form"
+                />
 
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            //className={styles.Form___group}
-            >
-              <Form.Control
-                // className={`${styles.Form___formControl} ${
-                //   this.state.formErrors.email ? styles.ErrorField : ""
-                // }`}
-                onChange={this.handleChange("email")}
-                type="email"
-                placeholder="Email"
-                ref="email"
-                name="email"
-              />
-              <p
-              //className={styles.ErrorMessage}
-              >
-                {this.state.formErrors.email}
-              </p>
-            </Form.Group>
-          </div>
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you're human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </p>
+                <Col lg={4}>
+                  <p className="para">Step 1 of 2</p>
+                  <h3 className="headerWrapper"> Select Date & Time</h3>
+                  <div className="formFieldWrapper ">
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("date")}
+                        type="date"
+                        placeholder="Choose Date"
+                        ref="date"
+                        name="date"
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("time")}
+                        type="time"
+                        placeholder="Choose Time"
+                        ref="time"
+                        name="time"
+                      />
+                    </Form.Group>
+                  </div>
+                </Col>
 
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            //className={styles.Form___group}
-            >
-              <Form.Control
-                // className={`${styles.Form___formControl} ${
-                //   this.state.formErrors.phone ? styles.ErrorField : ""
-                // }`}
-                onChange={this.handleChange("phone")}
-                type="tel"
-                placeholder="Phone"
-                ref="phone"
-                name="phone"
-              />
-              <p
-              //className={styles.ErrorMessage}
-              >
-                {this.state.formErrors.phone}
-              </p>
-            </Form.Group>
-          </div>
+                <Col lg={8}>
+                  <p className="para">Step 2 of 2</p>
+                  <h3 className="headerWrapper"> Enter your information</h3>
 
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            //className={styles.Form___group}
-            >
-              <Form.Control
-                // className={`${styles.Form___formControl} ${
-                //   this.state.formErrors.desiredTreatment
-                //     ? styles.ErrorField
-                //     : ""
-                // }`}
-                onChange={this.handleChange("desiredTreatment")}
-                defaultValue={"DEFAULT"}
-                as="select"
-                ref="desiredTreatment"
-                name="desiredTreatment"
-              >
-                <option disabled value="DEFAULT">
-                  Desired Treatment
-                </option>
-                <option>Laser Hair Removal</option>
-                <option>Skin Treatments</option>
-                <option>CoolSculpting Body</option>
-                <option>CoolSculpting Chin</option>
-                <option>Cosmetic Injections</option>
-                <option>Skin Tightening</option>
-                <option>Cellulite</option>
-                <option>Hair Restoration</option>
-                <option>Anti Aging</option>
-                <option>Microblading</option>
-                <option>Nail Fungus</option>
-              </Form.Control>
-              <p
-              //className={styles.ErrorMessage}
-              >
-                {this.state.formErrors.desiredTreatment}
-              </p>
-            </Form.Group>
-          </div>
+                  <div className="formField_textWrapper">
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("firstName")}
+                        type="text"
+                        placeholder="First Name"
+                        ref="firstName"
+                        name="firstName"
+                      />
+                      <p className="ErrorMessage">
+                        {this.state.formErrors.firstName}
+                      </p>
+                    </Form.Group>
 
-          <div
-          // className={`${styles.FormColumn} ${
-          //   column ? styles.FormColumnType : ""
-          // }`}
-          >
-            <Form.Group
-            //className={styles.Form___group}
-            >
-              {loc !== "" ? (
-                <Form.Control
-                  // className={`${styles.Form___formControl} ${
-                  //   this.state.formErrors.location ? styles.ErrorField : ""
-                  // }`}
-                  onChange={this.handleChange("location")}
-                  // as="select"
-                  value={loc.charAt(0).toUpperCase() + loc.slice(1)}
-                  ref="location"
-                  name="location"
-                  placeholder="City Name"
-                >
-                  {/* <option disabled value="DEFAULT">
-                    Location
-                  </option>
-                  <option>{loc}</option> */}
-                </Form.Control>
-              ) : (
-                <Form.Control
-                  // className={`${styles.Form___formControl} ${
-                  //   this.state.formErrors.location ? styles.ErrorField : ""
-                  // }`}
-                  onChange={this.handleChange("location")}
-                  defaultValue={"DEFAULT"}
-                  as="select"
-                  placeholder="City Name"
-                  ref="location"
-                  name="location"
-                >
-                  <option disabled value="DEFAULT">
-                    Location
-                  </option>
-                  <option>Vaughan</option>
-                  <option>Mississauga</option>
-                  <option>Toronto</option>
-                  <option>Newmarket</option>
-                  <option>Thornhill</option>
-                  <option>Maple</option>
-                </Form.Control>
-              )}
-              <p
-              //className={styles.ErrorMessage}
-              >
-                {this.state.formErrors.location}
-              </p>
-            </Form.Group>
-          </div>
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("lastName")}
+                        type="text"
+                        placeholder="Last Name"
+                        ref="lastName"
+                        name="lastName"
+                      />
+                      <p className="ErrorMessage">
+                        {this.state.formErrors.lastName}
+                      </p>
+                    </Form.Group>
+                  </div>
 
-          <Button
-            // className={` ${styles.Form___formSubmit} btn btn-red ${
-            //   column ? styles.ButtonColumnType : ""
-            // }`}
-            // onClick={this.handleSubmit}
-            type="submit"
-          >
-            {/*btntext*/}
-            submit
-          </Button>
-        </Form>
+                  <div className="formField_textWrapper">
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("email")}
+                        type="email"
+                        placeholder="Email"
+                        ref="email"
+                        name="email"
+                      />
+                      <p className="ErrorMessage">
+                        {this.state.formErrors.email}
+                      </p>
+                    </Form.Group>
 
-        <div
-        // className={`${styles.NotificationBlock} ${
-        //   column ? styles.NotificationBlockType : ""
-        // }`}
-        >
-          {/* Email send block */}
-          {this.state.emailSent ? (
-            <div
-            //className={styles.SuccessBlock}
-            >
-              <p>Thank you! Email has been sent</p>
-            </div>
-          ) : (
-            ""
-          )}
+                    <Form.Group>
+                      <Form.Control
+                        onChange={this.handleChange("phone")}
+                        type="tel"
+                        placeholder="Phone"
+                        ref="phone"
+                        name="phone"
+                      />
+                      <p className="ErrorMessage">
+                        {this.state.formErrors.phone}
+                      </p>
+                    </Form.Group>
+                  </div>
 
-          {/* Error block */}
-          {this.state.formErrors.firstName ||
-          this.state.formErrors.lastName ||
-          this.state.formErrors.email ||
-          this.state.formErrors.phone ||
-          this.state.formErrors.desiredTreatment ||
-          this.state.formErrors.location ? (
-            <div
-            //className={styles.ErrorBlock}
-            >
-              <p>Some Fields are invalid</p>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
+                  <Button type="submit" className="btn btn-red btn btn-primary">
+                    {/*btntext*/}
+                    submit
+                  </Button>
+                </Col>
+              </Form>
+
+              <div>
+                {/* Email send block */}
+                {this.state.emailSent ? (
+                  <div
+                  //className={styles.SuccessBlock}
+                  >
+                    <p>Thank you! Email has been sent</p>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {/* Error block */}
+                {this.state.formErrors.firstName ||
+                this.state.formErrors.lastName ||
+                this.state.formErrors.email ||
+                this.state.formErrors.phone ||
+                this.state.formErrors.desiredTreatment ||
+                this.state.formErrors.location ? (
+                  <div
+                  //className={styles.ErrorBlock}
+                  >
+                    <p>Some Fields are invalid</p>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            </Col>
+          </Row>
+        </section>
+      </>
     )
   }
 }
