@@ -53,7 +53,9 @@ const Contact = ({ backgroundColor, title, buttonText, formSettings }) => {
                 </div>
               )}
               {formSettings === "pricing" ? (
-                <ContactFormPricing btntext={buttonText ? buttonText : btntextDef} />
+                <ContactFormPricing
+                  btntext={buttonText ? buttonText : btntextDef}
+                />
               ) : (
                 <ConactForm btntext={buttonText ? buttonText : btntextDef} />
               )}
