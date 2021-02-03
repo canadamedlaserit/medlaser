@@ -142,13 +142,13 @@ const BookingComponentLocation = () => {
               //  action="/thank-you/"
               onSubmit={handleSubmit}
             >
-              <input
-                type="hidden"
-                name="form-name"
-                value="Medlaser NEW LEAD - Contact location"
-              />
-
               <Form className="FormStep1Wrapper">
+                <input
+                  type="hidden"
+                  name="form-name"
+                  value="Medlaser NEW LEAD - Contact location"
+                />
+
                 <Col lg={4}>
                   <p className="para">Step 1 of 2</p>
                   <h3 className="headerWrapper"> Select Date & Time</h3>

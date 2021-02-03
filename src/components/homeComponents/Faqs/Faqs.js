@@ -144,8 +144,8 @@ class Faqs extends Component {
                     className="gatsby-image-background"
                     fluid={image ? image.imageFile.childImageSharp.fluid : null}
                     imgStyle={{
-                      objectFit: "fill",
-                      objectPosition: "0% 0%",
+                      objectFit: "contain",
+                      objectPosition: "center center",
                     }}
                     // style={{}}
                     // style={{ objectFit: "fill" }}
