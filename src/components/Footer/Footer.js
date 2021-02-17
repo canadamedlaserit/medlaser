@@ -4,7 +4,31 @@ import CustomNav from "../Header/CustomNav"
 import styles from "./Footer.module.scss"
 import { Navbar } from "react-bootstrap"
 
+/* useEffect(() => {
+    let targetElement = !!document.querySelector("#mainNav");
+    if (isOpen) {
+      document.querySelector("#mainContainer").style.display = "none";
+      document.querySelector("#contactLocation").style.display = "none";
+      document.querySelector("#footerSection").style.display = "none";
+    } else {
+      document.querySelector("#mainContainer").style.display = "block";
+      document.querySelector("#contactLocation").style.display = "block";
+      document.querySelector("#footerSection").style.display = "block";
+    }
+ */
+
 class Footer extends Component {
+  componentDidMount() {
+    if (typeof window !== "undefined") {
+      if (window.location.href.includes("/location")) {
+        document.querySelector("#locationAddress").style.display = "none"
+        document.querySelector("#footerMainMenu").style.display = "flex"
+        document.querySelector("#footerMainMenu").style.justifyContent =
+          "center"
+      }
+    }
+  }
+
   render() {
     const { data } = this.props
     const menus = data.wpgraphql.menus.edges
@@ -16,11 +40,25 @@ class Footer extends Component {
         footerMenu = menus[menu].node.menuItems.edges
       }
     }
+    console.log("my Footer Menu", footerMenu)
 
     return (
       <footer className={styles.Footer}>
         <div className={`container ${styles.Container}`}>
-          <div className={`row ${styles.Row}`}>
+          <div
+            className={`row ${styles.Row}`}
+            // style={
+            //   document.getElementById("LocationHeroBrand")
+            //     ? { justifyContent: "center", display: "flex" }
+            //     : null
+            // }
+            id="footerMainMenu"
+            // style={
+            //   document.getElementById("LocationHeroBrand")
+            //     ? { justifyContent: "center", display: "flex" }
+            //     : null
+            // }
+          >
             <div className={styles.NavWrapper}>
               <Navbar expand="lg">
                 <CustomNav isMobile={true} data={footerMenu} />
@@ -31,7 +69,28 @@ class Footer extends Component {
               if (node.childItems.edges.length !== 0) {
                 const submenu = node.childItems.edges
                 return (
-                  <div className={`col-md-3 ${styles.DesktopMenu}`} key={index}>
+                  <div
+                    id="myFooterLabel"
+                    className={`col-md-3 ${styles.DesktopMenu}`}
+                    key={index}
+                    // style={
+                    //   document.getElementById("LocationHeroBrand")
+                    // ? node.label === "Locations"
+                    //   ? { display: "none" }
+                    //   : null
+                    // : null
+                    // }
+                    style={
+                      typeof window !== "undefined"
+                        ? window.location.href.includes("/location")
+                          ? node.label === "Locations"
+                            ? { display: "none" }
+                            : null
+                          : null
+                        : null
+                    }
+                  >
+                    {console.log("myFooterLabel=", node)}
                     {node.url ? (
                       <h2>
                         <Link style={{ color: "#ffffff" }} to={node.url}>
@@ -55,7 +114,7 @@ class Footer extends Component {
               }
             })}
 
-            <div className={styles.LocatiosWrapper}>
+            <div id="locationAddress" className={styles.LocatiosWrapper}>
               <div className={styles.Locations}>
                 <div className="col-md-12">
                   <h2 className={styles.Title}>{footerInfo.locationstitle}</h2>

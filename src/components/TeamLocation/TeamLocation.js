@@ -6,6 +6,47 @@ import styles from "./TeamLocation.module.scss"
 
 export const fragment = graphql`
   fragment TeamLocationSection on WPGraphQL_Page_Sectionfields_Sections_Teamlocation {
+    numberperrow
+    teamcategory
+    teammembers {
+      member {
+        ... on WPGraphQL_Team {
+          title
+          teamMembersDescription {
+            description
+            name
+            position
+            image {
+              altText
+              sourceUrl
+              imageFile {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 600) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+/* 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          fragment TeamLocationSection on WPGraphQL_Page_Sectionfields_Sections_Teamlocation {
     teamcategory
     numberperrow
     teammembers {
@@ -33,8 +74,8 @@ export const fragment = graphql`
         }
       }
     }
-  }
-`
+  }  
+            */
 
 const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
   // console.log(teammembers)

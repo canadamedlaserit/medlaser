@@ -69,7 +69,7 @@ class Faqs extends Component {
         }`}
       >
         <div className={`container-fluid ${styles.Container}`}>
-          <div className={`row ${styles.Row}`}>
+          <div className={`row ${styles.Row}`} style={{ position: "relative" }}>
             <div className={`col-md-12`}>
               <div className={styles.TitlesWrapper}>
                 <div

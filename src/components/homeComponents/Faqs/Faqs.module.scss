@@ -58,7 +58,12 @@
   padding-bottom: 50px;
   padding-top: 30px;
 }
-
+.ImageSide {
+  position: absolute;
+  height: 60vh;
+  right: 0;
+  top: 12rem;
+}
 .Question {
   .Card {
     border: none;
