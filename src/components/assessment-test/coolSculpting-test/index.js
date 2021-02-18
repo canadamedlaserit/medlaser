@@ -93,20 +93,20 @@ const CSTest = () => {
      
     </table>
     `
-
+    setpayload(payload)
+    console.log(payload)
     //e.preventDefault()
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "Medlaser NEW LEAD - Cool-Sculpting Form",
-        payload,
+        ...payload,
       }),
     })
       .then(() => (setFormSubmitted(true), console.log("Payload", payload)))
       .catch(error => alert(error))
 
-    setpayload(payload)
     //console.log("Payload", payload)
   }
   /* 
