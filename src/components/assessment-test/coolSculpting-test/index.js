@@ -327,7 +327,23 @@ const CSTest = () => {
         </Row>
       </div>
       <Container className="alcohol-test-wrapper" fluid>
-        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={(values, actions) => {
+            fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: encode({
+                "form-name": "Medlaser NEW LEAD - Cool-Sculpting Form",
+                ...values,
+              }),
+            })
+              .then(
+                () => (setFormSubmitted(true), console.log("Payload=", values))
+              )
+              .catch(error => alert(error))
+          }}
+        >
           {({ isSubmitting, values, setFieldValue }) => (
             <Form
               name="Medlaser NEW LEAD - Cool-Sculpting Form"
