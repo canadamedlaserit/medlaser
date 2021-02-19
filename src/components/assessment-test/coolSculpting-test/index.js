@@ -30,13 +30,14 @@ const initialValues = {
   question5: "",
   question6: "",
   question7: "",
-  name: "",
+  //name: "",
   email: "",
   phone: "",
 }
 
 const CSTest = () => {
   //const alcoholTest = { title: "" }
+  const [state, SetState] = useState(initialValues)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [progress, setProgress] = useState(12)
   const [currentStep, setCurrentStep] = useState(1)
@@ -49,10 +50,24 @@ const CSTest = () => {
   }
 
   const encode = data => {
+    // console.log(data, "encodedata")
+    // console.log(
+    //   Object.keys(data)
+    //     .map(
+    //       key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+    //     )
+    //     .join("&"),
+    //   "objectencoded"
+    // )
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&")
   }
+
+  const reset = e => {
+    SetState(e)
+  }
+
   const handleSubmit = async payload => {
     const emailHtml = `
     <p><strong>First Name:</strong> ${payload.firstName}</p>
@@ -93,9 +108,11 @@ const CSTest = () => {
      
     </table>
     `
+    // reset(payload)
     setpayload(payload)
-    console.log(payload)
-    //e.preventDefault()
+    // console.log(payload)
+    // //e.preventDefault()
+    // console.log({ ...payload }, "payloadnow")
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -104,7 +121,7 @@ const CSTest = () => {
         ...payload,
       }),
     })
-      .then(() => (setFormSubmitted(true), console.log("Payload", payload)))
+      .then(() => (setFormSubmitted(true), console.log("Payload=", state)))
       .catch(error => alert(error))
 
     //console.log("Payload", payload)
