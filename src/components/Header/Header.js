@@ -83,7 +83,7 @@ class Header extends Component {
           expand="lg"
           className={`${styles.Navbar}`}
         >
-          {headerInfo.promoTopLine ? (
+          {/*headerInfo.promoTopLine ? (
             <div className="promobar">
               <div className="container">
                 <div className="row ">
@@ -96,7 +96,7 @@ class Header extends Component {
                 </div>
               </div>
             </div>
-          ) : null}
+                  ) : null*/}
           {/* <div></div> */}
           <div className={styles.headerTopLine}>
             <div className={`container ${styles.container}`}>
