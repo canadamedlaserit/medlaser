@@ -19,14 +19,14 @@ const initialState = {
   phone: "",
   date: "",
   time: "",
-  // desiredTreatment: "",
-  // location: "",
+  desiredTreatment: "",
+  location: "",
 
   firstNameValid: false,
   lastNameValid: false,
   emailValid: false,
   phoneValid: false,
-  // desiredTreatmentValid: false,
+  desiredTreatmentValid: false,
   // locationValid: false,
   formValid: false,
   emailSent: false,
@@ -36,8 +36,8 @@ const initialState = {
     lastName: "",
     email: "",
     phone: "",
-    // desiredTreatment: "",
-    // location: "",
+    desiredTreatment: "",
+    location: "",
   },
 }
 
@@ -49,13 +49,14 @@ const encode = data => {
 
 export class BookingComponentLocation extends Component {
   componentDidMount() {
-    if (this.props.pathname) {
+    const pathname = this.props.location.pathname
+    if (pathname) {
       let loc = ""
 
-      loc = this.props.pathname
+      loc = pathname
       loc = loc.replace("location", "")
       loc = loc.replace(/\//g, "")
-      // initialState.location = loc
+      initialState.location = loc
     }
   }
 
@@ -72,7 +73,7 @@ export class BookingComponentLocation extends Component {
     this.refs.phone.value = ""
     this.refs.date.value = ""
     this.refs.time.value = ""
-    // this.refs.desiredTreatment.value = "DEFAULT"
+    this.refs.desiredTreatment.value = ""
     // this.refs.location.value = "DEFAULT"
   }
 
@@ -91,7 +92,7 @@ export class BookingComponentLocation extends Component {
     let lastNameValid = this.state.lastNameValid
     let emailValid = this.state.emailValid
     let phoneValid = this.state.phoneValid
-    // let desiredTreatmentValid = this.state.desiredTreatmentValid
+    let desiredTreatmentValid = this.state.desiredTreatmentValid
     // let locationValid = this.state.locationValid
 
     switch (fieldName) {
@@ -119,13 +120,13 @@ export class BookingComponentLocation extends Component {
         fieldValidationErrors.phone = phoneValid ? "" : "Phone is invalid"
         break
 
-      // case "desiredTreatment":
-      //   desiredTreatmentValid = value.length >= 1
-      //   fieldValidationErrors.desiredTreatment = desiredTreatmentValid
-      //     ? ""
-      //     : "Select Desired Treatment"
+      case "desiredTreatment":
+        desiredTreatmentValid = value.length >= 1
+        fieldValidationErrors.desiredTreatment = desiredTreatmentValid
+          ? ""
+          : "Select Desired Treatment"
 
-      //   break
+        break
 
       // case "location":
       //   locationValid = value.length >= 1
@@ -144,7 +145,7 @@ export class BookingComponentLocation extends Component {
         lastNameValid: lastNameValid,
         emailValid: emailValid,
         phoneValid: phoneValid,
-        // desiredTreatmentValid: desiredTreatmentValid,
+        desiredTreatmentValid: desiredTreatmentValid,
         // locationValid: locationValid,
       },
       this.validateForm
@@ -157,8 +158,8 @@ export class BookingComponentLocation extends Component {
         this.state.firstNameValid &&
         this.state.lastNameValid &&
         this.state.emailValid &&
-        this.state.phoneValid,
-      // this.state.desiredTreatmentValid &&
+        this.state.phoneValid &&
+        this.state.desiredTreatmentValid,
       // this.state.locationValid,
     })
   }
@@ -200,7 +201,7 @@ export class BookingComponentLocation extends Component {
       this.validateField("lastName", this.state.lastName)
       this.validateField("email", this.state.email)
       this.validateField("phone", this.state.phone)
-      // this.validateField("desiredTreatment", this.state.desiredTreatment)
+      this.validateField("desiredTreatment", this.state.desiredTreatment)
       // this.validateField("location", this.state.location)
 
       // console.log(this.state.formErrors)
@@ -244,6 +245,11 @@ export class BookingComponentLocation extends Component {
                   value="Medlaser NEW LEAD - Contact Form"
                 />
 
+                <input
+                  type="hidden"
+                  name="location"
+                  value={this.state.location}
+                />
                 <p className="hidden">
                   <label>
                     Don’t fill this out if you're human:{" "}
@@ -329,6 +335,33 @@ export class BookingComponentLocation extends Component {
                         ref="phone"
                         name="phone"
                       />
+                      <p className="ErrorMessage">
+                        {this.state.formErrors.phone}
+                      </p>
+                    </Form.Group>
+                  </div>
+                  <div className="formField_textWrapper">
+                    <Form.Group className="w-90">
+                      <Form.Control
+                        onChange={this.handleChange("desiredTreatment")}
+                        ref="desiredTreatment"
+                        name="desiredTreatment"
+                        as="select"
+                      >
+                        <option value="">Select Desired Treatment</option>
+                        <option value="Laser Hair Removal">
+                          Laser Hair Removal
+                        </option>
+                        <option value="Coolsculpting">Coolsculpting</option>
+                        <option value="Cosmetic Injections">
+                          Cosmetic Injections
+                        </option>
+                        <option value="Skin Treatments">Skin Treatments</option>
+                        <option value="Hair Restoration">
+                          Hair Restoration
+                        </option>
+                        <option value="Other">Other</option>
+                      </Form.Control>
                       <p className="ErrorMessage">
                         {this.state.formErrors.phone}
                       </p>

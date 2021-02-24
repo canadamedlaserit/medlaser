@@ -348,7 +348,13 @@ const PageTempl = ({ data, location, pageContext }) => {
             return <LocationPromoSpecific key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Bookinglocationspecific":
-            return <BookingComponentLocation key={index} {...section} />
+            return (
+              <BookingComponentLocation
+                location={location}
+                key={index}
+                {...section}
+              />
+            )
           case "WPGraphQL_Page_Sectionfields_Sections_OurtreatmentsLocation":
             return <LocationOurTreatment key={index} {...section} />
 
