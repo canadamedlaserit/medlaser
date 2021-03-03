@@ -2,14 +2,14 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 
 const Step6 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 6 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>How soon are you hoping to start treating your skin concern?</h1>
@@ -23,83 +23,77 @@ const Step6 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question6"
-                value="ASAP. HELP!"
-                checked={values.question6 === "ASAP. HELP!"}
-                onChange={() => {
-                  setFieldValue("question6", "ASAP. HELP!")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">ASAP. HELP!</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question6"
-                value="I’d probably have to sleep on it… Depends on the treatment I’m advised to do	"
-                checked={
-                  values.question6 ===
-                  "I’d probably have to sleep on it… Depends on the treatment I’m advised to do	"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question6",
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question6"
+                  value="ASAP. HELP!"
+                  checked={values.question6 === "ASAP. HELP!"}
+                />
+                <label
+                  onClick={() => setQuestionAnswer("question6", "ASAP. HELP!")}
+                >
+                  ASAP. HELP!
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question6"
+                  value="I’d probably have to sleep on it… Depends on the treatment I’m advised to do	"
+                  checked={
+                    values.question6 ===
                     "I’d probably have to sleep on it… Depends on the treatment I’m advised to do	"
-                  )
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">
-                I’d probably have to sleep on it… Depends on the treatment I’m
-                advised to do
-              </label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question6"
-                value="I’m only interested in a consultation.  No urgency to start treatment "
-                checked={
-                  values.question6 ===
-                  "I’m only interested in a consultation.  No urgency to start treatment "
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question6",
+                  }
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question6",
+                      "I’d probably have to sleep on it… Depends on the treatment I’m advised to do	"
+                    )
+                  }
+                >
+                  I’d probably have to sleep on it… Depends on the treatment I’m
+                  advised to do
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question6"
+                  value="I’m only interested in a consultation.  No urgency to start treatment "
+                  checked={
+                    values.question6 ===
                     "I’m only interested in a consultation.  No urgency to start treatment "
-                  )
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">
-                I’m only interested in a consultation. No urgency to start
-                treatment
-              </label>
-            </li>
-            <li style={{ display: "flex" }}>
-              <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
-                Back
-              </Button>
-              <Button className="next-btn ml-2 py-3" onClick={handleNext}>
-                Next
-              </Button>
-            </li>
+                  }
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question6",
+                      "I’m only interested in a consultation.  No urgency to start treatment "
+                    )
+                  }
+                >
+                  I’m only interested in a consultation. No urgency to start
+                  treatment
+                </label>
+              </li>
+              <li style={{ display: "flex" }}>
+                <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
+                  Back
+                </Button>
+                <Button className="next-btn ml-2 py-3" onClick={handleNext}>
+                  Next
+                </Button>
+              </li>
+            </fieldset>
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

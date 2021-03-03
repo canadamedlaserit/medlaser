@@ -2,14 +2,14 @@ import React from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 
 const Step3 = ({
+  currentStep,
   values,
-  setFieldValue,
   handleNext,
   handlePrev,
-  hanldleAnswers,
+  setQuestionAnswer,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 3 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={8} className="text-align-center">
           <h1>
@@ -25,66 +25,62 @@ const Step3 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question3"
-                value="Blonde/red/grey"
-                checked={values.question3 === "Blonde/red/grey"}
-                onChange={() => {
-                  setFieldValue("question3", "Blonde/red/grey")
-                  hanldleAnswers("red")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">Blonde/red/grey</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question3"
-                value="Black"
-                checked={values.question3 === "Black"}
-                onChange={() => {
-                  setFieldValue("question3", "Black")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Black</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question3"
-                value="Brown"
-                checked={values.question3 === "Brown"}
-                onChange={() => {
-                  setFieldValue("question3", "Brown")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">Brown</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option4"
-                name="question3"
-                value="Dark blonde"
-                checked={values.question3 === "Dark blonde"}
-                onChange={() => {
-                  setFieldValue("question3", "Dark blonde")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option4">Dark blonde</label>
-            </li>
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="Blonde/red/grey"
+                  checked={values.question3 === "Blonde/red/grey"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question3", "Blonde/red/grey")
+                  }
+                >
+                  Blonde/red/grey
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="Black"
+                  checked={values.question3 === "Black"}
+                  readOnly={true}
+                />
+                <label onClick={() => setQuestionAnswer("question3", "Black")}>
+                  Black
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="Brown"
+                  checked={values.question3 === "Brown"}
+                  readOnly={true}
+                />
+                <label onClick={() => setQuestionAnswer("question3", "Brown")}>
+                  Brown
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="Dark blonde"
+                  checked={values.question3 === "Dark blonde"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() => setQuestionAnswer("question3", "Dark blonde")}
+                >
+                  Dark blonde
+                </label>
+              </li>
+            </fieldset>
             <li style={{ display: "flex" }}>
               <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
                 Back
@@ -96,7 +92,7 @@ const Step3 = ({
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

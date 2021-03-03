@@ -2,14 +2,14 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 
 const Step5 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 5 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>How did you enjoy the treatment and results?</h1>
@@ -23,62 +23,57 @@ const Step5 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question5"
-                value="Loved it"
-                checked={values.question5 === "Loved it"}
-                onChange={() => {
-                  setFieldValue("question5", "Loved it")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">Loved it</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question5"
-                value="Meh, I was underwhelmed"
-                checked={values.question5 === "Meh, I was underwhelmed"}
-                onChange={() => {
-                  setFieldValue("question5", "Meh, I was underwhelmed")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Meh, I was underwhelmed</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question5"
-                value="I told you, I’ve never had treatments before!	"
-                checked={
-                  values.question5 ===
-                  "I told you, I’ve never had treatments before!	"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question5",
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="Loved it"
+                  checked={values.question5 === "Loved it"}
+                />
+                <label
+                  onClick={() => setQuestionAnswer("question5", "Loved it")}
+                >
+                  Loved it
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="Meh, I was underwhelmed"
+                  checked={values.question5 === "Meh, I was underwhelmed"}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question5", "Meh, I was underwhelmed")
+                  }
+                >
+                  Meh, I was underwhelmed
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="I told you, I’ve never had treatments before!	"
+                  checked={
+                    values.question5 ===
                     "I told you, I’ve never had treatments before!	"
-                  )
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">
-                I told you, I’ve never had treatments before!
-              </label>
-            </li>
+                  }
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question5",
+                      "I told you, I’ve never had treatments before!	"
+                    )
+                  }
+                >
+                  I told you, I’ve never had treatments before!
+                </label>
+              </li>
+            </fieldset>
             <li style={{ display: "flex" }}>
               <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
                 Back
@@ -90,7 +85,7 @@ const Step5 = ({
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

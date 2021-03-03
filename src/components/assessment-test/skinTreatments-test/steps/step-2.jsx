@@ -2,14 +2,14 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 
 const Step2 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 2 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={6} md={10} className="text-align-center">
           <h1>How long have you been suffering with this skin concern?</h1>
@@ -23,73 +23,76 @@ const Step2 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question2"
-                value="For as long as I can remember"
-                checked={values.question2 === "For as long as I can remember"}
-                onChange={() => {
-                  setFieldValue("question2", "For as long as I can remember")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">For as long as I can remember</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question2"
-                value="Since my teenage years"
-                checked={values.question2 === "Since my teenage years"}
-                onChange={() => {
-                  setFieldValue("question2", "Since my teenage years")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Since my teenage years</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question2"
-                value="Since the past couple of years/months"
-                checked={
-                  values.question2 === "Since the past couple of years/months"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question2",
-                    "Since the past couple of years/months"
-                  )
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">
-                Since the past couple of years/months
-              </label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option4"
-                name="question2"
-                value="I just noticed it recently"
-                checked={values.question2 === "I just noticed it recently"}
-                onChange={() => {
-                  setFieldValue("question2", "I just noticed it recently")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option4">I just noticed it recently</label>
-            </li>
+            <field>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="For as long as I can remember"
+                  checked={values.question2 === "For as long as I can remember"}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question2",
+                      "For as long as I can remember"
+                    )
+                  }
+                >
+                  For as long as I can remember
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="Since my teenage years"
+                  checked={values.question2 === "Since my teenage years"}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question2", "Since my teenage years")
+                  }
+                >
+                  Since my teenage years
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="Since the past couple of years/months"
+                  checked={
+                    values.question2 === "Since the past couple of years/months"
+                  }
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question2",
+                      "Since the past couple of years/months"
+                    )
+                  }
+                >
+                  Since the past couple of years/months
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="I just noticed it recently"
+                  checked={values.question2 === "I just noticed it recently"}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question2", "I just noticed it recently")
+                  }
+                >
+                  I just noticed it recently
+                </label>
+              </li>
+            </field>
             <li style={{ display: "flex" }}>
               <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
                 Back
@@ -101,7 +104,7 @@ const Step2 = ({
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 
