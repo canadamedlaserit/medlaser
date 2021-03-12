@@ -2,6 +2,9 @@ import React from "react"
 import Swiper from "react-id-swiper"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
+import { Container, Col, Row } from "react-bootstrap"
+// import teamIcon from "../images/contraceptive.svg"
+import teamIcon from "../../images/contraceptive.svg"
 
 import styles from "./TeamSlider.module.scss"
 
@@ -95,31 +98,19 @@ const TeamSlider = ({ teamcategory, teammembers }) => {
       </div>
     ),
   }
+  // console.log(styles)
   return (
-    <section className={styles.Section}>
-      <div className={`${styles.Hatch2} ${styles.Hatch}`}></div>
-
-      <div className={`container-fluid ${styles.Container}`}>
-        <div className={`row ${styles.Row}`}>
-          <div className={`col-md-12 team-swiper ${styles.Col}`}>
-            <Swiper {...params}>
-              {teammembers
-                ? teammembers.map(({ member }, index) => (
-                    <div className={`${styles.SwiperSlide} `} key={index}>
-                      <div className={`team-slider-text ${styles.Text}`}>
-                        <div>
-                          <h3>{member.teamMembersDescription.name}</h3>
-
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: member.teamMembersDescription.description,
-                            }}
-                          ></div>
-                        </div>
-                      </div>
+    <div style={{ backgroundColor: "black" }}>
+      <Container fluid className={styles.ourTeamPersonContainer}>
+        <div className={styles.ourTeamPersonInner}>
+          <Row>
+            {teammembers
+              ? teammembers.map(({ member }, index) => (
+                  <Col lg={4} sm={6}>
+                    <div>
                       {member.teamMembersDescription.image ? (
                         <Img
-                          className={styles.Gimg}
+                          className={styles.ourTeamPersonImg}
                           alt={member.teamMembersDescription.image.altText}
                           fluid={
                             member.teamMembersDescription.image.imageFile
@@ -129,14 +120,29 @@ const TeamSlider = ({ teamcategory, teammembers }) => {
                       ) : (
                         ""
                       )}
+                      <p className={styles.ourTeamPersonName}>
+                        {member.teamMembersDescription.name}
+                      </p>
+                      <p className={styles.ourTeamPersonDesig}>
+                        {member.teamMembersDescription.position}
+                      </p>
                     </div>
-                  ))
-                : ""}
-            </Swiper>
-          </div>
+                  </Col>
+                ))
+              : ""}
+          </Row>
         </div>
-      </div>
-    </section>
+      </Container>
+      <Container fluid className={styles.ourTeamInfo}>
+        <div className={styles.ourTeamInfoIcon}>
+          <img src={teamIcon} />
+        </div>
+        <h1 className={styles.ourTeamInfoHead}>
+          Want to become a part of our team?
+        </h1>
+        <p>Write us on our email maple@canadamedlaser.ca</p>
+      </Container>
+    </div>
   )
 }
 

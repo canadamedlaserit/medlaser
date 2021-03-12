@@ -1,12 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import { Container, Col, Row } from "react-bootstrap"
 
 import styles from "./InnerHeroImageFullWidth.module.scss"
 
 export const fragment = graphql`
   fragment InnerHeroImageFullWidthSection on WPGraphQL_Page_Sectionfields_Sections_Innerheroimagefullwidth {
     title
+    description
     hidestripondevice
     image {
       sourceUrl
@@ -22,41 +24,41 @@ export const fragment = graphql`
   }
 `
 
-const InnerHeroImageFullWidth = ({ title, image, hidestripondevice }) => {
+const InnerHeroImageFullWidth = ({
+  title,
+  description,
+  image,
+  hidestripondevice,
+}) => {
   return (
-    <section className={styles.Section}>
-      <div className={`container-fluid ${styles.Container}`}>
-        <div className={`row ${styles.RowTop}`}>
-          <div className={`col-md-12 ${styles.ImgCol}`}>
-            {image ? (
-              <Img
-                alt={image.altText}
-                className="gatsby-image-background"
-                fluid={image.imageFile.childImageSharp.fluid}
-              />
-            ) : (
-              ""
-            )}
-            <div className={styles.innerWrapper}>
+    <div style={{ backgroundColor: "black" }}>
+      <Container fluid className={styles.ourTeamContainer}>
+        <div className={styles.ourTeamInner}>
+          <Row>
+            <Col lg={4} md={12}>
+              <div className={styles.ourTeamHead}>
+                <div dangerouslySetInnerHTML={{ __html: title }}></div>
+              </div>
+            </Col>
+            <Col lg={8} md={12}>
               <div
-                className={styles.Title}
-                dangerouslySetInnerHTML={{ __html: title }}
+                className={styles.ourTeamContent}
+                dangerouslySetInnerHTML={{ __html: description }}
               ></div>
-            </div>
-            <div className={styles.Overlay}></div>
-            <div
-              className={`${
-                hidestripondevice === "desktop"
-                  ? styles.HideDesktop
-                  : hidestripondevice === "mobile"
-                  ? styles.HideMobile
-                  : ""
-              }${styles.Hatch}`}
-            ></div>
-          </div>
+            </Col>
+          </Row>
+        </div>
+      </Container>
+      <div className={styles.ourTeamImgContainer}>
+        <div className={styles.ourTeamImgInner}>
+          <Img
+            alt={image.altText}
+            className={styles.ourTeamPersonImg}
+            fluid={image.imageFile.childImageSharp.fluid}
+          />
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
