@@ -47,8 +47,8 @@ const ResultAlcohol = ({ payload, result }) => {
             <div className="point-txt">points</div> */}
             <h2 style={{ color: "#9c1a3b" }}>
               Good news! Your results are in! For optimal results, and based on
-              your answers, we would recommend you start off with…. drum roll
-              please….{" "}
+              your answers, we would recommend you start off with. drum roll
+              please.{" "}
             </h2>
             {answer ? <p>{answer}</p> : <Loader />}{" "}
             <Link to="/assessment">

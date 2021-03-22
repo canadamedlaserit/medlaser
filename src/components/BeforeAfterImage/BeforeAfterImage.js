@@ -35,13 +35,20 @@ const BeforeAfterImage = ({ image }) => {
             ) : (
               ""
             )}
-
             <div className={styles.Inner}>
-              <h2>Real Results</h2>
-
+              <h2>Have Questions?</h2>
               <div className={styles.buttonsWrapper}>
-                <Link to="/before-after/" className="btn btn-red">
+                <Link to="/before-after/" className="btn btn-red" style={{marginRight: '1px'}}>
                   Before and After
+                </Link>
+                <Link to="/assessment/" className="btn btn-red" style={{marginLeft: '5px'}}>
+                  Take Quiz
+                </Link>
+              </div>
+              <br/>
+              <div className={styles.buttonsWrapper}>
+                <Link to="/contact-us/" className="btn btn-red">
+                  Call Us
                 </Link>
               </div>
             </div>
