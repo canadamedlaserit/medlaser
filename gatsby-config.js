@@ -83,7 +83,7 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url: `https://api.canadamedlaser.ca/graphql`,
-        refetchInterval: 60,
+        // refetchInterval: 60,
       },
     },
     {
