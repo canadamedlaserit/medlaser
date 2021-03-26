@@ -2,14 +2,14 @@ import React from "react"
 import { Container, Col, Button } from "react-bootstrap"
 
 const Step6 = ({
+  currentStep,
   values,
-  setFieldValue,
   handleNext,
   handlePrev,
-  hanldleAnswers,
+  setQuestionAnswer,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 6 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>
@@ -28,38 +28,32 @@ const Step6 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question6"
-                value="Yes"
-                checked={values.question6 === "Yes"}
-                onChange={() => {
-                  setFieldValue("question6", "Yes")
-                  hanldleAnswers("red")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">Yes</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question6"
-                value="No"
-                checked={values.question6 === "No"}
-                onChange={() => {
-                  setFieldValue("question6", "No")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">No</label>
-            </li>
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question6"
+                  value="Yes"
+                  readOnly={true}
+                  checked={values.question6 === "Yes"}
+                />
+                <label onClick={() => setQuestionAnswer("question6", "Yes")}>
+                  Yes
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question6"
+                  value="No"
+                  readOnly={true}
+                  checked={values.question6 === "No"}
+                />
+                <label onClick={() => setQuestionAnswer("question6", "No")}>
+                  No
+                </label>
+              </li>
+            </fieldset>
             <li style={{ display: "flex" }}>
               <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
                 Back
@@ -71,7 +65,7 @@ const Step6 = ({
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

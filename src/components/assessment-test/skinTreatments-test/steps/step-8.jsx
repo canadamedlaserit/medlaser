@@ -2,9 +2,9 @@ import React from "react"
 import { Row, Col } from "react-bootstrap"
 import { Field } from "formik"
 
-const Step8 = () => {
+const Step8 = ({ currentStep }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 8 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={6} md={10} className="text-align-center">
           <h1>
@@ -61,7 +61,7 @@ const Step8 = () => {
           </Row>
         </Col>
       </Row>
-    </>
+    </div>
   )
 }
 

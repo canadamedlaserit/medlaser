@@ -30,9 +30,11 @@ const initialValues = {
   question5: "",
   question6: "",
   question7: "",
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phone: "",
+  assessmentType: "Skin Treatment Assessment",
 }
 
 const LhrTest1 = () => {
@@ -244,6 +246,11 @@ const LhrTest1 = () => {
                 name="form-name"
                 value="Medlaser NEW LEAD - Skin-treatments Form"
               />
+              <input
+                type="hidden"
+                value="Skin Treatment Assessment"
+                name="assessmentType"
+              />
               {/* Progressbar */}
               <Row>
                 <Col md={12} className="px-0">
@@ -264,67 +271,84 @@ const LhrTest1 = () => {
                 {currentStep === 1 && (
                   <Step1
                     values={values}
-                    setFieldValue={setFieldValue}
                     handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
+                    setQuestionAnswer={(field, value, color = "green") => {
+                      setFieldValue(field, value)
+                      hanldleAnswers(color)
+                      handleNext()
+                    }}
                   />
                 )}
-                {currentStep === 2 && (
-                  <Step2
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 3 && (
-                  <Step3
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 4 && (
-                  <Step4
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 5 && (
-                  <Step5
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 6 && (
-                  <Step6
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 7 && (
-                  <Step7
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
+                <Step2
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
+                <Step3
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
+                <Step4
+                  currentStep={currentStep}
+                  values={values}
+                  setFieldValue={setFieldValue}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  hanldleAnswers={hanldleAnswers}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
+                <Step5
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
+                <Step6
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
+                <Step7
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value, color = "green") => {
+                    setFieldValue(field, value)
+                    hanldleAnswers(color)
+                    handleNext()
+                  }}
+                />
 
-                {currentStep >= 8 && <Step8 />}
+                <Step8 currentStep={currentStep} />
 
                 <Row className="flex justify-content-center">
                   <Col

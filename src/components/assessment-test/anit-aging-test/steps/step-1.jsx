@@ -2,7 +2,7 @@ import React from "react"
 import { Container, Col, Button } from "react-bootstrap"
 import { Link } from "gatsby"
 
-const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
+const Step1 = ({ values, setQuestionAnswer, handleNext }) => {
   return (
     <>
       <div className="questionDiv">
@@ -20,81 +20,92 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question1"
-                value="Thinness and laxity"
-                checked={values.question1 === "Thinness and laxity"}
-                onChange={() => {
-                  setFieldValue("question1", "Thinness and laxity")
-                  hanldleAnswers("Yellow")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">Thinness and laxity</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question1"
-                value="Fine lines and wrinkles"
-                checked={values.question1 === "Fine lines and wrinkles"}
-                onChange={() => {
-                  setFieldValue("question1", "Fine lines and wrinkles")
-                  hanldleAnswers("baby blue")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Fine lines and wrinkles</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question1"
-                value="Hollowness (around eyes, cheeks, temples, etc.)"
-                checked={
-                  values.question1 ===
-                  "Hollowness (around eyes, cheeks, temples, etc.)"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question1",
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Thinness and laxity"
+                  checked={values.question1 === "Thinness and laxity"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question1",
+                      "Thinness and laxity",
+                      "Yellow"
+                    )
+                  }
+                >
+                  Thinness and laxity
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Fine lines and wrinkles"
+                  checked={values.question1 === "Fine lines and wrinkles"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question1",
+                      "Fine lines and wrinkles",
+                      "baby blue"
+                    )
+                  }
+                >
+                  Fine lines and wrinkles
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Hollowness (around eyes, cheeks, temples, etc.)"
+                  checked={
+                    values.question1 ===
                     "Hollowness (around eyes, cheeks, temples, etc.)"
-                  )
-                  hanldleAnswers("baby blue")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">
-                Hollowness (around eyes, cheeks, temples, etc.)
-              </label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option4"
-                name="question1"
-                value="I just feel like I’m looking tired"
-                checked={
-                  values.question1 === "I just feel like I’m looking tired"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question1",
-                    "I just feel like I’m looking tired"
-                  )
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option4">
-                I just feel like I’m looking tired
-              </label>
-            </li>
+                  }
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question1",
+                      "Hollowness (around eyes, cheeks, temples, etc.)",
+                      "baby blue"
+                    )
+                  }
+                >
+                  Hollowness (around eyes, cheeks, temples, etc.)
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="I just feel like I’m looking tired"
+                  checked={
+                    values.question1 === "I just feel like I’m looking tired"
+                  }
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question1",
+                      "I just feel like I’m looking tired"
+                    )
+                  }
+                >
+                  I just feel like I’m looking tired
+                </label>
+              </li>
+            </fieldset>
             <li style={{ display: "flex" }}>
               <Link
                 className="next-btn ml-2 py-3"

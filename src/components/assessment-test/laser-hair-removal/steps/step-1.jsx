@@ -2,7 +2,7 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 import { Link } from "gatsby"
 
-const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
+const Step1 = ({ values, handleNext, setQuestionAnswer }) => {
   return (
     <>
       <div className="questionDiv">
@@ -21,68 +21,72 @@ const Step1 = ({ values, setFieldValue, handleNext, hanldleAnswers }) => {
           style={{ margin: "auto" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question1"
-                value="Wax/tweeze/epilate"
-                checked={values.question1 === "Wax/tweeze/epilate"}
-                onChange={() => {
-                  setFieldValue("question1", "Wax/tweeze/epilate")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">Wax/tweeze/epilate</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question1"
-                value="Shave"
-                checked={values.question1 === "Shave"}
-                onChange={() => {
-                  setFieldValue("question1", "Shave")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Shave</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question1"
-                value="Keep it au naturel"
-                checked={values.question1 === "Keep it au naturel"}
-                onChange={() => {
-                  setFieldValue("question1", "Keep it au naturel")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">Keep it au naturel</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option4"
-                name="question1"
-                value="One or more of the above methods"
-                checked={
-                  values.question1 === "One or more of the above methods"
-                }
-                onChange={() => {
-                  setFieldValue("question1", "One or more of the above methods")
-                  hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option4">One or more of the above methods</label>
-            </li>
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Wax/tweeze/epilate"
+                  checked={values.question1 === "Wax/tweeze/epilate"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question1", "Wax/tweeze/epilate")
+                  }
+                >
+                  Wax/tweeze/epilate
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Shave"
+                  checked={values.question1 === "Shave"}
+                  readOnly={true}
+                />
+                <label onClick={() => setQuestionAnswer("question1", "Shave")}>
+                  Shave
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="Keep it au naturel"
+                  checked={values.question1 === "Keep it au naturel"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question1", "Keep it au naturel")
+                  }
+                >
+                  Keep it au naturel
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="One or more of the above methods"
+                  checked={
+                    values.question1 === "One or more of the above methods"
+                  }
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question1",
+                      "One or more of the above methods"
+                    )
+                  }
+                >
+                  One or more of the above methods
+                </label>
+              </li>
+            </fieldset>
             <li style={{ display: "flex" }}>
               {/* <input type="radio" /> */}
 

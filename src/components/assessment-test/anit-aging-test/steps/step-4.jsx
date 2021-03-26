@@ -2,14 +2,14 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 
 const Step4 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 4 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>How did you enjoy the treatment and results?</h1>
@@ -26,72 +26,65 @@ const Step4 = ({
             <li>
               <input
                 type="radio"
-                id="option1"
                 name="question4"
                 value="Loved it"
                 checked={values.question4 === "Loved it"}
-                onChange={() => {
-                  setFieldValue("question4", "Loved it")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option1">Loved it</label>
+              <label onClick={() => setQuestionAnswer("question4", "Loved it")}>
+                Loved it
+              </label>
             </li>
             <li>
               <input
                 type="radio"
-                id="option2"
                 name="question4"
                 value="Meh, I was underwhelmed	"
-                checked={values.question4 === "Meh, I was underwhelmed	"}
-                onChange={() => {
-                  setFieldValue("question4", "Meh, I was underwhelmed	")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                checked={values.question4 === "Meh, I was underwhelmed"}
+                readOnly={true}
               />
-              <label htmlFor="option2">Meh, I was underwhelmed</label>
+              <label
+                onClick={() =>
+                  setQuestionAnswer("question4", "Meh, I was underwhelmed	")
+                }
+              >
+                Meh, I was underwhelmed
+              </label>
             </li>
             <li>
               <input
                 type="radio"
-                id="option3"
                 name="question4"
                 value="I told you, I’ve never had treatments before!"
                 checked={
                   values.question4 ===
                   "I told you, I’ve never had treatments before!"
                 }
-                onChange={() => {
-                  setFieldValue(
+                readOnly={true}
+              />
+              <label
+                onClick={() =>
+                  setQuestionAnswer(
                     "question4",
                     "I told you, I’ve never had treatments before!"
                   )
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">
+                }
+              >
                 I told you, I’ve never had treatments before!
               </label>
             </li>
-            <li style={{ display: "flex" }}>
-              <input type="radio" />
-              <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
-                Back
-              </Button>
-              <Button className="next-btn ml-2 py-3" onClick={handleNext}>
-                Next
-              </Button>
-            </li>
           </ul>
+          <li style={{ display: "flex" }}>
+            <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
+              Back
+            </Button>
+            <Button className="next-btn ml-2 py-3" onClick={handleNext}>
+              Next
+            </Button>
+          </li>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

@@ -2,14 +2,14 @@ import React from "react"
 import { Col, Button, Container } from "react-bootstrap"
 
 const Step5 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 5 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>How soon are you hoping to start treating your skin concern?</h1>
@@ -26,40 +26,36 @@ const Step5 = ({
             <li>
               <input
                 type="radio"
-                id="option1"
                 name="question5"
                 value="ASAP.  HELP!"
                 checked={values.question5 === "ASAP.  HELP!"}
-                onChange={() => {
-                  setFieldValue("question5", "ASAP.  HELP!")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option1">ASAP. HELP!</label>
+              <label
+                onClick={() => setQuestionAnswer("question5", "ASAP.  HELP!")}
+              >
+                ASAP. HELP!
+              </label>
             </li>
             <li>
               <input
                 type="radio"
-                id="option2"
                 name="question5"
                 value="I’d probably have to sleep on it… Depends on the treatment I’m advised to do"
                 checked={
                   values.question5 ===
                   "I’d probably have to sleep on it… Depends on the treatment I’m advised to do"
                 }
-                onChange={() => {
-                  setFieldValue(
+                readOnly={true}
+              />
+              <label
+                onClick={() =>
+                  setQuestionAnswer(
                     "question5",
                     "I’d probably have to sleep on it… Depends on the treatment I’m advised to do"
                   )
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">
+                }
+              >
                 I’d probably have to sleep on it… Depends on the treatment I’m
                 advised to do
               </label>
@@ -67,41 +63,38 @@ const Step5 = ({
             <li>
               <input
                 type="radio"
-                id="option3"
                 name="question5"
-                value="I’m only interested in a consultation.  No urgency to start treatment 	"
+                value="I’m only interested in a consultation.  No urgency to start treatment"
                 checked={
                   values.question5 ===
-                  "I’m only interested in a consultation.  No urgency to start treatment 	"
+                  "I’m only interested in a consultation.  No urgency to start treatment"
                 }
-                onChange={() => {
-                  setFieldValue(
-                    "question5",
-                    "I’m only interested in a consultation.  No urgency to start treatment 	"
-                  )
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option3">
+              <label
+                onClick={() =>
+                  setQuestionAnswer(
+                    "question5",
+                    "I’m only interested in a consultation.  No urgency to start treatment"
+                  )
+                }
+              >
                 I’m only interested in a consultation. No urgency to start
                 treatment{" "}
               </label>
             </li>
-
-            <li style={{ display: "flex" }}>
-              <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
-                Back
-              </Button>
-              <Button className="next-btn ml-2 py-3" onClick={handleNext}>
-                Next
-              </Button>
-            </li>
           </ul>
+          <li style={{ display: "flex" }}>
+            <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
+              Back
+            </Button>
+            <Button className="next-btn ml-2 py-3" onClick={handleNext}>
+              Next
+            </Button>
+          </li>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

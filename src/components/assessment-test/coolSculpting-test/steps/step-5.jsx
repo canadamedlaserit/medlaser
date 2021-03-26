@@ -2,14 +2,14 @@ import React from "react"
 import { Container, Col, Button } from "react-bootstrap"
 
 const Step5 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 5 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>
@@ -26,74 +26,75 @@ const Step5 = ({
           style={{ margin: "auto", padding: "2em" }}
         >
           <ul className="radio-btn">
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question5"
-                value="Fat loss – Make those inches disappear!"
-                checked={
-                  values.question5 === "Fat loss – Make those inches disappear!"
-                }
-                onChange={() => {
-                  setFieldValue(
-                    "question5",
+            <fieldset>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="Fat loss – Make those inches disappear!"
+                  checked={
+                    values.question5 ===
                     "Fat loss – Make those inches disappear!"
-                  )
-                  hanldleAnswers("green")
+                  }
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer(
+                      "question5",
+                      "Fat loss – Make those inches disappear!"
+                    )
+                  }
+                >
+                  Fat loss – Make those inches disappear!
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="Contouring in the area"
+                  checked={values.question5 === "Contouring in the area"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question5", "Contouring in the area")
+                  }
+                >
+                  Contouring in the area
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="Fat loss and contouring	"
+                  checked={values.question5 === "Fat loss and contouring	"}
+                  readOnly={true}
+                />
+                <label
+                  onClick={() =>
+                    setQuestionAnswer("question5", "Fat loss and contouring")
+                  }
+                >
+                  Fat loss and contouring
+                </label>
+              </li>
 
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option1">
-                Fat loss – Make those inches disappear!
-              </label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question5"
-                value="Contouring in the area"
-                checked={values.question5 === "Contouring in the area"}
-                onChange={() => {
-                  setFieldValue("question5", "Contouring in the area")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">Contouring in the area</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question5"
-                value="Fat loss and contouring	"
-                checked={values.question5 === "Fat loss and contouring	"}
-                onChange={() => {
-                  setFieldValue("question5", "Fat loss and contouring	")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option3">Fat loss and contouring</label>
-            </li>
-
-            <li style={{ display: "flex" }}>
-              <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
-                Back
-              </Button>
-              <Button className="next-btn ml-2 py-3" onClick={handleNext}>
-                Next
-              </Button>
-            </li>
+              <li style={{ display: "flex" }}>
+                <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
+                  Back
+                </Button>
+                <Button className="next-btn ml-2 py-3" onClick={handleNext}>
+                  Next
+                </Button>
+              </li>
+            </fieldset>
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

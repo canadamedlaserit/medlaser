@@ -2,14 +2,14 @@ import React from "react"
 import { Container, Col, Button } from "react-bootstrap"
 
 const Step4 = ({
+  currentStep,
   values,
-  setFieldValue,
+  setQuestionAnswer,
   handleNext,
   handlePrev,
-  hanldleAnswers,
 }) => {
   return (
-    <>
+    <div style={{ display: currentStep === 4 ? "block" : "none" }}>
       <div className="questionDiv">
         <Col lg={5} md={10} className="text-align-center">
           <h1>
@@ -31,40 +31,38 @@ const Step4 = ({
             <li>
               <input
                 type="radio"
-                id="option1"
                 name="question4"
                 value="Lots of volume (aka. Fat)"
                 checked={values.question4 === "Lots of volume (aka. Fat)"}
-                onChange={() => {
-                  setFieldValue("question4", "Lots of volume (aka. Fat)")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option1">Lots of volume (aka. Fat)</label>
+              <label
+                onClick={() =>
+                  setQuestionAnswer("question4", "Lots of volume (aka. Fat)")
+                }
+              >
+                Lots of volume (aka. Fat)
+              </label>
             </li>
             <li>
               <input
                 type="radio"
-                id="option2"
                 name="question4"
                 value="Just skin with no volume in between.  If there wasn’t any skin in the way, my fingers would be touching	"
                 checked={
                   values.question4 ===
                   "Just skin with no volume in between.  If there wasn’t any skin in the way, my fingers would be touching	"
                 }
-                onChange={() => {
-                  setFieldValue(
+                readOnly={true}
+              />
+              <label
+                onClick={() =>
+                  setQuestionAnswer(
                     "question4",
                     "Just skin with no volume in between.  If there wasn’t any skin in the way, my fingers would be touching	"
                   )
-                  hanldleAnswers("red")
-
-                  handleNext()
-                }}
-              />
-              <label htmlFor="option2">
+                }
+              >
                 Just skin with no volume in between. If there wasn’t any skin in
                 the way, my fingers would be touching{" "}
               </label>
@@ -72,18 +70,18 @@ const Step4 = ({
             <li>
               <input
                 type="radio"
-                id="option3"
                 name="question4"
                 value="Volume but a bit of lax skin"
                 checked={values.question4 === "Volume but a bit of lax skin"}
-                onChange={() => {
-                  setFieldValue("question4", "Volume but a bit of lax skin")
-                  hanldleAnswers("green")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option3">Volume but a bit of lax skin</label>
+              <label
+                onClick={() =>
+                  setQuestionAnswer("question4", "Volume but a bit of lax skin")
+                }
+              >
+                Volume but a bit of lax skin
+              </label>
             </li>
             <li>
               <input
@@ -95,22 +93,21 @@ const Step4 = ({
                   values.question4 ===
                   "No volume and lots of lax skin in the way"
                 }
-                onChange={() => {
-                  setFieldValue(
-                    "question4",
-                    "No volume and lots of lax skin in the way"
-                  )
-                  hanldleAnswers("red")
-
-                  handleNext()
-                }}
+                readOnly={true}
               />
-              <label htmlFor="option4">
+              <label
+                onClick={() =>
+                  setQuestionAnswer(
+                    "question4",
+                    "No volume and lots of lax skin in the way",
+                    "red"
+                  )
+                }
+              >
                 No volume and lots of lax skin in the way
               </label>
             </li>
             <li style={{ display: "flex" }}>
-              <input type="radio" />
               <Button className="next-btn ml-2 py-3" onClick={handlePrev}>
                 Back
               </Button>
@@ -121,7 +118,7 @@ const Step4 = ({
           </ul>
         </Col>
       </Container>
-    </>
+    </div>
   )
 }
 

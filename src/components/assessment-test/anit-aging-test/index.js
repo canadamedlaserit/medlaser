@@ -31,9 +31,11 @@ const initialValues = {
   question4: "",
   question5: "",
   question6: "",
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phone: "",
+  assessmentType: "Anti-Aging Assessment Assessment",
 }
 
 const LhrTest1 = () => {
@@ -95,7 +97,6 @@ const LhrTest1 = () => {
     </table>
     `
     setpayload(payload)
-    console.log(payload)
     //e.preventDefault()
     fetch("/", {
       method: "POST",
@@ -236,6 +237,11 @@ const LhrTest1 = () => {
                 name="form-name"
                 value="Medlaser NEW LEAD - anit-aging Form"
               />
+              <input
+                type="hidden"
+                value="Anti-Aging Assessment"
+                name="assessmentType"
+              />
               {/* Progressbar */}
               <Row>
                 <Col md={12} className="px-0">
@@ -256,58 +262,71 @@ const LhrTest1 = () => {
                 {currentStep === 1 && (
                   <Step1
                     values={values}
-                    setFieldValue={setFieldValue}
                     handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
+                    setQuestionAnswer={(field, value, color = "green") => {
+                      setFieldValue(field, value)
+                      hanldleAnswers(color)
+                      handleNext()
+                    }}
                   />
                 )}
-                {currentStep === 2 && (
-                  <Step2
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 3 && (
-                  <Step3
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 4 && (
-                  <Step4
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 5 && (
-                  <Step5
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 6 && (
-                  <Step6
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    handlePrev={handlePrev}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
+                <Step2
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value) => {
+                    setFieldValue(field, value)
+                    hanldleAnswers("green")
+                    handleNext()
+                  }}
+                />
+                <Step3
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value) => {
+                    setFieldValue(field, value)
+                    hanldleAnswers("green")
+                    handleNext()
+                  }}
+                />
+                <Step4
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value) => {
+                    setFieldValue(field, value)
+                    hanldleAnswers("green")
+                    handleNext()
+                  }}
+                />
+                <Step5
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value) => {
+                    setFieldValue(field, value)
+                    hanldleAnswers("green")
+                    handleNext()
+                  }}
+                />
+                <Step6
+                  currentStep={currentStep}
+                  values={values}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                  setQuestionAnswer={(field, value) => {
+                    setFieldValue(field, value)
+                    hanldleAnswers("green")
+                    handleNext()
+                  }}
+                />
 
-                {currentStep >= 7 && <Step7 />}
+                <Step7 currentStep={currentStep} />
                 {/* </Col> */}
                 {/* </Row> */}
 
