@@ -72,17 +72,15 @@ const Step2 = ({
                 type="radio"
                 id="option1"
                 name="question2"
-                value="LHR: 50% OFF + Additional 5% OFF"
-                checked={
-                  values.question2 === "LHR: 50% OFF + Additional 5% OFF"
-                }
+                value="LHR: Up to 60% OFF"
+                checked={values.question2 === "LHR: Up to 60% OFF"}
                 onChange={() =>
                   locationComponent === "locationPromoStyles"
                     ? null
                     : setModalShow(true)
                 }
                 // onChange={() => {
-                //   setFieldValue("question2", "LHR: 50% OFF + Additional 5% OFF")
+                //   setFieldValue("question2", "LHR: Up to 60% OFF")
                 //   //                hanldleAnswers("green")
                 //   handleNext()
                 // }}
@@ -111,7 +109,7 @@ const Step2 = ({
                   className="LHRStyles"
                   to="https://shop.canadamedlaser.ca/#heading_0001"
                 >
-                  LHR: 50% OFF + Additional 5% OFF
+                  LHR: Up to 60% OFF
                 </AnchorLink>
               ) : (
                 <label
@@ -125,7 +123,7 @@ const Step2 = ({
                       : {}
                   }
                 >
-                  LHR: 50% OFF + Additional 5% OFF
+                  LHR: Up to 60% OFF
                 </label>
               )}
             </li>
@@ -182,10 +180,10 @@ const Step2 = ({
                 type="radio"
                 id="option3"
                 name="question2"
-                value="CoolSculpting: Flat 40% OFF"
-                checked={values.question2 === "CoolSculpting: Flat 40% OFF"}
+                value="CoolSculpting: Up to 25% OFF"
+                checked={values.question2 === "CoolSculpting: Up to 25% OFF"}
                 onChange={() => {
-                  setFieldValue("question2", "CoolSculpting: Flat 40% OFF")
+                  setFieldValue("question2", "CoolSculpting: Up to 25% OFF")
                   // hanldleAnswers("green")
                   handleNext()
                 }}
@@ -195,7 +193,7 @@ const Step2 = ({
                   className="LHRStyles"
                   to="https://shop.canadamedlaser.ca/#heading_0100"
                 >
-                  CoolSculpting: Flat 40% OFF
+                  CoolSculpting: Up to 25% OFF
                 </AnchorLink>
               ) : (
                 <label
@@ -209,7 +207,7 @@ const Step2 = ({
                       : {}
                   }
                 >
-                  CoolSculpting: Flat 40% OFF
+                  CoolSculpting: Up to 25% OFF
                 </label>
               )}
             </li>
@@ -297,7 +295,7 @@ const MyVerticallyCenteredModal = props => {
     >
       <div closeButton style={{ borderBottom: "none" }}>
         <div id="contained-modal-title-vcenter">
-          <h1 className="modal-title">LHR: 50% OFF + Additional 5% OFF</h1>
+          <h1 className="modal-title">LHR: Up to 60% OFF</h1>
         </div>
       </div>
       <div>
