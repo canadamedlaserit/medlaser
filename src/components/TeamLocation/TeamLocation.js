@@ -111,6 +111,11 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
                         member.teamMembersDescription.image.imageFile
                           .childImageSharp.fluid
                       }
+                      // style={{ height: "80vh" }}
+                      imgStyle={{
+                        objectPosition: "top",
+                        objectFit: "cover",
+                      }}
                     />
                   ) : (
                     ""
