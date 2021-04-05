@@ -90,7 +90,6 @@ import LocationOurTreatment from "../../components/LocationSpecific_OurTreatment
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
-  console.log("my own Section", sections)
   return (
     <Layout location={location}>
       <SEO data={data.wpgraphql.page} />
