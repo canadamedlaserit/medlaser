@@ -67,7 +67,7 @@ const Step2 = ({
             <li style={{ marginTop: "60px", fontWeight: "bold" }}>
               Promotion List
             </li>
-            {promoList.map((promo, index) => (
+            {promoList && promoList.map((promo, index) => (
               <li key={promo.promoText}>
                 <input
                   type="radio"
@@ -302,7 +302,7 @@ const MyVerticallyCenteredModal = props => {
     >
       <div closeButton style={{ borderBottom: "none" }}>
         <div id="contained-modal-title-vcenter">
-          <h1 className="modal-title">{props.promoList[0].promoText}</h1>
+          <h1 className="modal-title">{props.promoList && props.promoList.length > 0 && props.promoList[0].promoText}</h1>
         </div>
       </div>
       <div>
