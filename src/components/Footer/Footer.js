@@ -141,7 +141,7 @@ class Footer extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    (socials link)
+                    socials link
                   </a>
                 ))}
               </div>
