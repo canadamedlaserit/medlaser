@@ -90,7 +90,6 @@ import LocationOurTreatment from "../../components/LocationSpecific_OurTreatment
 
 const PageTempl = ({ data, location, pageContext }) => {
   const sections = data.wpgraphql.page.sectionFields.sections
-  // console.log("my own Section", sections)
   return (
     <Layout location={location}>
       <SEO data={data.wpgraphql.page} />
@@ -144,8 +143,8 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
             return <BeforeAfterImage key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
-            return <Contact key={index} {...section} />
+          // case "WPGraphQL_Page_Sectionfields_Sections_Contact":
+          //   return <Contact key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Injury":
             return <Injury key={index} {...section} />
@@ -266,8 +265,8 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Teamslider":
             return <TeamSlider key={index} {...section} />
 
-          case "WPGraphQL_Page_Sectionfields_Sections_Equaltextlinks":
-            return <EqualTextLinks key={index} {...section} />
+          // case "WPGraphQL_Page_Sectionfields_Sections_Equaltextlinks":
+          //   return <EqualTextLinks key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Notalignedtitle":
             return <NotAlignedTitle key={index} {...section} />

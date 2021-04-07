@@ -78,7 +78,6 @@ export const fragment = graphql`
             */
 
 const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
-  // console.log(teammembers)
   return (
     <section id="ourTeam" className={styles.Section}>
       <div className={`container ${styles.Container}`}>
@@ -112,6 +111,11 @@ const TeamLocation = ({ teamcategory, numberperrow, teammembers }) => {
                         member.teamMembersDescription.image.imageFile
                           .childImageSharp.fluid
                       }
+                      // style={{ height: "80vh" }}
+                      imgStyle={{
+                        objectPosition: "top",
+                        objectFit: "cover",
+                      }}
                     />
                   ) : (
                     ""

@@ -42,7 +42,7 @@ export default function HomeQuiz() {
             style={{
               backgroundColor: "#000000",
               color: "#FFFFFF",
-              height: "50vh",
+              height: "60vh",
               paddingTop: "25vh",
             }}
           >
@@ -55,6 +55,10 @@ export default function HomeQuiz() {
               <h1 className="headerTitle">Take the Quiz</h1>
               <AnchorLink to="/more-treatments/" className="btn btn-red">
                 browse all treatments
+              </AnchorLink>
+              <br/>
+              <AnchorLink to="https://takecareof.com/" className="takcareof">
+                For more, visit TakeCareOf
               </AnchorLink>
               <p className="headerdesc">
                 Canada MedLaser is all about giving the best services to all our

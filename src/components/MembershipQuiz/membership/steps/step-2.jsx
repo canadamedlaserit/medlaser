@@ -23,6 +23,7 @@ const Step2 = ({
   hanldleAnswers,
   handlePrev,
   locationComponent,
+  promoList,
 }) => {
   const [modalShow, setModalShow] = React.useState(false)
   return (
@@ -67,150 +68,155 @@ const Step2 = ({
             <li style={{ marginTop: "60px", fontWeight: "bold" }}>
               Promotion List
             </li>
-            <li>
-              <input
-                type="radio"
-                id="option1"
-                name="question2"
-                value="LHR: Up to 60% OFF"
-                checked={values.question2 === "LHR: Up to 60% OFF"}
-                onChange={() =>
-                  locationComponent === "locationPromoStyles"
-                    ? null
-                    : setModalShow(true)
-                }
-                // onChange={() => {
-                //   setFieldValue("question2", "LHR: Up to 60% OFF")
-                //   //                hanldleAnswers("green")
-                //   handleNext()
-                // }}
-                // style={
-                //   locationComponent === "locationPromoStyles"
-                //     ? {
-                //         display: "none",
-                //       }
-                //     : {}
-                // }
-              />
-              {locationComponent === "locationPromoStyles" ? (
-                <AnchorLink
-                  // style={{
-                  //   fontFamily: "Montserrat",
-                  //   fontSize: "18px",
-                  //   lineHeight: "55px",
-                  //   letterSpacing: "0.9px",
-                  //   border: "solid #bebebe 1px",
-                  //   color: "#fff",
-                  //   borderRadius: "0",
-                  //   cursor: "pointer",
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  // }}
-                  className="LHRStyles"
-                  to="https://shop.canadamedlaser.ca/#heading_0001"
-                >
-                  LHR: Up to 60% OFF
-                </AnchorLink>
-              ) : (
-                <label
-                  htmlFor="option1"
-                  style={
-                    locationComponent === "locationPromoStyles"
-                      ? {
-                          backgroundColor: "initial",
-                          color: "#fff",
-                        }
-                      : {}
-                  }
-                >
-                  LHR: Up to 60% OFF
-                </label>
-              )}
-            </li>
-
-            <li>
-              <input
-                type="radio"
-                id="option2"
-                name="question2"
-                value="Botox: Buy first 10 units for $59 (New clients only)"
-                checked={
-                  values.question2 ===
-                  "Botox: Buy first 10 units for $59 (New clients only)"
-                }
-                onChange={
-                  locationComponent === "locationPromoStyles"
-                    ? null
-                    : () => {
-                        setFieldValue(
-                          "question2",
-                          "Botox: Buy first 10 units for $59 (New clients only)"
-                        )
-                        // hanldleAnswers("green")
-                        handleNext()
+            {promoList &&
+              promoList.map((promo, index) => (
+                <li key={promo.promoText}>
+                  <input
+                    type="radio"
+                    id="option1"
+                    name="question2"
+                    value={promo.promoText}
+                    checked={values.question2 === promo.promoText}
+                    onChange={() =>
+                      locationComponent === "locationPromoStyles"
+                        ? null
+                        : setModalShow(true)
+                    }
+                    // onChange={() => {
+                    //   setFieldValue("question2", "LHR: Up to 60% OFF")
+                    //   //                hanldleAnswers("green")
+                    //   handleNext()
+                    // }}
+                    // style={
+                    //   locationComponent === "locationPromoStyles"
+                    //     ? {
+                    //         display: "none",
+                    //       }
+                    //     : {}
+                    // }
+                  />
+                  {locationComponent === "locationPromoStyles" ? (
+                    <AnchorLink
+                      // style={{
+                      //   fontFamily: "Montserrat",
+                      //   fontSize: "18px",
+                      //   lineHeight: "55px",
+                      //   letterSpacing: "0.9px",
+                      //   border: "solid #bebebe 1px",
+                      //   color: "#fff",
+                      //   borderRadius: "0",
+                      //   cursor: "pointer",
+                      //   display: "flex",
+                      //   justifyContent: "center",
+                      // }}
+                      className="LHRStyles"
+                      to="https://shop.canadamedlaser.ca/#heading_0001"
+                    >
+                      {promo.promoText}
+                    </AnchorLink>
+                  ) : (
+                    <label
+                      htmlFor="option1"
+                      style={
+                        locationComponent === "locationPromoStyles"
+                          ? {
+                              backgroundColor: "initial",
+                              color: "#fff",
+                            }
+                          : {}
                       }
-                }
-              />
+                    >
+                      {promo.promoText}
+                    </label>
+                  )}
+                </li>
+              ))}
 
-              {locationComponent === "locationPromoStyles" ? (
-                <AnchorLink
-                  className="LHRStyles"
-                  to="https://shop.canadamedlaser.ca/#heading_0010"
-                >
-                  Botox: Buy first 10 units for $59 (New clients only)
-                </AnchorLink>
-              ) : (
-                <label
-                  htmlFor="option2"
-                  style={
-                    locationComponent === "locationPromoStyles"
-                      ? {
-                          backgroundColor: "initial",
-                          color: "#fff",
-                        }
-                      : {}
-                  }
-                >
-                  Botox: Buy first 10 units for $59 (New clients only)
-                </label>
-              )}
-            </li>
-            <li>
-              <input
-                type="radio"
-                id="option3"
-                name="question2"
-                value="CoolSculpting: Up to 25% OFF"
-                checked={values.question2 === "CoolSculpting: Up to 25% OFF"}
-                onChange={() => {
-                  setFieldValue("question2", "CoolSculpting: Up to 25% OFF")
-                  // hanldleAnswers("green")
-                  handleNext()
-                }}
-              />
-              {locationComponent === "locationPromoStyles" ? (
-                <AnchorLink
-                  className="LHRStyles"
-                  to="https://shop.canadamedlaser.ca/#heading_0100"
-                >
-                  CoolSculpting: Up to 25% OFF
-                </AnchorLink>
-              ) : (
-                <label
-                  htmlFor="option3"
-                  style={
-                    locationComponent === "locationPromoStyles"
-                      ? {
-                          backgroundColor: "initial",
-                          color: "#fff",
-                        }
-                      : {}
-                  }
-                >
-                  CoolSculpting: Up to 25% OFF
-                </label>
-              )}
-            </li>
+            {/*<li>*/}
+            {/*  <input*/}
+            {/*    type="radio"*/}
+            {/*    id="option2"*/}
+            {/*    name="question2"*/}
+            {/*    value="Botox: Buy first 10 units for $59 (New clients only)"*/}
+            {/*    checked={*/}
+            {/*      values.question2 ===*/}
+            {/*      "Botox: Buy first 10 units for $59 (New clients only)"*/}
+            {/*    }*/}
+            {/*    onChange={*/}
+            {/*      locationComponent === "locationPromoStyles"*/}
+            {/*        ? null*/}
+            {/*        : () => {*/}
+            {/*            setFieldValue(*/}
+            {/*              "question2",*/}
+            {/*              "Botox: Buy first 10 units for $59 (New clients only)"*/}
+            {/*            )*/}
+            {/*            // hanldleAnswers("green")*/}
+            {/*            handleNext()*/}
+            {/*          }*/}
+            {/*    }*/}
+            {/*  />*/}
+
+            {/*  {locationComponent === "locationPromoStyles" ? (*/}
+            {/*    <AnchorLink*/}
+            {/*      className="LHRStyles"*/}
+            {/*      to="https://shop.canadamedlaser.ca/#heading_0010"*/}
+            {/*    >*/}
+            {/*      Botox: Buy first 10 units for $59 (New clients only)*/}
+            {/*    </AnchorLink>*/}
+            {/*  ) : (*/}
+            {/*    <label*/}
+            {/*      htmlFor="option2"*/}
+            {/*      style={*/}
+            {/*        locationComponent === "locationPromoStyles"*/}
+            {/*          ? {*/}
+            {/*              backgroundColor: "initial",*/}
+            {/*              color: "#fff",*/}
+            {/*            }*/}
+            {/*          : {}*/}
+            {/*      }*/}
+            {/*    >*/}
+            {/*      Botox: Buy first 10 units for $59 (New clients only)*/}
+            {/*    </label>*/}
+            {/*  )}*/}
+            {/*</li>*/}
+
+            {/*<li>*/}
+            {/*  <input*/}
+            {/*    type="radio"*/}
+            {/*    id="option3"*/}
+            {/*    name="question2"*/}
+            {/*    value="CoolSculpting: Up to 25% OFF"*/}
+            {/*    checked={values.question2 === "CoolSculpting: Up to 25% OFF"}*/}
+            {/*    onChange={() => {*/}
+            {/*      setFieldValue("question2", "CoolSculpting: Up to 25% OFF")*/}
+            {/*      // hanldleAnswers("green")*/}
+            {/*      handleNext()*/}
+            {/*    }}*/}
+            {/*  />*/}
+            {/*  {locationComponent === "locationPromoStyles" ? (*/}
+            {/*    <AnchorLink*/}
+            {/*      className="LHRStyles"*/}
+            {/*      to="https://shop.canadamedlaser.ca/#heading_0100"*/}
+            {/*    >*/}
+            {/*      CoolSculpting: Up to 25% OFF*/}
+            {/*    </AnchorLink>*/}
+            {/*  ) : (*/}
+            {/*    <label*/}
+            {/*      htmlFor="option3"*/}
+            {/*      style={*/}
+            {/*        locationComponent === "locationPromoStyles"*/}
+            {/*          ? {*/}
+            {/*              backgroundColor: "initial",*/}
+            {/*              color: "#fff",*/}
+            {/*            }*/}
+            {/*          : {}*/}
+            {/*      }*/}
+            {/*    >*/}
+            {/*      CoolSculpting: Up to 25% OFF*/}
+            {/*    </label>*/}
+            {/*  )}*/}
+            {/*</li>*/}
+
             <li className="buttonReposive">
               <input
                 className={
@@ -255,6 +261,7 @@ const Step2 = ({
         open={modalShow}
         handleNext={handleNext}
         onClose={() => setModalShow(false)}
+        promoList={promoList}
       />
       {/* </Row> */}
     </section>
@@ -295,7 +302,11 @@ const MyVerticallyCenteredModal = props => {
     >
       <div closeButton style={{ borderBottom: "none" }}>
         <div id="contained-modal-title-vcenter">
-          <h1 className="modal-title">LHR: Up to 60% OFF</h1>
+          <h1 className="modal-title">
+            {props.promoList &&
+              props.promoList.length > 0 &&
+              props.promoList[0].promoText}
+          </h1>
         </div>
       </div>
       <div>

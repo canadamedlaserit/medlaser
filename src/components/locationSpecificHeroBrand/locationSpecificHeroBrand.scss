@@ -1,7 +1,7 @@
 @import "../../styles/_variables";
 
 #LocationHeroBrand {
-  min-height: 600px;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,5 +126,10 @@
     letter-spacing: 3.2px;
     text-align: center;
     text-transform: none;
+  }
+  .iframe {
+    width: 80%;
+    height: 300px;
+    margin-top: 10px;
   }
 }

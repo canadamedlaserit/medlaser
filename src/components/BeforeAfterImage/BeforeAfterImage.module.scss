@@ -48,3 +48,14 @@
     }
   }
 }
+
+.buttonsWrapper {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  @media (max-width: 640px) {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+}
+

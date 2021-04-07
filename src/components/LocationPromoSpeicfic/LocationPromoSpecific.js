@@ -8,10 +8,13 @@ import { NavLink } from "react-bootstrap"
 
 export const fragment = graphql`
   fragment Locationspecificpromo on WPGraphQL_Page_Sectionfields_Sections_Locationspecificpromo {
-    fieldGroupName
+    fieldGroupName,
+    promoList {
+      promoText
+    }
   }
 `
-const LocationPromoSpecific = () => {
+const LocationPromoSpecific = (props) => {
   const TopBarMenu = [
     { name: "About Us", url: "#aboutUs" },
     { name: "Our Treatments", url: "#LocationOurTreatment" },
@@ -38,6 +41,7 @@ const LocationPromoSpecific = () => {
         <CMLQUIZ
           ComponentFor="locationSection"
           locationComponent="locationPromoStyles"
+          promoList={props.promoList}
         />
       </section>
     </div>

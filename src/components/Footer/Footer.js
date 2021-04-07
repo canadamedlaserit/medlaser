@@ -40,7 +40,6 @@ class Footer extends Component {
         footerMenu = menus[menu].node.menuItems.edges
       }
     }
-    console.log("my Footer Menu", footerMenu)
 
     return (
       <footer className={styles.Footer}>
@@ -90,7 +89,6 @@ class Footer extends Component {
                         : null
                     }
                   >
-                    {console.log("myFooterLabel=", node)}
                     {node.url ? (
                       <h2>
                         <Link style={{ color: "#ffffff" }} to={node.url}>

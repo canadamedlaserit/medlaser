@@ -37,6 +37,10 @@
     justify-content: space-between;
     padding-left: 30px;
     padding-right: 30px;
+
+    .Gimg {
+      height: 130vh;
+    }
   }
   .Col6 {
     max-width: 47%;
@@ -77,5 +81,31 @@
         margin-bottom: 65px;
       }
     }
+  }
+  .Gimg {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 1367px) {
+  .Gimg {
+    height: 110vh !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .Gimg {
+    height: 80vh !important;
+  }
+}
+@media (max-width: 900px) {
+  .Gimg {
+    height: 70vh !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .Gimg {
+    height: auto !important;
   }
 }

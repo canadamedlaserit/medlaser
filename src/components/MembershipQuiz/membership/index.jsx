@@ -33,7 +33,7 @@ const initialValues = {
   phone: "",
 }
 const MQuizImage = [MQuiz1, MQuiz2]
-const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
+const CMLQUIZ = ({ ComponentFor, locationComponent,promoList }) => {
   // const alcoholTest = { title: "" }
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [progress, setProgress] = useState(20)
@@ -206,6 +206,7 @@ const CMLQUIZ = ({ ComponentFor, locationComponent }) => {
                         handleNext={handleNext}
                         hanldleAnswers={hanldleAnswers}
                         locationComponent={locationComponent}
+                        promoList={promoList}
                       />
                     )}
                     {/* {currentStep === 3 && (

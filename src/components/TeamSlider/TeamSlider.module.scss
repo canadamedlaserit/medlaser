@@ -1,85 +1,71 @@
-.Section {
-  padding-bottom: 50px;
-  padding-top: 50px;
+.our-team-person-container {
+  background-color: black;
+  display: flex;
+  justify-content: center;
 
-  .SwiperSlide {
-    max-height: 700px;
-    position: relative;
-  }
-  .Gimg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 100%;
-    margin: auto;
-    min-height: 700px;
+  color: white;
 
-    img {
-      opacity: 1 !important;
-    }
-  }
-
-  h3 {
-    text-align: left;
-  }
-
-  .SwiperSlide {
-    position: relative;
-    // transition: width 0.5s;
-  }
-
-  .Text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    background: #000000a7 0% 0% no-repeat padding-box;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-
-    > div {
-      padding-top: 10px;
-      background: rgba(255, 255,255, 0.85);
-      opacity: 0;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-  }
-
-  .Col {
-    padding: 0;
+  @media (max-width: 991px) {
+    padding-left: 60px;
+    padding-right: 60px;
   }
 }
 
-@media (max-width: 768px) {
-  .Section {
-    .SwiperSlide {
-      .Gimg {
-        min-height: 441px;
-      }
-    }
+.our-team-person-inner {
+  width: 100%;
+}
 
-    .Text {
-      h3 {
-        font-size: 24px;
-      }
-      > div {
-        padding-left: 15px;
-        padding-right: 15px;
+.our-team-person-img {
+  width: 100%;
+}
 
-        line-height: 1.2;
-      }
-    }
+.our-team-person-name {
+  font-size: 22px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+.our-team-person-desig {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 20px;
+}
 
-    svg {
-      path {
-        fill: black;
-      }
-    }
+.our-team-info {
+  background-color: black;
+  color: white;
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 991px) {
+    padding-left: 60px;
+    padding-right: 60px;
   }
+}
+
+.our-team-info-icon {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 35px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.our-team-info-head {
+  max-width: 500px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+  @media (max-width: 575px) {
+    font-size: 28px;
+  }
+}
+
+.our-team-info p {
+  text-align: center;
 }

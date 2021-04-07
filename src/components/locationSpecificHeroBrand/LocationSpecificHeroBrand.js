@@ -73,6 +73,11 @@ const LocationSpecificHeroBrand = ({
           </div>
         </Col>
       </div>
+      <Row className="brandWrapper">
+        {title.includes('Maple Laser Clinic') &&
+        <iframe className="iframe" src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'></iframe>
+        }
+      </Row>
     </section>
   )
 }
