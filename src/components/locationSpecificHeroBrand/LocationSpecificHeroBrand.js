@@ -75,13 +75,12 @@ const LocationSpecificHeroBrand = ({
                 </AnchorLink>
               </Col>
               <Col lg={5} md={5} sm={12}>
-                <a
-                  href="javascript:void(0)"
+                <button
                   className="promoBtn book__appointment"
                   onClick={handleShow}
                 >
                   Book Appointment
-                </a>
+                </button>
               </Col>
             </Row>
           </div>
