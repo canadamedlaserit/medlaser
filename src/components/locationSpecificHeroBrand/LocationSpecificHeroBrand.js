@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap"
 //icon
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Row } from "react-bootstrap"
-import Modal from "react-bootstrap/Modal"
+import { Modal } from "react-bootstrap"
 
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {
@@ -75,7 +75,11 @@ const LocationSpecificHeroBrand = ({
                 </AnchorLink>
               </Col>
               <Col lg={5} md={5} sm={12}>
-                <a className="promoBtn book__appointment" onClick={handleShow}>
+                <a
+                  href="javascript:void(0)"
+                  className="promoBtn book__appointment"
+                  onClick={handleShow}
+                >
                   Book Appointment
                 </a>
               </Col>
