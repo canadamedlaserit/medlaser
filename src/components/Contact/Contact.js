@@ -36,7 +36,7 @@ const Contact = ({ backgroundColor, title, buttonText, formSettings }) => {
     <section
       id="contact"
       className={styles.Section}
-      style={{ backgroundColor: backgroundColor ? backgroundColor : "#161616" }}
+      style={{ backgroundColor: backgroundColor ? backgroundColor : "#9C1A3B" }}
     >
       <div className={`container ${styles.Container}`}>
         <div className={`row`}>

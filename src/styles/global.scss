@@ -28,6 +28,9 @@ h1 {
     line-height: 65px;
   }
 }
+.btn-red.bg_black {
+  background-color: black;
+}
 .bottompromo {
   background: #000;
   color: #fff;
@@ -572,6 +575,7 @@ main {
     background-color: $red-dark !important;
     border-color: $red-dark !important;
     color: $white !important;
+    box-shadow: none;
   }
 }
 

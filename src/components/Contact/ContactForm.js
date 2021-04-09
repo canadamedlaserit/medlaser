@@ -396,7 +396,7 @@ export class ContactForm extends Component {
           </div>
 
           <Button
-            className={` ${styles.Form___formSubmit} btn btn-red ${
+            className={` ${styles.Form___formSubmit} btn btn-red bg_black ${
               column ? styles.ButtonColumnType : ""
             }`}
             // onClick={this.handleSubmit}
