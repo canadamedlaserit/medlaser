@@ -49,13 +49,23 @@ const InnerHeroImageFullWidth = ({
           </Row>
         </div>
       </Container>
-      <div className={styles.ourTeamImgContainer}>
-        <div className={styles.ourTeamImgInner}>
-          <Img
-            alt={image.altText}
-            className={styles.ourTeamPersonImg}
-            fluid={image.imageFile.childImageSharp.fluid}
-          />
+      <div className="InnerHeroImage">
+        <div className={styles.ourTeamImgContainer}>
+          <div className={styles.ourTeamImgInner}>
+            <Img
+              alt={image.altText}
+              className={styles.ourTeamPersonImg}
+              fluid={image.imageFile.childImageSharp.fluid}
+            />
+          </div>
+        </div>
+        <div className={`cta_content ${image.altText}`}>
+          <h2>Canada MedLaser Clinics</h2>
+          <p>
+            <a className="btn btn-mid btn-red" href="#contact">
+              Book Now
+            </a>
+          </p>
         </div>
       </div>
     </div>

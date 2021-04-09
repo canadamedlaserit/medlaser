@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import "./locationSpecificHeroBrand.scss"
 import { Col } from "react-bootstrap"
@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap"
 //icon
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Row } from "react-bootstrap"
+import Modal from "react-bootstrap/Modal"
 
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {
@@ -25,6 +26,10 @@ const LocationSpecificHeroBrand = ({
   title,
   btnPromoLink,
 }) => {
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
     <section id="LocationHeroBrand">
       <div className="brandWrapper">
@@ -69,15 +74,30 @@ const LocationSpecificHeroBrand = ({
                   {btnPromo}
                 </AnchorLink>
               </Col>
+              <Col lg={5} md={5} sm={12}>
+                <a className="promoBtn book__appointment" onClick={handleShow}>
+                  Book Appointment
+                </a>
+              </Col>
             </Row>
           </div>
         </Col>
       </div>
-      <Row className="brandWrapper">
-        {title.includes('Maple Laser Clinic') &&
-        <iframe className="iframe" src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'></iframe>
-        }
-      </Row>
+      <Modal size="lg" centered show={show} onHide={handleClose}>
+        <Modal.Header closeButton className="quity__header">
+          <Modal.Title>Book An Appointment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row className="brandWrapper">
+            {title.includes("Maple Laser Clinic") && (
+              <iframe
+                className="iframe quity__iframe"
+                src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'
+              ></iframe>
+            )}
+          </Row>
+        </Modal.Body>
+      </Modal>
     </section>
   )
 }
