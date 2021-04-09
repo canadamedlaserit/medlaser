@@ -164,12 +164,11 @@ class Footer extends Component {
               </div>
             </div>
           </div>
-          
         </div>
         <div
-            className="bottompromo"
-            dangerouslySetInnerHTML={{ __html: footerInfo.promoTopLine }}
-          ></div>
+          className="bottompromo"
+          dangerouslySetInnerHTML={{ __html: footerInfo.promoTopLine }}
+        ></div>
       </footer>
     )
   }

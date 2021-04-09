@@ -25,7 +25,7 @@ const LocationsMapWithOptions = ({
   content,
   specificlocation,
   location,
-  locationInfoList
+  locationInfoList,
 }) => {
   const data = useStaticQuery(graphql`
     query locQuery2 {
