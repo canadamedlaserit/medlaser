@@ -129,6 +129,9 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
         allPosts.push(posts)
       })
 
+      // Create only 20 or less posts when in development env
+      if (process.env.NODE_ENV === 'development' && allPosts.length >= 20) return allPosts
+
       /**
        * If there's another post, fetch more
        * so we can have all the data we need.
