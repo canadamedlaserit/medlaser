@@ -25,6 +25,7 @@ const LocationSpecificHeroBrand = ({
   description,
   title,
   btnPromoLink,
+  btnCallLink,
 }) => {
   const [show, setShow] = useState(false)
 
@@ -74,33 +75,35 @@ const LocationSpecificHeroBrand = ({
                   {btnPromo}
                 </AnchorLink>
               </Col>
-              <Col lg={5} md={5} sm={12}>
-                <button
-                  className="promoBtn book__appointment"
-                  onClick={handleShow}
-                >
-                  Book Appointment
-                </button>
-              </Col>
+              {title.includes("Maple Laser Clinic") && (
+                <Col lg={5} md={5} sm={12}>
+                  <button
+                    className={`promoBtn book__appointment show${btnCallLink}`}
+                    onClick={handleShow}
+                  >
+                    Book Appointment
+                  </button>
+                </Col>
+              )}
             </Row>
           </div>
         </Col>
       </div>
-      <Modal size="lg" centered show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="quity__header">
-          <Modal.Title>Book An Appointment</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Row className="brandWrapper">
-            {title.includes("Maple Laser Clinic") && (
+      {title.includes("Maple Laser Clinic") && (
+        <Modal size="lg" centered show={show} onHide={handleClose}>
+          <Modal.Header closeButton className="quity__header">
+            <Modal.Title>Book An Appointment</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Row className="brandWrapper">
               <iframe
                 className="iframe quity__iframe"
                 src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'
               ></iframe>
-            )}
-          </Row>
-        </Modal.Body>
-      </Modal>
+            </Row>
+          </Modal.Body>
+        </Modal>
+      )}
     </section>
   )
 }

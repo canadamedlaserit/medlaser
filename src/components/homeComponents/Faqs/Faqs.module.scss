@@ -172,6 +172,10 @@
 }
 
 @media (max-width: 767px) {
+  .ImageSide {
+    position: relative;
+    top: unset;
+  }
   .Section {
     padding-top: 80px;
     padding-bottom: 24px;
