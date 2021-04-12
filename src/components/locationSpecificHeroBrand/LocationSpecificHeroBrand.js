@@ -77,12 +77,12 @@ const LocationSpecificHeroBrand = ({
               </Col>
               {title.includes("Maple Laser Clinic") && (
                 <Col lg={5} md={5} sm={12}>
-                  <button
+                  {/* <button
                     className={`promoBtn book__appointment show${btnCallLink}`}
                     onClick={handleShow}
                   >
                     Book Appointment
-                  </button>
+                  </button> */}
                 </Col>
               )}
             </Row>
