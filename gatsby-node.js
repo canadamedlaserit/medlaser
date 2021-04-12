@@ -46,7 +46,7 @@ exports.createPagesStatefully = async (
 }
 
 // category + tag + PAGES
-module.exports.createPages = async ({ graphql, actions }) => {
+module.exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createRedirect } = actions
 
   // redirects start
@@ -125,10 +125,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
   createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/laser-hair-removal-woman/",
-    toPath:
-      "https://canadamedlaser.ca/laser-hair-removal-women/",
+    fromPath: "https://canadamedlaser.ca/laser-hair-removal-woman/",
+    toPath: "https://canadamedlaser.ca/laser-hair-removal-women/",
     isPermanent: true,
     force: true,
   })
@@ -142,37 +140,91 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const memberFilter = path.resolve("src/templates/post/member.js")
   const sitemapFilter = path.resolve("src/templates/post/sitemap.js")
 
-  const query = await graphql(`
-    {
-      wpgraphql {
-        teams(first: 200) {
-          edges {
-            node {
-              id
-              uri
-              slug
+  const GET_DATA = `
+  query GET_DATA($members:Int $pages:Int $tags:Int $categories:Int) {
+    wpgraphql {
+      teams(first: $members) {
+        edges {
+          node {
+            id
+            uri
+            slug
+          }
+        }
+      }
+      pages(first: $pages) {
+        edges {
+          node {
+            id
+            uri
+            title
+            childPages(first: 500) {
+              edges {
+                node {
+                  id
+                  uri
+                  title
+                  childPages(first: 500) {
+                    edges {
+                      node {
+                        id
+                        uri
+                        title
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
-        pages(first: 500) {
-          edges {
-            node {
-              id
-              uri
+      }
+      tags(first: $tags) {
+        edges {
+          node {
+            id
+            uri
+            name
+            slug
+            seo {
               title
-              childPages(first: 500) {
-                edges {
-                  node {
+              metaDesc
+            }
+            posts(first: 500) {
+              nodes {
+                uri
+                title
+                excerpt
+                termNames
+                termSlugs
+                categories {
+                  nodes {
+                    name
+                    slug
                     id
-                    uri
-                    title
-                    childPages(first: 500) {
-                      edges {
-                        node {
-                          id
-                          uri
-                          title
-                        }
+                  }
+                }
+                author {
+                  name
+                  slug
+                }
+                date
+                featuredImage {
+                  sourceUrl
+                  altText
+                  imageFile {
+                    childImageSharp {
+                      fluid(
+                        maxHeight: 500
+                        maxWidth: 800
+                        quality: 90
+                        cropFocus: CENTER
+                      ) {
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        sizes
                       }
                     }
                   }
@@ -181,108 +233,53 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        tags(first: 500) {
-          edges {
-            node {
-              id
-              uri
-              name
-              slug
-              seo {
+      }
+      categories(first: $categories) {
+        edges {
+          node {
+            id
+            uri
+            name
+            slug
+            seo {
+              title
+              metaDesc
+            }
+            posts(first: 500) {
+              nodes {
+                uri
                 title
-                metaDesc
-              }
-              posts(first: 500) {
-                nodes {
-                  uri
-                  title
-                  excerpt
-                  termNames
-                  termSlugs
-                  categories {
-                    nodes {
-                      name
-                      slug
-                      id
-                    }
-                  }
-                  author {
+                excerpt
+                termNames
+                termSlugs
+                categories {
+                  nodes {
                     name
                     slug
-                  }
-                  date
-                  featuredImage {
-                    sourceUrl
-                    altText
-                    imageFile {
-                      childImageSharp {
-                        fluid(
-                          maxHeight: 500
-                          maxWidth: 800
-                          quality: 90
-                          cropFocus: CENTER
-                        ) {
-                          tracedSVG
-                          aspectRatio
-                          src
-                          srcSet
-                          sizes
-                        }
-                      }
-                    }
+                    id
                   }
                 }
-              }
-            }
-          }
-        }
-        categories(first: 500) {
-          edges {
-            node {
-              id
-              uri
-              name
-              slug
-              seo {
-                title
-                metaDesc
-              }
-              posts(first: 500) {
-                nodes {
-                  uri
-                  title
-                  excerpt
-                  termNames
-                  termSlugs
-                  categories {
-                    nodes {
-                      name
-                      slug
-                      id
-                    }
-                  }
-                  author {
-                    name
-                    slug
-                  }
-                  date
-                  featuredImage {
-                    sourceUrl
-                    altText
-                    imageFile {
-                      childImageSharp {
-                        fluid(
-                          maxHeight: 500
-                          maxWidth: 800
-                          quality: 90
-                          cropFocus: CENTER
-                        ) {
-                          tracedSVG
-                          aspectRatio
-                          src
-                          srcSet
-                          sizes
-                        }
+                author {
+                  name
+                  slug
+                }
+                date
+                featuredImage {
+                  sourceUrl
+                  altText
+                  imageFile {
+                    childImageSharp {
+                      fluid(
+                        maxHeight: 500
+                        maxWidth: 800
+                        quality: 90
+                        cropFocus: CENTER
+                      ) {
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        sizes
                       }
                     }
                   }
@@ -293,7 +290,20 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  }
+  `
+
+  const devParams = { members: 6, pages: 12, tags: 6, categories: 6 }
+  const prodParams = { members: 200, pages: 500, tags: 500, categories: 500 }
+  const params = process.env.NODE_ENV === "development" ? devParams : prodParams
+
+  const query = await graphql(GET_DATA, params)
+  const { categories, tags, teams, pages } = query.data.wpgraphql
+
+  reporter.info(`# -----> CATEGORIES TOTAL: ${categories.edges.length}`)
+  reporter.info(`# -----> TAGS TOTAL: ${tags.edges.length}`)
+  reporter.info(`# -----> TEAMS TOTAL: ${teams.edges.length}`)
+  reporter.info(`# -----> PAGES TOTAL: ${pages.edges.length}`)
 
   //categories
   query.data.wpgraphql.categories.edges.forEach(edge => {
