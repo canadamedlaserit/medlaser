@@ -23,7 +23,14 @@ export const fragment = graphql`
     }
   }
 `
-
+const handleClick = e => {
+  e.preventDefault()
+  // let pathname = window.location.pathname.replace("/", "")
+  // window.location.href = pathname + "/#contact"
+  document
+    .getElementById("contact")
+    .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+}
 const InnerHeroImageFullWidth = ({
   title,
   description,
@@ -62,7 +69,11 @@ const InnerHeroImageFullWidth = ({
         <div className={`cta_content ${image.altText}`}>
           <h2>Canada MedLaser Clinics</h2>
           <p>
-            <a className="btn btn-mid btn-red" href="#contact">
+            <a
+              className="btn btn-mid btn-red"
+              href="#contact"
+              onClick={handleClick}
+            >
               Book Now
             </a>
           </p>
