@@ -68,6 +68,23 @@ h1 {
   outline: none;
   border: none;
 }
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  z-index: 9999;
+}
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 50%;
+}
+.ReactModal__Content button {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 20px;
+}
+.ReactModal__Content h4 {
+  text-align: left;
+}
 .quity__header {
   padding: 0.5rem 1rem;
 }
@@ -853,6 +870,9 @@ main {
 }
 
 @media (max-width: 767px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 90%;
+  }
   .services-swiper {
     .swiper-container {
       width: 100%;

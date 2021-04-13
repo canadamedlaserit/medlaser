@@ -2,11 +2,21 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import "./locationSpecificHeroBrand.scss"
 import { Col } from "react-bootstrap"
-import { Button } from "react-bootstrap"
 //icon
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Row } from "react-bootstrap"
-import { Modal } from "react-bootstrap"
+import Modal from "react-modal"
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+}
 
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {
@@ -27,10 +37,13 @@ const LocationSpecificHeroBrand = ({
   btnPromoLink,
   btnCallLink,
 }) => {
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+  function openModal() {
+    setIsOpen(true)
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
   return (
     <section id="LocationHeroBrand">
       <div className="brandWrapper">
@@ -77,12 +90,12 @@ const LocationSpecificHeroBrand = ({
               </Col>
               {title.includes("Maple Laser Clinic") && (
                 <Col lg={5} md={5} sm={12}>
-                  {/* <button
+                  <button
                     className={`promoBtn book__appointment show${btnCallLink}`}
-                    onClick={handleShow}
+                    onClick={openModal}
                   >
                     Book Appointment
-                  </button> */}
+                  </button>
                 </Col>
               )}
             </Row>
@@ -90,18 +103,20 @@ const LocationSpecificHeroBrand = ({
         </Col>
       </div>
       {title.includes("Maple Laser Clinic") && (
-        <Modal size="lg" centered show={show} onHide={handleClose}>
-          <Modal.Header closeButton className="quity__header">
-            <Modal.Title>Book An Appointment</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Row className="brandWrapper">
-              <iframe
-                className="iframe quity__iframe"
-                src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'
-              ></iframe>
-            </Row>
-          </Modal.Body>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <button onClick={closeModal}>X</button>
+          <h4>Book An Appointment</h4>
+          <Row className="brandWrapper">
+            <iframe
+              className="iframe quity__iframe"
+              src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'
+            ></iframe>
+          </Row>
         </Modal>
       )}
     </section>
