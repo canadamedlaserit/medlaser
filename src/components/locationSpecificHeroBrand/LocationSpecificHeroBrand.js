@@ -47,7 +47,7 @@ const LocationSpecificHeroBrand = ({
   return (
     <section id="LocationHeroBrand">
       <div className="brandWrapper">
-        <Col lg={5} md={9} sm={12} className="mainWrapper">
+        <Col lg={7} md={9} sm={12} className="mainWrapper">
           <div
             className="titleWrapper"
             dangerouslySetInnerHTML={{ __html: title }}
@@ -62,8 +62,21 @@ const LocationSpecificHeroBrand = ({
               className="Btn_rowWrapper"
               style={{ marginLeft: "0px", marginRight: "0px" }}
             >
-              <Col lg={5} md={5} sm={12}>
-                <AnchorLink className="PhoneWrapper callBtn">
+              {title.includes("Maple Laser Clinic") && (
+                <Col lg={4} md={4} sm={12}>
+                  <button
+                    className={`btn__bpp promoBtn book__appointment show${btnCallLink}`}
+                    onClick={openModal}
+                  >
+                    Book An Appointment
+                  </button>
+                </Col>
+              )}
+              <Col lg={4} md={4} sm={12}>
+                <a
+                  href="tel:+18475555555"
+                  className="btn__bpp PhoneWrapper callBtn"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25.203"
@@ -77,27 +90,13 @@ const LocationSpecificHeroBrand = ({
                     />
                   </svg>
                   {btnCall}
-                </AnchorLink>
+                </a>
               </Col>
-              <Col
-                lg={{ offset: 2, span: 5 }}
-                md={{ offset: 2, span: 5 }}
-                sm={12}
-              >
-                <AnchorLink className="promoBtn " to={btnPromoLink}>
+              <Col lg={4} md={4} sm={12}>
+                <AnchorLink className="btn__bpp promoBtn " to={btnPromoLink}>
                   {btnPromo}
                 </AnchorLink>
               </Col>
-              {title.includes("Maple Laser Clinic") && (
-                <Col lg={5} md={5} sm={12}>
-                  <button
-                    className={`promoBtn book__appointment show${btnCallLink}`}
-                    onClick={openModal}
-                  >
-                    Book Appointment
-                  </button>
-                </Col>
-              )}
             </Row>
           </div>
         </Col>
