@@ -60,7 +60,7 @@ h1 {
 }
 .book__appointment {
   color: white;
-  margin-top: 15px;
+  width: 100%;
   font-weight: normal;
   padding: 10px 30px;
   cursor: pointer;
@@ -72,14 +72,16 @@ h1 {
   z-index: 9999;
 }
 .ReactModal__Content.ReactModal__Content--after-open {
-  width: 50%;
+  width: 40%;
+  padding: 20px !important;
+  padding-top: 10px !important;
 }
 .ReactModal__Content button {
   border: none;
   background: none;
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: 7px;
   font-size: 20px;
 }
 .ReactModal__Content h4 {
@@ -92,6 +94,7 @@ h1 {
 .quity__iframe {
   width: 100%;
   min-height: 450px;
+  border: none;
 }
 .cta_content {
   display: none;
