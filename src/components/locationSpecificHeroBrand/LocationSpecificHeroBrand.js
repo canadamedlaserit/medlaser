@@ -26,6 +26,7 @@ export const fragment = graphql`
     btnPromoLink
     description
     title
+    iframe
   }
 `
 
@@ -36,6 +37,7 @@ const LocationSpecificHeroBrand = ({
   title,
   btnPromoLink,
   btnCallLink,
+  iframe,
 }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
   function openModal() {
@@ -113,7 +115,10 @@ const LocationSpecificHeroBrand = ({
           <Row className="brandWrapper">
             <iframe
               className="iframe quity__iframe"
-              src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'
+              src={iframe}
+              width="100%"
+              height="800"
+              frameBorder="0"
             ></iframe>
           </Row>
         </Modal>
