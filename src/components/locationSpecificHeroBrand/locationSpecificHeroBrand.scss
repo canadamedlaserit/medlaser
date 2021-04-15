@@ -122,6 +122,13 @@
   }
 }
 
+@media (max-width: 1400px) {
+  #LocationHeroBrand .btn__bpp {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 13px;
+  }
+}
 @media (max-width: 600px) {
   #LocationHeroBrand .btn__bpp {
     padding: 0.5rem 0 !important;

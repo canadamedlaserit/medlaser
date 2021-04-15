@@ -64,16 +64,14 @@ const LocationSpecificHeroBrand = ({
               className="Btn_rowWrapper"
               style={{ marginLeft: "0px", marginRight: "0px" }}
             >
-              {title.includes("Maple Laser Clinic") && (
-                <Col lg={4} md={4} sm={12}>
-                  <button
-                    className={`btn__bpp promoBtn book__appointment show${btnCallLink}`}
-                    onClick={openModal}
-                  >
-                    Book An Appointment
-                  </button>
-                </Col>
-              )}
+              <Col lg={4} md={4} sm={12}>
+                <button
+                  className={`btn__bpp promoBtn book__appointment show${btnCallLink}`}
+                  onClick={openModal}
+                >
+                  Book An Appointment
+                </button>
+              </Col>
               <Col lg={4} md={4} sm={12}>
                 <a
                   href="tel:+18475555555"
@@ -103,26 +101,24 @@ const LocationSpecificHeroBrand = ({
           </div>
         </Col>
       </div>
-      {title.includes("Maple Laser Clinic") && (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <button onClick={closeModal}>X</button>
-          <h4>Book An Appointment</h4>
-          <Row className="brandWrapper">
-            <iframe
-              className="iframe quity__iframe"
-              src={iframe}
-              width="100%"
-              height="800"
-              frameBorder="0"
-            ></iframe>
-          </Row>
-        </Modal>
-      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <button onClick={closeModal}>X</button>
+        <h4>Book An Appointment</h4>
+        <Row className="brandWrapper">
+          <iframe
+            className="iframe quity__iframe"
+            src={iframe}
+            width="100%"
+            height="800"
+            frameBorder="0"
+          ></iframe>
+        </Row>
+      </Modal>
     </section>
   )
 }

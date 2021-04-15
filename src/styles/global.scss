@@ -93,8 +93,9 @@ h1 {
 }
 .quity__iframe {
   width: 100%;
-  min-height: 450px;
+  max-height: 450px;
   border: none;
+  overflow-x: hidden;
 }
 .cta_content {
   display: none;
