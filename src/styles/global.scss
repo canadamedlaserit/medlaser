@@ -19,6 +19,7 @@ h1 {
   font-weight: 700;
   font-size: 46px;
   line-height: 65px;
+  //  text-transform: capitalize;
   text-align: center;
   letter-spacing: 0;
 
@@ -26,6 +27,34 @@ h1 {
     font-size: 46px;
     line-height: 65px;
   }
+}
+
+.InnerHeroImageFullWidth-module--Hatch--1rqaI {
+  width: 100%;
+  height: 56px;
+  position: absolute;
+  bottom: -28px;
+  right: 0;
+  z-index: 3;
+  opacity: 0.44;
+  background-image: linear-gradient(
+    135deg,
+    #e8e8e8 5.56%,
+    transparent 0,
+    transparent 50%,
+    #e8e8e8 0,
+    #e8e8e8 55.56%,
+    transparent 0,
+    transparent
+  );
+  background-size: 12.73px 12.73px;
+}
+
+.btn-red.bg_black {
+  background-color: black;
+}
+.BlogMain-module--Section--IfVAH .btn-red.bg_black {
+  background-color: #9c1a3b;
 }
 .contact__form input,
 .contact__form select {
@@ -89,9 +118,8 @@ h1 {
 }
 .quity__iframe {
   width: 100%;
-  max-height: 450px;
+  min-height: 450px;
   border: none;
-  overflow-x: hidden;
 }
 .cta_content {
   display: none;
