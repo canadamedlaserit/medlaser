@@ -28,6 +28,12 @@ export const fragment = graphql`
     }
   }
 `
+const handleClick = e => {
+  e.preventDefault()
+  document
+    .getElementById("contact")
+    .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+}
 
 const InnerHero = ({
   title,
@@ -70,6 +76,15 @@ const InnerHero = ({
             ) : (
               ""
             )}
+            <div class={styles.innerCta}>
+              <a
+                className={`btn btn-red ${styles.innerAnchor}`}
+                href="#contact"
+                onClick={handleClick}
+              >
+                Book Now
+              </a>
+            </div>
           </div>
 
           <div className={`col-md-6 ${styles.TextCol}`}>
