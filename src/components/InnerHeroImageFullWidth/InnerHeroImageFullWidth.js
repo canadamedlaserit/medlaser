@@ -31,12 +31,17 @@ const handleClick = e => {
     .getElementById("contact")
     .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 }
+
 const InnerHeroImageFullWidth = ({
   title,
   description,
   image,
   hidestripondevice,
 }) => {
+  let iamgeSrc
+  if (image !== null) {
+    iamgeSrc = image.imageFile.childImageSharp.fluid
+  }
   return (
     <div style={{ backgroundColor: "black" }}>
       <Container fluid className={styles.ourTeamContainer}>
@@ -51,7 +56,7 @@ const InnerHeroImageFullWidth = ({
           <div class={styles.innerCta}>
             <a
               className={`btn btn-red ${styles.innerAnchor}`}
-              href="#contact"
+              href={image}
               onClick={handleClick}
             >
               Book Now
@@ -70,13 +75,10 @@ const InnerHeroImageFullWidth = ({
       </Container>
       {title.includes("Our Team") &
       (
-        <div className="InnerHeroImage">
+        <div className="InnerHeroImage testtingss">
           <div className={styles.ourTeamImgContainer}>
             <div className={styles.ourTeamImgInner}>
-              <Img
-                className={styles.ourTeamPersonImg}
-                fluid={image.imageFile.childImageSharp.fluid}
-              />
+              <Img className={styles.ourTeamPersonImg} fluid={iamgeSrc} />
             </div>
           </div>
         </div>
