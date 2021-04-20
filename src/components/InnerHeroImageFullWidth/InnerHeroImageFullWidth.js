@@ -25,8 +25,6 @@ export const fragment = graphql`
 `
 const handleClick = e => {
   e.preventDefault()
-  // let pathname = window.location.pathname.replace("/", "")
-  // window.location.href = pathname + "/#contact"
   document
     .getElementById("contact")
     .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
@@ -81,7 +79,7 @@ const InnerHeroImageFullWidth = ({
               <div class={styles.innerCta}>
                 <a
                   className={`btn btn-red ${styles.innerAnchor}`}
-                  href={image}
+                  href="#contact"
                   onClick={handleClick}
                 >
                   Book Now
