@@ -73,16 +73,13 @@ const InnerHeroImageFullWidth = ({
         </div>
         <div class="InnerHeroImageFullWidth-module--Hatch--1rqaI"></div>
       </Container>
-      {title.includes("Our Team") &
-      (
-        <div className="InnerHeroImage testtingss">
-          <div className={styles.ourTeamImgContainer}>
-            <div className={styles.ourTeamImgInner}>
-              <Img className={styles.ourTeamPersonImg} fluid={iamgeSrc} />
-            </div>
+      <div className="InnerHeroImage testtingss">
+        <div className={styles.ourTeamImgContainer}>
+          <div className={styles.ourTeamImgInner}>
+            <Img className={styles.ourTeamPersonImg} fluid={iamgeSrc} />
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }
