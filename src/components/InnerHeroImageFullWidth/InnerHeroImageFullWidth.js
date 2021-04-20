@@ -43,8 +43,10 @@ const InnerHeroImageFullWidth = ({
   if (image !== null) {
     iamgeSrc = image.imageFile.childImageSharp.fluid
   }
-  if (title.includes("Our Team")) {
-    team = true
+  if (title) {
+    if (title.includes("Our Team")) {
+      team = true
+    }
   }
   return (
     <div style={{ backgroundColor: "black" }}>
