@@ -32,11 +32,12 @@
       font-size: 24px !important;
       text-align: left !important;
       font-family: Playfair Display, bold;
+      line-height: 1.4;
     }
   }
   .Btn_wrapper {
     a {
-      margin: 0px;
+      margin: 20px 0 0;
     }
   }
   .col_wrapper {
@@ -62,6 +63,6 @@
   .menuContentWrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: 1rem;
   }
 }
