@@ -56,6 +56,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        icon: `./static/icons/icon-512x512.png`,
         name: `Canada Medlaser`,
         short_name: `CML`,
         description: "Canada Medlaser Clinics",
