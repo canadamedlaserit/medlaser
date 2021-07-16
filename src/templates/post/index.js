@@ -47,7 +47,7 @@ const Post = ({ pageContext, location, data }) => {
               </div>
             </div>
 
-            <h1 dangerouslySetInnerHTML={{__html: title}}></h1>
+            <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
           </div>
 
           <div className={styles.Overlay}></div>
@@ -73,6 +73,13 @@ const Post = ({ pageContext, location, data }) => {
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
                 <div>
+                  <a
+                    className="btn btn-small btn-red singleBlogCta"
+                    href="/contact-us"
+                  >
+                    Contact Us
+                  </a>
+
                   <ul
                     style={{
                       display: `flex`,

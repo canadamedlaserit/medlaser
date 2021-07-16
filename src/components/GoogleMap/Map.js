@@ -92,14 +92,13 @@ const mapStyle = [
 //   { lat: 43.8518, lng: -79.5273 }, // 5 Maple
 // ]
 
-
 const positions = [
   { lat: 43.638709, lng: -79.385837 }, // 0 Toronto new
   { lat: 43.796319, lng: -79.517114 }, // 1 Vaughan new
   { lat: 43.518207, lng: -79.622481 }, // 2 Mississauga new
   { lat: 44.035323, lng: -79.472319 }, //3 Newmarket new
-  { lat: 43.796090, lng: -79.433903 }, //4 Thornhill new
-  { lat: 43.859584, lng: -79.488931}, // 5 Maple new
+  { lat: 43.79609, lng: -79.433903 }, //4 Thornhill new
+  { lat: 43.859584, lng: -79.488931 }, // 5 Maple new
 ]
 
 export class MapContainer extends Component {
@@ -204,8 +203,12 @@ export class MapContainer extends Component {
                 url: `
                 ${
                   this.state.activeMarkerIndex === index
-                    ? markeractive ?  markeractive.sourceUrl : null
-                    : marker ? marker.sourceUrl : null
+                    ? markeractive
+                      ? markeractive.sourceUrl
+                      : null
+                    : marker
+                    ? marker.sourceUrl
+                    : null
                 }`,
                 scaledSize: new window.google.maps.Size(25, 42),
               }}
@@ -231,5 +234,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAlDPp6WXyMbTSmKJOWCI3JGAKcbQp1ylg",
+  apiKey: "AIzaSyDWGSIuXDGZ8TtnhyLgKpSy3amqdRpsTiI",
 })(MapContainer)

@@ -34,14 +34,16 @@ class InnerHeroStripFullWidth extends Component {
                 <Img
                   alt={image.altText}
                   className={`gatsby-image-background ${styles.halfImage}`}
-
                   fluid={image.imageFile.childImageSharp.fluid}
                 />
               ) : (
                 ""
               )}
               <div className={styles.innerWrapper}>
-                <div className={styles.Title} dangerouslySetInnerHTML={{ __html: title }}></div>
+                <div
+                  className={styles.Title}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                ></div>
               </div>
               <div className={styles.Overlay}></div>
               <div className={styles.Hatch}></div>

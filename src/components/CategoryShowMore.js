@@ -58,7 +58,10 @@ const CategoryList = ({ data, type }) => {
 
       <div>
         {!loadMore ? (
-          <button className={styles.ShowMore} onClick={showMore}>
+          <button
+            className={`btn btn-red ${styles.ShowMore}`}
+            onClick={showMore}
+          >
             Show more
           </button>
         ) : (
