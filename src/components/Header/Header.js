@@ -134,11 +134,10 @@ class Header extends Component {
                     to="/modal"
                     state={{
                       modal: true,
-                      code: "19135168",
                     }}
                     className={`btn btn-red ${styles.Btn}`}
                   >
-                    Chose
+                    Choose
                   </Link>
                   {/*  <Link
                     to={headerInfo.btnlink}
