@@ -3,9 +3,12 @@ import styled from "styled-components"
 
 const ChooseForm = styled.div`
 display: grid;
-@media (min-width: 778px) {
-  grid-template-columns: 1fr 1fr 1fr;
+@media (min-width: 374px) {
+  grid-template-columns: 1fr 1fr;
   gap: 2px;
+}
+@media (min-width: 600px) {
+  grid-template-columns: 1fr 1fr 1fr;
 }
 max-width: 700px;
 margin: 10px auto;

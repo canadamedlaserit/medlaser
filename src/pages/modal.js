@@ -29,7 +29,6 @@ margin-top: 50px;
 const AcuityScheduling = props => {
   let iFr = document.getElementById("iframe")
   let src = document.createAttribute("src")
-  const { appType } = props
   src.value =
     "https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=" +
     props
@@ -50,9 +49,6 @@ const ModalExamplePage = () => (
         {modal ? <Link to={closeTo}>Close</Link> : ""}
         <Title>Choose location</Title>
         <ChooseLock onChange={eventhandler} />
-        <BtnReturn>
-          <Link to="/">Go back to the homepage</Link>
-        </BtnReturn>
         <div style={{ height: "50vh" }}>
           <IframeBox>
             <iframe

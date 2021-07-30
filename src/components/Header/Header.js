@@ -131,7 +131,7 @@ class Header extends Component {
                   style={{ display: "flex" }}
                 >
                   <Link
-                    to="/modal"
+                    to="/choose"
                     state={{
                       modal: true,
                     }}
