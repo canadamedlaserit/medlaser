@@ -133,7 +133,7 @@ class Header extends Component {
                   <Link
                     to="/choose"
                     state={{
-                      modal: true,
+                      modal: false,
                     }}
                     className={`btn btn-red ${styles.Btn}`}
                   >
