@@ -23,6 +23,14 @@ export const fragment = graphql`
     }
   }
 `
+const handleClick = e => {
+  e.preventDefault()
+  // let pathname = window.location.pathname.replace("/", "")
+  // window.location.href = pathname + "/#contact"
+  document
+    .getElementById("contact")
+    .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+}
 
 const InnerHeroImageFullWidth = ({
   title,
@@ -30,34 +38,78 @@ const InnerHeroImageFullWidth = ({
   image,
   hidestripondevice,
 }) => {
+  let iamgeSrc
+  let team = false
+  if (image !== null) {
+    iamgeSrc = image.imageFile.childImageSharp.fluid
+  }
+  if (title) {
+    if (title.includes("Our Team")) {
+      team = true
+    }
+  }
   return (
     <div style={{ backgroundColor: "black" }}>
       <Container fluid className={styles.ourTeamContainer}>
-        <div className={styles.ourTeamInner}>
-          <Row>
-            <Col lg={4} md={12}>
-              <div className={styles.ourTeamHead}>
-                <div dangerouslySetInnerHTML={{ __html: title }}></div>
+        {/* If layout is called on our team page */}
+        {team ? (
+          <div className={styles.ourTeamInner}>
+            <Row>
+              <Col lg={4} md={12}>
+                <div className={styles.ourTeamHead}>
+                  <div dangerouslySetInnerHTML={{ __html: title }}></div>
+                </div>
+              </Col>
+              <Col lg={8} md={12}>
+                <div
+                  className={styles.ourTeamContent}
+                  dangerouslySetInnerHTML={{ __html: description }}
+                ></div>
+              </Col>
+            </Row>
+          </div>
+        ) : (
+          <>
+            <div className={styles.ourTeamInner}>
+              <Row>
+                <Col lg={12} md={12}>
+                  <div className={styles.ourTeamHead}>
+                    <div dangerouslySetInnerHTML={{ __html: title }}></div>
+                  </div>
+                </Col>
+              </Row>
+              <div class={styles.innerCta}>
+                <a
+                  className={`btn btn-red ${styles.innerAnchor}`}
+                  href={image}
+                  onClick={handleClick}
+                >
+                  Book Now
+                </a>
               </div>
-            </Col>
-            <Col lg={8} md={12}>
-              <div
-                className={styles.ourTeamContent}
-                dangerouslySetInnerHTML={{ __html: description }}
-              ></div>
-            </Col>
-          </Row>
-        </div>
+              <Row>
+                <Col lg={12} md={12}>
+                  <div
+                    className={styles.ourTeamContent}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  ></div>
+                </Col>
+              </Row>
+            </div>
+            <div class="InnerHeroLines"></div>
+          </>
+        )}
       </Container>
-      <div className={styles.ourTeamImgContainer}>
-        <div className={styles.ourTeamImgInner}>
-          <Img
-            alt={image.altText}
-            className={styles.ourTeamPersonImg}
-            fluid={image.imageFile.childImageSharp.fluid}
-          />
+      {team &
+      (
+        <div className="InnerHeroImage">
+          <div className={styles.ourTeamImgContainer}>
+            <div className={styles.ourTeamImgInner}>
+              <Img className={styles.ourTeamPersonImg} fluid={iamgeSrc} />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

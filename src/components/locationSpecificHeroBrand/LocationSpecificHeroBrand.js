@@ -1,11 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import "./locationSpecificHeroBrand.scss"
 import { Col } from "react-bootstrap"
-import { Button } from "react-bootstrap"
 //icon
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Row } from "react-bootstrap"
+import Modal from "react-modal"
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+}
 
 export const fragment = graphql`
   fragment Locationspecificherobrand on WPGraphQL_Page_Sectionfields_Sections_Locationspecificherobrand {
@@ -15,6 +26,7 @@ export const fragment = graphql`
     btnPromoLink
     description
     title
+    iframe
   }
 `
 
@@ -24,11 +36,20 @@ const LocationSpecificHeroBrand = ({
   description,
   title,
   btnPromoLink,
+  btnCallLink,
+  iframe,
 }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+  function openModal() {
+    setIsOpen(true)
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
   return (
     <section id="LocationHeroBrand">
       <div className="brandWrapper">
-        <Col lg={5} md={9} sm={12} className="mainWrapper">
+        <Col lg={7} md={9} sm={12} className="mainWrapper">
           <div
             className="titleWrapper"
             dangerouslySetInnerHTML={{ __html: title }}
@@ -43,8 +64,19 @@ const LocationSpecificHeroBrand = ({
               className="Btn_rowWrapper"
               style={{ marginLeft: "0px", marginRight: "0px" }}
             >
-              <Col lg={5} md={5} sm={12}>
-                <AnchorLink className="PhoneWrapper callBtn">
+              <Col lg={4} md={4} sm={12}>
+                <button
+                  className={`btn__bpp promoBtn book__appointment show${btnCallLink}`}
+                  onClick={openModal}
+                >
+                  Book An Appointment
+                </button>
+              </Col>
+              <Col lg={4} md={4} sm={12}>
+                <a
+                  href="tel:+18475555555"
+                  className="btn__bpp PhoneWrapper callBtn"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25.203"
@@ -58,14 +90,10 @@ const LocationSpecificHeroBrand = ({
                     />
                   </svg>
                   {btnCall}
-                </AnchorLink>
+                </a>
               </Col>
-              <Col
-                lg={{ offset: 2, span: 5 }}
-                md={{ offset: 2, span: 5 }}
-                sm={12}
-              >
-                <AnchorLink className="promoBtn " to={btnPromoLink}>
+              <Col lg={4} md={4} sm={12}>
+                <AnchorLink className="btn__bpp promoBtn " to={btnPromoLink}>
                   {btnPromo}
                 </AnchorLink>
               </Col>
@@ -73,11 +101,24 @@ const LocationSpecificHeroBrand = ({
           </div>
         </Col>
       </div>
-      <Row className="brandWrapper">
-        {title.includes('Maple Laser Clinic') &&
-        <iframe className="iframe" src='https://app.acuityscheduling.com/schedule.php?owner=20480304&owner=20480304&appointmentType=18280821” width=“100%” height=“800” frameBorder=“0"'></iframe>
-        }
-      </Row>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <button onClick={closeModal}>X</button>
+        <h4>Book An Appointment</h4>
+        <Row className="brandWrapper">
+          <iframe
+            className="iframe quity__iframe"
+            src={iframe}
+            width="100%"
+            height="800"
+            frameBorder="0"
+          ></iframe>
+        </Row>
+      </Modal>
     </section>
   )
 }

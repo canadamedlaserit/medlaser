@@ -1,11 +1,11 @@
 .Section {
-  height: 100vh;
+  height: 100%;
   @media (max-width: 768px) {
     height: 100%;
   }
 
   .myContainer {
-    padding: 5rem 0rem 0rem;
+    // padding: 5rem 0rem 0rem;
     height: 100%;
   }
   .myRow {

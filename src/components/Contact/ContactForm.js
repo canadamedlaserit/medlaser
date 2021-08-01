@@ -202,7 +202,7 @@ export class ContactForm extends Component {
           data-netlify-honeypot="bot-field"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
-          className={styles.Form}
+          className={`contact__form ${styles.Form}`}
         >
           <input
             type="hidden"
@@ -396,7 +396,7 @@ export class ContactForm extends Component {
           </div>
 
           <Button
-            className={` ${styles.Form___formSubmit} btn btn-red ${
+            className={` ${styles.Form___formSubmit} btn btn-red bg_black ${
               column ? styles.ButtonColumnType : ""
             }`}
             // onClick={this.handleSubmit}

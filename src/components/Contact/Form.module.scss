@@ -53,14 +53,14 @@
   }
 
   .ErrorField {
-    border-color: $red;
+    border-color: $white;
   }
 
   .ErrorMessage {
     margin: 0;
     position: absolute;
     top: -15px;
-    color: $red !important;
+    color: $white !important;
     right: 0;
     font-size: 15px;
   }
@@ -79,11 +79,9 @@
   min-height: 50px;
 }
 
-
-
 .ErrorBlock {
   text-align: center;
-  color: $red !important;
+  color: $white !important;
 }
 
 .SuccessBlock {

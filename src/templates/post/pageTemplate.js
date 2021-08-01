@@ -143,8 +143,8 @@ const PageTempl = ({ data, location, pageContext }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Beforeafterimage":
             return <BeforeAfterImage key={index} {...section} />
 
-          // case "WPGraphQL_Page_Sectionfields_Sections_Contact":
-          //   return <Contact key={index} {...section} />
+          case "WPGraphQL_Page_Sectionfields_Sections_Contact":
+            return <Contact key={index} {...section} />
 
           case "WPGraphQL_Page_Sectionfields_Sections_Injury":
             return <Injury key={index} {...section} />
