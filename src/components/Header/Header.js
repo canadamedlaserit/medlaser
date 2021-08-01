@@ -137,7 +137,7 @@ class Header extends Component {
                     }}
                     className={`btn btn-red ${styles.Btn}`}
                   >
-                    Choose
+                    BOOK NOW
                   </Link>
                   {/*  <Link
                     to={headerInfo.btnlink}
