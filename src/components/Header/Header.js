@@ -131,11 +131,20 @@ class Header extends Component {
                   style={{ display: "flex" }}
                 >
                   <Link
+                    to="/choose"
+                    state={{
+                      modal: false,
+                    }}
+                    className={`btn btn-red ${styles.Btn}`}
+                  >
+                    BOOK NOW
+                  </Link>
+                  {/*  <Link
                     to={headerInfo.btnlink}
                     className={`btn btn-red ${styles.Btn}`}
                   >
                     {headerInfo.btntext}
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <div className={styles.CartWrapper}>
