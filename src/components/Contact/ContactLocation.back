@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-//import ConactForm from "./ContactForm"
-import AcuityFrame from "../homeComponents/AcuityScheduling/AcuityFrame"
+import ConactForm from "./ContactForm"
 
 import styles from "./ContactLocation.module.scss"
 // import styles2 from "./Contact.module.scss"
@@ -29,7 +28,7 @@ const ContactLocation = ({ title, btntext, localspecific, location }) => {
 
               <h2>{title}</h2>
 
-              <AcuityFrame />
+              <ConactForm pathname={location.pathname} btntext={btntext} />
             </div>
 
             <div className={` ${styles.Overlay}`}></div>

@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import AcuityFrame from "../homeComponents/AcuityScheduling/AcuityFrame"
+import ConactForm from "./ContactForm"
 import ContactFormPricing from "./ContactFormPricing"
 
 import styles from "./ContactSection.module.scss"
@@ -14,6 +14,7 @@ export const fragment = graphql`
     formSettings
   }
 `
+
 const Contact = ({ backgroundColor, title, buttonText, formSettings }) => {
   const data = useStaticQuery(graphql`
     query PageQuery {
@@ -56,7 +57,7 @@ const Contact = ({ backgroundColor, title, buttonText, formSettings }) => {
                   btntext={buttonText ? buttonText : btntextDef}
                 />
               ) : (
-                <AcuityFrame />
+                <ConactForm btntext={buttonText ? buttonText : btntextDef} />
               )}
             </div>
 
