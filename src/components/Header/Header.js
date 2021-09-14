@@ -139,12 +139,6 @@ class Header extends Component {
                   >
                     BOOK NOW
                   </Link>
-                  {/*  <Link
-                    to={headerInfo.btnlink}
-                    className={`btn btn-red ${styles.Btn}`}
-                  >
-                    {headerInfo.btntext}
-                  </Link> */}
                 </div>
 
                 <div className={styles.CartWrapper}>
