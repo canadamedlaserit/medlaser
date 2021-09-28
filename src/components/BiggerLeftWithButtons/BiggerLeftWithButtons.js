@@ -92,7 +92,7 @@ const BiggerLeftWithButtons = ({
               <div className={styles.buttonsWrapper}>
                 {btntext1 ? (
                   <>
-                    {btnlink1.includes("tel") ? (
+                    {btnlink1?.includes("tel") ? (
                       <a href={btnlink1} className="btn btn-mid btn-red">
                         {btntext1}
                       </a>
