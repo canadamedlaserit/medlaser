@@ -1,10 +1,8 @@
-import React, { useState } from "react"
-import "./locationOurTreatment.scss"
-import { Tabs } from "react-bootstrap"
-import { Tab } from "react-bootstrap"
-import { Row, Col } from "react-bootstrap"
 import Img from "gatsby-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import React, { useState } from "react"
+import { Col, Row, Tab, Tabs } from "react-bootstrap"
+import "./locationOurTreatment.scss"
 
 export const fragment = graphql`
   fragment OurtreatmentsLocation on WPGraphQL_Page_Sectionfields_Sections_OurtreatmentsLocation {
@@ -38,7 +36,7 @@ const LocationOurTreatment = props => {
     <section id="LocationOurTreatment">
       <div
         className="titleWrapper"
-        dangerouslySetInnerHTML={{ __html: props.title }}
+        dangerouslySetInnerHTML={{ __html: props?.title }}
       />
       <div style={{ marginTop: "5rem" }}>
         <Tabs
@@ -57,9 +55,9 @@ const LocationOurTreatment = props => {
                   <Col lg={5} md={5} sm={12}>
                     <div className="imgWrapper">
                       <Img
-                        alt={data.image.altText}
+                        alt={data?.image?.altText}
                         className="gatsby-image-background"
-                        fluid={data.image.imageFile.childImageSharp.fluid}
+                        fluid={data?.image?.imageFile?.childImageSharp?.fluid}
                         style={{ objectFit: "none" }}
                       />
                     </div>
@@ -67,22 +65,22 @@ const LocationOurTreatment = props => {
                   <Col lg={7} md={7} sm={12} className="contentWrapper">
                     <div className="menuContentWrapper">
                       <div
-                        dangerouslySetInnerHTML={{ __html: data.menuHeader }}
+                        dangerouslySetInnerHTML={{ __html: data?.menuHeader }}
                       />
 
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.menuDiscription,
+                          __html: data?.menuDiscription,
                         }}
                       />
 
                       <div className="Btn_wrapper">
                         <AnchorLink
-                          to={data.btnLink}
+                          to={data?.btnLink}
                           className="btn btn-mid btn-red"
                           //style={{ margin: "0px" }}
                         >
-                          {data.btnText}
+                          {data?.btnText}
                         </AnchorLink>
                       </div>
                     </div>
