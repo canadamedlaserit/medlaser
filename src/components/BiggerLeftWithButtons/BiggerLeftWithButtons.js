@@ -108,7 +108,7 @@ const BiggerLeftWithButtons = ({
 
                 {btntext2 ? (
                   <>
-                    {btnlink2.includes("tel") ? (
+                    {btnlink2?.includes("tel") ? (
                       <a
                         href={btnlink2}
                         className="btn btn-mid btn-black-transparent"
