@@ -1,13 +1,13 @@
 import React from "react"
+import { blogURI } from "../../../globals"
+import CategoryList from "../CategoryList"
 import Pagination from "../Pagination"
 import PostEntry from "../PostEntry"
-import { blogURI } from "../../../globals"
-
-import CategoryList from "../CategoryList"
-
 import styles from "./BlogMain.module.scss"
 
-const BlogMain = ({ nodes, pageNumber, hasNextPage, numPages }) => {
+
+
+const BlogMain = ({ nodes, pageNumber, hasNextPage, numPages, allPosts }) => {
 
   return (
     <article className={styles.Section}>
@@ -24,7 +24,7 @@ const BlogMain = ({ nodes, pageNumber, hasNextPage, numPages }) => {
                   <PostEntry id={post.id} key={index} post={post} />
                 ))}
 
-              <CategoryList showOnDevice="desktop" />
+              <CategoryList showOnDevice="desktop" allPosts={allPosts} />
             </div>
 
             <Pagination

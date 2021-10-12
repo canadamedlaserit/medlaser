@@ -1,11 +1,11 @@
-import React from "react"
-import Layout from "../../components/Layout"
-import SEO from "../../components/particles/SEO"
-import InnerHeroImageFullWidth from "../../components/InnerHeroImageFullWidth/InnerHeroImageFullWidth"
-import LocationMap from "../../components/LocationMap/LocationMap"
-import Contact from "../../components/Contact/Contact"
-import BlogMain from "../../components/BlogMain/BlogMain"
 import { graphql } from "gatsby"
+import React from "react"
+import BlogMain from "../../components/BlogMain/BlogMain"
+import Contact from "../../components/Contact/Contact"
+import InnerHeroImageFullWidth from "../../components/InnerHeroImageFullWidth/InnerHeroImageFullWidth"
+import Layout from "../../components/Layout"
+import LocationMap from "../../components/LocationMap/LocationMap"
+import SEO from "../../components/particles/SEO"
 
 export const query = graphql`
   {
@@ -64,7 +64,7 @@ const Blog = ({ data, pageContext, location }) => {
 
   // console.log(data)
 
-  // console.log(pageContext)
+  // console.log('allPosts', allPosts)
 
 
 
@@ -88,6 +88,7 @@ const Blog = ({ data, pageContext, location }) => {
                 pageNumber={pageNumber}
                 hasNextPage={hasNextPage}
                 numPages={numPages}
+                allPosts={allPosts}
               />
             )
 

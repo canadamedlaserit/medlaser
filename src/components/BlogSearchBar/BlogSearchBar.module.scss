@@ -1,0 +1,43 @@
+.BlogSearchBar {
+  padding-bottom: 30px;
+  position: relative;
+  input {
+    width: 100%;
+    background-color: transparent !important;
+    border-radius: 0;
+    border: none;
+    border-bottom: solid 1px #e8e8e8;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.96px;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+  .BlogSearchItems {
+    position: relative;
+    overflow-x: scroll;
+    max-height: 250px;
+    ul {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      li {
+        margin-block-end: 15px;
+        a {
+          color: #ffffff;
+          font-size: 16px;
+          .highlight {
+            color: yellow;
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+}

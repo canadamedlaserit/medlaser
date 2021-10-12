@@ -1,13 +1,13 @@
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import { Dropdown } from "react-bootstrap"
-import ContactForm from "../components/Contact/ContactForm"
-
-import CategoryShowMore from "../components/CategoryShowMore"
-
 import styles from "../components/BlogMain/BlogMain.module.scss"
+import CategoryShowMore from "../components/CategoryShowMore"
+import ContactForm from "../components/Contact/ContactForm"
+import BlogSearchBar from './BlogSearchBar'
 
-const CategoryList = ({ showOnDevice, maxHeight }) => {
+
+const CategoryList = ({ showOnDevice, maxHeight, allPosts }) => {
   const data = useStaticQuery(graphql`
     query CategoriesListQuery {
       wpgraphql {
@@ -67,6 +67,10 @@ const CategoryList = ({ showOnDevice, maxHeight }) => {
         </Dropdown>
       ) : (
         <div>
+          {allPosts && <div className={styles.FormWrapper}>
+            <h3>Search</h3>
+            <BlogSearchBar allPosts={allPosts} />
+          </div>}
           <div className={styles.FormWrapper}>
             <h3>Free Consultation</h3>
             <ContactForm column="true" btntext="Book Now" />

@@ -1,21 +1,23 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../../components/Layout"
-import DateStyle from "../../components/DateStyle"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import React from "react"
 import CategoryList from "../../components/CategoryList"
 import Contact from "../../components/Contact/Contact"
+import DateStyle from "../../components/DateStyle"
+import Layout from "../../components/Layout"
 import SEO from "../../components/particles/SEO"
-
 import styles from "../../styles/singleBlog.module.scss"
+
 
 const Post = ({ pageContext, location, data }) => {
   const {
     post: { title, content, date, author, categories },
     previous,
     next,
+    allPosts
   } = pageContext
+
+  console.log('allPosts', allPosts)
 
   return (
     <Layout location={location}>
@@ -146,7 +148,7 @@ const Post = ({ pageContext, location, data }) => {
                 </div>
               </div>
               <div className="col-lg-4">
-                <CategoryList maxHeight="unset" showOnDevice="desktop" />
+                <CategoryList maxHeight="unset" showOnDevice="desktop" allPosts={allPosts} />
               </div>
             </div>
           </div>

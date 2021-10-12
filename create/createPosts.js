@@ -117,7 +117,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
           pageNumber: pageNumber + 1,
           hasNextPage,
           itemsPerPage,
-          allPosts
+          allPosts,
         },
       }
 
@@ -172,7 +172,8 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
           id: post.id,
           post: post,
           previous,
-          next
+          next,
+          allPosts: wpPosts
         },
       })
    
