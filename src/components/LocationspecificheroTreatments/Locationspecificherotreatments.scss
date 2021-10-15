@@ -1,0 +1,29 @@
+.LocationspecificheroTreatments {
+  padding-bottom: 70px;
+  margin-top: -100px;
+  @media (max-width: 600px) {
+    margin-top: 0;
+    padding: 20px;
+  }
+  .treatments {
+    @media (min-width: 600px) {
+      width: 80%;
+      margin-inline: auto;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media (max-width: 600px) {
+        display: block;
+      }
+      li {
+        width: 40%;
+        line-height: 30px;
+        @media (max-width: 600px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
