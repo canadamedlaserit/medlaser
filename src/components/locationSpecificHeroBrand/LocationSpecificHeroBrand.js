@@ -73,7 +73,7 @@ const LocationSpecificHeroBrand = ({
               </Col>
               <Col lg={4} md={4} sm={12}>
                 <a
-                  href="tel:+18475555555"
+                  href={btnCallLink}
                   className="btn__bpp PhoneWrapper callBtn"
                 >
                   <svg
