@@ -1,8 +1,8 @@
-import React, { Component } from "react"
 import { Link } from "gatsby"
+import React, { Component } from "react"
+import { Navbar } from "react-bootstrap"
 import CustomNav from "../Header/CustomNav"
 import styles from "./Footer.module.scss"
-import { Navbar } from "react-bootstrap"
 
 /* useEffect(() => {
     let targetElement = !!document.querySelector("#mainNav");

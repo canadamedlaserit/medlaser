@@ -1,9 +1,7 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import VisibilitySensor from "react-visibility-sensor"
-
 import Map from "../GoogleMap/Map"
-
 import styles from "./LocationMap.module.scss"
 
 export const fragment = graphql`

@@ -1,15 +1,14 @@
-import React, { Component } from "react"
-import { Link } from "gatsby"
-import { Navbar } from "react-bootstrap"
-import Img from "gatsby-image"
 import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
+  clearAllBodyScrollLocks, disableBodyScroll,
+  enableBodyScroll
 } from "body-scroll-lock"
-
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import React, { Component } from "react"
+import { Navbar } from "react-bootstrap"
 import CustomNav from "./CustomNav"
 import styles from "./Header.module.scss"
+
 
 class Header extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class Header extends Component {
   render() {
     const { data } = this.props
 
-    const menus = data.wpgraphql.menus.edges
+    const menus = data?.wpgraphql?.menus?.edges
     var mainMenu, topMenu, mainMenuMobile
 
     for (const menu in menus) {
@@ -66,8 +65,7 @@ class Header extends Component {
 
     //if no image display nothing
     const logo = data.wpgraphql.page.headerFooterInfo.logo
-      ? data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp
-          .fluid
+      ? data.wpgraphql.page.headerFooterInfo.logo.imageFile.childImageSharp.fluid
       : false
 
     const headerInfo = data.wpgraphql.page.headerFooterInfo
