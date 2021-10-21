@@ -27,7 +27,6 @@
         line-height: 1;
       }
     }
-    
   }
 
   .SubTitle {
@@ -54,6 +53,9 @@
     max-height: 800px;
     position: relative;
     min-height: 542px;
+    @media (min-width: 1200px) and (max-width: 1500px) {
+      min-height: 640px;
+    }
 
     .TextCol {
       background-color: #161616;
