@@ -1,7 +1,7 @@
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react"
 import React, { Component } from "react"
-import { Map, Marker, GoogleApiWrapper } from "google-maps-react"
-
 import styles from "./Map.module.scss"
+
 
 const mapStyle = [
   {
