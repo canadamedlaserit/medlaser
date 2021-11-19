@@ -1,10 +1,10 @@
-import React from "react"
 import { graphql, Link } from "gatsby"
-import Swiper from "react-id-swiper"
 import Img from "gatsby-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-
+import React from "react"
+import Swiper from "react-id-swiper"
 import styles from "./Specials.module.scss"
+
 
 export const fragment = graphql`
   fragment SpecialsSection on WPGraphQL_Page_Sectionfields_Sections_Homeourspecials {
@@ -68,12 +68,12 @@ const Specials = ({ title, text, btntext, slides }) => {
               ""
             )}
 
-            <Link
+            <a
               className={`btn btn-small btn-white-transparent ${styles.Btn}`}
-              to="/specials/"
+              href="https://shop.canadamedlaser.ca/"
             >
               {btntext}
-            </Link>
+            </a>
           </div>
           <div className={`col-md-8 special-swiper ${styles.SwiperSide}`}>
             <Swiper {...params}>
