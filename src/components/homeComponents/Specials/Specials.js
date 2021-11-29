@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import React from "react"
@@ -93,12 +93,12 @@ const Specials = ({ title, text, btntext, slides }) => {
                 </div>
               ))}
             </Swiper>
-            <Link
+            <a
               className={`btn btn-small btn-white-transparent ${styles.Btn_bottom}`}
-              to="/specials/"
+              href="https://shop.canadamedlaser.ca/"
             >
               {btntext}
-            </Link>
+            </a>
           </div>
         </div>
       </div>
