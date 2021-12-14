@@ -11,18 +11,6 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64154928-1" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-      
-                gtag('config', 'UA-64154928-1');
-            `,
-          }}
-        />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -55,3 +43,18 @@ HTML.propTypes = {
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
 }
+
+/*
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64154928-1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+      
+                gtag('config', 'UA-64154928-1');
+            `,
+          }}
+        />
+*/
