@@ -133,6 +133,24 @@ module.exports.createPages = async ({ graphql, actions }) => {
     force: true,
   })
 
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/laser-hair-removal/facial-hair-removal-toronto/",
+    toPath:
+      "https://canadamedlaser.ca/facial-hair-removal/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/laser-hair-removal/brazilian-laser-hair-removal-by-canada-med-laser/",
+    toPath:
+      "https://canadamedlaser.ca/brazilian-laser-hair-removal/",
+    isPermanent: true,
+    force: true,
+  })
+
   // redirects end
 
   const { createPage } = actions
