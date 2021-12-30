@@ -151,6 +151,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     force: true,
   })
 
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/specials/",
+    toPath:
+      "https://shop.canadamedlaser.ca/specials/",
+    isPermanent: true,
+    force: true,
+  })
+
   // redirects end
 
   const { createPage } = actions
