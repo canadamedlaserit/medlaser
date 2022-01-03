@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { Row, Col, Form, Button } from "react-bootstrap"
 import { navigate } from "gatsby-link"
+import React, { Component } from "react"
+import { Button, Col, Form, Row } from "react-bootstrap"
 import "./BookingComponent_location.scss"
 
 //import styles from "../Contact/ContactForm/Form.module.scss"
@@ -235,6 +235,7 @@ export class BookingComponentLocation extends Component {
                 method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
+                data-netlify-recaptcha="true"
                 action="/thank-you/"
                 onSubmit={this.handleSubmit}
                 className="FormStep1Wrapper "

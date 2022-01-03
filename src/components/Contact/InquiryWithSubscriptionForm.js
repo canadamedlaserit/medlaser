@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import { Form, Button } from "react-bootstrap"
 import { navigate } from "gatsby-link"
-
+import React, { Component } from "react"
+import { Button, Form } from "react-bootstrap"
 import styles from "./Form.module.scss"
+
 
 const initialState = {
   firstName: "",
@@ -213,6 +213,7 @@ export class InquiryWithSubscriptionForm extends Component {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}

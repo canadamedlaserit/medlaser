@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import styles from "./Form.module.scss"
 
 const initialState = {
@@ -105,6 +105,7 @@ export class NewsletterForm extends Component {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >

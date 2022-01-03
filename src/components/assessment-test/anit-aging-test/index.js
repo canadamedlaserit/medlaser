@@ -1,12 +1,8 @@
-import React, { useState } from "react"
-
-//router
-import { Link } from "gatsby"
-
 //components
-import { Formik, Form } from "formik"
-import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
-
+import { Form, Formik } from "formik"
+import React, { useState } from "react"
+import { Button, Col, Container, ProgressBar, Row } from "react-bootstrap"
+import ResultAlcohol from "./result-alcohol"
 //custom components
 import Step1 from "./steps/step-1"
 import Step2 from "./steps/step-2"
@@ -15,14 +11,14 @@ import Step4 from "./steps/step-4"
 import Step5 from "./steps/step-5"
 import Step6 from "./steps/step-6"
 import Step7 from "./steps/step-7"
-
-import ResultAlcohol from "./result-alcohol"
-
-//assets
-import { LeftArrowHeader } from "./assets"
-
 //styles
 import "./_index.scss"
+
+
+
+
+
+
 
 const initialValues = {
   question1: "",
@@ -231,6 +227,7 @@ const LhrTest1 = () => {
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
             >
               <input
                 type="hidden"
