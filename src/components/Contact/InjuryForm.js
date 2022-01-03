@@ -150,6 +150,8 @@ export class InjuryForm extends Component {
 
       const recaptchaValue = this.refs.recaptchaRef.value;
 
+      console.log('recaptchaValue', recaptchaValue)
+
       const form = e.target
       fetch("/", {
         method: "POST",
