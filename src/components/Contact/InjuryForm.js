@@ -178,8 +178,7 @@ export class InjuryForm extends Component {
           name="Medlaser NEW LEAD - Contact Us"
           method="post"
           data-netlify="true"
-          //data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
+          data-netlify-honeypot="bot-field"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}
@@ -190,11 +189,11 @@ export class InjuryForm extends Component {
             value="Medlaser NEW LEAD - Contact Us"
           />
 
-          {/*<p className="hidden">
+          <p className="hidden">
             <label>
               Don’t fill this out if you're human: <input name="bot-field" />
             </label>
-          </p> */}
+          </p>
           <div className={styles.FormColumn}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -293,6 +292,7 @@ export class InjuryForm extends Component {
               </p>
             </Form.Group>
           </div>
+
           <div className={styles.FormColumnFull}>
             <Form.Group className={styles.Form___group}>
               <Form.Control
@@ -310,7 +310,6 @@ export class InjuryForm extends Component {
               </p>
             </Form.Group>
           </div>
-          <div data-netlify-recaptcha="true" />
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
             // onClick={this.handleSubmit}
