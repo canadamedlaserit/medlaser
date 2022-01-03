@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { Form, Button } from "react-bootstrap"
 import { navigate } from "gatsby-link"
+import React, { Component } from "react"
+import { Button, Form } from "react-bootstrap"
 import styles from "./Form.module.scss"
 
 const initialState = {
@@ -39,6 +39,8 @@ const encode = data => {
 
 export class InjuryForm extends Component {
   state = initialState
+
+
 
   reset() {
     // reseting state
@@ -308,7 +310,6 @@ export class InjuryForm extends Component {
               </p>
             </Form.Group>
           </div>
-
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
             // onClick={this.handleSubmit}
