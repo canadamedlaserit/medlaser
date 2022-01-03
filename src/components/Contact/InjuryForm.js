@@ -148,17 +148,12 @@ export class InjuryForm extends Component {
     if (this.state.formValid) {
       this.reset()
 
-      const recaptchaValue = this.refs.recaptchaRef.value;
-
-      console.log('recaptchaValue', recaptchaValue)
-
       const form = e.target
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "Medlaser NEW LEAD - Contact Us",
-          "g-recaptcha-response": recaptchaValue,
           ...this.state,
         }),
       })
@@ -316,7 +311,7 @@ export class InjuryForm extends Component {
               </p>
             </Form.Group>
           </div>
-          <div ref="recaptchaRef" data-netlify-recaptcha="true"></div>
+          <div data-netlify-recaptcha="true"></div>
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
             // onClick={this.handleSubmit}
