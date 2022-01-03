@@ -179,7 +179,6 @@ export class InjuryForm extends Component {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={styles.Form}
@@ -311,7 +310,6 @@ export class InjuryForm extends Component {
               </p>
             </Form.Group>
           </div>
-          <div data-netlify-recaptcha="true"></div>
           <Button
             className={` ${styles.Form___formSubmit} btn btn-red`}
             // onClick={this.handleSubmit}

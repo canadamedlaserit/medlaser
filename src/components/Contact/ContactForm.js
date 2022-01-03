@@ -200,7 +200,6 @@ export class ContactForm extends Component {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           action="/thank-you/"
           onSubmit={this.handleSubmit}
           className={`contact__form ${styles.Form}`}

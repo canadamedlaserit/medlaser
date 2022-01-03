@@ -239,7 +239,6 @@ const LhrTest1 = () => {
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
             >
               <input
                 type="hidden"

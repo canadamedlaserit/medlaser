@@ -235,7 +235,6 @@ export class BookingComponentLocation extends Component {
                 method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                data-netlify-recaptcha="true"
                 action="/thank-you/"
                 onSubmit={this.handleSubmit}
                 className="FormStep1Wrapper "

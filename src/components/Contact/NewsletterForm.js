@@ -105,7 +105,6 @@ export class NewsletterForm extends Component {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          data-netlify-recaptcha="true"
           onSubmit={this.handleSubmit}
           className={styles.Form}
         >
