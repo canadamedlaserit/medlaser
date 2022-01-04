@@ -160,6 +160,24 @@ module.exports.createPages = async ({ graphql, actions }) => {
     force: true,
   })
 
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/mississauga/wrinkle-treatment-mississauga/",
+    toPath:
+      "https://canadamedlaser.ca/location/mississauga/wrinkle-treatment-mississauga/",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath:
+      "https://canadamedlaser.ca/brazilian-laser-hair-removal-in-thornhill/",
+    toPath:
+      "https://canadamedlaser.ca/thornhill/brazilian-laser-hair-removal-in-thornhill/",
+    isPermanent: true,
+    force: true,
+  })
+
   // redirects end
 
   const { createPage } = actions

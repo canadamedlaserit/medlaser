@@ -1,8 +1,8 @@
-import React from "react"
-import InjuryForm from "./InjuryForm"
 import { graphql } from "gatsby"
-
+import React from "react"
 import styles from "./ContactSection.module.scss"
+import InjuryForm from "./InjuryForm"
+
 
 export const fragment = graphql`
   fragment InjurySection on WPGraphQL_Page_Sectionfields_Sections_Injury {
