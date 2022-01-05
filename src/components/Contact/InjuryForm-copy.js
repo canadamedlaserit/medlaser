@@ -1,7 +1,10 @@
 import { navigate } from "gatsby-link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import Recaptcha from 'react-google-recaptcha';
 import styles from "./Form.module.scss";
+
+const RECAPTCHA_KEY = '6LfBo_EdAAAAAE_r6XsccDAlO6xHWcbnZyRV6Lkn'
 
 const initialState = {
   firstName: "",
@@ -39,7 +42,7 @@ const encode = data => {
 
 const InjuryForm = ({ btntext }) => {
   const [state, setState] = useState(initialState);
-
+  const recaptchaRef = useRef()
 
   function validateField(fieldName, value) {
     let fieldValidationErrors = state.formErrors
@@ -127,6 +130,8 @@ const InjuryForm = ({ btntext }) => {
   const handleSubmit = e => {
     e.preventDefault()
 
+    const recaptchaValue = recaptchaRef.current.getValue()
+
     if (state.formValid) {
       const form = e.target
       fetch("/", {
@@ -134,6 +139,7 @@ const InjuryForm = ({ btntext }) => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "Medlaser NEW LEAD - Contact Us",
+          'g-recaptcha-response': recaptchaValue,
           ...state,
         }),
       })
@@ -161,6 +167,7 @@ const InjuryForm = ({ btntext }) => {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
         action="/thank-you/"
         onSubmit={handleSubmit}
         className={styles.Form}
@@ -286,6 +293,12 @@ const InjuryForm = ({ btntext }) => {
             </p>
           </Form.Group>
         </div>
+        <Recaptcha
+          ref={recaptchaRef}
+          sitekey={RECAPTCHA_KEY}
+          size="invisible"
+          id="recaptcha-google"
+        />
         <Button
           className={` ${styles.Form___formSubmit} btn btn-red`}
           type="submit"
