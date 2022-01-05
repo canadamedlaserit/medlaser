@@ -89,6 +89,10 @@ module.exports = ({
             fromPath: "https://canadamedlaser.ca/vaughan/",
             toPath: "https://canadamedlaser.ca/location/vaughan/",
         },
+        {
+            fromPath: "https://canadamedlaser.ca/lp/canadamedlaser_content/",
+            toPath: "https://canadamedlaser.ca/lp/canadamedlaser-content/",
+        },
     ]
     return (
         Redirects.forEach((redirect) => (
