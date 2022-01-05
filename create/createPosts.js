@@ -97,7 +97,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
        */
       const blogPagePath = !variables.after
         ? `${blogURI}/`
-        : `${blogURI}/page/${pageNumber + 1}`
+        : `${blogURI}/page/${pageNumber + 1}/`
 
       /**
        * Add config for the blogPage to the blogPage array

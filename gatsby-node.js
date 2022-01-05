@@ -1,6 +1,7 @@
-const path = require(`path`)
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
-const { excludeCategory } = require("./globals")
+const path = require(`path`);
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const { excludeCategory } = require("./globals");
+const CreateAllRedirects = require( './src/redirects' );
 
 exports.createResolvers = async ({
   actions,
@@ -47,136 +48,9 @@ exports.createPagesStatefully = async (
 
 // category + tag + PAGES
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createRedirect } = actions
 
   // redirects start
-  createRedirect({
-    fromPath: "https://canadamedlaser.ca/hair-transplant-toronto/",
-    toPath: "https://canadamedlaser.ca/2018/09/20/hair-transplant-toronto/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath: "https://canadamedlaser.ca/stretch-marks/",
-    toPath: "https://canadamedlaser.ca/2017/04/18/stretch-marks-removal/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath: "https://canadamedlaser.ca/botox-dysport/",
-    toPath: "https://canadamedlaser.ca/botox/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath: "https://canadamedlaser.ca/microneedling-vs-home-dermaroller/",
-    toPath:
-      "https://canadamedlaser.ca/2017/05/15/microneedling-vs-home-dermaroller/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/2019/01/13/botox-injection-prices-in-canada/",
-    toPath:
-      "https://canadamedlaser.ca/2019/01/13/botox-injection-prices-in-toronto/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/2018/11/28/coolsculpting-prices-in-canada/",
-    toPath:
-      "https://canadamedlaser.ca/2018/11/28/coolsculpting-prices-in-toronto/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/2019/04/11/skin-pigmentation：cost-procedure-benefits-and-potential-risks/",
-    toPath:
-      "https://canadamedlaser.ca/2019/04/11/skin-pigmentation-cost-procedure-benefits-and-potential-risks/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/2018/09/26/microdermabrasion-for-acne-and-scarring/",
-    toPath:
-      "https://canadamedlaser.ca/2019/06/05/what-are-the-treatments-for-acne-scars/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/locations/vancouver/cosmetic-injections/",
-    toPath:
-      "https://canadamedlaser.ca/location/mississauga/cosmetic-injections/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/laser-hair-removal-woman/",
-    toPath:
-      "https://canadamedlaser.ca/laser-hair-removal-women/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/laser-hair-removal/facial-hair-removal-toronto/",
-    toPath:
-      "https://canadamedlaser.ca/facial-hair-removal/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/laser-hair-removal/brazilian-laser-hair-removal-by-canada-med-laser/",
-    toPath:
-      "https://canadamedlaser.ca/brazilian-laser-hair-removal/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/specials/",
-    toPath:
-      "https://shop.canadamedlaser.ca/specials/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/mississauga/wrinkle-treatment-mississauga/",
-    toPath:
-      "https://canadamedlaser.ca/location/mississauga/wrinkle-treatment-mississauga/",
-    isPermanent: true,
-    force: true,
-  })
-
-  createRedirect({
-    fromPath:
-      "https://canadamedlaser.ca/brazilian-laser-hair-removal-in-thornhill/",
-    toPath:
-      "https://canadamedlaser.ca/thornhill/brazilian-laser-hair-removal-in-thornhill/",
-    isPermanent: true,
-    force: true,
-  })
+  await CreateAllRedirects( { actions } );
 
   // redirects end
 
@@ -355,7 +229,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     for (let i = 0; i < paginatedPagesCount; i++) {
       createPage({
         component: blogCategoryFilter,
-        path: i === 0 ? `/category/${slug}` : `/category/${slug}/page/${i + 1}`,
+        path: i === 0 ? `/category/${slug}/` : `/category/${slug}/page/${i + 1}/`,
         context: {
           cat: cat,
           slug: slug,
@@ -462,76 +336,4 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   })
-
-  // debug only home pages
-  // query.data.wpgraphql.pages.edges.forEach(edge => {
-  //   if (
-  //     // edge.node.uri === "/" ||
-  //     // edge.node.uri === "laser-hair-removal/" ||
-  //     // edge.node.uri === "laser-hair-removal-woman/" ||
-  //     // edge.node.uri === "laser-hair-removal-men/" ||
-  //     // edge.node.uri === "coolsculpting-toronto/" ||
-  //     // edge.node.uri === "coolsculpting-body/" ||
-  //     // edge.node.uri === "double-chin/" ||
-  //     // edge.node.uri === "cosmetic-injections/" ||
-  //     // edge.node.uri === "botox/" ||
-  //     // edge.node.uri === "dysport/" ||
-  //     // edge.node.uri === "wrinkle-reduction/" ||
-  //     // edge.node.uri === "dermal-fillers/" ||
-  //     // edge.node.uri === "lip-injections-toronto/" ||
-  //     // edge.node.uri === "dark-circles/" ||
-  //     // edge.node.uri === "face-sculpting/" ||
-  //     // edge.node.uri === "more-treatments/" ||
-  //     // edge.node.uri === "hair-growth/" ||
-  //     // edge.node.uri === "nail-fungus-treatment/" ||
-  //     // edge.node.uri === "anti-aging/" ||
-  //     // edge.node.uri === "microblading/" ||
-  //     // edge.node.uri === "permanent-makeup/" ||
-  //     // edge.node.uri === "skin-procedures/" ||
-  //     // edge.node.uri === "skin-concerns/" ||
-  //     // edge.node.uri === "skin-treatments/" ||
-  //     // edge.node.uri === "acne-treatment/" ||
-  //     // edge.node.uri === "acne-scar-removal/" ||
-  //     // edge.node.uri === "enlarged-pores/" ||
-  //     // edge.node.uri === "fine-lines-and-wrinkles/" ||
-  //     // edge.node.uri === "cellulite-treatment-toronto/" ||
-  //     // edge.node.uri === "laser-vein-removal/" ||
-  //     // edge.node.uri === "melasma/" ||
-  //     // edge.node.uri === "pigmentation/" ||
-  //     // edge.node.uri === "redness-and-rosacea/" ||
-  //     // edge.node.uri === "dry-skin/" ||
-  //     // edge.node.uri === "microneedling/" ||
-  //     // edge.node.uri === "chemical-peel-treatment/" ||
-  //     // edge.node.uri === "laser-skin-tightening/" ||
-  //     // edge.node.uri === "skin-rejuvenation/" ||
-  //     // edge.node.uri === "prp-face-lift/" ||
-  //     // edge.node.uri === "aquapure-facial/" ||
-  //     // edge.node.uri === "microdermabrasion-toronto/" ||
-  //     // edge.node.uri === "laser-skin-treatments/" ||
-  //     // edge.node.uri === "about-cml/" ||
-  //     // edge.node.uri === "our-team/" ||
-  //     // edge.node.uri === "community/" ||
-  //     // edge.node.uri === "before-after/" ||
-  //     // edge.node.uri === "franchise/" ||
-  //     // edge.node.uri === "contact-us/" ||
-  //     // edge.node.uri === "location/" ||
-  //     // edge.node.uri === "specials/" ||
-  //     // edge.node.uri === "location/vaughan/" ||
-  //     // edge.node.uri === "location/mississauga/" ||
-  //     // edge.node.uri === "location/toronto/" ||
-  //     // edge.node.uri === "location/newmarket/" ||
-  //     // edge.node.uri === "location/thornhill/" ||
-  //     // edge.node.uri === "location/maple/" ||
-  //     edge.node.uri === "pricing/"
-  //   ) {
-  //     createPage({
-  //       component: pageFilter,
-  //       path: edge.node.uri,
-  //       context: {
-  //         id: edge.node.id,
-  //       },
-  //     })
-  //   } else {
-  //   }
-  // })
 }
