@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { navigate } from "gatsby-link";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import styles from "./Form.module.scss";
 
@@ -30,15 +31,134 @@ const initialState = {
   },
 }
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const InjuryForm = ({ btntext }) => {
   const [state, setState] = useState(initialState);
 
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
 
-    console.log('state', state);
+  function validateField(fieldName, value) {
+    let fieldValidationErrors = state.formErrors
+
+    let firstNameValid = state.firstNameValid
+    let lastNameValid = state.lastNameValid
+    let emailValid = state.emailValid
+    let phoneValid = state.phoneValid
+    let queryTypeValid = state.queryTypeValid
+    let messageValid = state.messageValid
+
+    switch (fieldName) {
+      case "firstName":
+        firstNameValid = value.length >= 1
+        fieldValidationErrors.firstName = firstNameValid
+          ? ""
+          : "First Name is required"
+        break
+
+      case "lastName":
+        lastNameValid = value.length >= 1
+        fieldValidationErrors.lastName = lastNameValid
+          ? ""
+          : "Last Name is required"
+        break
+
+      case "email":
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+        fieldValidationErrors.email = emailValid ? "" : "Email is invalid"
+        break
+
+      case "phone":
+        phoneValid = value.length >= 1
+        fieldValidationErrors.phone = phoneValid ? "" : "Phone is invalid"
+        break
+
+      case "queryType":
+        queryTypeValid = value.length >= 1
+        fieldValidationErrors.queryType = queryTypeValid
+          ? ""
+          : "Select Query Type"
+        break
+
+      case "message":
+        messageValid = value.length >= 1
+        fieldValidationErrors.message = messageValid
+          ? ""
+          : "Please, fill out message field"
+        break
+
+      default:
+        break
+    }
+
+    setState(
+      {
+        ...state,
+        [fieldName]: value,
+        formErrors: fieldValidationErrors,
+        firstNameValid: firstNameValid,
+        lastNameValid: lastNameValid,
+        emailValid: emailValid,
+        phoneValid: phoneValid,
+        queryTypeValid: queryTypeValid,
+        messageValid: messageValid,
+        formValid:
+          state.firstNameValid &&
+          state.lastNameValid &&
+          state.emailValid &&
+          state.phoneValid &&
+          state.queryTypeValid &&
+          state.messageValid,
+      }
+    )
   }
 
+  function validateForm() {
+    setState({
+      ...state,
+      
+    })
+  }
+
+  const handleChange = (e) => {
+
+    let fieldName = e.target.name
+    let value = e.target.value
+
+    validateField(fieldName, value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if (state.formValid) {
+      const form = e.target
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "Medlaser NEW LEAD - Contact Us",
+          ...state,
+        }),
+      })
+        .then(() => navigate(form.getAttribute("action")))
+        .catch(error => alert(error))
+    } else {
+      validateField("firstName", state.firstName)
+      validateField("lastName", state.lastName)
+      validateField("email", state.email)
+      validateField("phone", state.phone)
+      validateField("message", state.message)
+      validateField("queryType", state.queryType)
+    }
+  }
+
+  useEffect(() => {
+    console.warn(state)
+  }, [state])
 
   return (
     <div className={styles.FormWrapper}>
@@ -48,7 +168,7 @@ const InjuryForm = ({ btntext }) => {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         action="/thank-you/"
-        onSubmit="{this.handleSubmit}"
+        onSubmit={handleSubmit}
         className={styles.Form}
       >
         <input
