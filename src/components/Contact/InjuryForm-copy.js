@@ -1,5 +1,5 @@
 import { navigate } from "gatsby-link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import styles from "./Form.module.scss";
 
@@ -116,13 +116,6 @@ const InjuryForm = ({ btntext }) => {
     )
   }
 
-  function validateForm() {
-    setState({
-      ...state,
-      
-    })
-  }
-
   const handleChange = (e) => {
 
     let fieldName = e.target.name
@@ -154,11 +147,12 @@ const InjuryForm = ({ btntext }) => {
       validateField("message", state.message)
       validateField("queryType", state.queryType)
     }
+    console.warn(state)
   }
 
-  useEffect(() => {
-    console.warn(state)
-  }, [state])
+  // useEffect(() => {
+  //   console.warn(state)
+  // }, [state])
 
   return (
     <div className={styles.FormWrapper}>
