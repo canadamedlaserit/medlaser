@@ -1,9 +1,9 @@
-import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Container, Col, Row } from "react-bootstrap"
-
+import React from "react"
+import { Col, Container, Row } from "react-bootstrap"
 import styles from "./InnerHeroImageFullWidth.module.scss"
+
 
 export const fragment = graphql`
   fragment InnerHeroImageFullWidthSection on WPGraphQL_Page_Sectionfields_Sections_Innerheroimagefullwidth {
@@ -81,7 +81,7 @@ const InnerHeroImageFullWidth = ({
               <div class={styles.innerCta}>
                 <a
                   className={`btn btn-red ${styles.innerAnchor}`}
-                  href={image}
+                  href="#"
                   onClick={handleClick}
                 >
                   Book Now
