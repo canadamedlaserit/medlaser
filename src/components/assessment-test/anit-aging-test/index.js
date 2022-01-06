@@ -108,56 +108,6 @@ const LhrTest1 = () => {
     //console.log("Payload", payload)
   }
 
-  /* const handleSubmit = async payload => {
-    const subject = "Qualifications Quiz for Website"
-
-    const emailHtml = `
-    <p><strong>First Name:</strong> ${payload.firstName}</p>
-    <p><strong>Last Name:</strong> ${payload.lastName}</p>
-    <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
-    <table>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">First thing’s first. What concerns you the most about your skin?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">When did you start noticing that your skin is visibly aging?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question2}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Have you ever had medical/aesthetic procedures to target signs of aging?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question3}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How did you enjoy the treatment and results?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question4}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How soon are you hoping to start treating your skin concern?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question5}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Do you have any of the following medical conditions:
-        Cancer, diabetes, skin diseases/skin lesions, seizure disorder, blood clotting abnormalities, G6PD deficiency, psoriasis/vitiligo/lupus, HIV/AIDS
-        OR are you pregnant or breastfeeding?
-        </td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
-      </tr>
-     
-    </table>
-    `
-
-    
-    setFormSubmitted(true)
-
-    // console.log("Request Response", response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-    setpayload(payload)
-    // console.log("Payload", payload)
-  } */
   const handleNext = () => {
     if (currentStep >= 8) {
       console.log("Max Number is reached")
@@ -184,31 +134,7 @@ const LhrTest1 = () => {
     <section id="alcohol-test-section">
       <div className="header-gap">
         <Row className="headerTest py-4">
-          {/* <Col>
-            {currentStep === 1 ? (
-              <Link to="/assessment">
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </Link>
-            ) : (
-              <button className="buttonWrap" onClick={handlePrev}>
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </button>
-            )}
-          </Col> */}
+
           <Col className="text-center my-3">
             <h1 className="alcohol-test-heading">
               Anti-Aging – Find out the Best Treatment Solution for You

@@ -126,125 +126,6 @@ const CSTest = () => {
 
     //console.log("Payload", payload)
   }
-  /* 
-  const handleSubmit = async payload => {
-    const emailHtml = `
-    <p><strong>First Name:</strong> ${payload.firstName}</p>
-    <p><strong>Last Name:</strong> ${payload.lastName}</p>
-    <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
-    <table>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Ready? Let’s go! If you had to choose one area of your body, on which area would you like to see fat loss?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How long have you been considering getting treatment on that stubborn fat?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question2}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Based on your knowledge, is the fat you’re hoping to target there because of genetics?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question3}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Ever try pinching your fat? Well there’s a first time for everything.When you pinch the area of concern, what would be the closest way to describe what you feel?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question4}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">My ideal result after having a fat-reduction treatment would look like this:</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question5}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How soon do you want to see that fat fade away?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
-      </tr>
-      <tr>
-      <td style="border: 1px solid #dddddd; padding: 10px;">Do you have any of the following medical conditions:
-      Cancer, diabetes, skin diseases/skin lesions, blood clotting abnormalities, G6PD deficiency, psoriasis/vitiligo/lupus, HIV/AIDS, history of hernia in the area of potential treatment
-      OR are you pregnant or breastfeeding?</td>
-      <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question7}</td>
-    </tr>
-     
-    </table>
-    `
-
-    setFormSubmitted(true)
-
-    setpayload(payload)
-    console.log("Payload", payload)
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  const handleSubmit = async (e, payload) => {
-    const emailHtml = `
-    <p><strong>First Name:</strong> ${payload.firstName}</p>
-    <p><strong>Last Name:</strong> ${payload.lastName}</p>
-    <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
-    <table>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Ready? Let’s go! If you had to choose one area of your body, on which area would you like to see fat loss?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How long have you been considering getting treatment on that stubborn fat?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question2}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Based on your knowledge, is the fat you’re hoping to target there because of genetics?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question3}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Ever try pinching your fat? Well there’s a first time for everything.When you pinch the area of concern, what would be the closest way to describe what you feel?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question4}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">My ideal result after having a fat-reduction treatment would look like this:</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question5}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How soon do you want to see that fat fade away?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
-      </tr>
-      <tr>
-      <td style="border: 1px solid #dddddd; padding: 10px;">Do you have any of the following medical conditions:
-      Cancer, diabetes, skin diseases/skin lesions, blood clotting abnormalities, G6PD deficiency, psoriasis/vitiligo/lupus, HIV/AIDS, history of hernia in the area of potential treatment
-      OR are you pregnant or breastfeeding?</td>
-      <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question7}</td>
-    </tr>
-     
-    </table>
-    `
-    e.preventDefault()
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "Medlaser NEW LEAD - Cool-Sculpting Form",
-        ...payload,
-      }),
-    })
-      .then(() => console.log("Payload", payload))
-      .catch(error => alert(error))
-    setFormSubmitted(true)
-    setpayload(payload)
-    console.log("Payload", payload)
-  } */
 
   const handleNext = () => {
     if (currentStep >= 8) {
@@ -273,49 +154,7 @@ const CSTest = () => {
     <section id="alcohol-test-section">
       <div className="header-gap">
         <Row className="headerTest py-4">
-          {/* <Col> */}
-          {/* {currentStep === 1 ? (
-                        // <Link to="/assessment-test">
-                        <Button
-                          className="cancel-btn"
-                          onClick={() => {
-                            window.location.reload()
-                          }}
-                        >
-                          cancel
-                        </Button>
-                      ) : (
-                        // </Link>
-                        <Button className="back-btn" onClick={handlePrev}>
-                          <i className="fa fa-long-arrow-left" />
-                          &nbsp;&nbsp; Back
-                        </Button>
-                      )} */}
 
-          {/* {currentStep === 1 ? (
-              <Link to="/assessment">
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </Link>
-            ) : (
-              <button className="buttonWrap" onClick={handlePrev}>
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </button>
-            )} */}
-          {/* </Col> */}
           <Col className="text-center my-3">
             <h1 className="alcohol-test-heading">
               CoolSculpting – Am I a candidate?
@@ -459,29 +298,6 @@ const CSTest = () => {
                 />
 
                 <Step8 currentStep={currentStep} />
-                {/* </Col> */}
-                {/* </Row> */}
-
-                {/* Contron Buttons */}
-                {/* <Row> */}
-                {/* <Col lg={5} md={10} className="btn-section"> */}
-                {/* {currentStep === 1 ? (
-                        // <Link to="/assessment-test">
-                        <Button
-                          className="cancel-btn"
-                          onClick={() => {
-                            window.location.reload()
-                          }}
-                        >
-                          cancel
-                        </Button>
-                      ) : (
-                        // </Link>
-                        <Button className="back-btn" onClick={handlePrev}>
-                          <i className="fa fa-long-arrow-left" />
-                          &nbsp;&nbsp; Back
-                        </Button>
-                      )} */}
 
                 <Row className="flex justify-content-center">
                   <Col

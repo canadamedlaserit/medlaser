@@ -106,58 +106,7 @@ const LHRTest = () => {
 
     //console.log("Payload", payload)
   }
-  /*   const handleSubmit = async payload => {
-    const emailHtml = `
-    <p><strong>First Name:</strong> ${payload.firstName}</p>
-    <p><strong>Last Name:</strong> ${payload.lastName}</p>
-    <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
-    <table>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Let’s get started! Tell us about your current method of hair removal.How do you normally remove your hair?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How often do you remove your hair?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question2}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">What colour is your hair in the area you are hoping to have treated?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question3}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Have you ever had laser hair removal in the area you are hoping to have treated?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question4}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">When would you like to get started on your treatment?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question5}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Do you have any of the following medical conditions:
-        Cancer, diabetes, skin diseases/skin lesions, seizure disorder, blood clotting abnormalities, G6PD deficiency, psoriasis/vitiligo/lupus, HIV/AIDS
-        OR are you pregnant or breastfeeding?
-        </td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
-      </tr>
-     
-    </table>
-    `
 
-    // try {
-    //   const response = await axios.post("/.netlify/functions/send-email", {
-    //     emailHtml,
-    //     subject,
-    //   })
-    setFormSubmitted(true)
-
-    // console.log("Request Response", response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-    setpayload(payload)
-    // console.log("Payload", payload)
-  } */
   const handleNext = () => {
     if (currentStep >= 7) {
       console.log("Max Number is reached")
@@ -185,31 +134,7 @@ const LHRTest = () => {
       <div className="header-gap">
         <Container>
           <Row className="headerTest py-4">
-            {/* <Col>
-            {currentStep === 1 ? (
-              <Link to="/assessment">
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </Link>
-            ) : (
-              <button className="buttonWrap" onClick={handlePrev}>
-                <img
-                  src={LeftArrowHeader}
-                  alt="Back arrow"
-                  style={{
-                    width: "35px",
-                    height: "18px",
-                  }}
-                />
-              </button>
-            )}
-          </Col> */}
+
             <Col className="text-center my-3">
               <h1 className="alcohol-test-heading">
                 Laser Hair Removal Assessment
@@ -334,31 +259,7 @@ const LHRTest = () => {
                 />
 
                 <Step7 currentStep={currentStep} />
-                {/* </Col> */}
-                {/* </Row> */}
-
-                {/* Contron Buttons */}
-                {/* <Row>
-                  <Col lg={5} md={10} className="btn-section">
-                    {currentStep === 1 ? (
-                      // <Link to="/assessment-test">
-                      <Button
-                        className="cancel-btn"
-                        onClick={() => {
-                          window.location.reload()
-                        }}
-                      >
-                        cancel
-                      </Button>
-                    ) : (
-                      // </Link>
-                      <Button className="back-btn" onClick={handlePrev}>
-                        <i className="fa fa-long-arrow-left" />
-                        &nbsp;&nbsp; Back
-                      </Button>
-                    )}
-                  </Col>
-                </Row> */}
+ 
                 <Row className="flex justify-content-center">
                   <Col
                     lg={4}

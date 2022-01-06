@@ -1,24 +1,13 @@
-import React, { useState } from "react"
-//router
-import { Link } from "gatsby"
 //components
-import { Formik, Form } from "formik"
-import { Container, Row, Col, Button, ProgressBar } from "react-bootstrap"
+import { Form, Formik } from "formik"
+import React, { useState } from "react"
+import { Col, Container, Row } from "react-bootstrap"
 import Stepper from "react-stepper-horizontal"
-//custom components
-import Step1 from "./steps/step-1"
-import Step2 from "./steps/step-2"
-import Step3 from "./steps/step-3"
-import Step4 from "./steps/step-4"
-import Step5 from "./steps/step-5"
-import Step6 from "./steps/step-6"
-import Step7 from "./steps/step-7"
-import ResultAlcohol from "./result-alcohol"
-//assets
-import CmlNewLogo from "../../../images/cml-new-logo.png"
-import { LeftArrowHeader } from "./assets"
 import MQuiz1 from "../../../images/MQuiz1.jpg"
 import MQuiz2 from "../../../images/MQuiz2.png"
+import ResultAlcohol from "./result-alcohol"
+import Step2 from "./steps/step-2"
+import Step7 from "./steps/step-7"
 //styles
 import "./_index.scss"
 const initialValues = {
@@ -222,62 +211,6 @@ const CMLQUIZ = ({ ComponentFor, locationComponent,promoList }) => {
                     {currentStep >= 2 && (
                       <Step7 locationComponent={locationComponent} />
                     )}
-                    {/* {currentStep === 5 && (
-                  <Step5
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep === 6 && (
-                  <Step6
-                    values={values}
-                    setFieldValue={setFieldValue}
-                    handleNext={handleNext}
-                    hanldleAnswers={hanldleAnswers}
-                  />
-                )}
-                {currentStep >= 7 && <Step7 />} */}
-                    {/* </Col> */}
-                    {/* </Row> */}
-                    {/* Contron Buttons */}
-                    {/* <Row> */}
-                    {/* <Col lg={5} md={10} className="btn-section"> */}
-                    {/* {currentStep === 1 ? (
-                        // <Link to="/assessment-test">
-                        <Button
-                          className="cancel-btn"
-                          onClick={() => {
-                            window.location.reload()
-                          }}
-                        >
-                          cancel
-                        </Button>
-                      ) : (
-                        // </Link>
-                        <Button className="back-btn" onClick={handlePrev}>
-                          <i className="fa fa-long-arrow-left" />
-                          &nbsp;&nbsp; Back
-                        </Button>
-                      )} */}
-                    {/* <Row className="flex justify-content-center">
-                      <Col
-                        lg={4}
-                        md={10}
-                        style={{ textAlign: "center", paddingBottom: "5vh" }}
-                      >
-                        {currentStep === 4 && (
-                          <Button
-                            className="next-btn"
-                            type="submit"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? "Submitting" : "Submit"}
-                          </Button>
-                        )}
-                      </Col>
-                    </Row> */}
                   </Row>
                 </Form>
               )}

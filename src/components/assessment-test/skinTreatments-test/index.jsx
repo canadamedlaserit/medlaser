@@ -112,64 +112,7 @@ const LhrTest1 = () => {
     //console.log("Payload", payload)
   }
 
-  /*  const handleSubmit = async payload => {
-    const subject = "Qualifications Quiz for Website"
 
-    const emailHtml = `
-    <p><strong>First Name:</strong> ${payload.firstName}</p>
-    <p><strong>Last Name:</strong> ${payload.lastName}</p>
-    <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
-    <table>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Ready? Okay! Tell us about your skin. What is your number one skin concern?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question1}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How long have you been suffering with this skin concern?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question2}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Would you consider your skin concern to be genetic?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question3}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">Have you ever had any medical/aesthetic procedures in the past?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question4}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How did you enjoy the treatment and results?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question5}</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #dddddd; padding: 10px;">How soon are you hoping to start treating your skin concern?</td>
-        <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question6}</td>
-      </tr>
-      <tr>
-      <td style="border: 1px solid #dddddd; padding: 10px;"> Do you have any of the following medical conditions: 
-      Cancer, diabetes, skin diseases/skin lesions, seizure disorder, blood
-      clotting abnormalities, G6PD deficiency, psoriasis/vitiligo/lupus, HIV/AIDS
-      OR are you pregnant or breastfeeding? </td>
-      <td style="border: 1px solid #dddddd; padding: 10px;">${payload.question7}</td>
-    </tr>
-     
-    </table>
-    `
-
-    // try {
-    //   const response = await axios.post("/.netlify/functions/send-email", {
-    //     emailHtml,
-    //     subject,
-    //   })
-    setFormSubmitted(true)
-
-    // console.log("Request Response", response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-    setpayload(payload)
-    // console.log("Payload", payload)
-  } */
   const handleNext = () => {
     if (currentStep >= 8) {
       console.log("Max Number is reached ")

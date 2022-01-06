@@ -22,7 +22,6 @@
     "gatsby": "^2.20.8",
     "gatsby-background-image": "^0.10.2",
     "gatsby-cli": "^2.12.80",
-    "gatsby-gravityforms-component": "^2.0.1",
     "gatsby-image": "^2.2.40",
     "gatsby-plugin-advanced-sitemap": "^1.5.5",
     "gatsby-plugin-anchor-links": "^1.1.1",
