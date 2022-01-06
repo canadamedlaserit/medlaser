@@ -166,7 +166,6 @@ const InjuryForm = ({ btntext }) => {
         name="Medlaser NEW LEAD - Contact Us"
         method="post"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
         action="/thank-you/"
         onSubmit={handleSubmit}
@@ -177,12 +176,6 @@ const InjuryForm = ({ btntext }) => {
           name="form-name"
           value="Medlaser NEW LEAD - Contact Us"
         />
-
-        <p className="hidden">
-          <label>
-            Don’t fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
         <div className={styles.FormColumn}>
           <Form.Group className={styles.Form___group}>
             <Form.Control
@@ -299,12 +292,14 @@ const InjuryForm = ({ btntext }) => {
           size="normal"
           id="recaptcha-google"
         />
-        <Button
-          className={` ${styles.Form___formSubmit} btn btn-red`}
-          type="submit"
-        >
-          {btntext}
-        </Button>
+        <div>
+          <Button
+            className={` ${styles.Form___formSubmit} btn btn-red`}
+            type="submit"
+          >
+            {btntext}
+          </Button>
+        </div>
       </Form>
 
       <div className={styles.NotificationBlock}>
