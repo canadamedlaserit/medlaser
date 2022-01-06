@@ -296,7 +296,7 @@ const InjuryForm = ({ btntext }) => {
         <Recaptcha
           ref={recaptchaRef}
           sitekey={RECAPTCHA_KEY}
-          size="invisible"
+          size="normal"
           id="recaptcha-google"
         />
         <Button

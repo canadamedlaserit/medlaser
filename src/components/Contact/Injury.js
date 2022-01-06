@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import styles from "./ContactSection.module.scss"
-import InjuryForm from "./InjuryForm"
+import InjuryForm from "./InjuryForm-copy"
 
 
 export const fragment = graphql`
