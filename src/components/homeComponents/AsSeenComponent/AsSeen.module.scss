@@ -1,5 +1,5 @@
 .Section {
-  padding-top: 80px;
+  padding-top: 40px;
   padding-bottom: 80px;
   // margin-bottom: 40px;
   //  margin-top: 80px;
@@ -30,8 +30,8 @@
 
 @media (max-width: 767px) {
   .Section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 0px;
     margin-bottom: 0;
     margin-top: 0;
     h2 {

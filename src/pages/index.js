@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import BeforeAfterImage from "../components/BeforeAfterImage/BeforeAfterImage"
 import Contact from "../components/Contact/Contact"
+import HomeCenteredImage from "../components/HomeCenteredImage"
 import AcuityScheduling from "../components/homeComponents/AcuityScheduling/AcuityScheduling"
 import Asseen from "../components/homeComponents/AsSeenComponent/AsSeen"
 import FaqsTabs from "../components/homeComponents/Faqs/FaqsTabs"
@@ -66,6 +67,9 @@ const Home = ({ data, location }) => {
           case "WPGraphQL_Page_Sectionfields_Sections_Locationsmap":
             return <LocationMap key={index} {...section} />
 
+          case "WPGraphQL_Page_Sectionfields_Sections_HomeCenteredImage":
+            return <HomeCenteredImage key={index} {...section} />
+
           default:
             return ""
         }
@@ -125,6 +129,7 @@ export const pageQuery = graphql`
             ...FaqsTabsSection
             ...ContactSection
             ...LocationMapSection
+            ...HomeCenteredImage
           }
         }
       }
