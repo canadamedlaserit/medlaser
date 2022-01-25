@@ -5,7 +5,7 @@
   color: $white;
   text-align: left !important;
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: calc(80px + 70px);
 
   .Title {
     h1,
