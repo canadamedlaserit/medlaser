@@ -12,8 +12,8 @@ export const fragment = graphql`
       sourceUrl
       imageFile {
         childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(quality: 100, maxWidth: 1250) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -23,11 +23,12 @@ export const fragment = graphql`
 const HomeCenteredImage = ({image}) => {
   return (
     <div className={styles.HomeCenteredImage}>
-      <Img
-        className={styles.img}
-        alt={image.altText}
-        fluid={image.imageFile.childImageSharp.fluid}
-      />
+      <div className={styles.wrap}>
+        <Img
+          alt={image.altText}
+          fluid={image.imageFile.childImageSharp.fluid}
+        />
+      </div>
     </div>
   );
 };

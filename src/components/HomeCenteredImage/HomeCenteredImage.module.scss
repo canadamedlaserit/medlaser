@@ -1,7 +1,7 @@
 .HomeCenteredImage {
   display: flex;
   justify-content: center;
-  .img {
+  .wrap {
     width: 1250px;
     margin-top: -80px;
     @media (max-width: 767px) {
