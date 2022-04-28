@@ -1,14 +1,14 @@
-import React from "react"
-import { Row, Col, Button } from "react-bootstrap"
-import "./quizhome.scss"
 //router
 import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import React from "react"
+import { Button, Col, Row } from "react-bootstrap"
 //import { pic1, pic2 } from "../../images"
 import antiAging from "../../images/anti-aging.jpg"
 import coolSculpting from "../../images/coolsculpting.jpg"
 import laserHairRemoval from "../../images/laser-hair-removal.jpg"
 import skinTreatment from "../../images/skin-treatment.jpg"
-import { AnchorLink } from "gatsby-plugin-anchor-links"
+import "./quizhome.scss"
 
 const tests = [
   {
@@ -57,9 +57,6 @@ export default function HomeQuiz() {
                 browse all treatments
               </AnchorLink>
               <br/>
-              <AnchorLink to="https://takecareof.com/" className="takcareof">
-                For more, visit TakeCareOf
-              </AnchorLink>
               <p className="headerdesc">
                 Canada MedLaser is all about giving the best services to all our
                 clients. We want to hear from you, so that we can serve you
