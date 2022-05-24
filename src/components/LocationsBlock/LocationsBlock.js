@@ -1,8 +1,8 @@
-import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-
+import React from "react"
 import styles from "./LocationsBlock.module.scss"
+
 
 const LocationsBlock = ({ images }) => {
   const data = useStaticQuery(graphql`
@@ -37,8 +37,8 @@ const LocationsBlock = ({ images }) => {
               <Link to={single.link}>
                 {images ? (
                   <Img
-                    alt={images[index].image.altText}
-                    fluid={images[index].image.imageFile.childImageSharp.fluid}
+                    alt={images[index]?.image?.altText}
+                    fluid={images[index]?.image?.imageFile?.childImageSharp?.fluid}
                   />
                 ) : null}
               </Link>
