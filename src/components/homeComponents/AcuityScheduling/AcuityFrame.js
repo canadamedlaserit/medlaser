@@ -124,6 +124,20 @@ class RadioButtons extends React.Component {
           runChange={this.props.runChange}
         />
         <SingleRadio
+          value="34129866"
+          radioName="myRadio"
+          label="BARRIE"
+          selectedValue={this.props.selectedValue}
+          runChange={this.props.runChange}
+        />
+        <SingleRadio
+          value="33285384"
+          radioName="myRadio"
+          label="OAKVILLE"
+          selectedValue={this.props.selectedValue}
+          runChange={this.props.runChange}
+        />
+        <SingleRadio
           value="19508119"
           radioName="myRadio"
           label="ONLINE (Zoom)"
