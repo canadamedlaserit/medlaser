@@ -99,6 +99,8 @@ const positions = [
   { lat: 44.035323, lng: -79.472319 }, //3 Newmarket new
   { lat: 43.79609, lng: -79.433903 }, //4 Thornhill new
   { lat: 43.859584, lng: -79.488931 }, // 5 Maple new
+  { lat: 44.3591392, lng: -79.665722 }, // 6 Barrie new
+  { lat: 43.4481102, lng: -79.7644671 }, // 7 Oakville new
 ]
 
 export class MapContainer extends Component {
