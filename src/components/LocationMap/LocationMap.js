@@ -42,6 +42,7 @@ const LocationMap = ({ title }) => {
   }
 
   const locations = data.wpgraphql.page.headerFooterInfo.locations
+  console.log(locations)
   const marker = data.wpgraphql.page.headerFooterInfo.marker
   const markeractive = data.wpgraphql.page.headerFooterInfo.markeractive
 
