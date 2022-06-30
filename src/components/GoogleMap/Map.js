@@ -182,7 +182,7 @@ export class MapContainer extends Component {
           streetViewControl={false}
           google={this.props.google}
           onClick={this.onMapClicked}
-          zoom={8.6}
+          zoom={7}
           initialCenter={{
             lat: 43.6532,
             lng: -79.3832,
