@@ -184,8 +184,8 @@ export class MapContainer extends Component {
           onClick={this.onMapClicked}
           zoom={8}
           initialCenter={{
-            lat: 43.6532,
-            lng: -79.3832,
+            lat: 43.7008748,
+            lng: -79.3777068,
           }}
           onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
         >
