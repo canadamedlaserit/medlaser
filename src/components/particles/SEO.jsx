@@ -95,76 +95,79 @@ const SEO = ({ data, article }) => {
     },
   }
 
-  const schemaOrgLocalBusiness = {
-    "@context": "http://schema.org",
-    "@type": "localBusiness",
-    name: "Canada MedLaser Clinics",
-    description:
-      "Laser clinic provides skin treatments and laser hair removal in Toronto.",
-    url: siteUrl,
-    logo: image,
-    image: image,
-    priceRange: "$100",
-    hasMap: "https://goo.gl/maps/igTk8LugHJv",
-    telephone: "855-633-7721",
-    email: "info@canadamedlaser.ca",
-    address: [
-      {
-        "@type": "PostalAddress",
-        streetAddress: "249 Queen's Quay W.",
-        addressLocality: "Toronto",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "M5J 2N5",
+  const schemaOrgLocalBusiness = { 
+    "@context" : "http://schema.org", "@type" : "HealthAndBeautyBusiness", 
+    "name" : "Canada MedLaser Clinics", 
+    "description": "Canada MedLaser Clinics is the top provider of Botox®, CoolSculpting®, Fillers, Laser Hair Removal in Toronto & GTA.",
+    "url": "https://canadamedlaser.ca/",
+    "logo" : "https://canadamedlaser.ca/static/4059dfcc54456127fd4034e06671c157/f9eb0/logo.png", 
+    "image" : "https://canadamedlaser.ca/static/7abe1198d768419320e41f1c5b54471b/9085b/CML-Top-Choice-Banner-2.jpg", 
+    "priceRange" : "$100",
+    "telephone" : "855-633-7721", 
+    "email" : "info@canadamedlaser.ca", 
+    "address" : 
+      [
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "249 Queens Quay W", "addressLocality" : "Toronto", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "M5J 2N5" 
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "2780, Highway 7, #110",
-        addressLocality: "Vaughan",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "L4K 3R9",
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "2780, Highway 7, #110", "addressLocality" : "Vaughan", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L4K 3R9" 
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "1705 Lakeshore Road West Mississauga",
-        addressLocality: "Mississauga",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "L5J 1J4",
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "1705 Lakeshore Road West Mississauga", "addressLocality" : "Mississauga", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L5J 1J4" 
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "16655 Yonge St unit 23 Newmarket",
-        addressLocality: "Newmarket",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "L3X 1V6",
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "16655 Yonge St unit 23", "addressLocality" : "Newmarket", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L3X 1V6" 
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "390 Steeles Ave W Unit 17 Thornhill",
-        addressLocality: "Thornhill",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "L4J 6X2",
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "390 Steeles Ave W Unit 17", "addressLocality" : "Thornhill", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L4J 6X2" 
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "9960 Dufferin St #9 Maple",
-        addressLocality: "Maple",
-        addressRegion: "Ontario",
-        addressCountry: "Canada",
-        postalCode: "L6A 4K5",
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "9960 Dufferin St #9", "addressLocality" : "Maple", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L6A 4K5" 
       },
-    ],
-    sameAs: [
-      "https://www.facebook.com/canadamedlaser",
-      "https://twitter.com/CanadaMedLaser",
-      "https://www.youtube.com/channel/UCh-ujT1skgeh1dX5gZ64coQ",
-      "https://www.instagram.com/canadamedlaser/",
-    ],
-  }
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "2333 Taunton Rd Unit 3", "addressLocality" : "Oakville", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L6H 0N5" 
+      },
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "24 North Village Way, Unit 6", "addressLocality" : "Whitby", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L1N 8Y9" 
+      },
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "701 Rossland Rd E #17", "addressLocality" : "Barrie", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "L4N 6P3" 
+      },
+      { "@type" : "PostalAddress", 
+      "streetAddress" : "5415 Dundas St W unit 01", "addressLocality" : "Etobicoke", "addressRegion" : "Ontario", 
+      "addressCountry" : "Canada", "postalCode" : "M9B 1B1" 
+      }
+      ],
+    "location": {
+      "@type": "Place",
+      "geo": {
+         "@type": "GeoCoordinates",
+              "latitude": "43.63895460371769",
+        "longitude": "-79.38602199576161"
+          }
+        },
+     "areaServed": [{
+        "@type": "City",
+        "name": ["Toronto", "Vaughan", "Mississauga", "Newmarket", "Thornhill", "Maple", "Oakville", "Whitby", "Barrie", "Etobicoke"]
+        }],
+    "sameAs" : 
+    [ 
+    "https://www.facebook.com/canadamedlaser",
+    "https://twitter.com/CanadaMedLaser",
+    "https://www.youtube.com/channel/UCh-ujT1skgeh1dX5gZ64coQ",
+    "https://www.instagram.com/canadamedlaser/"
+    ]
+    }
 
   return (
     <Helmet title={seo.title}>
